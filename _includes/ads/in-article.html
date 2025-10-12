@@ -1,0 +1,7 @@
+{% if site.ads and site.ads.in_article_slot and site.adsense_client_id %}
+<ins class="adsbygoogle" style="display:block;margin:16px 0"
+     data-ad-client="{{ site.adsense_client_id }}"
+     data-ad-slot="{{ site.ads.in_article_slot }}"
+     data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+{% endif %}

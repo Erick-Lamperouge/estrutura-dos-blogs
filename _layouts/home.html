@@ -1,0 +1,7 @@
+---
+layout: default
+---
+<div class="cards">
+  {% assign posts_list = site.posts %}
+  {% for post in posts_list %}{% include card.html post=post %}{% endfor %}
+</div>

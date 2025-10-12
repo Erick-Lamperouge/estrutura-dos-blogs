@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  {% include head.html %}
+</head>
+<body>
+<header>{% include header.html %}</header>
+<main class="layout">
+  <aside class="sidebar sidebar-left">{% include ads/sidebar.html %}</aside>
+  <section class="content">{{ content }}</section>
+  <aside class="sidebar sidebar-right">{% include ads/sidebar.html %}</aside>
+</main>
+<footer>{% include footer.html %}</footer>
+</body>
+</html>
