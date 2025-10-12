@@ -1,0 +1,9 @@
+{% raw %}{% if site.hero and site.hero.image %}
+<section class="hero" style="--hero-image: url('{{ site.hero.image | relative_url }}'); {% if site.hero.height %}--hero-h: {{ site.hero.height }};{% endif %}">
+  <div class="hero__overlay"></div>
+  <div class="hero__inner">
+    <h1 class="hero__title">{{ site.hero.title | default: site.title }}</h1>
+    {% if site.hero.subtitle %}<p class="hero__subtitle">{{ site.hero.subtitle }}</p>{% endif %}
+  </div>
+</section>
+{% endif %}{% endraw %}
