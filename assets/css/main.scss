@@ -28,16 +28,10 @@ a:hover{text-decoration:underline}
   .nav a{color:#ddd}
   .footer{border-color:#222}
 }
-.hero {
-  position: relative;
-  display: flex; align-items: center; justify-content: center;
-  min-height: var(--hero-h, 40vh);
-  background: center/cover no-repeat var(--hero-image);
-  margin: 0 0 16px;
-}
-.hero__overlay { position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35));
-}
-.hero__inner { position: relative; text-align: center; padding: 40px 16px; }
-.hero__title { font-size: clamp(32px, 6vw, 56px); margin: 0; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.4); }
-.hero__subtitle { color: #eee; margin-top: 8px; font-size: clamp(16px, 2vw, 20px); }
+.hero{position:relative;display:flex;align-items:center;justify-content:center;min-height:var(--hero-h,40vh);background:center/cover no-repeat var(--hero-image);margin:0 0 16px}
+.hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.35))}
+.hero__inner{position:relative;text-align:center;padding:40px 16px}
+.hero__title{font-size:clamp(32px,6vw,56px);margin:0;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+.hero__subtitle{color:#eee;margin-top:8px;font-size:clamp(16px,2vw,20px)}
+
+
