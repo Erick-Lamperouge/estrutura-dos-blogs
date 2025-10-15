@@ -1,0 +1,8 @@
+{% if site.ads and site.ads.right_slots and site.adsense_client_id %}
+  {% for s in site.ads.right_slots %}
+  <ins class="adsbygoogle" style="display:block;margin:12px 0"
+       data-ad-client="{{ site.adsense_client_id }}"
+       data-ad-slot="{{ s }}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  {% endfor %}
+{% endif %}

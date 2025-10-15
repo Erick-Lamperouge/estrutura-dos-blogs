@@ -1,11 +1,24 @@
 ---
 layout: default
 ---
-{% include hero.html %}
 
-<div class="cards">
-  {% assign posts_list = site.posts %}
-  {% for post in posts_list %}
-    {% include card.html post=post %}
+{% assign featured = site.posts | first %}
+{% if featured %}
+<section class="featured">
+  <a class="featured__link" href="{{ featured.url | relative_url }}">
+    <img class="featured__img" src="{{ featured.cover | default:'/assets/img/placeholder.jpg' | relative_url }}" alt="">
+    <div class="featured__body">
+      <h2 class="featured__title">{{ featured.title }}</h2>
+      <p class="featured__meta">{{ featured.date | date: "%d %b %Y" }}{% if featured.category %} • {{ featured.category }}{% endif %}</p>
+      <p class="featured__excerpt">{{ featured.excerpt | strip_html | truncate: 180 }}</p>
+    </div>
+  </a>
+</section>
+{% endif %}
+
+<section class="mini-grid">
+  {% assign others = site.posts | offset:1 | limit:3 %}
+  {% for post in others %}
+    {% include card-mini.html post=post %}
   {% endfor %}
-</div>
+</section>

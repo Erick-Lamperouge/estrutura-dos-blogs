@@ -1,0 +1,22 @@
+<header class="topbar" id="topbar">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav class="nav">
+      <button class="btn btn-icon" id="btn-search" aria-label="Pesquisar" title="Pesquisar">
+        <!-- ícone de lupa (SVG) -->
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 20l-5.2-5.2a7 7 0 10-1.4 1.4L20 21zM5 10a5 5 0 1110 0A5 5 0 015 10z"/></svg>
+      </button>
+      <a class="nav-link" href="{{ site.about_url | default: '/sobre/' | relative_url }}">Sobre</a>
+    </nav>
+  </div>
+
+  <!-- Barra de busca recolhível -->
+  <div class="searchbar" id="searchbar" hidden>
+    <form id="site-search-form" class="searchbar__form" role="search">
+      <input id="site-search-input" class="searchbar__input" type="search"
+             placeholder="Busque por título, tag, categoria..."
+             aria-label="Buscar no site" />
+      <button class="btn" type="submit">Buscar</button>
+    </form>
+  </div>
+</header>

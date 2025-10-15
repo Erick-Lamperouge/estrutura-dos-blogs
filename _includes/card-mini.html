@@ -1,0 +1,9 @@
+<article class="card-mini">
+  <a href="{{ post.url | relative_url }}">
+    <img class="card-mini__img" src="{{ post.cover | default:'/assets/img/placeholder.jpg' | relative_url }}" alt="">
+    <div class="card-mini__body">
+      <h3 class="card-mini__title">{{ post.title }}</h3>
+      <p class="meta">{{ post.date | date: "%d %b %Y" }}{% if post.category %} • {{ post.category }}{% endif %}</p>
+    </div>
+  </a>
+</article>

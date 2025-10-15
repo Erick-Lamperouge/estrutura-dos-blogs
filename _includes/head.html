@@ -1,9 +1,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 {% seo %}
 {% if site.google_site_verification %}
 <meta name="google-site-verification" content="{{ site.google_site_verification }}">
 {% endif %}
-{% if site.adsense_client_id %}{% include ads/head.html %}{% endif %}
+{% if site.adsense_client_id %}
+  {% include ads/head.html %}
+{% endif %}
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">

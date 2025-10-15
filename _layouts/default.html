@@ -3,13 +3,31 @@
 <head>
   {% include head.html %}
 </head>
-<body>
-<header>{% include header.html %}</header>
-<main class="layout">
-  <aside class="sidebar sidebar-left">{% include ads/sidebar.html %}</aside>
-  <section class="content">{{ content }}</section>
-  <aside class="sidebar sidebar-right">{% include ads/sidebar.html %}</aside>
-</main>
-<footer>{% include footer.html %}</footer>
+<body data-baseurl="{{ site.baseurl | default: '' }}">
+  {% include topbar.html %}
+
+  <main class="layout">
+    <aside class="sidebar sidebar-left">
+      {% include ads/left.html %}
+    </aside>
+
+    <section class="content">
+      <!-- Resultados de busca (aparece quando o usuário procurar) -->
+      <section id="search-results" class="search-results" hidden></section>
+
+      {{ content }}
+    </section>
+
+    <aside class="sidebar sidebar-right">
+      {% include incentivo.html %}
+      {% include ads/right.html %}
+    </aside>
+  </main>
+
+  <footer>
+    {% include footer.html %}
+  </footer>
+
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
 </body>
 </html>
