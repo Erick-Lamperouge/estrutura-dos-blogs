@@ -1,0 +1,18 @@
+<style id="theme-colors">
+:root{
+  {% if site.colors.brand %}--brand-color: {{ site.colors.brand }};{% endif %}
+  {% if site.colors.primary %}--primary: {{ site.colors.primary }};{% endif %}
+  {% if site.colors.accent %}--accent: {{ site.colors.accent }};{% endif %}
+
+  {% if site.colors.fg %}--fg: {{ site.colors.fg }};{% endif %}
+  {% if site.colors.bg %}--bg: {{ site.colors.bg }};{% endif %}
+  {% if site.colors.muted %}--muted: {{ site.colors.muted }};{% endif %}
+  {% if site.colors.card %}--card: {{ site.colors.card }};{% endif %}
+  {% if site.colors.border %}--border: {{ site.colors.border }};{% endif %}
+
+  {% if site.colors.edge_pad %}--edge-pad: {{ site.colors.edge_pad }};{% endif %}
+  {% if site.colors.divider %}--divider: {{ site.colors.divider }};{% endif %}
+  {% if site.colors.search_btn_fg %}--search-btn-fg: {{ site.colors.search_btn_fg }};{% endif %}
+  {% if site.colors.search_btn_bg %}--search-btn-bg: {{ site.colors.search_btn_bg }};{% endif %}
+}
+</style>

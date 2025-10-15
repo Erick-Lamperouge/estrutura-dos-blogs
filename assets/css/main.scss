@@ -1,18 +1,22 @@
 ---
-# front matter para o Jekyll compilar SCSS
 ---
 
-/* Paleta Futebol */
+/* Padrões do tema (o blog pode sobrescrever via _includes/colors.html) */
 :root{
-  --fg:#0a0a0a;            /* texto */
-  --bg:#ffffff;            /* fundo */
-  --muted:#657080;         /* texto secundário */
-  --card:#f7f7f8;          /* cartões */
+  --fg:#0a0a0a;
+  --bg:#ffffff;
+  --muted:#657080;
+  --card:#f7f7f8;
   --border:#e6e6e6;
 
-  --brand-color:#127a3a;   /* verde campo - marca (título) */
-  --primary:#16a34a;       /* verde primário (botões/destaques) */
-  --accent:#f59e0b;        /* amarelo árbitro/acento */
+  --brand-color:#127a3a;  /* título/marca */
+  --primary:#16a34a;      /* ações/destaques */
+  --accent:#f59e0b;
+
+  --edge-pad: 16px;       /* padding lateral do header/conteúdo */
+  --divider: 2px;         /* espessura da linha da topbar */
+  --search-btn-bg: var(--primary);
+  --search-btn-fg: #ffffff;
 }
 
 @media (prefers-color-scheme: dark){
@@ -23,13 +27,13 @@
     --card:#151a1f;
     --border:#222a32;
 
-    --brand-color:#1dd45f; /* verde um pouco mais vivo no dark */
+    --brand-color:#1dd45f;
     --primary:#22c55e;
     --accent:#fbbf24;
   }
 }
 
-/* Tipografia base */
+/* base */
 *{box-sizing:border-box}
 body{
   margin:0;
@@ -38,20 +42,27 @@ body{
 }
 a{color:var(--primary); text-decoration:none}
 a:hover{text-decoration:underline}
-.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 var(--edge-pad)}
 
 /* Topbar */
-.topbar{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);transition:transform .25s ease}
+.topbar{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:var(--divider) solid var(--border);transition:transform .25s ease}
 .topbar--hidden{transform:translateY(-100%)}
 .topbar__inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
 .brand{
   font-family:"Bebas Neue", Inter, system-ui, sans-serif;
   font-weight:700; letter-spacing:.5px;
   font-size:28px; color:var(--brand-color);
+  /* puxe mais para a esquerda reduzindo o padding lateral do topo */
 }
+.topbar .wrap{padding-left: calc(var(--edge-pad) / 2);} /* deixa mais colado à esquerda */
+
 .nav{display:flex;gap:12px;align-items:center}
 .btn,.btn-icon{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:6px 10px;cursor:pointer;color:var(--fg)}
 .btn-icon{display:flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0}
+
+/* destaque da lupa */
+#btn-search{background: var(--search-btn-bg); color: var(--search-btn-fg); border-color: transparent}
+#btn-search svg{fill: currentColor}
 
 /* Busca recolhível */
 .searchbar{border-top:1px solid var(--border);padding:8px 0;background:var(--bg)}
@@ -63,11 +74,11 @@ a:hover{text-decoration:underline}
 .sidebar{position:sticky;top:70px;height:fit-content}
 .content img{max-width:100%;height:auto;border-radius:10px}
 
-/* Incentivo do Leitor */
+/* Incentivo */
 .box-incentivo{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 12px;margin-bottom:16px}
 .box-incentivo h3{margin:0 0 6px}
 
-/* Destaque do post */
+/* Destaque na home */
 .featured{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--card);margin-bottom:16px}
 .featured__link{display:grid;grid-template-columns:1.3fr 1.7fr;gap:0;text-decoration:none;color:inherit}
 .featured__img{display:block;width:100%;height:100%;object-fit:cover;min-height:220px}
@@ -81,20 +92,18 @@ a:hover{text-decoration:underline}
 .card-mini a{display:grid;grid-template-columns:110px 1fr;gap:10px;text-decoration:none;color:inherit;padding:10px}
 .card-mini__img{width:110px;height:86px;object-fit:cover;border-radius:8px}
 
-/* Cards padrão (seus existentes) */
+/* Cards antigos (se usar) */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
-.card-link{display:flex;gap:12px;color:inherit;padding:12px;text-decoration:none}
-.card .thumb{flex:0 0 96px;height:96px;border-radius:10px;overflow:hidden}
-.card img{width:100%;height:100%;object-fit:cover}
-.card h2{margin:0 0 6px 0;font-size:18px}
-.meta{color:var(--muted);font-size:14px;margin-bottom:6px}
-.excerpt{margin:0}
 
-/* Resultados da busca */
+/* Resultados busca */
 .search-results{border:1px dashed var(--border);border-radius:14px;padding:12px;margin:8px 0;background:var(--bg)}
 .search-results__item{padding:8px 0;border-bottom:1px dashed var(--border)}
 .search-results__item:last-child{border-bottom:none}
+
+/* Post: capa no topo */
+.post-cover{margin:0 0 12px;border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+.post-cover img{display:block;width:100%;height:auto}
 
 /* Footer */
 .footer{border-top:1px solid var(--border);margin-top:24px;padding:18px 0;color:var(--muted);font-size:14px}
