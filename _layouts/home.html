@@ -17,8 +17,9 @@ layout: default
 {% endif %}
 
 <section class="mini-grid">
-  {% assign others = site.posts | offset:1 | limit:3 %}
+  {% assign others = site.posts | slice: 1, 3 %}
   {% for post in others %}
     {% include card-mini.html post=post %}
   {% endfor %}
 </section>
+
