@@ -2,6 +2,7 @@
 ---
 
 /* Padrões do tema (o blog pode sobrescrever via _includes/colors.html) */
+/* Base (cores, tipografia e container) */
 :root{
   --fg:#0a0a0a;
   --bg:#ffffff;
@@ -44,19 +45,43 @@ a{color:var(--primary); text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:1040px;margin:0 auto;padding:0 var(--edge-pad)}
 
-/* Topbar */
-.topbar{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:var(--divider) solid var(--border);transition:transform .25s ease}
-.topbar--hidden{transform:translateY(-100%)}
-.topbar__inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+/* Topbar (barra superior) */
+.topbar{
+  position:sticky;
+  top:0;z-index:100;
+  background:var(--bg);
+  border-bottom: var(--divider) solid var(--border);
+  transition:transform .25s ease; /* animação ao esconder/mostrar */
+}
+.topbar--hidden{transform:translateY(-100%)} /* some ao rolar p/baixo */
+.topbar__inner{display:flex;align-items:center;
+  justify-content:space-between;/* título à esquerda, itens à direita */
+  gap: 12px;
+}
 .brand{
   font-family:"Bebas Neue", Inter, system-ui, sans-serif;
   font-weight:700; letter-spacing:.5px;
-  font-size:28px; color:var(--brand-color);
+  font-size:28px; color:var(--brand-color); /* usa a cor da marca */
+  margin-left: 0; 
   /* puxe mais para a esquerda reduzindo o padding lateral do topo */
 }
-.topbar .wrap{padding-left: calc(var(--edge-pad) / 2);} /* deixa mais colado à esquerda */
 
-.nav{display:flex;gap:12px;align-items:center}
+/* A .wrap dentro da topbar ocupa 100% da tela (sem largura máxima) */
+.topbar .wrap{
+  max-width: none;
+  width: 100%;
+  padding-left: var(--edge-pad);
+  padding-right: var(--edge-pad);
+}
+
+/* Empurra nav pro lado direito; mantém alinhamento e espaçamento dos botões */
+.nav{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .btn,.btn-icon{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:6px 10px;cursor:pointer;color:var(--fg)}
 .btn-icon{display:flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0}
 
@@ -66,19 +91,34 @@ a:hover{text-decoration:underline}
 
 /* Busca recolhível */
 .searchbar{border-top:1px solid var(--border);padding:8px 0;background:var(--bg)}
+
+/* A barra de busca também mantém a mesma largura total da topbar */
+.searchbar .wrap{
+  max-width: none;
+  width: 100%;
+  padding-left: var(--edge-pad);
+  padding-right: var(--edge-pad);
+}
+
 .searchbar__form{display:flex;gap:8px;max-width:720px;margin:0 auto;padding:0 16px}
 .searchbar__input{flex:1;padding:10px 12px;border:1px solid var(--border);border-radius:10px;color:var(--fg);background:var(--bg)}
 
-/* Layout 3 colunas */
-.layout{display:grid;grid-template-columns:260px minmax(0,1fr) 260px;gap:16px;align-items:start;margin:18px 0}
-.sidebar{position:sticky;top:70px;height:fit-content}
-.content img{max-width:100%;height:auto;border-radius:10px}
+/* Layout principal em 3 colunas */
+.layout{
+  display:grid;
+  grid-template-columns: 260px minmax(0,1fr) 260px; /* esquerda | conteúdo | direita */
+  gap:16px;
+  align-items:start;
+  margin:18px 0;
+}
+.sidebar{position:sticky;top:70px;height:fit-content} /* colunas laterais “grudadas” */
+.content img{max-width:100%;height:auto;border-radius:10px} /* imagens fluídas */
 
 /* Incentivo */
 .box-incentivo{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 12px;margin-bottom:16px}
 .box-incentivo h3{margin:0 0 6px}
 
-/* Destaque na home */
+/* Destaque do post mais recente (home) */
 .featured{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--card);margin-bottom:16px}
 .featured__link{display:grid;grid-template-columns:1.3fr 1.7fr;gap:0;text-decoration:none;color:inherit}
 .featured__img{display:block;width:100%;height:100%;object-fit:cover;min-height:220px}
@@ -108,7 +148,7 @@ a:hover{text-decoration:underline}
 /* Footer */
 .footer{border-top:1px solid var(--border);margin-top:24px;padding:18px 0;color:var(--muted);font-size:14px}
 
-/* Responsivo */
+/* Responsivo telas menores*/
 @media (max-width: 1200px){ .layout{grid-template-columns:200px 1fr 240px} }
 @media (max-width: 980px){
   .layout{grid-template-columns:1fr}
