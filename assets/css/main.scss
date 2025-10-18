@@ -82,13 +82,6 @@ a:hover{text-decoration:underline}
   gap: 12px;
 }
 
-.btn,.btn-icon{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:6px 10px;cursor:pointer;color:var(--fg)}
-.btn-icon{display:flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0}
-
-/* destaque da lupa */
-#btn-search{background: var(--search-btn-bg); color: var(--search-btn-fg); border-color: transparent}
-#btn-search svg{fill: currentColor}
-
 /* Busca recolhível */
 .searchbar{border-top:1px solid var(--border);padding:8px 0;background:var(--bg)}
 
@@ -147,23 +140,52 @@ a:hover{text-decoration:underline}
 .support__title{ margin: 0 0 6px 0; font-weight: 800; }
 .support__text{ margin: 0 0 10px 0; color: var(--fg); opacity: .9; }
 
-/* botão chamativo */
+/* === Buttons (componente unificado) === */
 .btn{
-  display: inline-flex; align-items:center; justify-content:center;
-  padding: 10px 14px; border-radius: 12px;
-  border: 1px solid var(--border); background: var(--card); color: var(--fg);
-  font-weight: 600; text-decoration: none;
-  transition: transform .05s ease, filter .15s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  padding:10px 14px;                /* tamanho padrao de botao de texto */
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--card);
+  color:var(--fg);
+  font-weight:600;
+  line-height:1;
+  cursor:pointer;
+  text-decoration:none;
+  transition:filter .15s ease, transform .05s ease;
 }
-.btn:active{ transform: translateY(1px); }
+.btn:active{ transform:translateY(1px); }
 
+/* Botao de destaque (mesma paleta da lupa) */
 .btn-primary{
-  border-color: transparent;
-  background: var(--primary);
-  color: var(--search-btn-fg, #0B1015);
+  border-color:transparent;
+  background:var(--search-btn-bg);
+  color:var(--search-btn-fg);
 }
-.btn-primary:hover{ filter: brightness(0.97); text-decoration: none; }
-.btn-primary:focus{ outline: 2px solid var(--accent); outline-offset: 2px; }
+.btn-primary:hover{ filter:brightness(.97); text-decoration:none; }
+.btn-primary:focus{ outline:2px solid var(--accent); outline-offset:2px; }
+
+/* Ícone redondo: MAIS ESPECÍFICO que .btn para não ser sobrescrito */
+.btn.btn-icon{
+  width:40px;
+  height:40px;
+  padding:0;                         /* garante zero padding no ícone */
+  border-radius:12px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.btn.btn-icon svg{ width:20px; height:20px; fill:currentColor; }
+
+/* Lupa na topbar (fica verde e com contraste de texto) */
+#btn-search{
+  background:var(--search-btn-bg);
+  color:var(--search-btn-fg);
+  border:1px solid transparent;
+}
 
 .support__cta{ width:100%; }          /* botão ocupa a largura do card */
 @media (max-width: 980px){ .support__cta{ width: auto; } } /* em mobile pode encolher */
