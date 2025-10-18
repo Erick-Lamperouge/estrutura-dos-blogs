@@ -18,7 +18,14 @@
     </section>
 
     <aside class="sidebar sidebar-right">
-      {% include incentivo.html %}
+      {% assign about_path = site.about_url | default: '/sobre/' %}
+      {% assign current = page.url | default: '' %}
+      {% assign current_no_base = current | replace: site.baseurl, '' %}
+
+      {% unless current_no_base == about_path or page.support_hide == true %}
+        {% include incentivo.html %}
+      {% endunless %}
+
       {% include ads/right.html %}
     </aside>
   </main>
