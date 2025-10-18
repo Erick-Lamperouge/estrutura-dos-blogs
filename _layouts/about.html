@@ -1,19 +1,26 @@
 ---
 layout: default
 ---
-<div class="donate-grid">
-  {% if site.support and site.support.methods %}
-    {% for m in site.support.methods %}
-      {% include support/method-card.html
-         id=m.id
-         label=m.label
-         qr=m.qr
-         code=m.code
-         copy_label=m.copy_label
-         hint=m.hint
-      %}
-    {% endfor %}
-  {% else %}
-    {% include support/default_methods.html %}
-  {% endif %}
-</div>
+{% include head.html %}
+{% include topbar.html %}
+<main class="wrap">
+  <div class="donate-grid">
+    {% if site.support and site.support.methods %}
+      {% for m in site.support.methods %}
+        {% include support/method-card.html
+          id=m.id
+          label=m.label
+          qr=m.qr
+          code=m.code
+          copy_label=m.copy_label
+          hint=m.hint
+        %}
+      {% endfor %}
+    {% else %}
+      {% include support/default_methods.html %}
+    {% endif %}
+  </div>
+</main>
+<footer>
+  {% include footer.html %}
+</footer>
