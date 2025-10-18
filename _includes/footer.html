@@ -1,3 +1,13 @@
+{%- comment -%} 
+Footer do TEMA. O blog deverá definir `footer_text` 
+{%- endcomment -%}
 <div class="wrap footer">
-  <p>© {{ site.time | date: "%Y" }} {{ site.title }} — tema estrutura-dos-blogs rodapé do blog</p>
+  {% if site.footer_html %}
+    {{ site.footer_html }}
+  {% else %}
+    <p>
+      © {{ "now" | date: "%Y" }} {{ site.title }}
+      — {{ site.footer_text | default: "tema estrutura-dos-blogs rodapé do blog" }}
+    </p>
+  {% endif %}
 </div>
