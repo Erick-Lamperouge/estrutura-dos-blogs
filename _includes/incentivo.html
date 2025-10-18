@@ -12,8 +12,8 @@
     <p class="support__text">
       {{ s.text  | default: "Gosta do conteúdo? Sua contribuição ajuda a manter o site no ar." }}
     </p>
-    <a class="btn btn-primary support__cta"
-       href="{{ s.url | default: site.about_url | default: '/sobre/' | relative_url }}">
+    <a class="btn btn-support support__cta"
+      href="{{ s.url | default: site.about_url | default: '/sobre/' | relative_url }}">
       {{ s.cta  | default: "Quero apoiar" }}
     </a>
   </div>

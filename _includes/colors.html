@@ -14,5 +14,14 @@
   {% if site.colors.divider %}--divider: {{ site.colors.divider }};{% endif %}
   {% if site.colors.search_btn_fg %}--search-btn-fg: {{ site.colors.search_btn_fg }};{% endif %}
   {% if site.colors.search_btn_bg %}--search-btn-bg: {{ site.colors.search_btn_bg }};{% endif %}
+
+  {% comment %} Suporte: o blog pode definir a cor do bloco de apoio {% endcomment %}
+  {% if site.support and site.support.color1 %}--support-color1: {{ site.support.color1 }};{% endif %}
+  {% if site.support and site.support.color2 %}--support-color2: {{ site.support.color2 }};{% endif %}
+  {% if site.support and site.support.cta_bg %}--support-cta-bg: {{ site.support.cta_bg }};{% endif %}
+  {% if site.support and site.support.cta_fg %}--support-cta-fg: {{ site.support.cta_fg }};{% endif %}
+  {% if site.colors and site.colors.brand_size %}--brand-size: {{ site.colors.brand_size }};{% endif %}
+  {% if site.colors and site.colors.divider %}--divider: {{ site.colors.divider }};{% endif %}
+
 }
 </style>
