@@ -64,3 +64,31 @@
     lastY = y;
   }, {passive:true});
 })();
+
+  // --- Copiar códigos na página Sobre ---
+  function showToast(text){
+    const el = document.createElement('div');
+    el.className = 'copy-toast';
+    el.textContent = text || 'Copiado!';
+    document.body.appendChild(el);
+    setTimeout(()=> el.remove(), 1400);
+  }
+
+  document.addEventListener('click', async (ev) => {
+    const btn = ev.target.closest('.donate-copy');
+    if (!btn) return;
+    const targetSel = btn.getAttribute('data-target');
+    const codeEl = document.querySelector(targetSel);
+    if (!codeEl) return;
+    const text = (codeEl.textContent || '').trim();
+    try{
+      await navigator.clipboard.writeText(text);
+      showToast('Copiado para a área de transferência!');
+    }catch{
+      const r = document.createRange();
+      r.selectNodeContents(codeEl);
+      const s = window.getSelection();
+      s.removeAllRanges(); s.addRange(r);
+      showToast('Selecione e copie manualmente');
+    }
+  });

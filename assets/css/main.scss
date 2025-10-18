@@ -246,3 +246,70 @@ a:hover{text-decoration:underline}
   .layout{grid-template-columns:1fr}
   .sidebar{position:static;top:auto}
 }
+
+/* ===== Página Sobre ===== */
+.about-hero{ margin:8px 0 18px; }
+.about-hero h1{ margin:0 0 6px; font-size: clamp(26px, 4vw, 40px); }
+.about-hero .brand-name{ color: var(--brand-color); }
+.about-hero .lead{ opacity:.95; }
+
+.donate h2{ margin: 8px 0 12px; }
+.donate p{ margin: 0 0 12px; }
+
+.donate-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.donate-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  gap: 8px;
+  transition: transform .1s ease, box-shadow .2s ease;
+}
+.donate-card:hover{ transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+
+.donate-qr{
+  margin: 0;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg);
+  display:grid; place-items:center; padding:10px;
+}
+.donate-qr img{ max-width: 100%; height: auto; display:block; }
+
+.donate-hint{ color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+.donate-code{
+  display:block;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  word-break: break-all;
+}
+
+.donate-extra{
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+/* Toast de cópia (reuso do tema) */
+.copy-toast{
+  position: fixed; z-index: 9999;
+  left: 50%; bottom: 24px; transform: translateX(-50%);
+  background: var(--primary);
+  color: var(--search-btn-fg, #0B1015);
+  padding: 10px 14px; border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+  font-weight: 600;
+}

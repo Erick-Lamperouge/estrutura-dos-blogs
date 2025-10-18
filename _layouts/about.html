@@ -1,0 +1,14 @@
+<div class="donate-grid">
+  {% if site.support and site.support.methods %}
+    {%- comment -%}
+    Caso um blog futuro queira *sobrescrever*, pode fornecer support.methods no _config.yml
+    {%- endcomment -%}
+    {% for m in site.support.methods %}
+      {% include support/method-card.html
+         id:m.id label:m.label qr:m.qr code:m.code copy_label:m.copy_label hint:m.hint %}
+    {% endfor %}
+  {% else %}
+    {%- comment -%} Usa a lista padrão do TEMA {%- endcomment -%}
+    {% include support/default_methods.html %}
+  {% endif %}
+</div>
