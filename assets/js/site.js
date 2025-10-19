@@ -91,32 +91,61 @@
     }
   });
 
+// Copiar código (delegation)
+document.addEventListener('click', async (ev) => {
+  const btn = ev.target.closest('.copy-code');
+  if (!btn) return;
+  const text = btn.getAttribute('data-code') || btn.dataset.code || '';
+  if (!text) return;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast('Copiado!');
+  } catch {
+    // fallback simples
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy');
+    ta.remove(); showToast('Copiado!');
+  }
+});
+
+
 (function(){
   const wrap = document.querySelector('.donate--slider');
   if(!wrap) return;
 
-  // ✅ GUARD: evita rodar duas vezes
+  // Evita rodar duas vezes
   if (wrap.dataset.carouselInit === '1') return;
   wrap.dataset.carouselInit = '1';
 
   const carousel = wrap.querySelector('.donate-carousel');
-  const track = carousel.querySelector('.carousel-track');
-  const slides = [...carousel.querySelectorAll('.carousel-slide')];
-  const select = wrap.querySelector('#donate-select');
-  const prev = wrap.querySelector('.carousel-prev');
-  const next = wrap.querySelector('.carousel-next');
+  const track    = carousel.querySelector('.carousel-track');
+
+  // Remove slides duplicados por data-id (se houver)
+  let slides = Array.from(track.querySelectorAll('.carousel-slide'));
+  const seen = new Set();
+  slides.forEach(s => {
+    const id = s.dataset.id || '';
+    if (seen.has(id)) s.remove();
+    else seen.add(id);
+  });
+  slides = Array.from(track.querySelectorAll('.carousel-slide')); // re-lê
+
+  const select  = wrap.querySelector('#donate-select');
+  const prev    = wrap.querySelector('.carousel-prev');
+  const next    = wrap.querySelector('.carousel-next');
   const dotsBox = wrap.querySelector('.carousel-dots');
 
-  // ✅ ZERA antes de reconstruir (evita duplicar)
-  if (select) select.innerHTML = '';
+  // Limpa select + dots antes de montar
+  if (select)  select.innerHTML  = '';
   if (dotsBox) dotsBox.innerHTML = '';
 
-  // monta select + dots lendo as slides
+  // Monta select e dots com base nos slides
   slides.forEach((s, i) => {
-    const id = s.dataset.id || String(i+1);
+    const id    = s.dataset.id    || String(i+1);
     const label = s.dataset.label || `Opção ${i+1}`;
-
-    if (select) select.add(new Option(label, id));
+    select?.add(new Option(label, id));
 
     const dot = document.createElement('button');
     dot.className = 'dot';
@@ -125,20 +154,26 @@
     dotsBox.appendChild(dot);
   });
 
-  const dots = [...dotsBox.querySelectorAll('.dot')];
+  const dots = Array.from(dotsBox.querySelectorAll('.dot'));
+  const labelEl = document.getElementById('donate-current');
+  function setActive(idx){
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
+    const id = slides[idx].dataset.id || String(idx+1);
+    dots.forEach(d => d.classList.toggle('is-active', d.dataset.id === id));
+    if (select) {
+      const oi = Array.from(select.options).findIndex(o => o.value === id);
+      if (oi >= 0) select.selectedIndex = oi;
+    }
+    if (labelEl) labelEl.textContent = slides[idx].dataset.label || '';
+  }
 
   function goToIndex(idx){
     if (!slides.length) return;
-    // ✅ torna circular
+    // Circular
     idx = (idx + slides.length) % slides.length;
     const slide = slides[idx];
     carousel.scrollTo({left: slide.offsetLeft - track.offsetLeft, behavior:'smooth'});
-    const id = slide.dataset.id || String(idx+1);
-    dots.forEach(d => d.classList.toggle('is-active', d.dataset.id === id));
-    if (select) {
-      const oi = [...select.options].findIndex(o => o.value === id);
-      if (oi >= 0) select.selectedIndex = oi;
-    }
+    setActive(idx);
   }
 
   function currentIndex(){
@@ -150,40 +185,36 @@
     return best;
   }
 
-  // inicial
+  // Inicial
   goToIndex(0);
 
-  // navegação circular
-  prev?.addEventListener('click', ()=> goToIndex(currentIndex() - 1));
-  next?.addEventListener('click', ()=> goToIndex(currentIndex() + 1));
+  // Navegação
+  prev?.addEventListener('click', () => goToIndex(currentIndex() - 1));
+  next?.addEventListener('click', () => goToIndex(currentIndex() + 1));
 
   select?.addEventListener('change', (e)=>{
-    const id = e.target.value;
+    const id  = e.target.value;
     const idx = slides.findIndex(s => (s.dataset.id || '') === id);
     if (idx >= 0) goToIndex(idx);
   });
 
   dots.forEach(d => d.addEventListener('click', ()=>{
-    const id = d.dataset.id;
+    const id  = d.dataset.id;
     const idx = slides.findIndex(s => (s.dataset.id || '') === id);
     if (idx >= 0) goToIndex(idx);
   }));
 
-  // sincroniza ao arrastar
+  // Sincroniza ao arrastar
   let raf;
   carousel.addEventListener('scroll', ()=>{
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(()=>{
-      const idx = currentIndex();
-      const id = slides[idx].dataset.id || String(idx+1);
-      dots.forEach(d => d.classList.toggle('is-active', d.dataset.id === id));
-      if (select) {
-        const oi = [...select.options].findIndex(o => o.value === id);
-        if (oi >= 0) select.selectedIndex = oi;
-      }
+      setActive(currentIndex());
     });
   });
 })();
+
+
 
 
 

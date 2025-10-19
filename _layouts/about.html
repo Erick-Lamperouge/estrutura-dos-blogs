@@ -18,13 +18,14 @@ layout: default
     <p>Escolha uma opção abaixo. Você pode <strong>copiar a chave</strong> ou <strong>ver o QR</strong>.</p>
 
     <div class="donate-controls">
-      <button class="btn btn-outline carousel-prev" aria-label="Anterior">‹</button>
       <label class="sr-only" for="donate-select">Escolher método</label>
       <select id="donate-select" class="donate-select"></select>
-      <button class="btn btn-outline carousel-next" aria-label="Próximo">›</button>
     </div>
-
+    
+    <p id="donate-current" class="muted"></p>
     <div class="donate-carousel" tabindex="0" aria-label="Carrossel de métodos de apoio">
+      <button class="carousel-prev" aria-label="Anterior">‹</button>
+      <button class="carousel-next" aria-label="Próximo">›</button>
       <ul class="carousel-track">
         {% if site.support and site.support.methods and site.support.methods.size > 0 %}
           {% for m in site.support.methods %}
