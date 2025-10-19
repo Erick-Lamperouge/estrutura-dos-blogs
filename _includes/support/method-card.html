@@ -22,6 +22,6 @@ Parâmetros: id, label, qr, code, copy_label, hint
   <code id="{{ code_id }}" class="donate-code">{{ include.code | default: 'COLOQUE-SEU-CODIGO-AQUI' }}</code>
 
   <figure class="donate-qr" id="{{ qr_id }}" hidden>
-    <img src="{{ include.qr | default: '/assets/img/sobre/placeholder-qr.png' | relative_url }}" alt="QR {{ include.label }}">
+    <img src="{{ include.qr | default: '/assets/img/support/placeholder.jpg' | relative_url }}" alt="QR {{ include.label }}">
   </figure>
 </article>

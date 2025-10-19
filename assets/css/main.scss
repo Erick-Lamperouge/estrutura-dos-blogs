@@ -248,58 +248,56 @@ a:hover{text-decoration:underline}
 }
 
 
-/* ===== Página Sobre: versão compacta ===== */
-.donate--compact .donate-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 14px;
+/* ===== Carrossel de métodos ===== */
+.donate-controls{
+  display:flex; align-items:center; gap:10px; margin: 6px 0 10px;
+}
+.donate-select{
+  min-width: 200px;
+  background: var(--card); color: var(--fg);
+  border:1px solid var(--border); border-radius:12px; padding:8px 10px;
 }
 
-.donate-card{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 12px;
-  display: grid;
-  gap: 8px;
-  transition: transform .08s ease, box-shadow .15s ease;
+.donate-carousel{
+  --gap: 14px;
+  --per: 3;                  /* 3 por tela (desktop) */
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  border-radius: 16px;
 }
-.donate-card:hover{ transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+@media (max-width: 1100px){ .donate-carousel{ --per: 2; } }
+@media (max-width: 640px){  .donate-carousel{ --per: 1; } }
 
-.donate-head{
-  display:flex; align-items:center; justify-content:space-between; gap:10px;
+.carousel-track{
+  display:flex;
+  gap: var(--gap);
+  padding: 4px;
 }
-.donate-label{ font-size: 16px; font-weight: 800; }
+
+.carousel-slide{
+  scroll-snap-align: start;
+  flex: 0 0 calc((100% - (var(--gap) * (var(--per) - 1))) / var(--per));
+}
+
+/* Dots */
+.carousel-dots{
+  display:flex; gap:8px; justify-content:center; margin:10px 0 4px;
+}
+.carousel-dots .dot{
+  width:10px; height:10px; border-radius:999px;
+  background: var(--border); border:1px solid var(--border);
+}
+.carousel-dots .dot.is-active{ background: var(--primary); border-color: var(--primary); }
+
+/* Cabeçalho compacto do card */
+.donate-card{ padding:12px; }
+.donate-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
 .donate-actions{ display:flex; flex-wrap:wrap; gap:8px; }
-
 .btn-outline{
   background: var(--card);
   color: var(--fg);
   border: 1px solid var(--border);
 }
-
-.donate-hint{ color: var(--muted); font-size: 14px; margin: 0; }
-.donate-code{
-  display:block;
-  padding: 8px 10px;
-  border-radius: 10px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-  word-break: break-all;
-  margin-top: 4px;
-}
-
-/* QR fica oculto até o usuário pedir; quando visível, ocupa pouco espaço */
-.donate-qr{
-  margin: 6px 0 0;
-  border: 1px dashed var(--border);
-  border-radius: 10px;
-  background: var(--bg);
-  display:grid; place-items:center; padding:8px;
-}
-.donate-qr img{ max-width: 100%; height: auto; display:block; max-height: 200px; }
-
 
 /* Toast de cópia (reuso do tema) */
 .copy-toast{

@@ -91,3 +91,74 @@
     }
   });
 
+  // --- Carrossel de métodos (scroll-snap + controles) ---
+  (function(){
+    const carousel = document.querySelector('.donate-carousel');
+    if(!carousel) return;
+    const track = carousel.querySelector('.carousel-track');
+    const slides = [...carousel.querySelectorAll('.carousel-slide')];
+    const select = document.querySelector('#donate-select');
+    const prev = document.querySelector('.carousel-prev');
+    const next = document.querySelector('.carousel-next');
+    const dots = [...document.querySelectorAll('.carousel-dots .dot')];
+
+    function goToIndex(idx){
+      const slide = slides[Math.max(0, Math.min(idx, slides.length-1))];
+      carousel.scrollTo({left: slide.offsetLeft - track.offsetLeft, behavior:'smooth'});
+      const id = slide.dataset.id;
+      if(select){
+        const optIndex = [...select.options].findIndex(o => o.value === id);
+        if(optIndex >= 0) select.selectedIndex = optIndex;
+      }
+      dots.forEach(d => d.classList.toggle('is-active', d.dataset.id === id));
+    }
+
+    function goToId(id){
+      const idx = slides.findIndex(s => s.dataset.id === id);
+      if(idx >= 0) goToIndex(idx);
+    }
+
+    // Inicial
+    goToIndex(0);
+
+    // Botões
+    prev?.addEventListener('click', ()=>{
+      const idx = currentIndex();
+      goToIndex(idx - 1);
+    });
+    next?.addEventListener('click', ()=>{
+      const idx = currentIndex();
+      goToIndex(idx + 1);
+    });
+
+    // Select
+    select?.addEventListener('change', (e)=> goToId(e.target.value));
+
+    // Dots
+    dots.forEach((d)=> d.addEventListener('click', ()=> goToId(d.dataset.id)));
+
+    // Atualiza dot/seleção ao scroll manual
+    function currentIndex(){
+      const left = carousel.scrollLeft + 1; // margem anti-flicker
+      let best = 0;
+      for(let i=0;i<slides.length;i++){
+        if(slides[i].offsetLeft - track.offsetLeft <= left) best = i;
+      }
+      return best;
+    }
+    let raf;
+    carousel.addEventListener('scroll', ()=>{
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(()=>{
+        const idx = currentIndex();
+        const id = slides[idx].dataset.id;
+        dots.forEach(d => d.classList.toggle('is-active', d.dataset.id === id));
+        if(select){
+          const optIndex = [...select.options].findIndex(o => o.value === id);
+          if(optIndex >= 0) select.selectedIndex = optIndex;
+        }
+      });
+    });
+  })();
+
+
