@@ -1,14 +1,27 @@
 {%- comment -%}
-Parâmetros esperados:
-  id, label, qr, code, copy_label, hint
+Parâmetros: id, label, qr, code, copy_label, hint
 {%- endcomment -%}
+{% assign _id = include.id | default: include.label | default: 'metodo' | replace: ' ', '-' | downcase %}
+{% assign code_id = 'code-' | append: _id %}
+{% assign qr_id = 'qr-' | append: _id %}
+
 <article class="donate-card">
-  <figure class="donate-qr">
+  <div class="donate-head">
+    <div class="donate-label">
+      <strong>{{ include.label | default: 'Método' }}</strong>
+    </div>
+    <div class="donate-actions">
+      <button class="btn btn-support donate-copy" data-target="#{{ code_id }}">
+        {{ include.copy_label | default: 'Copiar código' }}
+      </button>
+      <button class="btn btn-outline toggle-qr" data-target="#{{ qr_id }}">Ver QR</button>
+    </div>
+  </div>
+
+  <p class="donate-hint">{{ include.hint | default: 'Use o QR no app ou copie o código:' }}</p>
+  <code id="{{ code_id }}" class="donate-code">{{ include.code | default: 'COLOQUE-SEU-CODIGO-AQUI' }}</code>
+
+  <figure class="donate-qr" id="{{ qr_id }}" hidden>
     <img src="{{ include.qr | default: '/assets/img/sobre/placeholder-qr.png' | relative_url }}" alt="QR {{ include.label }}">
   </figure>
-  <h3>{{ include.label | default: 'Método' }}</h3>
-  <p class="donate-hint">{{ include.hint | default: 'Use o QR no app ou copie o código:' }}</p>
-  {% assign code_id = include.id | default: 'code-' | append: include.label | replace: ' ', '-' | downcase %}
-  <code id="{{ code_id }}" class="donate-code">{{ include.code | default: 'COLOQUE-SEU-CODIGO-AQUI' }}</code>
-  <button class="btn btn-support donate-copy" data-target="#{{ code_id }}">{{ include.copy_label | default: 'Copiar código' }}</button>
 </article>

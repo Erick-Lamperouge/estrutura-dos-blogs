@@ -247,44 +247,38 @@ a:hover{text-decoration:underline}
   .sidebar{position:static;top:auto}
 }
 
-/* ===== Página Sobre ===== */
-.about-hero{ margin:8px 0 18px; }
-.about-hero h1{ margin:0 0 6px; font-size: clamp(26px, 4vw, 40px); }
-.about-hero .brand-name{ color: var(--brand-color); }
-.about-hero .lead{ opacity:.95; }
 
-.donate h2{ margin: 8px 0 12px; }
-.donate p{ margin: 0 0 12px; }
-
-.donate-grid{
+/* ===== Página Sobre: versão compacta ===== */
+.donate--compact .donate-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
 }
+
 .donate-card{
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 14px;
+  border-radius: 14px;
+  padding: 12px;
   display: grid;
-  grid-template-rows: auto auto auto 1fr auto;
   gap: 8px;
-  transition: transform .1s ease, box-shadow .2s ease;
+  transition: transform .08s ease, box-shadow .15s ease;
 }
-.donate-card:hover{ transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+.donate-card:hover{ transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
 
-.donate-qr{
-  margin: 0;
-  border: 1px dashed var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--bg);
-  display:grid; place-items:center; padding:10px;
+.donate-head{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
 }
-.donate-qr img{ max-width: 100%; height: auto; display:block; }
+.donate-label{ font-size: 16px; font-weight: 800; }
+.donate-actions{ display:flex; flex-wrap:wrap; gap:8px; }
 
-.donate-hint{ color: var(--muted); font-size: 14px; margin-top: 4px; }
+.btn-outline{
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--border);
+}
 
+.donate-hint{ color: var(--muted); font-size: 14px; margin: 0; }
 .donate-code{
   display:block;
   padding: 8px 10px;
@@ -293,15 +287,19 @@ a:hover{text-decoration:underline}
   border: 1px solid var(--border);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   word-break: break-all;
+  margin-top: 4px;
 }
 
-.donate-extra{
-  margin-top: 12px;
-  padding: 12px;
+/* QR fica oculto até o usuário pedir; quando visível, ocupa pouco espaço */
+.donate-qr{
+  margin: 6px 0 0;
   border: 1px dashed var(--border);
-  border-radius: 12px;
-  background: var(--card);
+  border-radius: 10px;
+  background: var(--bg);
+  display:grid; place-items:center; padding:8px;
 }
+.donate-qr img{ max-width: 100%; height: auto; display:block; max-height: 200px; }
+
 
 /* Toast de cópia (reuso do tema) */
 .copy-toast{
