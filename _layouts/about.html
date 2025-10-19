@@ -24,17 +24,14 @@ layout: default
 
     <div class="donate-carousel" tabindex="0" aria-label="Carrossel de métodos de apoio">
       <ul class="carousel-track">
-        {% if site.support and site.support.methods %}
+        {% if site.support and site.support.methods and site.support.methods.size > 0 %}
           {% for m in site.support.methods %}
-            <li class="carousel-slide"
-                data-id="{{ m.id | default: forloop.index }}"
-                data-label="{{ m.label | escape }}">
+            <li class="carousel-slide" data-id="{{ m.id }}" data-label="{{ m.label }}">
               {% include support/method-card.html
                 id=m.id label=m.label qr=m.qr code=m.code copy_label=m.copy_label hint=m.hint %}
             </li>
           {% endfor %}
         {% else %}
-          {# ← AQUI entra o fallback padrão do TEMA para o carrossel #}
           {% include support/default_slides.html %}
         {% endif %}
       </ul>

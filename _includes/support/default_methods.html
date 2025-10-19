@@ -1,6 +1,7 @@
 {%- comment -%}
 Gera uma lista simples para quem não usa o JavaScript.
 {%- endcomment -%}
+
 {%- for m in site.data.support_defaults -%}
 {% include support/method-card.html
    id=m.id label=m.label qr=m.qr code=m.code copy_label=m.copy_label hint=m.hint %}
