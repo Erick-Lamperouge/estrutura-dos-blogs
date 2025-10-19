@@ -2,20 +2,37 @@
 layout: default
 ---
 <main class="wrap">
-  <div class="donate-grid">
-    {% if site.support and site.support.methods %}
-      {% for m in site.support.methods %}
-        {% include support/method-card.html
-          id=m.id
-          label=m.label
-          qr=m.qr
-          code=m.code
-          copy_label=m.copy_label
-          hint=m.hint
-        %}
-      {% endfor %}
-    {% else %}
-      {% include support/default_methods.html %}
-    {% endif %}
-  </div>
+  <section class="about-hero">
+    <h1>Sobre o <span class="brand-name">{{ site.title }}</span> ⚽</h1>
+
+    {%- assign intro = site.about.intro | default: site.description -%}
+    {%- if intro and intro != "" -%}
+      <p class="lead">{{ intro }}</p>
+    {%- endif -%}
+  </section>
+  <section class="donate donate--compact">
+    <h2>Como apoiar</h2>
+    <p>Escolha uma opção abaixo. Você pode <strong>copiar a chave</strong> ou <strong>ver o QR</strong>.</p>
+
+    <div class="donate-grid">
+      {% if site.support and site.support.methods %}
+        {% for m in site.support.methods %}
+          {% include support/method-card.html
+            id=m.id
+            label=m.label
+            qr=m.qr
+            code=m.code
+            copy_label=m.copy_label
+            hint=m.hint
+          %}
+        {% endfor %}
+      {% else %}
+        {% include support/default_methods.html %}
+      {% endif %}
+    </div>
+
+    <div class="donate-extra">
+      <p>Qualquer contribuição ajuda <strong>muito</strong>. Se não puder apoiar agora, compartilhar os posts já faz uma baita diferença. 💚</p>
+    </div>
+  </section>
 </main>
