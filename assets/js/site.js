@@ -74,21 +74,20 @@
     setTimeout(()=> el.remove(), 1400);
   }
 
-  document.addEventListener('click', async (ev) => {
-    const btn = ev.target.closest('.donate-copy');
-    if (!btn) return;
-    const targetSel = btn.getAttribute('data-target');
-    const codeEl = document.querySelector(targetSel);
-    if (!codeEl) return;
-    const text = (codeEl.textContent || '').trim();
-    try{
-      await navigator.clipboard.writeText(text);
-      showToast('Copiado para a área de transferência!');
-    }catch{
-      const r = document.createRange();
-      r.selectNodeContents(codeEl);
-      const s = window.getSelection();
-      s.removeAllRanges(); s.addRange(r);
-      showToast('Selecione e copie manualmente');
+  // Alternar exibição do QR nos cards
+  document.addEventListener('click', (ev) => {
+    const btn = ev.target.closest('.toggle-qr');
+    if(!btn) return;
+    const sel = btn.getAttribute('data-target');
+    const box = document.querySelector(sel);
+    if(!box) return;
+    const isHidden = box.hasAttribute('hidden');
+    if(isHidden){
+      box.removeAttribute('hidden');
+      btn.textContent = 'Esconder QR';
+    }else{
+      box.setAttribute('hidden','');
+      btn.textContent = 'Ver QR';
     }
   });
+
