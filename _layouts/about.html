@@ -15,105 +15,32 @@ layout: default
     <h2>Como apoiar</h2>
     <p>Escolha uma opção abaixo. Você pode <strong>copiar a chave</strong> ou <strong>ver o QR</strong>.</p>
 
-    <!-- CONTROLES -->
     <div class="donate-controls">
       <button class="btn btn-outline carousel-prev" aria-label="Anterior">‹</button>
-
       <label class="sr-only" for="donate-select">Escolher método</label>
-      <select id="donate-select" class="donate-select">
-        {% if site.support and site.support.methods %}
-          {% for m in site.support.methods %}
-            <option value="{{ m.id | default: forloop.index }}">{{ m.label }}</option>
-          {% endfor %}
-        {% else %}
-          <option value="pix">Pix</option>
-          <option value="btc">Bitcoin (BTC)</option>
-          <option value="eth">Ethereum (ETH)</option>
-          <option value="usdt">USDT (TRC20)</option>
-          <option value="sol">Solana (SOL)</option>
-        {% endif %}
-      </select>
-
+      <select id="donate-select" class="donate-select"></select>
       <button class="btn btn-outline carousel-next" aria-label="Próximo">›</button>
     </div>
 
-    <!-- CARROSSEL (scroll-snap, acessível e leve) -->
     <div class="donate-carousel" tabindex="0" aria-label="Carrossel de métodos de apoio">
       <ul class="carousel-track">
         {% if site.support and site.support.methods %}
           {% for m in site.support.methods %}
-            <li class="carousel-slide" data-id="{{ m.id | default: forloop.index }}">
+            <li class="carousel-slide"
+                data-id="{{ m.id | default: forloop.index }}"
+                data-label="{{ m.label | escape }}">
               {% include support/method-card.html
-                id=m.id
-                label=m.label
-                qr=m.qr
-                code=m.code
-                copy_label=m.copy_label
-                hint=m.hint
-              %}
+                id=m.id label=m.label qr=m.qr code=m.code copy_label=m.copy_label hint=m.hint %}
             </li>
           {% endfor %}
         {% else %}
-          <li class="carousel-slide" data-id="pix">
-            {% include support/method-card.html
-              id="pix" label="Pix"
-              qr="/assets/img/sobre/pix-qr.png"
-              code="chave-pix-exemplo@e-mail.com"
-              copy_label="Copiar chave Pix"
-              hint="Use o QR no app do banco ou copie a chave abaixo." %}
-          </li>
-          <li class="carousel-slide" data-id="btc">
-            {% include support/method-card.html
-              id="btc" label="Bitcoin (BTC)"
-              qr="/assets/img/sobre/btc-qr.png"
-              code="bc1qEXEMPLO1234567890abcdefg"
-              copy_label="Copiar endereço BTC"
-              hint="Endereço público para receber BTC." %}
-          </li>
-          <li class="carousel-slide" data-id="eth">
-            {% include support/method-card.html
-              id="eth" label="Ethereum (ETH)"
-              qr="/assets/img/sobre/eth-qr.png"
-              code="0xEXEMPLO1234567890abcdefABCDEF"
-              copy_label="Copiar endereço ETH"
-              hint="Endereço público para receber ETH." %}
-          </li>
-          <li class="carousel-slide" data-id="usdt">
-            {% include support/method-card.html
-              id="usdt" label="USDT (TRC20)"
-              qr="/assets/img/sobre/usdt-qr.png"
-              code="TEXEMPLOabc1234567890ABCDEFG"
-              copy_label="Copiar endereço USDT"
-              hint="Endereço para USDT/TRC20." %}
-          </li>
-          <li class="carousel-slide" data-id="sol">
-            {% include support/method-card.html
-              id="sol" label="Solana (SOL)"
-              qr="/assets/img/sobre/sol-qr.png"
-              code="EXEMPLOSOL111222333444555666777888"
-              copy_label="Copiar endereço SOL"
-              hint="Endereço público Solana." %}
-          </li>
+          {% include support/default_slides.html %}
         {% endif %}
       </ul>
     </div>
 
-    <!-- DOTS -->
-    <div class="carousel-dots" role="tablist" aria-label="Ir para cartão">
-      {% if site.support and site.support.methods %}
-        {% for m in site.support.methods %}
-          <button class="dot" role="tab" aria-controls="{{ m.id | default: forloop.index }}" data-id="{{ m.id | default: forloop.index }}"></button>
-        {% endfor %}
-      {% else %}
-        <button class="dot" role="tab" data-id="pix"></button>
-        <button class="dot" role="tab" data-id="btc"></button>
-        <button class="dot" role="tab" data-id="eth"></button>
-        <button class="dot" role="tab" data-id="usdt"></button>
-        <button class="dot" role="tab" data-id="sol"></button>
-      {% endif %}
-    </div>
+    <div class="carousel-dots" role="tablist" aria-label="Ir para cartão"></div>
 
-    <!-- Fallback sem JS -->
     <noscript>
       <div class="donate-grid">
         {% include support/default_methods.html %}

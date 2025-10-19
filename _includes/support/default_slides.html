@@ -1,0 +1,12 @@
+{%- comment -%}
+Gera <li class="carousel-slide" ...> com data-id e data-label
+Usado quando o blog NÃO define site.support.methods e para quem usa JavaScript.
+{%- endcomment -%}
+
+{%- for m in site.data.support_defaults -%}
+<li class="carousel-slide" data-id="{{ m.id }}" data-label="{{ m.label }}">
+  {% include support/method-card.html
+     id=m.id label=m.label qr=m.qr code=m.code copy_label=m.copy_label hint=m.hint %}
+</li>
+{%- endfor -%}
+
