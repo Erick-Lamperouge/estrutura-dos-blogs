@@ -1,19 +1,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-<script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+
+{%- comment -%}
+O jekyll-seo-tag gera <title>, description, canonical, etc.
+Evite ter uma <title> manual para não duplicar.
+{%- endcomment -%}
 {% seo %}
+
 {% if site.google_site_verification %}
-<meta name="google-site-verification" content="{{ site.google_site_verification }}">
+  <meta name="google-site-verification" content="{{ site.google_site_verification }}">
 {% endif %}
+
 {% if site.adsense_client_id %}
   {% include ads/head.html %}
 {% endif %}
+
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 {% include colors.html %}
 
-<!-- Fonte de título (Bebas Neue) e texto (Inter) -->
+<!-- Fontes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
+{%- comment -%}
+JS pode vir no fim também; com "defer" aqui no head funciona bem.
+{%- endcomment -%}
+<script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
