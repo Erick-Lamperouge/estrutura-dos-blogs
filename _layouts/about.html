@@ -3,7 +3,9 @@ layout: default
 ---
 <main class="wrap">
   <section class="about-hero">
-    <h1>Sobre o <span class="brand-name">{{ site.title }}</span> ⚽</h1>
+    <h1 class="page-title">
+    Sobre o <span class="brand-accent">{{ site.title }}</span> ⚽
+    </h1>
 
     {%- assign intro = site.about.intro | default: site.description -%}
     {%- if intro and intro != "" -%}

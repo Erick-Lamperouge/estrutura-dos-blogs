@@ -91,91 +91,100 @@
     }
   });
 
-  // --- Carrossel de métodos (dinâmico a partir das slides) ---
-  (function(){
-    const wrap = document.querySelector('.donate--slider');
-    if(!wrap) return;
+(function(){
+  const wrap = document.querySelector('.donate--slider');
+  if(!wrap) return;
 
-    const carousel = wrap.querySelector('.donate-carousel');
-    const track = carousel.querySelector('.carousel-track');
-    const slides = [...carousel.querySelectorAll('.carousel-slide')];
-    const select = wrap.querySelector('#donate-select');
-    const prev = wrap.querySelector('.carousel-prev');
-    const next = wrap.querySelector('.carousel-next');
-    const dotsBox = wrap.querySelector('.carousel-dots');
+  // ✅ GUARD: evita rodar duas vezes
+  if (wrap.dataset.carouselInit === '1') return;
+  wrap.dataset.carouselInit = '1';
 
-    // 1) construir select e dots lendo os data-*
-    slides.forEach((s, i) => {
-      const id = s.dataset.id || (i+1).toString();
-      const label = s.dataset.label || `Opção ${i+1}`;
+  const carousel = wrap.querySelector('.donate-carousel');
+  const track = carousel.querySelector('.carousel-track');
+  const slides = [...carousel.querySelectorAll('.carousel-slide')];
+  const select = wrap.querySelector('#donate-select');
+  const prev = wrap.querySelector('.carousel-prev');
+  const next = wrap.querySelector('.carousel-next');
+  const dotsBox = wrap.querySelector('.carousel-dots');
 
-      const opt = document.createElement('option');
-      opt.value = id; opt.textContent = label;
-      select.appendChild(opt);
+  // ✅ ZERA antes de reconstruir (evita duplicar)
+  if (select) select.innerHTML = '';
+  if (dotsBox) dotsBox.innerHTML = '';
 
-      const dot = document.createElement('button');
-      dot.className = 'dot';
-      dot.setAttribute('role','tab');
-      dot.dataset.id = id;
-      dotsBox.appendChild(dot);
-    });
+  // monta select + dots lendo as slides
+  slides.forEach((s, i) => {
+    const id = s.dataset.id || String(i+1);
+    const label = s.dataset.label || `Opção ${i+1}`;
 
-    const dots = [...dotsBox.querySelectorAll('.dot')];
+    if (select) select.add(new Option(label, id));
 
-    function goToIndex(idx){
-      idx = Math.max(0, Math.min(idx, slides.length - 1));
-      const slide = slides[idx];
-      carousel.scrollTo({left: slide.offsetLeft - track.offsetLeft, behavior:'smooth'});
-      const id = slide.dataset.id || (idx+1).toString();
-      // estados
+    const dot = document.createElement('button');
+    dot.className = 'dot';
+    dot.setAttribute('role','tab');
+    dot.dataset.id = id;
+    dotsBox.appendChild(dot);
+  });
+
+  const dots = [...dotsBox.querySelectorAll('.dot')];
+
+  function goToIndex(idx){
+    if (!slides.length) return;
+    // ✅ torna circular
+    idx = (idx + slides.length) % slides.length;
+    const slide = slides[idx];
+    carousel.scrollTo({left: slide.offsetLeft - track.offsetLeft, behavior:'smooth'});
+    const id = slide.dataset.id || String(idx+1);
+    dots.forEach(d => d.classList.toggle('is-active', d.dataset.id === id));
+    if (select) {
+      const oi = [...select.options].findIndex(o => o.value === id);
+      if (oi >= 0) select.selectedIndex = oi;
+    }
+  }
+
+  function currentIndex(){
+    const left = carousel.scrollLeft + 1;
+    let best = 0;
+    for (let i=0;i<slides.length;i++){
+      if (slides[i].offsetLeft - track.offsetLeft <= left) best = i;
+    }
+    return best;
+  }
+
+  // inicial
+  goToIndex(0);
+
+  // navegação circular
+  prev?.addEventListener('click', ()=> goToIndex(currentIndex() - 1));
+  next?.addEventListener('click', ()=> goToIndex(currentIndex() + 1));
+
+  select?.addEventListener('change', (e)=>{
+    const id = e.target.value;
+    const idx = slides.findIndex(s => (s.dataset.id || '') === id);
+    if (idx >= 0) goToIndex(idx);
+  });
+
+  dots.forEach(d => d.addEventListener('click', ()=>{
+    const id = d.dataset.id;
+    const idx = slides.findIndex(s => (s.dataset.id || '') === id);
+    if (idx >= 0) goToIndex(idx);
+  }));
+
+  // sincroniza ao arrastar
+  let raf;
+  carousel.addEventListener('scroll', ()=>{
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(()=>{
+      const idx = currentIndex();
+      const id = slides[idx].dataset.id || String(idx+1);
       dots.forEach(d => d.classList.toggle('is-active', d.dataset.id === id));
-      const optIndex = [...select.options].findIndex(o => o.value === id);
-      if(optIndex >= 0) select.selectedIndex = optIndex;
-    }
-
-    function currentIndex(){
-      const left = carousel.scrollLeft + 1;
-      let best = 0;
-      for(let i=0;i<slides.length;i++){
-        if(slides[i].offsetLeft - track.offsetLeft <= left) best = i;
+      if (select) {
+        const oi = [...select.options].findIndex(o => o.value === id);
+        if (oi >= 0) select.selectedIndex = oi;
       }
-      return best;
-    }
-
-    // inicial
-    goToIndex(0);
-
-    // botões
-    prev?.addEventListener('click', ()=> goToIndex(currentIndex()-1));
-    next?.addEventListener('click', ()=> goToIndex(currentIndex()+1));
-
-    // select
-    select?.addEventListener('change', (e)=>{
-      const id = e.target.value;
-      const idx = slides.findIndex(s => (s.dataset.id || '') === id);
-      if(idx >= 0) goToIndex(idx);
     });
+  });
+})();
 
-    // dots
-    dots.forEach(d => d.addEventListener('click', ()=>{
-      const id = d.dataset.id;
-      const idx = slides.findIndex(s => (s.dataset.id || '') === id);
-      if(idx >= 0) goToIndex(idx);
-    }));
-
-    // sincroniza ao arrastar
-    let raf;
-    carousel.addEventListener('scroll', ()=>{
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(()=>{
-        const idx = currentIndex();
-        const id = slides[idx].dataset.id || (idx+1).toString();
-        dots.forEach(d => d.classList.toggle('is-active', d.dataset.id === id));
-        const optIndex = [...select.options].findIndex(o => o.value === id);
-        if(optIndex >= 0) select.selectedIndex = optIndex;
-      });
-    });
-  })();
 
 
 
