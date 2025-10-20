@@ -206,37 +206,6 @@ a:hover{text-decoration:underline}
   .sidebar{position:static;top:auto}
 }
 
-/* ===== Carrossel de métodos ===== */
-.donate-controls{
-  display:flex; align-items:center; gap:10px; margin: 6px 0 10px;
-}
-.donate-select{
-  min-width: 200px;
-  background: var(--card); color: var(--fg);
-  border:1px solid var(--border); border-radius:12px; padding:8px 10px;
-}
-
-.donate-carousel{
-  --gap: 14px;
-  --per: 3;                  /* 3 por tela (desktop) */
-  scroll-snap-type: x mandatory;
-  overflow-x: auto;
-  border-radius: 16px;
-}
-@media (max-width: 1100px){ .donate-carousel{ --per: 2; } }
-@media (max-width: 640px){  .donate-carousel{ --per: 1; } }
-
-.carousel-track{
-  display:flex;
-  gap: var(--gap);
-  padding: 4px;
-}
-
-.carousel-slide{
-  scroll-snap-align: start;
-  flex: 0 0 calc((100% - (var(--gap) * (var(--per) - 1))) / var(--per));
-}
-
 /* Dots */
 .donate--slider .carousel-dots{
   display:flex; gap:10px; justify-content:center; margin:12px 0 6px;
@@ -253,18 +222,6 @@ a:hover{text-decoration:underline}
   border-color: var(--brand, var(--primary));
   transform: scale(1.35);
 }
-
-/* Sensação de movimento enquanto arrasta */
-.donate-carousel{ scroll-snap-type: x mandatory; overflow-x: auto; }
-.carousel-track{ display:flex; gap:14px; padding:4px; scroll-behavior: smooth; }
-.carousel-slide{
-  scroll-snap-align: start;
-  flex: 0 0 calc((100% - (14px * (var(--per,3) - 1))) / var(--per,3));
-  transition: transform .25s ease;
-}
-.donate-carousel:active .carousel-slide{ transform: scale(.985); }
-@media (max-width: 1100px){ .donate-carousel{ --per: 2; } }
-@media (max-width: 640px){  .donate-carousel{ --per: 1; } }
 
 /* Cabeçalho compacto do card */
 .donate-card{ padding:12px; }
