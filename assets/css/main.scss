@@ -206,7 +206,7 @@ a:hover{text-decoration:underline}
   .sidebar{position:static;top:auto}
 }
 
-@import "components/support_dot"; // carrega _sass/components/_support_dot.scss
+@import "components/support"; // carrega _sass/components/_support_dot.scss
 
 /* ===== Carrossel de métodos ===== */
 .donate-controls{
@@ -295,44 +295,4 @@ a:hover{text-decoration:underline}
 }
 .donate-carousel::-webkit-scrollbar{ display:none; }  /* Chrome/Safari */
 
-/* Posição das setas nas extremidades do carrossel */
-.donate--slider{ position: relative; }
-.donate-carousel{ position: relative; }
-.donate--slider .carousel-prev, .carousel-next{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 3;
-  width: 40px; height: 40px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  display: grid; place-items: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,.18);
-}
-.donate--slider .carousel-prev{ left: -6px; }
-.donate--slider .carousel-next{ right: -6px; }
-@media (max-width: 640px){
-  .donate--slider .carousel-prev{ left: 6px; }
-  .donate--slider .carousel-next{ right: 6px; }
-}
 
-/* Slide ativa bem clara pro usuário */
-.donate--slider .carousel-slide .donate-card{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
-}
-.donate--slider .carousel-slide.is-active .donate-card{
-  border-color: var(--primary);
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-  transform: translateY(-2px);
-}
-
-/* Dots (usar a cor da marca, consistente) */
-.donate--slider .carousel-dots .dot.is-active{
-  background: var(--brand-color, var(--primary));
-  border-color: var(--brand-color, var(--primary));
-  transform: scale(1.35);
-}
