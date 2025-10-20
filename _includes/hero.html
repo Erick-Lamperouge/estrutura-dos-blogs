@@ -1,0 +1,189 @@
+<div class="wrap hero">
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
+
+  <button class="search-toggle" aria-label="Abrir busca">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+  </button>
+</div>
+
+<div class="wrap search-box" data-stork="search">
+  <input class="search-input" data-stork="input" placeholder="Buscar..." autofocus>
+  <button class="search-close" aria-label="Fechar busca">&times;</button>
+  <div class="search-output" data-stork="output"></div>
+</div>
+
+<template id="search-template">
+  <div class="search-entry" data-url="{{url}}" data-stork="template">
+    <a href="{{url}}">
+      <h3 class="title" data-stork="title">{{title}}</h3>
+      <p class="excerpt" data-stork="excerpt">{{excerpt}}</p>
+      <div class="meta">
+        <time class="date" data-stork="date">{{date}}</time>
+        <span classs="category" data-stork="category">{{category}}</span>
+      </div>
+    </a>
+  </div>
+</template>
+
+
+<script>
+  // Variável para guardar os posts em cache na memória
+  let POSTS_CACHE = null;
+
+  /**
+   * Busca a lista de posts.
+   * Usa um cache na memória para evitar downloads repetidos.
+   */
+  async function loadPosts() {
+    // 1. Se o cache já existe, retorna ele imediatamente
+    if (POSTS_CACHE) {
+      return POSTS_CACHE;
+    }
+
+    // 2. Se não existe, busca o arquivo JSON
+    const r = await fetch('/posts.json', { cache: 'no-store' });
+    if (!r.ok) {
+      throw new Error('Failed to fetch posts');
+    }
+
+    // 3. Salva o resultado no cache
+    POSTS_CACHE = await r.json();
+
+    // 4. Retorna o resultado
+    return POSTS_CACHE;
+  }
+
+
+  /**
+   * Objeto principal que controla a busca
+   */
+  const search = {
+    init() {
+      // Mapeia os elementos do HTML
+      this.searchToggle = document.querySelector('.search-toggle');
+      this.searchBox = document.querySelector('.search-box');
+      this.searchClose = document.querySelector('.search-close');
+      this.template = document.getElementById('search-template');
+      this.output = document.querySelector('[data-stork="output"]');
+      this.input = document.querySelector('[data-stork="input"]');
+
+      // Se algum elemento essencial faltar, a busca não é iniciada
+      if (!this.searchToggle || !this.searchBox || !this.template || !this.output || !this.input) {
+        console.warn('Elementos da busca não foram encontrados. A busca está desativada.');
+        return;
+      }
+
+      this.register(); // Prepara o buscador
+      this.listen();   // Adiciona os cliques nos botões
+    },
+
+    // Adiciona os eventos de clique
+    listen() {
+      this.searchToggle.addEventListener('click', () => this.toggle());
+      this.searchClose.addEventListener('click', () => this.toggle());
+    },
+
+    // Alterna a visibilidade da caixa de busca
+    toggle() {
+      document.body.classList.toggle('search-open');
+      // Ao abrir, foca automaticamente no campo de input
+      if (document.body.classList.contains('search-open')) {
+        this.input.focus();
+      }
+    },
+
+    // Prepara o buscador Fuse.js
+    register() {
+      const el = this.searchBox;
+      if (!el) return;
+      this.buildSearch(el);
+    },
+
+    // Constrói a instância do buscador
+    async buildSearch(el) {
+      const name = el.dataset.stork; // "search"
+      if (!name) return;
+
+      const template = this.template.innerHTML;
+      if (!template) return;
+
+      let posts = [];
+      try {
+        // Em vez de fazer 'fetch' aqui, chamamos nossa função com cache
+        posts = await loadPosts();
+      } catch (error) {
+        console.error(error);
+        el.innerHTML = '<p>Falha ao carregar posts.</p>';
+        return;
+      }
+
+      const options = {
+        threshold: 0.4, // Nível de tolerância da busca
+        keys: ['title', 'excerpt', 'tags', 'category'] // Onde ele deve procurar
+      };
+      
+      // Cria a instância do Fuse com os posts
+      const fuse = new Fuse(posts, options);
+
+      // Conecta o Fuse.js com os elementos HTML
+      this.polyfillStork(name, fuse, template, this.output);
+    },
+
+    // Esta função "simula" o Stork, ligando o input ao Fuse e ao output
+    polyfillStork(name, fuse, template, outputEl) {
+      const inputEl = document.querySelector(`[data-stork="input"]`);
+      if (!inputEl) return;
+
+      // Ouve o evento de "digitar" no campo de busca
+      inputEl.addEventListener('keyup', (e) => {
+        const query = e.target.value;
+
+        // Só busca com 3+ caracteres
+        if (!query || query.length < 3) {
+          outputEl.innerHTML = ''; // Limpa resultados
+          return;
+        }
+
+        // Executa a busca
+        const results = fuse.search(query).slice(0, 10); // Limita a 10 resultados
+        outputEl.innerHTML = ''; // Limpa resultados antigos
+
+        if (results.length === 0) {
+          outputEl.innerHTML = '<p class="search-empty">Nenhum resultado encontrado.</p>';
+          return;
+        }
+
+        // Para cada resultado, preenche o template e joga no HTML
+        results.forEach(result => {
+          let html = template;
+          const item = result.item;
+          
+          // Substitui os placeholders {{...}} pelos dados do post
+          html = html.replace(/{{title}}/g, item.title)
+                     .replace(/{{url}}/g, item.url)
+                     .replace(/{{excerpt}}/g, item.excerpt || '')
+                     .replace(/{{date}}/g, new Date(item.date).toLocaleDateString('pt-BR', { timeZone: 'UTC' }))
+                     .replace(/{{category}}/g, item.category || 'Sem categoria');
+          
+          // Garante que a URL no 'data-url' também seja preenchida
+          html = html.replace(/data-url=".*?"/g, `data-url="${item.url}"`);
+          html = html.replace(/data-stork="template"/g, ''); // Remove atributo inútil
+
+          outputEl.innerHTML += html;
+        });
+      });
+    }
+  };
+
+
+  // Inicializa todo o script quando o HTML estiver pronto
+  document.addEventListener('DOMContentLoaded', () => {
+    // Verifica se a biblioteca Fuse.js foi carregada
+    if (typeof Fuse === 'undefined') {
+      console.error('Biblioteca Fuse.js não carregada. A busca não vai funcionar.');
+      return;
+    }
+    search.init();
+  });
+</script>
