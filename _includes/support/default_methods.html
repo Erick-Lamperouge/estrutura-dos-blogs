@@ -16,4 +16,9 @@ Gera a UI de seleção + carrossel (dados em _data/support_defaults.yml)
   {% include support/default_slides.html %}
 </section>
 
-<script defer src="{{ '/assets/js/support.js' | relative_url }}"></script>
+{%- comment -%}
+referenciando os assets do tema
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ '/assets/css/support.css?v=' | append: site.github.build_revision | relative_url }}">
+<script defer src="{{ '/assets/js/support.js?v=' | append: site.github.build_revision | relative_url }}"></script>
+
