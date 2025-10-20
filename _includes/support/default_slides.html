@@ -6,12 +6,11 @@ Core dos cards entre as setas
   <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
 
   <div class="carousel-viewport" id="support-viewport" role="region" aria-label="Métodos de apoio">
-    {% assign initial_id = site.data.support.initial | default: site.data.support.methods[0].id %}
-    {% for m in site.data.support.methods %}
-      {% include support/method-card.html
-        method=m
-        active=m.id == initial_id
-      %}
+    {% assign initial_id = site.data.support_defaults.initial | default: site.data.support_defaults.methods[0].id %}
+    {% for m in site.data.support_defaults.methods %}
+      {% assign is_active = false %}
+      {% if m.id == initial_id %}{% assign is_active = true %}{% endif %}
+      {% include support/method-card.html method=m active=is_active %}
     {% endfor %}
   </div>
 
@@ -19,9 +18,10 @@ Core dos cards entre as setas
 </div>
 
 <div class="carousel-dots">
-  {% for m in site.data.support.methods %}
+  {% for m in site.data.support_defaults.methods %}
     <button class="dot{% if forloop.first %} is-active{% endif %}" data-go="{{ forloop.index0 }}" aria-label="Ir para {{ m.name }}"></button>
   {% endfor %}
 </div>
+
 
 

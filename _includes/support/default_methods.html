@@ -6,18 +6,17 @@ Gera uma lista simples para quem não usa o JavaScript.
   <header class="support-bar">
     <label for="support-select">Escolher método</label>
     <select id="support-select" name="support-select">
-      {% assign initial_id = site.data.support.initial | default: site.data.support.methods[0].id %}
-      {% for m in site.data.support.methods %}
+      {% assign initial_id = site.data.support_defaults.initial | default: site.data.support_defaults.methods[0].id %}
+      {% for m in site.data.support_defaults.methods %}
         <option value="{{ m.id }}" {% if m.id == initial_id %}selected{% endif %}>{{ m.name }}</option>
       {% endfor %}
     </select>
-    <!-- Removido o rótulo redundante do método logo abaixo do select -->
   </header>
 
   {% include support/default_slides.html %}
 </section>
 
-<!-- Carregar o JS específico desta seção (pode mover p/ seu bundler se tiver) -->
 <script defer src="{{ '/assets/js/support.js' | relative_url }}"></script>
+
 
 
