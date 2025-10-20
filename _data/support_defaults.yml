@@ -1,30 +1,32 @@
+initial: pix
+methods:
 - id: pix
-  label: "Pix"
-  qr: "/assets/img/support/placeholder.jpg"
+  name: "Pix"
+  desc: "Use o QR no app do banco ou copie a chave abaixo."
   code: "chave-pix-exemplo@e-mail.com"
   copy_label: "Copiar chave Pix"
-  hint: "Use o QR no app do banco ou copie a chave abaixo."
-- id: btc
-  label: "Bitcoin (BTC)"
   qr: "/assets/img/support/placeholder.jpg"
+- id: btc
+  name: "Bitcoin (BTC)"
+  desc: "Endereço público para receber BTC."
   code: "bc1qEXEMPLO1234567890abcdefg"
   copy_label: "Copiar endereço BTC"
-  hint: "Endereço público para receber BTC."
-- id: eth
-  label: "Ethereum (ETH)"
   qr: "/assets/img/support/placeholder.jpg"
+- id: eth
+  name: "Ethereum (ETH)"
+  desc: "Endereço público para receber ETH."
   code: "0xEXEMPLO1234567890abcdefABCDEF"
   copy_label: "Copiar endereço ETH"
-  hint: "Endereço público para receber ETH."
-- id: usdt
-  label: "USDT (TRC20)"
   qr: "/assets/img/support/placeholder.jpg"
+- id: usdt
+  name: "USDT (TRC20)"
+  desc: "Endereço para USDT/TRC20."
   code: "TEXEMPLOabc1234567890ABCDEFG"
   copy_label: "Copiar endereço USDT"
-  hint: "Endereço para USDT/TRC20."
-- id: sol
-  label: "Solana (SOL)"
   qr: "/assets/img/support/placeholder.jpg"
+- id: sol
+  name: "Solana (SOL)"
+  desc: "Endereço público Solana."
   code: "EXEMPLOSOL111222333444555666777888"
   copy_label: "Copiar endereço SOL"
-  hint: "Endereço público Solana."
+  qr: "/assets/img/support/placeholder.jpg"
