@@ -1,12 +1,27 @@
 {%- comment -%}
-Gera <li class="carousel-slide" ...> com data-id e data-label
-Usado quando o blog NÃO define site.support.methods e para quem usa JavaScript.
+Core dos cards entre as setas
 {%- endcomment -%}
 
-{%- for m in site.data.support_defaults -%}
-<li class="carousel-slide" data-id="{{ m.id }}" data-label="{{ m.label }}">
-  {% include support/method-card.html
-     id=m.id label=m.label qr=m.qr code=m.code copy_label=m.copy_label hint=m.hint %}
-</li>
-{%- endfor -%}
+<div class="support-carousel">
+  <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
+
+  <div class="carousel-viewport" id="support-viewport" role="region" aria-label="Métodos de apoio">
+    {% assign initial_id = site.data.support.initial | default: site.data.support.methods[0].id %}
+    {% for m in site.data.support.methods %}
+      {% include support/method-card.html
+        method=m
+        active=m.id == initial_id
+      %}
+    {% endfor %}
+  </div>
+
+  <button class="carousel-btn next" type="button" aria-label="Próximo">›</button>
+</div>
+
+<div class="carousel-dots">
+  {% for m in site.data.support.methods %}
+    <button class="dot{% if forloop.first %} is-active{% endif %}" data-go="{{ forloop.index0 }}" aria-label="Ir para {{ m.name }}"></button>
+  {% endfor %}
+</div>
+
 

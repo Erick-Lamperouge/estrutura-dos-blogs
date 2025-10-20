@@ -1,27 +1,31 @@
 {%- comment -%}
-Parâmetros: id, label, qr, code, copy_label, hint
+Parâmetros: id, name, desc, code, copy_label, qr
 {%- endcomment -%}
-{% assign _id = include.id | default: include.label | default: 'metodo' | replace: ' ', '-' | downcase %}
-{% assign code_id = 'code-' | append: _id %}
-{% assign qr_id = 'qr-' | append: _id %}
 
-<article class="card donate-card" id="m-{{ include.id }}">
-  <header class="donate-head">
-    <h3 class="donate-title">{{ include.label }}</h3>
-    <div class="donate-actions">
-      <button class="btn btn-primary copy-code"
-              data-code="{{ include.code }}">{{ include.copy_label | default: 'Copiar' }}</button>
-      <button class="btn btn-outline toggle-qr"
-              data-target="#qr-{{ include.id }}">Ver QR</button>
-    </div>
-  </header>
+<article
+  class="method-card{% if include.active %} is-active{% endif %}"
+  data-method="{{ include.method.id }}"
+  aria-label="{{ include.method.name }}"
+>
+  <h3 class="method-title">{{ include.method.name }}</h3>
+  {% if include.method.desc %}
+    <p class="method-desc">{{ include.method.desc }}</p>
+  {% endif %}
 
-  <p class="donate-hint">{{ include.hint }}</p>
+  {% if include.method.code %}
+    <code class="method-code">{{ include.method.code }}</code>
+  {% endif %}
 
-  <pre class="donate-code" aria-label="Chave ou endereço" tabindex="0">{{ include.code }}</pre>
-
-  <div class="donate-qr" id="qr-{{ include.id }}" hidden>
-    <img src="{{ include.qr | relative_url }}" alt="QR {{ include.label }}" loading="lazy">
+  <div class="method-actions">
+    {% if include.method.code %}
+      <button class="btn-copy" data-copy-target=".method-code">
+        {{ include.method.copy_label | default: "Copiar" }}
+      </button>
+    {% endif %}
+    {% if include.method.qr %}
+      <button class="btn-qr" data-qr="{{ include.method.id }}">Ver QR</button>
+    {% endif %}
   </div>
 </article>
+
 

@@ -118,39 +118,6 @@ a:hover{text-decoration:underline}
 .sidebar{position:sticky;top:70px;height:fit-content} /* colunas laterais “grudadas” */
 .content img{max-width:100%;height:auto;border-radius:10px} /* imagens fluídas */
 
-/* --- BLOCO DE APOIO (sidebar) --- */
-.support{
-  position: relative;
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 12px;
-  padding: 16px;
-  border-radius: 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
-}
-
-/* destaque com “borda em gradiente” e sombra suave */
-.support--emph{
-  background: linear-gradient(var(--card), var(--card)) padding-box,
-              linear-gradient(135deg, var(--support-color1), var(--support-color2)) border-box;
-  border: 2px solid transparent;
-  box-shadow: 0 8px 24px rgba(0,0,0,.18);
-}
-.support:hover{ transform: translateY(-2px); filter: saturate(1.05); }
-
-.support__icon{
-  align-self: start;
-  width: 40px; height: 40px; border-radius: 50%;
-  display: grid; place-items: center;
-  color: #0b1015;
-  background: linear-gradient(180deg, var(--support-color1), var(--support-color2));
-  box-shadow: 0 2px 10px rgba(0,0,0,.15);
-}
-.support__title{ margin: 0 0 6px 0; font-weight: 800; }
-.support__text{ margin: 0 0 10px 0; color: var(--fg); opacity: .9; }
-
 /* === Buttons (componente unificado) === */
 .btn{
   display:inline-flex;
@@ -198,18 +165,6 @@ a:hover{text-decoration:underline}
   border:1px solid transparent;
 }
 
-/* botão do card de apoio */
-.btn-support{
-  border-color: transparent;
-  background: var(--support-cta-bg);
-  color: var(--support-cta-fg);
-}
-.btn-support:hover{ filter: brightness(0.97); text-decoration: none; }
-.btn-support:focus{ outline: 2px solid var(--support-color1); outline-offset: 2px; }
-
-.support__cta{ width:100%; }          /* botão ocupa a largura do card */
-@media (max-width: 980px){ .support__cta{ width: auto; } } /* em mobile pode encolher */
-
 /* Incentivo */
 .box-incentivo{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 12px;margin-bottom:16px}
 .box-incentivo h3{margin:0 0 6px}
@@ -251,6 +206,7 @@ a:hover{text-decoration:underline}
   .sidebar{position:static;top:auto}
 }
 
+@import "components/support_dot"; // carrega _sass/components/_support_dot.scss
 
 /* ===== Carrossel de métodos ===== */
 .donate-controls{
@@ -284,17 +240,17 @@ a:hover{text-decoration:underline}
 }
 
 /* Dots */
-.carousel-dots{
+.donate--slider .carousel-dots{
   display:flex; gap:10px; justify-content:center; margin:12px 0 6px;
 }
-.carousel-dots .dot{
+.donate--slider .carousel-dots .dot{
   width:8px; height:8px; border-radius:999px;
   background: var(--border);
   border: 1px solid var(--border);
   transition: transform .18s ease, background-color .18s ease, border-color .18s ease;
 }
-.carousel-dots .dot:hover{ transform: scale(1.2); }
-.carousel-dots .dot.is-active{
+.donate--slider .carousel-dots .dot:hover{ transform: scale(1.2); }
+.donate--slider .carousel-dots .dot.is-active{
   background: var(--brand, var(--primary));
   border-color: var(--brand, var(--primary));
   transform: scale(1.35);
@@ -342,7 +298,7 @@ a:hover{text-decoration:underline}
 /* Posição das setas nas extremidades do carrossel */
 .donate--slider{ position: relative; }
 .donate-carousel{ position: relative; }
-.carousel-prev, .carousel-next{
+.donate--slider .carousel-prev, .carousel-next{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -354,28 +310,28 @@ a:hover{text-decoration:underline}
   display: grid; place-items: center;
   box-shadow: 0 6px 20px rgba(0,0,0,.18);
 }
-.carousel-prev{ left: -6px; }
-.carousel-next{ right: -6px; }
+.donate--slider .carousel-prev{ left: -6px; }
+.donate--slider .carousel-next{ right: -6px; }
 @media (max-width: 640px){
-  .carousel-prev{ left: 6px; }
-  .carousel-next{ right: 6px; }
+  .donate--slider .carousel-prev{ left: 6px; }
+  .donate--slider .carousel-next{ right: 6px; }
 }
 
 /* Slide ativa bem clara pro usuário */
-.carousel-slide .donate-card{
+.donate--slider .carousel-slide .donate-card{
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 14px;
   transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
 }
-.carousel-slide.is-active .donate-card{
+.donate--slider .carousel-slide.is-active .donate-card{
   border-color: var(--primary);
   box-shadow: 0 10px 30px rgba(0,0,0,.25);
   transform: translateY(-2px);
 }
 
 /* Dots (usar a cor da marca, consistente) */
-.carousel-dots .dot.is-active{
+.donate--slider .carousel-dots .dot.is-active{
   background: var(--brand-color, var(--primary));
   border-color: var(--brand-color, var(--primary));
   transform: scale(1.35);
