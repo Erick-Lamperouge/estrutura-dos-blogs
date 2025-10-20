@@ -13,17 +13,19 @@
   {% endif %}
 
   {% if include.method.code %}
-    <code class="method-code">{{ include.method.code }}</code>
+    <code class="method-code">{{ include.method.code | escape }}</code>
   {% endif %}
 
   <div class="method-actions">
     {% if include.method.code %}
-      <button class="btn-copy" data-copy-target=".method-code">
+      <button class="btn-copy" type="button" data-copy-target=".method-code">
         {{ include.method.copy_label | default: "Copiar" }}
       </button>
     {% endif %}
     {% if include.method.qr %}
-      <button class="btn-qr" data-qr="{{ include.method.id }}">Ver QR</button>
+      <button class="btn-qr" type="button" data-qr="{{ include.method.id }}">
+        Ver QR
+      </button>
     {% endif %}
   </div>
 </article>
