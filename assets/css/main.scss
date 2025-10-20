@@ -206,8 +206,6 @@ a:hover{text-decoration:underline}
   .sidebar{position:static;top:auto}
 }
 
-@import "components/support"; // carrega _sass/components/_support_dot.scss
-
 /* ===== Carrossel de métodos ===== */
 .donate-controls{
   display:flex; align-items:center; gap:10px; margin: 6px 0 10px;
@@ -295,4 +293,4 @@ a:hover{text-decoration:underline}
 }
 .donate-carousel::-webkit-scrollbar{ display:none; }  /* Chrome/Safari */
 
-
+@import "components/support";

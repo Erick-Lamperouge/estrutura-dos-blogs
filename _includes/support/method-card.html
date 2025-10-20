@@ -1,13 +1,13 @@
-{%- comment -%}
-Parâmetros: id, name, desc, code, copy_label, qr
-{%- endcomment -%}
+{%- comment -%} Parâmetros: method, active, index {%- endcomment -%}
 
 <article
-  class="method-card{% if include.active %} is-active{% endif %}"
+  class="method-card{% if include.active %} is-center{% endif %}"
   data-method="{{ include.method.id }}"
+  data-index="{{ include.index }}"
   aria-label="{{ include.method.name }}"
 >
   <h3 class="method-title">{{ include.method.name }}</h3>
+
   {% if include.method.desc %}
     <p class="method-desc">{{ include.method.desc }}</p>
   {% endif %}
@@ -27,5 +27,3 @@ Parâmetros: id, name, desc, code, copy_label, qr
     {% endif %}
   </div>
 </article>
-
-

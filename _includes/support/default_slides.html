@@ -1,5 +1,5 @@
 {%- comment -%}
-Core dos cards entre as setas
+Miolo do carrossel: setas laterais + viewport de cartões
 {%- endcomment -%}
 
 <div class="support-carousel">
@@ -10,7 +10,7 @@ Core dos cards entre as setas
     {% for m in site.data.support_defaults.methods %}
       {% assign is_active = false %}
       {% if m.id == initial_id %}{% assign is_active = true %}{% endif %}
-      {% include support/method-card.html method=m active=is_active %}
+      {% include support/method-card.html method=m active=is_active index=forloop.index0 %}
     {% endfor %}
   </div>
 
@@ -19,9 +19,6 @@ Core dos cards entre as setas
 
 <div class="carousel-dots">
   {% for m in site.data.support_defaults.methods %}
-    <button class="dot{% if forloop.first %} is-active{% endif %}" data-go="{{ forloop.index0 }}" aria-label="Ir para {{ m.name }}"></button>
+    <button class="dot{% if m.id == initial_id %} is-active{% endif %}" data-go="{{ forloop.index0 }}" aria-label="Ir para {{ m.name }}"></button>
   {% endfor %}
 </div>
-
-
-

@@ -12,40 +12,59 @@
   const prev  = $('.carousel-btn.prev');
   const next  = $('.carousel-btn.next');
 
-  function setActiveByIndex(i){
-    const idx = Math.max(0, Math.min(cards.length-1, i));
-    cards.forEach((c,k)=>c.classList.toggle('is-active', k===idx));
-    dots.forEach((d,k)=>d.classList.toggle('is-active', k===idx));
-    if (sel) sel.value = cards[idx].dataset.method;
-    if (viewport) viewport.scrollTo({ left: cards[idx].offsetLeft - 12, behavior:'smooth' });
+  const N = cards.length;
+  if (!N) return;
+
+  let current = cards.findIndex(c => c.classList.contains('is-center'));
+  if (current < 0) current = 0;
+
+  const norm = (i)=> (i % N + N) % N;
+
+  function apply(){
+    const left  = norm(current - 1);
+    const right = norm(current + 1);
+
+    cards.forEach((c,i)=>{
+      c.classList.remove('is-left','is-right','is-center','is-hidden');
+      if (i === current)      c.classList.add('is-center');
+      else if (i === left)    c.classList.add('is-left');
+      else if (i === right)   c.classList.add('is-right');
+      else                    c.classList.add('is-hidden');
+    });
+
+    dots.forEach((d,i)=>d.classList.toggle('is-active', i===current));
+    if (sel) sel.value = cards[current].dataset.method;
   }
 
-  function indexOfActive(){ return cards.findIndex(c=>c.classList.contains('is-active')); }
+  function setByIndex(i){ current = norm(i); apply(); }
 
-  sel?.addEventListener('change', () => {
+  // Setas
+  prev?.addEventListener('click', ()=> setByIndex(current - 1));
+  next?.addEventListener('click', ()=> setByIndex(current + 1));
+
+  // Dots
+  dots.forEach((d,i)=> d.addEventListener('click', ()=> setByIndex(i)));
+
+  // Select
+  sel?.addEventListener('change', ()=>{
     const i = cards.findIndex(c=>c.dataset.method === sel.value);
-    setActiveByIndex(i === -1 ? 0 : i);
+    if (i >= 0) setByIndex(i);
   });
 
-  dots.forEach((d,i)=>d.addEventListener('click', ()=>setActiveByIndex(i)));
-  prev?.addEventListener('click', ()=>setActiveByIndex(indexOfActive()-1));
-  next?.addEventListener('click', ()=>setActiveByIndex(indexOfActive()+1));
-
-  document.addEventListener('click', async (ev) => {
+  // Copiar
+  root.addEventListener('click', async (ev) => {
     const btn = ev.target.closest('.btn-copy');
-    if (!btn || !root.contains(btn)) return;
-    const card = ev.target.closest('.method-card');
+    if (!btn) return;
+    const card = btn.closest('.method-card');
     const target = card?.querySelector(btn.getAttribute('data-copy-target') || '.method-code');
     if (!target) return;
-    try {
+    try{
       await navigator.clipboard.writeText(target.textContent.trim());
       const original = btn.textContent;
       btn.textContent = 'Copiado!';
       setTimeout(()=>btn.textContent = original, 1200);
-    } catch(e) { console.error(e); }
+    }catch(e){ console.error(e); }
   });
 
-  const start = sel?.value || (cards[0]?.dataset.method);
-  const startIndex = cards.findIndex(c=>c.dataset.method === start);
-  setActiveByIndex(startIndex === -1 ? 0 : startIndex);
+  apply();
 })();
