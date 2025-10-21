@@ -18,16 +18,38 @@
   let current = cards.findIndex(c => c.classList.contains('is-center'));
   if (current < 0) current = 0;
 
-  const norm = (i)=> (i % N + N) % N;
+  // guarda o trio visível da iteração anterior (índices)
+  let prevTrio = new Set();
+
+  const norm = (i)=> (i % N + N) % N; // (mantém sua função existente)
+
+  function setByIndex(i){
+    const next = norm(i);
+    if (next === current) return;
+
+    // 1) salva o trio visível atual (para animar só quem já estava na tela)
+    prevTrio = new Set([ norm(current-1), current, norm(current+1) ]);
+
+    // 2) halo/borda primeiro: promove o novo e despromove o antigo
+    cards[current]?.classList.remove('is-center');
+    cards[next]?.classList.add('is-center');
+
+    // 3) atualiza o índice atual e aplica a nova posição (com FLIP só no trio anterior)
+    current = next;
+    apply(); // (a apply já usa prevTrio)
+  }
 
   function apply(){
-    // 1) mede antes
+    // mede a posição antes (FIRST)
     const first = new Map();
     cards.forEach(c => first.set(c, c.getBoundingClientRect()));
 
-    // 2) aplica classes novas
+    // calcula trio novo
     const left  = norm(current - 1);
     const right = norm(current + 1);
+    const newTrio = new Set([ left, current, right ]);
+
+    // aplica classes de posição (LEFT/CENTER/RIGHT/HIDDEN)
     cards.forEach((c,i)=>{
       c.classList.remove('is-left','is-right','is-center','is-hidden');
       if (i === current)      c.classList.add('is-center');
@@ -36,21 +58,27 @@
       else                    c.classList.add('is-hidden');
     });
 
-    // 3) mede depois e anima o deslocamento (FLIP)
-    cards.forEach(c=>{
+    // mede depois (LAST) e anima o deslocamento (FLIP) SÓ para quem já estava visível
+    cards.forEach((c,i)=>{
       const a = first.get(c);
       const b = c.getBoundingClientRect();
-      const dx = a.left - b.left;
-      const dy = a.top  - b.top;
-      if (dx || dy) {
-        // aplica o delta e volta pra 0 no próximo frame → anima o translate
+
+      const wasVisible = prevTrio.has(i);       // estava no trio anterior?
+      const isVisible  = newTrio.has(i);        // está no trio novo?
+
+      // só aplica translate se ele já estava visível (evita "passagens" estranhas no wrap)
+      if (wasVisible && (a && b) && ((a.left !== b.left) || (a.top !== b.top))) {
+        const dx = a.left - b.left;
+        const dy = a.top  - b.top;
         c.style.translate = `${dx}px ${dy}px`;
         // força reflow
         void c.offsetWidth;
         c.style.translate = `0 0`;
-        // limpa inline quando terminar
         const onEnd = (e)=>{ if (e.propertyName === 'translate') { c.style.removeProperty('translate'); c.removeEventListener('transitionend', onEnd); } };
         c.addEventListener('transitionend', onEnd);
+      } else {
+        // não anima quem estava oculto → aparece direto no lugar
+        c.style.removeProperty('translate');
       }
     });
 
@@ -59,31 +87,6 @@
     if (sel) sel.value = cards[current].dataset.method;
   }
 
-
-  function setByIndex(i){
-    const next = norm(i);
-    if (next === current) return;
-
-    // 1) despromove o atual (tira realce e dá uma leve encolhida)
-    const old = current;
-    cards[old]?.classList.add('is-demoting');
-    cards[old]?.classList.remove('is-center');
-
-    // 2) aguarda um “micro” intervalo p/ o browser aplicar o estado
-    setTimeout(() => {
-      current = next;
-      apply(); // aplica left/center/right + FLIP
-
-      // limpa classe auxiliar quando a transição terminar
-      const onEnd = (e)=>{
-        if (e.propertyName === 'transform' || e.propertyName === 'translate') {
-          cards[old]?.classList.remove('is-demoting');
-          cards[old]?.removeEventListener('transitionend', onEnd);
-        }
-      };
-      cards[old]?.addEventListener('transitionend', onEnd);
-    }, 60); // ~60ms dá a sensação de faseamento sem ficar lento
-  }
 
 
   // Setas

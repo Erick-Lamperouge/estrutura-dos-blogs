@@ -61,7 +61,7 @@
   border:2px solid #2a2a2a; border-radius:14px; padding:1rem;
   transform-origin:center; transform: scale(.88);
   opacity:.8; 
-  transition: transform .25s ease, opacity .25s ease, box-shadow .25s, border-color .25s, translate .28s ease;
+  transition: transform .28s cubic-bezier(.22,.61,.36,1), opacity .28s linear, box-shadow .25s, border-color .25s, translate .28s cubic-bezier(.22,.61,.36,1),;
   pointer-events:none;  /* só o central recebe clique */
 }
 
