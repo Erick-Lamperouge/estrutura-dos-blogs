@@ -21,9 +21,13 @@
   const norm = (i)=> (i % N + N) % N;
 
   function apply(){
+    // 1) mede antes
+    const first = new Map();
+    cards.forEach(c => first.set(c, c.getBoundingClientRect()));
+
+    // 2) aplica classes novas
     const left  = norm(current - 1);
     const right = norm(current + 1);
-
     cards.forEach((c,i)=>{
       c.classList.remove('is-left','is-right','is-center','is-hidden');
       if (i === current)      c.classList.add('is-center');
@@ -32,9 +36,29 @@
       else                    c.classList.add('is-hidden');
     });
 
+    // 3) mede depois e anima o deslocamento (FLIP)
+    cards.forEach(c=>{
+      const a = first.get(c);
+      const b = c.getBoundingClientRect();
+      const dx = a.left - b.left;
+      const dy = a.top  - b.top;
+      if (dx || dy) {
+        // aplica o delta e volta pra 0 no próximo frame → anima o translate
+        c.style.translate = `${dx}px ${dy}px`;
+        // força reflow
+        void c.offsetWidth;
+        c.style.translate = `0 0`;
+        // limpa inline quando terminar
+        const onEnd = (e)=>{ if (e.propertyName === 'translate') { c.style.removeProperty('translate'); c.removeEventListener('transitionend', onEnd); } };
+        c.addEventListener('transitionend', onEnd);
+      }
+    });
+
+    // UI auxiliar
     dots.forEach((d,i)=>d.classList.toggle('is-active', i===current));
     if (sel) sel.value = cards[current].dataset.method;
   }
+
 
   function setByIndex(i){ current = norm(i); apply(); }
 

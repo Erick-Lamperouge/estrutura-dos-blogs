@@ -17,7 +17,7 @@
 /* --- SETAS USANDO A COR DO TEMA --- */
 .support .carousel-btn{
   /* “pega” a cor do tema */
-  --ac: var(--brand-accent, #22c55e);
+  --ac: var(--primary);
 
   width:44px; height:44px; border-radius:999px; cursor:pointer;
   display:grid; place-items:center;
@@ -60,7 +60,8 @@
   background:#0b0b0b;
   border:2px solid #2a2a2a; border-radius:14px; padding:1rem;
   transform-origin:center; transform: scale(.88);
-  opacity:.8; transition: transform .25s ease, opacity .25s ease, box-shadow .25s, border-color .25s;
+  opacity:.8; 
+  transition: transform .25s ease, opacity .25s ease, box-shadow .25s, border-color .25s, translate .28s ease;
   pointer-events:none;  /* só o central recebe clique */
 }
 
@@ -76,8 +77,8 @@
   transform: scale(1.06);
   opacity:1;
   pointer-events:auto;
-  border-color: var(--brand-accent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-accent) 35%, transparent);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 35%, transparent);
 }
 
 /* Demais ocultos */
