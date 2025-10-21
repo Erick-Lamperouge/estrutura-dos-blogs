@@ -18,76 +18,80 @@
   let current = cards.findIndex(c => c.classList.contains('is-center'));
   if (current < 0) current = 0;
 
-  // guarda o trio visível da iteração anterior (índices)
+  // lembra quem estava visível (para animar só eles)
   let prevTrio = new Set();
 
-  const norm = (i)=> (i % N + N) % N; // (mantém sua função existente)
+  const norm = (i)=> (i % N + N) % N; // mantém a sua
 
   function setByIndex(i){
     const next = norm(i);
     if (next === current) return;
 
-    // 1) salva o trio visível atual (para animar só quem já estava na tela)
+    // trio atual (para FLIP)
     prevTrio = new Set([ norm(current-1), current, norm(current+1) ]);
 
-    // 2) halo/borda primeiro: promove o novo e despromove o antigo
-    cards[current]?.classList.remove('is-center');
-    cards[next]?.classList.add('is-center');
+    // 1) REALCE PRIMEIRO: tira do atual, coloca no próximo (isso não mexe no layout)
+    cards[current]?.classList.remove('is-highlight');
+    cards[next]?.classList.add('is-highlight');
 
-    // 3) atualiza o índice atual e aplica a nova posição (com FLIP só no trio anterior)
-    current = next;
-    apply(); // (a apply já usa prevTrio)
+    // 2) aplica posição/escala + FLIP (num passo só)
+    apply(next);
   }
 
-  function apply(){
-    // mede a posição antes (FIRST)
+  function apply(targetIndex = current){
+    // FIRST: mede antes de mudar classes
     const first = new Map();
     cards.forEach(c => first.set(c, c.getBoundingClientRect()));
 
-    // calcula trio novo
-    const left  = norm(current - 1);
-    const right = norm(current + 1);
-    const newTrio = new Set([ left, current, right ]);
+    // calcula novo trio
+    const left  = norm(targetIndex - 1);
+    const right = norm(targetIndex + 1);
+    const newTrio = new Set([ left, targetIndex, right ]);
 
     // aplica classes de posição (LEFT/CENTER/RIGHT/HIDDEN)
     cards.forEach((c,i)=>{
       c.classList.remove('is-left','is-right','is-center','is-hidden');
-      if (i === current)      c.classList.add('is-center');
-      else if (i === left)    c.classList.add('is-left');
-      else if (i === right)   c.classList.add('is-right');
-      else                    c.classList.add('is-hidden');
+      if (i === targetIndex)      c.classList.add('is-center');
+      else if (i === left)        c.classList.add('is-left');
+      else if (i === right)       c.classList.add('is-right');
+      else                        c.classList.add('is-hidden');
+
+      // mantém realce no centro; remove dos demais (caso o setByIndex não tenha rodado)
+      if (i === targetIndex) c.classList.add('is-highlight');
+      else                   c.classList.remove('is-highlight');
     });
 
-    // mede depois (LAST) e anima o deslocamento (FLIP) SÓ para quem já estava visível
+    // atualiza o "current" definitivo
+    current = targetIndex;
+
+    // LAST + PLAY: anima deslocamento SÓ de quem já estava visível (evita frame "D/E/A")
     cards.forEach((c,i)=>{
       const a = first.get(c);
       const b = c.getBoundingClientRect();
+      const wasVisible = prevTrio.has(i);
 
-      const wasVisible = prevTrio.has(i);       // estava no trio anterior?
-      const isVisible  = newTrio.has(i);        // está no trio novo?
-
-      // só aplica translate se ele já estava visível (evita "passagens" estranhas no wrap)
-      if (wasVisible && (a && b) && ((a.left !== b.left) || (a.top !== b.top))) {
+      if (wasVisible && a && b && (a.left !== b.left || a.top !== b.top)) {
         const dx = a.left - b.left;
         const dy = a.top  - b.top;
         c.style.translate = `${dx}px ${dy}px`;
-        // força reflow
-        void c.offsetWidth;
+        void c.offsetWidth;            // reflow
         c.style.translate = `0 0`;
-        const onEnd = (e)=>{ if (e.propertyName === 'translate') { c.style.removeProperty('translate'); c.removeEventListener('transitionend', onEnd); } };
+        const onEnd = (e)=>{
+          if (e.propertyName === 'translate') {
+            c.style.removeProperty('translate');
+            c.removeEventListener('transitionend', onEnd);
+          }
+        };
         c.addEventListener('transitionend', onEnd);
       } else {
-        // não anima quem estava oculto → aparece direto no lugar
         c.style.removeProperty('translate');
       }
     });
 
-    // UI auxiliar
+    // UI
     dots.forEach((d,i)=>d.classList.toggle('is-active', i===current));
     if (sel) sel.value = cards[current].dataset.method;
   }
-
-
 
   // Setas
   prev?.addEventListener('click', ()=> setByIndex(current - 1));
@@ -117,5 +121,6 @@
     }catch(e){ console.error(e); }
   });
 
+  cards[current]?.classList.add('is-highlight');
   apply();
 })();
