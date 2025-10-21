@@ -81,6 +81,13 @@
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 35%, transparent);
 }
 
+/* despromoção rápida do antigo centro */
+.support .method-card.is-demoting{
+  transform: scale(.94);
+  opacity: .95;
+  /* realce sai instantâneo (sem transição de border/shadow) */
+}
+
 /* Demais ocultos */
 .support .method-card.is-hidden{ display:none; }
 

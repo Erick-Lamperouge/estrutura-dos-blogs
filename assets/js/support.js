@@ -60,7 +60,31 @@
   }
 
 
-  function setByIndex(i){ current = norm(i); apply(); }
+  function setByIndex(i){
+    const next = norm(i);
+    if (next === current) return;
+
+    // 1) despromove o atual (tira realce e dá uma leve encolhida)
+    const old = current;
+    cards[old]?.classList.add('is-demoting');
+    cards[old]?.classList.remove('is-center');
+
+    // 2) aguarda um “micro” intervalo p/ o browser aplicar o estado
+    setTimeout(() => {
+      current = next;
+      apply(); // aplica left/center/right + FLIP
+
+      // limpa classe auxiliar quando a transição terminar
+      const onEnd = (e)=>{
+        if (e.propertyName === 'transform' || e.propertyName === 'translate') {
+          cards[old]?.classList.remove('is-demoting');
+          cards[old]?.removeEventListener('transitionend', onEnd);
+        }
+      };
+      cards[old]?.addEventListener('transitionend', onEnd);
+    }, 60); // ~60ms dá a sensação de faseamento sem ficar lento
+  }
+
 
   // Setas
   prev?.addEventListener('click', ()=> setByIndex(current - 1));
