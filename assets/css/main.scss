@@ -206,6 +206,16 @@ a:hover{text-decoration:underline}
   .sidebar{position:static;top:auto}
 }
 
+/* ===== Carrossel de métodos ===== */
+.donate-controls{
+  display:flex; align-items:center; gap:10px; margin: 6px 0 10px;
+}
+.donate-select{
+  min-width: 200px;
+  background: var(--card); color: var(--fg);
+  border:1px solid var(--border); border-radius:12px; padding:8px 10px;
+}
+
 /* Dots */
 .donate--slider .carousel-dots{
   display:flex; gap:10px; justify-content:center; margin:12px 0 6px;
@@ -243,11 +253,5 @@ a:hover{text-decoration:underline}
   box-shadow: 0 8px 24px rgba(0,0,0,.2);
   font-weight: 600;
 }
-
-/* Esconde a barra de rolagem horizontal */
-.donate-carousel{
-  scrollbar-width: none;           /* Firefox */
-}
-.donate-carousel::-webkit-scrollbar{ display:none; }  /* Chrome/Safari */
 
 @import "components/support";
