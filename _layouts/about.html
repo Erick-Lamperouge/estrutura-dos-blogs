@@ -13,44 +13,16 @@ layout: default
     {%- endif -%}
   </section>
 
-  <section class="donate donate--slider">
+  <section class="support">
     <h2>Como apoiar</h2>
     <p>Escolha uma opção abaixo. Você pode <strong>copiar a chave</strong> ou <strong>ver o QR</strong>.</p>
 
-    <div class="donate-controls">
-      <label class="sr-only" for="donate-select">Escolher método</label>
-      <select id="donate-select" class="donate-select"></select>
-    </div>
-    
-    <p id="donate-current" class="muted"></p>
-    <div class="donate-carousel" tabindex="0" aria-label="Carrossel de métodos de apoio">
-      <button class="carousel-prev" aria-label="Anterior">‹</button>
-      <button class="carousel-next" aria-label="Próximo">›</button>
-      <ul class="carousel-track">
-        {% if site.support and site.support.methods and site.support.methods.size > 0 %}
-          {% for m in site.support.methods %}
-            <li class="carousel-slide" data-id="{{ m.id }}" data-label="{{ m.label }}">
-              {% include support/method-card.html
-                id=m.id label=m.label qr=m.qr code=m.code copy_label=m.copy_label hint=m.hint %}
-            </li>
-          {% endfor %}
-        {% else %}
-          {% include support/default_slides.html %}
-        {% endif %}
-      </ul>
-    </div>
-
-    <div class="carousel-dots" role="tablist" aria-label="Ir para cartão"></div>
-
-    <noscript>
-      <div class="donate-grid">
-        {% include support/default_methods.html %}
-      </div>
-    </noscript>
+    {% include support/default_methods.html %}
 
     <div class="donate-extra">
       <p>Qualquer contribuição ajuda <strong>muito</strong>. Se não puder apoiar agora, compartilhar os posts já faz uma baita diferença. 💚</p>
     </div>
   </section>
+
 
 </main>

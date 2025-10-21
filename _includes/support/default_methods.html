@@ -4,7 +4,7 @@ Gera a UI de seleção + carrossel (dados em _data/support_defaults.yml)
 
 <section class="support">
   <header class="support-bar">
-    <label for="support-select">Escolher método: </label>
+    <label for="support-select">Escolher método </label>
     <select id="support-select" name="support-select">
       {% assign initial_id = site.data.support_defaults.initial | default: site.data.support_defaults.methods[0].id %}
       {% for m in site.data.support_defaults.methods %}
