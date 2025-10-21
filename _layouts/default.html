@@ -3,7 +3,8 @@
 <head>
   {% include head.html %}
 </head>
-<body data-baseurl="{{ site.baseurl | default: '' }}">
+{% assign current_path = page.url | remove: site.baseurl | remove: 'index.html' | replace: '//','/' %}
+<body data-baseurl="{{ site.baseurl | default: '' }}" data-current="{{ current_path }}">
   {% include topbar.html %}
 
   <main class="layout">

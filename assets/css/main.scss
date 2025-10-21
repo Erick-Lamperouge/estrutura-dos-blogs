@@ -288,4 +288,12 @@ a:hover{text-decoration:underline}
   font-weight: 600;
 }
 
+/* Oculta o link para /sobre/ só quando a página atual é /sobre/ */
+body[data-current="/sobre/"] .topbar a[href$="/sobre/"],
+body[data-current="/sobre"]  .topbar a[href$="/sobre"],
+body[data-current="/sobre/"] .header .nav a[href$="/sobre/"],
+body[data-current="/sobre"]  .header .nav a[href$="/sobre"]{
+  display: none !important;
+}
+
 @import "components/support";
