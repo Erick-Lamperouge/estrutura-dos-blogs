@@ -1,6 +1,4 @@
-{% if jekyll.environment == "production" %}
-  {% include analytics.html %}
-{% endif %}
+{% if site.analytics.provider == "ga4" and site.analytics.id %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.id }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -12,7 +10,7 @@
     var base = document.body?.dataset?.baseurl || '{{ site.baseurl | default: "" }}';
     var siteId = (base || '/').replace(/^\/|\/$/g,'') || 'root';
 
-    // não envia page_view automático — vamos mandar com o site_id
+    // evita page_view duplicado
     gtag('config', '{{ site.analytics.id }}', { send_page_view: false, anonymize_ip: true });
 
     // page_view com tag do blog
@@ -25,4 +23,3 @@
   })();
 </script>
 {% endif %}
-

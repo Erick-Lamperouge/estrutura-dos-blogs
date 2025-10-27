@@ -1,4 +1,3 @@
-{% raw %}{% include analytics.html %}{% endraw %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -7,6 +6,10 @@ O jekyll-seo-tag gera <title>, description, canonical, etc.
 Evite ter uma <title> manual para não duplicar.
 {%- endcomment -%}
 {% seo %}
+
+{% if jekyll.environment == "production" %}
+  {% include analytics.html %}
+{% endif %}
 
 {% if site.google_site_verification %}
   <meta name="google-site-verification" content="{{ site.google_site_verification }}">
