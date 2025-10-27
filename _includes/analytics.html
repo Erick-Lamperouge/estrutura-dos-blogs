@@ -1,19 +1,17 @@
-{% if site.analytics.provider == "ga4" and site.analytics.id %}
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.id }}"></script>
+{% assign ga_id = site.analytics.id | default: site.data.theme_defaults.analytics.id %}
+{% assign ga_ok = (site.analytics.provider == "ga4" and ga_id) or (site.data.theme_defaults.analytics.provider == "ga4" and ga_id) %}
+{% if ga_ok %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ ga_id }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
 
   (function () {
-    // identifica o blog pelo baseurl (ex.: /futebolando → "futebolando")
     var base = document.body?.dataset?.baseurl || '{{ site.baseurl | default: "" }}';
     var siteId = (base || '/').replace(/^\/|\/$/g,'') || 'root';
 
-    // evita page_view duplicado
-    gtag('config', '{{ site.analytics.id }}', { send_page_view: false, anonymize_ip: true });
-
-    // page_view com tag do blog
+    gtag('config', '{{ ga_id }}', { send_page_view: false, anonymize_ip: true });
     gtag('event', 'page_view', {
       page_location: location.href,
       page_path: location.pathname,

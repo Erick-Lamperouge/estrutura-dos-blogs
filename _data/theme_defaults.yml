@@ -1,0 +1,13 @@
+# GA4 (opcional: se quiser centralizar o Measurement ID no tema)
+analytics:
+  provider: ga4
+  id: G-4SB22TGJ5X            # se quiser centralizar; senão deixe em branco
+
+# AdSense (centralizado no tema)
+adsense_client_id: "ca-pub-8963434395358915"
+
+ads:
+  in_article_slot: "5555555555"
+  left_slots:      ["1111111111"]
+  right_slots:     ["2222222222"]
+  sidebar_slots:   ["3333333333"]

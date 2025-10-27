@@ -1,1 +1,4 @@
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client_id }}" crossorigin="anonymous"></script>
+{% assign client = site.adsense_client_id | default: site.data.theme_defaults.adsense_client_id %}
+{% if client %}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ client }}" crossorigin="anonymous"></script>
+{% endif %}
