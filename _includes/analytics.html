@@ -1,0 +1,28 @@
+{% if jekyll.environment == "production" %}
+  {% include analytics.html %}
+{% endif %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  (function () {
+    // identifica o blog pelo baseurl (ex.: /futebolando → "futebolando")
+    var base = document.body?.dataset?.baseurl || '{{ site.baseurl | default: "" }}';
+    var siteId = (base || '/').replace(/^\/|\/$/g,'') || 'root';
+
+    // não envia page_view automático — vamos mandar com o site_id
+    gtag('config', '{{ site.analytics.id }}', { send_page_view: false, anonymize_ip: true });
+
+    // page_view com tag do blog
+    gtag('event', 'page_view', {
+      page_location: location.href,
+      page_path: location.pathname,
+      page_title: document.title,
+      site_id: siteId
+    });
+  })();
+</script>
+{% endif %}
+
