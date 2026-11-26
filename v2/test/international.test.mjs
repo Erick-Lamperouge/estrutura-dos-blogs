@@ -22,7 +22,7 @@ test('duplicate locale rejected',()=>{let x=clone(f);x.international.editions.pu
 test('candidate does not imply active edition',()=>{let x=clone(f);x.international.candidateLocales.push('en');assert.throws(()=>validateBlogConfig(x));});
 test('unsafe path rejected',()=>assert.throws(()=>localePath(f,'en','../')));
 test('Brazil methods planned but disabled',()=>assert.deepEqual(paymentCandidates(f,'BR'),{market:'BR',currency:'BRL',planned:['pix','boleto','card','crypto'],enabled:[]}));
-test('other markets do not assume Pix or boleto',()=>assert.deepEqual(paymentCandidates(f,'TH'),{market:'TH',currency:null,planned:['card','crypto'],enabled:[]}));
+test('other markets do not assume Pix or boleto',()=>assert.deepEqual(paymentCandidates(f,'TH'),{market:'TH',currency:'THB',planned:['card','crypto'],enabled:[]}));
 test('activation blocked',()=>{let x=clone(f);x.international.payments.activated=true;assert.throws(()=>validateBlogConfig(x));});
 test('foreign Pix candidate blocked',()=>{let x=clone(f);x.international.payments.markets[1].candidates.push('pix');assert.throws(()=>validateBlogConfig(x));});
 test('betting policy cannot be enabled',()=>{let x=clone(f);x.editorial.betting=true;assert.throws(()=>validateBlogConfig(x));});

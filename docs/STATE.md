@@ -17,3 +17,6 @@ Direção híbrida aprovada pelo responsável. Implementação em branch: ediç�
 5. Implantar coleta real de métricas e tendências com autorização, pesquisa agendada em rascunho, revisão humana, deduplicação, registro e posterior publicação controlada. O ranking recebe entradas fornecidas; não coleta métricas automaticamente.
 ## Bloqueios
 Build isolado passou; sem teste visual, integração ou produção; sem confirmação de aprovação AdSense, meios de recebimento, plataforma de checkout, licenças de imagens, tráfego ou faturamento. Não há necessidade de pagar nada nesta fase.
+
+## Etapa 02B / Robustez de sinais e cobertura
+Ampliação das editorias e tópicos do Futebolando, tradução correspondente, perfis candidatos de moeda, fronteira de evidência com origem, período, escopo e separação de simulações/observações, fila de revisão com cotas e vagas não preenchidas. 18 novos testes incluídos, CI 02B ainda a verificar. Nenhum conector real, gasto, alteração de main ou deploy. Ver docs/INTERNATIONAL.md.

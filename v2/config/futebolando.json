@@ -39,6 +39,30 @@
     {
       "slug": "futebol-internacional",
       "label": "Futebol internacional"
+    },
+    {
+      "slug": "competicoes",
+      "label": "Competições"
+    },
+    {
+      "slug": "clubes",
+      "label": "Clubes"
+    },
+    {
+      "slug": "estatisticas",
+      "label": "Estatísticas"
+    },
+    {
+      "slug": "projecoes",
+      "label": "Projeções esportivas"
+    },
+    {
+      "slug": "opiniao",
+      "label": "Opinião"
+    },
+    {
+      "slug": "gestao",
+      "label": "Gestão dos clubes"
     }
   ],
   "editorial": {
@@ -49,7 +73,9 @@
       "analise",
       "guia",
       "historia",
-      "opiniao"
+      "opiniao",
+      "estatistica",
+      "projecao"
     ],
     "review": "human_required",
     "opinion": "approved_only",
@@ -179,7 +205,13 @@
             "History",
             "Rules",
             "Brazilian football",
-            "International football"
+            "International football",
+            "Competitions",
+            "Clubs",
+            "Statistics",
+            "Sporting forecasts",
+            "Opinion",
+            "Club management"
           ],
           "featured": {
             "category": "Analysis",
@@ -233,7 +265,19 @@
         "brasileirao",
         "libertadores",
         "real-madrid",
-        "barcelona"
+        "barcelona",
+        "liverpool",
+        "manchester-city",
+        "bayern-munich",
+        "benfica",
+        "porto",
+        "sporting",
+        "psg",
+        "inter",
+        "juventus",
+        "flamengo",
+        "palmeiras",
+        "international-football"
       ],
       "expansion": "evidence_driven",
       "allocation": {
@@ -260,6 +304,70 @@
         {
           "market": "default",
           "currency": null,
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "PT",
+          "currency": "EUR",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "ES",
+          "currency": "EUR",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "DE",
+          "currency": "EUR",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "FR",
+          "currency": "EUR",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "IT",
+          "currency": "EUR",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "GB",
+          "currency": "GBP",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "US",
+          "currency": "USD",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "TH",
+          "currency": "THB",
           "candidates": [
             "card",
             "crypto"

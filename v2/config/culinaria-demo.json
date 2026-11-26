@@ -232,6 +232,70 @@
             "card",
             "crypto"
           ]
+        },
+        {
+          "market": "PT",
+          "currency": "EUR",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "ES",
+          "currency": "EUR",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "DE",
+          "currency": "EUR",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "FR",
+          "currency": "EUR",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "IT",
+          "currency": "EUR",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "GB",
+          "currency": "GBP",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "US",
+          "currency": "USD",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "TH",
+          "currency": "THB",
+          "candidates": [
+            "card",
+            "crypto"
+          ]
         }
       ]
     }
