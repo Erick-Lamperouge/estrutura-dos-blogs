@@ -27,3 +27,6 @@ Revisão 06A das regras em 2cc3e76ee3e6c5459ca48dfce71fd3435e2fbfea; revisão 06
 [Português](REVIEW-PT.md) e [English](REVIEW-EN.md) são reproduções legíveis do snapshot editorial 9dbbe590b7ca38df9b5a23dec343ddbb6df99c3d; contêm referências e ilustrações. Não são fonte de edição nem aprovação. Atualizar a reprodução ao alterar o pin.
 
 06C: fluxo por matéria em [PUBLICATION.md](PUBLICATION.md); ledger real permanece vazio, noindex obrigatório.
+
+## Fonte complementar — Libertadores, 26/11/2026
+A versão 2.0 em português (atualização fevereiro de 2026), hospedada pela FFERJ, confirma em texto as seções 2.4.1–2.4.4 e pp. 54–55: https://static.fferj.com.br/media/upload/transparencia/30ed1f2dcbcb4e5bb70efa094dcdd750.pdf . A AFA reiterou em 26/05/2026 a ordem de desempates e a regra de não retornar a critérios anteriores: https://www.afa.com.ar/kj/posts/los-criterios-de-desempate-para-definir-la-fase-de-grupos . Texto confrontado com o artigo 06B, sem divergência identificada nos pontos referidos. Capturas das páginas no PDF FFERJ e no espanhol CONMEBOL ainda falharam (cache/403). Não declarar inspeção visual nem ausência comprovada de circulares posteriores; os links são evidência complementar, sem alterar os blobs aprovados para a próxima prévia.
