@@ -22,3 +22,6 @@ Fonte editorial 2cc3e76ee3e6c5459ca48dfce71fd3435e2fbfea: https://github.com/Eri
 
 ## 06B — conferência assistida de oito matérias
 Revisão 06A das regras em 2cc3e76ee3e6c5459ca48dfce71fd3435e2fbfea; revisão 06B das quatro restantes em 9dbbe590b7ca38df9b5a23dec343ddbb6df99c3d. Relatórios no repositório Futebolando: editorial/REVIEW-RULES-2026-11-26.md e editorial/REVIEW-CLUBS-STATS-2026-11-26.md. Confirmadas fontes de Real Madrid, UEFA, Barcelona, FIFA Training Centre, StatsBomb. Manual CONMEBOL de fevereiro conferido por texto §§2.4.1–2.4.4; capturas PDF 54/55 bloqueadas, fonte 2025 recuperada via índice textual; confirmar originais e eventuais circulares antes de publicar. Atualizado endereço do manual 2026 e fonte xG indisponível. Oito artigos, 16 versões, todos ainda draft. Revisão assistida não equivale a aprovação humana; pendentes imagens, inglês independente, autoria e data, revisão humana final. Nenhum sitemap nem Search Console ativo. Novo snapshot exige CI e integração de pins.
+
+## Cadernos de revisão
+[Português](REVIEW-PT.md) e [English](REVIEW-EN.md) são reproduções legíveis do snapshot editorial 9dbbe590b7ca38df9b5a23dec343ddbb6df99c3d; contêm referências e ilustrações. Não são fonte de edição nem aprovação. Atualizar a reprodução ao alterar o pin.
