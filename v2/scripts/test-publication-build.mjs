@@ -18,7 +18,7 @@ try{
  execFileSync('npm',['run','build'],{cwd:tmp,stdio:'inherit'});
  const home=read('dist/futebolando/index.html'),pt=read('dist/futebolando/artigos/impedimento/index.html'),en=read('dist/futebolando/en/articles/offside/index.html'),xml=read('dist/futebolando/sitemap.xml');
  assert.ok(home.includes('data-article-id="offside-guide"'));assert.ok(!home.includes('data-article-id="libertadores-format"'));assert.ok(pt.includes('Synthetic fixture author'));assert.ok(en.includes('application/ld+json'));
- assert.ok(!existsSync(join(tmp,'dist/futebolando/artigos/libertadores-formato/index.html')));assert.ok(!existsSync(join(tmp,'dist/culinaria-demo')));
+ assert.ok(!existsSync(join(tmp,'dist/futebolando/artigos/libertadores-formato/index.html')));assert.ok(!existsSync(join(tmp,'dist/culinaria-demo')));assert.ok(!existsSync(join(tmp,'dist/futebolando/media/libertadores-format-2026.svg')));
  assert.ok(xml.includes('/futebolando/en/articles/offside/'));assert.ok(!xml.includes('libertadores-formato'));
  assert.equal(JSON.parse(readFileSync(join(root,'content/publication.json'),'utf8')).mode,'preview');
  console.log('PASS isolated publication fixture: actual Astro HTML, sitemap and draft isolation; real ledger unchanged');

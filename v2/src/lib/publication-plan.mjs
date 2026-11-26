@@ -44,6 +44,7 @@ export function publicationPlan(config,catalog,seriesCatalog,ledger,{readMedia,a
  }
  const released=rows.filter(a=>records.get(a.id)?.state==='published');
  need(!live||released.length>0,'Publication requires at least one authorized article');
+ need(!live||config.international.editions.every(e=>released.some(a=>a.editions[e.locale])),'Every enabled language needs at least one published article');
  const selected=live?released:rows,ids=new Set(selected.map(a=>a.id));
  const projected=selected.map(a=>({...a,related:a.related.filter(id=>ids.has(id))}));
  const projectedSeries=live?series.filter(s=>s.state!=='planned'&&s.episodes.some(e=>ids.has(e.article))).map(s=>({...s,episodes:s.episodes.map(e=>({...e,article:ids.has(e.article)?e.article:null}))})):series;
