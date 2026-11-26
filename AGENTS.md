@@ -6,3 +6,5 @@ Não fabricar autoria, citações, fatos, opiniões do responsável ou depoiment
 Não ativar ads, checkout, afiliados, doações, rotinas pagas ou publicação automática antes dos gates documentados. Patrocínios estão fora do escopo.
 
 Leia também docs/INTERNATIONAL.md. Não confundir país, idioma e assunto. Respeitar escopo jurídico por blog, fontes verificáveis, métricas agregadas e política sem apostas. Não fabricar sinais de audiência ou probabilidades esportivas.
+
+Leia e aplique docs/WRITING.md antes de redigir, reescrever ou traduzir artigos. Fluidez, precisão e personalidade por idioma não podem ser substituídas por testes mecânicos. Não confundir redução de clichês com ocultação de autoria ou uso de IA.

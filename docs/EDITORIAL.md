@@ -9,3 +9,5 @@ Engenharia: distinguir informação geral de laudo/projeto e exigir validação 
 Futebolando global: foco inicial em grandes clubes e ligas europeias, Brasil e competições continentais; cobertura adaptativa, sem conteúdo comercial de apostas. Análise de favoritos pode comparar desempenho, força dos adversários, disponibilidade de jogadores, criação e concessão de oportunidades, tendência tática e contexto; não confundir opinião, ranking ou modelo com certeza. Sem probabilidades numéricas sem modelo calibrado, dados verificáveis e validação. Registrar fontes, amostra, data, pesos e revisão. Os exemplos de Real Madrid e Barcelona do responsável são ilustrativos, não opinião esportiva permanente registrada. Ver INTERNATIONAL.md.
 
 Séries editoriais: ver SERIES.md. Artigos em camadas, fontes verificáveis, continuidade, público e avaliação agregada; sem publicação automática.
+
+Diretriz de escrita aprovada pelo responsável em 26/11/2026: aplicar docs/WRITING.md a todas as pautas, inclusive traduções. Revisão humana e transparência permanecem obrigatórias.
