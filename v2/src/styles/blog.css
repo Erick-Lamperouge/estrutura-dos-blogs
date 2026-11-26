@@ -118,3 +118,7 @@ html[data-blog-theme=dark] .blog{--blog-background:var(--blog-dark-background);-
 .blog .article-references li{padding:.45rem 0;font-size:.9rem}
 .blog .article-related .editorial-action{display:flex;width:fit-content}
 .blog .article-page .ad-preview{margin:2rem 0}
+
+/* Keep the approved interaction design above earlier density rules. */
+.blog[data-density=minimal] .category-list button{border:1px solid var(--blog-border);border-radius:999px;min-width:44px;min-height:44px;padding:.5rem .85rem}
+.blog[data-density=minimal] .category-list button[aria-pressed=true]{border:1px solid var(--blog-primary);background:var(--blog-primary);color:var(--blog-background)}
