@@ -17,7 +17,7 @@ try{
     ['culinaria-desktop','/culinaria-demo/','pt-BR','table',1440,1050],
     ['culinaria-mobile','/culinaria-demo/en/','en','table',390,844]
   ]){
-    const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1});
+    const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1,colorScheme:'light'});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.goto(origin+route,{waitUntil:'networkidle'});
     assert.equal(await page.locator('html').getAttribute('lang'),locale);
@@ -27,7 +27,26 @@ try{
     assert.equal(await page.locator('[data-pauta]:visible').count(),3);
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),'overflow '+name);
     assert.equal(await page.locator('script[src*="googlesyndication"],script[src*="googletagmanager"]').count(),0);
-    await page.screenshot({path:'review-shots/'+name+'.png',fullPage:true,animations:'disabled'});
+    assert.equal(await page.locator('body').getAttribute('data-density'),'minimal');
+    assert.equal(await page.locator('html').getAttribute('data-blog-theme'),'light');
+    const light=await page.locator('body').evaluate(el=>getComputedStyle(el).backgroundColor);
+    await page.screenshot({path:'review-shots/'+name+'-light.png',fullPage:true,animations:'disabled'});
+    await page.locator('#blog-theme').selectOption('dark');
+    assert.equal(await page.locator('html').getAttribute('data-blog-theme'),'dark');
+    const dark=await page.locator('body').evaluate(el=>getComputedStyle(el).backgroundColor);
+    assert.notEqual(light,dark);
+    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),'dark overflow '+name);
+    await page.screenshot({path:'review-shots/'+name+'-dark.png',fullPage:true,animations:'disabled'});
+    await page.reload({waitUntil:'networkidle'});
+    assert.equal(await page.locator('#blog-theme').inputValue(),'dark');
+    assert.equal(await page.locator('html').getAttribute('data-blog-theme'),'dark');
+    if(motif==='pitch'){
+      const img=page.locator('.story-media img');
+      assert.equal(await img.count(),1);
+      await img.scrollIntoViewIfNeeded();
+      await img.evaluate(el=>el.decode());
+      assert.ok(await img.evaluate(el=>el.naturalWidth>0&&el.alt.length>0));
+    }
     await page.locator('#pauta-search').fill('zzzzzznomatch');
     assert.equal(await page.locator('[data-pauta]:visible').count(),0);
     await page.locator('#clear-filters').click();
@@ -42,6 +61,13 @@ try{
     const link=page.locator('.blog-languages a[hreflang="'+other+'"]');
     await link.click();
     assert.equal(await page.locator('html').getAttribute('lang'),other);
+    assert.equal(await page.locator('#blog-theme').inputValue(),'dark');
+    await page.locator('#blog-theme').selectOption('light');
+    assert.equal(await page.locator('html').getAttribute('data-blog-theme'),'light');
+    await page.locator('#blog-theme').selectOption('system');
+    assert.equal(await page.locator('html').getAttribute('data-blog-theme'),'light');
+    await page.emulateMedia({colorScheme:'dark'});
+    await page.waitForFunction(()=>document.documentElement.dataset.blogTheme==='dark');
     assert.deepEqual(errors,[]);
     await page.close();
     console.log('PASS browser '+name);

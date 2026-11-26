@@ -17,3 +17,46 @@
 @media(max-width:820px){.blog-wrap{width:calc(100% - 2rem)}.blog-grid{grid-template-columns:minmax(0,1fr);gap:1rem}.editorial-aside{padding-top:1rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.ad-side{min-height:110px;margin:0}.side-panel{margin:0}.primary-nav{gap:.1rem 1rem}.ad-banner{margin:1.1rem auto 1.4rem}}
 @media(max-width:480px){.blog-wrap{width:calc(100% - 1.5rem)}.masthead-top{padding:.6rem 0}.brand-line{padding:1.1rem 0;align-items:start}.brand{font-size:clamp(1.75rem,8.2vw,2.8rem)}.search-link{padding:.2rem;min-height:36px}.search-link span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.tagline{font-size:.8rem}.primary-nav{flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;gap:1rem}.primary-nav a{font-size:.78rem;padding:.6rem 0;flex:none}.feature h1{font-size:2.05rem}.editorial-aside{grid-template-columns:1fr}.ad-banner{min-height:58px}.pauta{grid-template-columns:56px minmax(0,1fr);gap:.7rem}.story-number{font-size:1.3rem}.search-tools{flex-wrap:wrap}.clear-button{min-height:40px}.section-kicker{gap:.45rem;letter-spacing:.065em}.section-kicker .muted{font-size:.58rem}.category-list button{min-height:42px}}
 @media(prefers-reduced-motion:reduce){.blog *{scroll-behavior:auto!important;transition:none!important}}
+
+/* Dual palette; local preference belongs to this blog and never the portal. */
+.blog{--blog-background:var(--blog-light-background);--blog-surface:var(--blog-light-surface);--blog-text:var(--blog-light-text);--blog-muted:var(--blog-light-muted);--blog-primary:var(--blog-light-primary);--blog-accent:var(--blog-light-accent);--blog-border:var(--blog-light-border);color-scheme:light}
+@media(prefers-color-scheme:dark){.blog{--blog-background:var(--blog-dark-background);--blog-surface:var(--blog-dark-surface);--blog-text:var(--blog-dark-text);--blog-muted:var(--blog-dark-muted);--blog-primary:var(--blog-dark-primary);--blog-accent:var(--blog-dark-accent);--blog-border:var(--blog-dark-border);color-scheme:dark}}
+html[data-blog-theme=light] .blog{--blog-background:var(--blog-light-background);--blog-surface:var(--blog-light-surface);--blog-text:var(--blog-light-text);--blog-muted:var(--blog-light-muted);--blog-primary:var(--blog-light-primary);--blog-accent:var(--blog-light-accent);--blog-border:var(--blog-light-border);color-scheme:light}
+html[data-blog-theme=dark] .blog{--blog-background:var(--blog-dark-background);--blog-surface:var(--blog-dark-surface);--blog-text:var(--blog-dark-text);--blog-muted:var(--blog-dark-muted);--blog-primary:var(--blog-dark-primary);--blog-accent:var(--blog-dark-accent);--blog-border:var(--blog-dark-border);color-scheme:dark}
+.header-controls{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.appearance-control{display:flex;align-items:center;gap:.4rem}
+.appearance-control label{margin:0;font-size:.75rem;white-space:nowrap}
+.appearance-control select{font:inherit;font-size:.78rem;color:var(--blog-text);background:var(--blog-surface);border:1px solid var(--blog-border);border-radius:3px;padding:.35rem .45rem;min-height:36px}
+.blog select:focus-visible{outline:3px solid var(--blog-accent);outline-offset:3px}
+.feature-media,.story-media{margin:0;min-width:0;overflow:hidden}
+.feature-media img{display:block;width:100%;aspect-ratio:2.12;object-fit:cover;background:var(--blog-surface)}
+.story-media img{display:block;width:100%;aspect-ratio:1.5;object-fit:cover;background:var(--blog-surface)}
+.feature-media figcaption,.story-media figcaption{color:var(--blog-muted);font-size:.68rem;line-height:1.35;padding:.4rem 0;overflow-wrap:anywhere}
+.feature-media figcaption{padding:.45rem .75rem}
+.pauta.with-media{grid-template-columns:minmax(92px,130px) minmax(0,1fr)}
+/* Revista: a single reading column, generous whitespace, secondary material below. */
+.blog[data-density=minimal] .blog-wrap{max-width:960px}
+.blog[data-density=minimal] .brand-line{padding-block:2rem}
+.blog[data-density=minimal] .blog-grid{display:block;max-width:820px;margin-inline:auto}
+.blog[data-density=minimal] .ad-banner{max-width:680px;margin:2.25rem auto 2.5rem;min-height:58px}
+.blog[data-density=minimal] .feature{background:transparent;border:0;border-radius:0}
+.blog[data-density=minimal] .feature-art{aspect-ratio:2.15;border:1px solid var(--blog-border)}
+.blog[data-density=minimal] .feature-copy{padding:1.6rem 0 1rem;border-top:0}
+.blog[data-density=minimal] .feature h1{font-size:clamp(2.25rem,5.5vw,4.4rem);max-width:19ch}
+.blog[data-density=minimal] .feature-copy p{font-size:1.05rem}
+.blog[data-density=minimal] .section-block{margin-top:2.6rem}
+.blog[data-density=minimal] .category-list{gap:.4rem .8rem}
+.blog[data-density=minimal] .category-list button{border:0;border-bottom:1px solid transparent;border-radius:0;padding:.35rem .1rem;min-height:40px}
+.blog[data-density=minimal] .category-list button[aria-pressed=true]{border-bottom-color:var(--blog-primary);background:transparent}
+.blog[data-density=minimal] .pauta:not(.with-media){grid-template-columns:minmax(0,1fr)}
+.blog[data-density=minimal] .story-number{display:none}
+.blog[data-density=minimal] .pauta{padding:1.5rem 0}
+.blog[data-density=minimal] .story-copy h3{font-size:clamp(1.35rem,2.4vw,1.85rem);max-width:32ch}
+.blog[data-density=minimal] .editorial-aside{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin-top:2.5rem;padding-top:0}
+.blog[data-density=minimal] .ad-side{grid-column:1/-1;min-height:80px;margin:0}
+.blog[data-density=minimal] .editorial-promise{background:transparent;border-top:1px solid var(--blog-primary);padding:1.1rem 0 1.3rem}
+.blog[data-density=minimal] .side-panel{margin:0}
+.blog[data-density=dense] .blog-grid{gap:1.2rem}
+.blog[data-density=dense] .section-block{margin-top:1.4rem}
+.blog[data-density=dense] .pauta{padding:.75rem 0}
+@media(max-width:600px){.header-controls{gap:.55rem}.appearance-control select{max-width:92px}.blog[data-density=minimal] .brand-line{padding-block:1.4rem}.blog[data-density=minimal] .ad-banner{margin:1.35rem auto 1.7rem}.blog[data-density=minimal] .feature-copy{padding:1.2rem 0 .65rem}.blog[data-density=minimal] .feature h1{font-size:clamp(2rem,9vw,2.9rem)}.blog[data-density=minimal] .editorial-aside{grid-template-columns:1fr;gap:1rem}.blog[data-density=minimal] .pauta{padding:1rem 0}.pauta.with-media{grid-template-columns:minmax(80px,100px) minmax(0,1fr)}.story-media figcaption{font-size:.64rem}}

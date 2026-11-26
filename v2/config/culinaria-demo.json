@@ -334,7 +334,14 @@
         "guide": "Materiais e guias",
         "guideText": "Futuros materiais autorais e recomendações identificadas.",
         "about": "Sobre esta publicação",
-        "network": "Rede de Blogs Senhorita Minuto"
+        "network": "Rede de Blogs Senhorita Minuto",
+        "appearance": "Aparência",
+        "system": "Sistema",
+        "light": "Claro",
+        "dark": "Escuro",
+        "photo": "Fotografia",
+        "chart": "Gráfico",
+        "mediaCredit": "Crédito"
       },
       "en": {
         "edition": "DIGITAL EDITION",
@@ -355,8 +362,40 @@
         "guide": "Guides and resources",
         "guideText": "Future original guides and disclosed recommendations.",
         "about": "About this publication",
-        "network": "Senhorita Minuto Blog Network"
+        "network": "Senhorita Minuto Blog Network",
+        "appearance": "Appearance",
+        "system": "System",
+        "light": "Light",
+        "dark": "Dark",
+        "photo": "Photograph",
+        "chart": "Chart",
+        "mediaCredit": "Credit"
       }
+    },
+    "appearance": {
+      "default": "system",
+      "light": {
+        "background": "#FAF7F1",
+        "surface": "#FFFFFF",
+        "text": "#312019",
+        "muted": "#69564B",
+        "primary": "#994B13",
+        "accent": "#825100",
+        "border": "#E0D3C6"
+      }
+    },
+    "density": "minimal",
+    "mediaPolicy": "mixed",
+    "media": {
+      "featured": {
+        "kind": "illustration",
+        "source": "builtin"
+      },
+      "cards": [
+        null,
+        null,
+        null
+      ]
     }
   }
 }

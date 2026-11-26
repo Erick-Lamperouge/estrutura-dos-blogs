@@ -414,7 +414,14 @@
         "guide": "Materiais e guias",
         "guideText": "Futuros materiais autorais e recomendações identificadas.",
         "about": "Sobre esta publicação",
-        "network": "Rede de Blogs Senhorita Minuto"
+        "network": "Rede de Blogs Senhorita Minuto",
+        "appearance": "Aparência",
+        "system": "Sistema",
+        "light": "Claro",
+        "dark": "Escuro",
+        "photo": "Fotografia",
+        "chart": "Gráfico",
+        "mediaCredit": "Crédito"
       },
       "en": {
         "edition": "DIGITAL EDITION",
@@ -435,8 +442,50 @@
         "guide": "Guides and resources",
         "guideText": "Future original guides and disclosed recommendations.",
         "about": "About this publication",
-        "network": "Senhorita Minuto Blog Network"
+        "network": "Senhorita Minuto Blog Network",
+        "appearance": "Appearance",
+        "system": "System",
+        "light": "Light",
+        "dark": "Dark",
+        "photo": "Photograph",
+        "chart": "Chart",
+        "mediaCredit": "Credit"
       }
+    },
+    "appearance": {
+      "default": "system",
+      "light": {
+        "background": "#F9FAF7",
+        "surface": "#FFFFFF",
+        "text": "#17221C",
+        "muted": "#52605A",
+        "primary": "#126B37",
+        "accent": "#805400",
+        "border": "#CED7D0"
+      }
+    },
+    "density": "minimal",
+    "mediaPolicy": "mixed",
+    "media": {
+      "featured": {
+        "kind": "illustration",
+        "source": "builtin"
+      },
+      "cards": [
+        {
+          "kind": "illustration",
+          "source": "local",
+          "path": "/futebolando/media/offside-schematic.svg",
+          "rights": "original",
+          "credit": "Futebolando",
+          "alt": {
+            "pt-BR": "Diagrama esquemático de um campo com linha defensiva e posições de jogadores, sem representar uma partida real.",
+            "en": "Schematic pitch with a defensive line and player positions, not depicting an actual match."
+          }
+        },
+        null,
+        null
+      ]
     }
   }
 }

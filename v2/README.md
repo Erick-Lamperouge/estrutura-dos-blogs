@@ -8,3 +8,5 @@ Edições adicionais: /futebolando/en/ e /culinaria-demo/en/. Ambas as versões 
 Para dados de audiência futuros, use rankEvidenceBatch e planEditorialBatch em src/lib/evidence.mjs. Sem conectores reais; fixtures não representam demanda observada.
 
 Design 03B: configurações design, seleção de editorias e busca; CI Chromium gera capturas em blog-design-review. Sem publicação.
+
+03C: seletor local sistema/claro/escuro, densidade minimalista configurável, tipos de mídia local e capturas nos dois modos. Prévia sem artigos finais.

@@ -1,4 +1,5 @@
 import { validateInternational } from './international.mjs';
+import { validateDesign } from './design.mjs';
 /** Contrato compartilhado v1. Os bloqueios são deliberados na fase de pré-produção. */
 export function validateBlogConfig(config){
   const fail=(message)=>{throw new Error(message)};
@@ -23,7 +24,9 @@ export function validateBlogConfig(config){
   if(m.sponsorship!==false) fail("patrocínios fora do escopo");
   const p=config.preview;
   if(!nonblank(p?.featured?.title)||!nonblank(p?.featured?.category)||!nonblank(p?.featured?.summary)||!Array.isArray(p?.cards)||p.cards.some(c=>!nonblank(c?.category)||!nonblank(c?.title))) fail("conteúdo demonstrativo inválido");
-  return validateInternational(config);
+  validateInternational(config);
+  validateDesign(config);
+  return config;
 }
 
 export function blogPath(config,...segments){
