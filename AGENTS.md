@@ -10,3 +10,5 @@ Leia também docs/INTERNATIONAL.md. Não confundir país, idioma e assunto. Resp
 Leia e aplique docs/WRITING.md antes de redigir, reescrever ou traduzir artigos. Fluidez, precisão e personalidade por idioma não podem ser substituídas por testes mecânicos. Não confundir redução de clichês com ocultação de autoria ou uso de IA.
 
 Conteúdo do Futebolando: editar primeiro na branch dev/editorial-v2 do repo futebolando; atualizar cópia de teste e lock de blobs no núcleo. Nunca confundir dados estatísticos ilustrativos com dados observados. Sem palpites de apostas, odds, garantias ou aquisição de dados paga sem autorização.
+
+SEO/publicação: ler docs/SEO-RELEASE.md. Canonical e hreflang de prévia não autorizam indexação. Não incluir rascunhos em sitemap, inventar autoria ou datas de publicação, nem alterar pins do portal sem testes.

@@ -10,3 +10,5 @@ Para dados de audiência futuros, use rankEvidenceBatch e planEditorialBatch em 
 Design 03B: configurações design, seleção de editorias e busca; CI Chromium gera capturas em blog-design-review. Sem publicação.
 
 03C: seletor local sistema/claro/escuro, densidade minimalista configurável, tipos de mídia local e capturas nos dois modos. Prévia sem artigos finais.
+
+SEO em prévia: `node scripts/verify-seo-preview.mjs` após build. Relatório de 30 rotas fora de dist; nenhum sitemap ou indexação até aprovação editorial. Ver ../docs/SEO-RELEASE.md.

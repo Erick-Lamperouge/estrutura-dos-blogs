@@ -1,0 +1,17 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {previewSeo,buildSeoInventory,PREVIEW_ROBOTS} from '../src/lib/seo.mjs';
+const load=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
+const f=load('config/futebolando.json'),c=load('config/culinaria-demo.json'),a=load('content/articles.json'),s=load('content/series.json');
+const links=[{locale:'pt-BR',href:'/futebolando/'},{locale:'en',href:'/futebolando/en/'}];
+test('preview is always noindex and self-canonical',()=>{const x=previewSeo(f,'en',links,'/futebolando/en');assert.equal(x.robots,PREVIEW_ROBOTS);assert.equal(x.canonical,'https://senhoritaminuto.com.br/futebolando/en/');assert.equal(x.alternates.length,2);});
+test('unpublished culinary fixture has no production SEO URL',()=>assert.deepEqual(previewSeo(c,'en',[],'/culinaria-demo/en/'),{robots:PREVIEW_ROBOTS,canonical:null,alternates:[]}));
+test('canonical does not silently point to a different language',()=>assert.throws(()=>previewSeo(f,'pt-BR',links,'/futebolando/en/')));
+test('unsafe alternate URLs are rejected',()=>{for(const href of ['//evil.example/futebolando/','https://evil.example/','/futebolando/../','/futebolando/?x=1','/culinaria-demo/','/futebolando/%2e%2e/'])assert.throws(()=>previewSeo(f,'pt-BR',[{locale:'pt-BR',href}],href));});
+test('duplicates and unsupported language links rejected',()=>{assert.throws(()=>previewSeo(f,'pt-BR',[links[0],links[0]],links[0].href));assert.throws(()=>previewSeo(f,'pt-BR',[...links,{locale:'es',href:'/futebolando/es/'}],links[0].href));});
+test('inventory covers all 30 unique preview URLs and 16 article editions',()=>{const x=buildSeoInventory(f,a,s);assert.equal(x.pages.length,30);assert.equal(x.pages.filter(p=>p.kind==='article').length,16);assert.equal(new Set(x.pages.map(p=>p.path)).size,30);assert.ok(x.pages.every(p=>p.alternates.length===2));});
+test('localized article alternates pair the correct articles',()=>{const x=buildSeoInventory(f,a,s);const p=x.pages.find(p=>p.path==='/futebolando/artigos/impedimento/');assert.deepEqual(p.alternates.map(x=>x.href),['https://senhoritaminuto.com.br/futebolando/artigos/impedimento/','https://senhoritaminuto.com.br/futebolando/en/articles/offside/']);});
+test('no planned series or invented translation in inventory',()=>{const x=buildSeoInventory(f,a,s);assert.ok(!x.pages.some(p=>p.id==='history'));const a2=structuredClone(a);delete a2[0].editions.en;const y=buildSeoInventory(f,a2,s);assert.equal(y.pages.length,29);assert.equal(y.pages.find(p=>p.kind==='article'&&p.id===a[0].id).alternates.length,1);});
+test('zero sitemap entries and all eight articles require editorial approval',()=>{const x=buildSeoInventory(f,a,s);assert.equal(x.indexingAllowed,false);assert.deepEqual(x.eligibleSitemapUrls,[]);assert.equal(x.editorialReview.length,8);assert.ok(x.editorialReview.every(r=>r.status==='draft'&&r.reviewedAt===null&&!r.releaseAllowed&&r.references.length>0));assert.ok(x.pages.every(p=>!p.indexEligible&&p.robots===PREVIEW_ROBOTS));});
+test('no published state or forged review date can slip through preview',()=>{for(const patch of [{status:'published'},{reviewedAt:'2026-11-26'}]){const x=structuredClone(a);Object.assign(x[0],patch);assert.throws(()=>buildSeoInventory(f,x,s));}});

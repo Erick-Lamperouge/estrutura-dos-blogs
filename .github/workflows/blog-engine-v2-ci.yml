@@ -78,6 +78,8 @@ jobs:
           done
           test -s dist/futebolando/media/xg-example.svg
           grep -q 'data-stat-example="illustrative"' dist/futebolando/artigos/xg-gols-esperados/index.html
+      - name: Verify SEO inventory and release safeguards
+        run: node scripts/verify-seo-preview.mjs
       - name: Install isolated browser test tools
         run: |
           npm install --no-save --package-lock=false playwright@1.58.2 --no-audit --no-fund

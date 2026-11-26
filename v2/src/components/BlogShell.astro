@@ -6,6 +6,7 @@ import '@fontsource-variable/inter';
 import BlogIcon from './BlogIcon.astro';
 import {localizedView} from '../lib/international.mjs';
 import {designView,themeVariables} from '../lib/design.mjs';
+import {previewSeo} from '../lib/seo.mjs';
 const {config,locale=config.language,title,description,articleEditions,isArticle=false}=Astro.props;
 const view=localizedView(config,locale);
 const d=designView(config,view);
@@ -16,16 +17,28 @@ const home=view.home;
 const ref=config.design.refinement;
 const editions=articleEditions??view.editions;
 const anchor=(name:string)=>isArticle?home+'#'+name:'#'+name;
+const seo=previewSeo(config,locale,editions,Astro.url.pathname);
+const pageTitle=title?title+' — '+config.name:config.name+' — '+u.preview;
+const pageDescription=description??view.description;
 ---
 <!doctype html>
 <html lang={view.language} data-blog-theme-key={themeKey} data-blog-theme-default={d.appearance.default} data-blog-light-color={d.appearance.light.background} data-blog-dark-color={config.theme.background}>
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <meta name="robots" content="noindex,nofollow"/>
-  <meta name="description" content={description??view.description}/>
+  <meta name="robots" content={seo.robots}/>
+  {seo.canonical&&<link rel="canonical" href={seo.canonical}/>}
+  {seo.alternates.map(alt=><link rel="alternate" hreflang={alt.locale} href={alt.href}/>)}
+  <meta name="description" content={pageDescription}/>
   <meta name="theme-color" content={config.theme.background}/>
-  <title>{title?title+' — '+config.name:config.name+' — '+u.preview}</title>
+  <title>{pageTitle}</title>
+  {seo.canonical&&<>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content={pageTitle}/>
+    <meta property="og:description" content={pageDescription}/>
+    <meta property="og:url" content={seo.canonical}/>
+    <meta property="og:site_name" content={config.name}/>
+  </>}
   <script is:inline>
     (()=>{
       const root=document.documentElement;
