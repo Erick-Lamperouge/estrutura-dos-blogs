@@ -1,0 +1,13 @@
+import {readFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+import football from '../../config/futebolando.json';
+import cooking from '../../config/culinaria-demo.json';
+import catalog from '../../content/articles.json';
+import series from '../../content/series.json';
+import ledger from '../../content/publication.json';
+import {publicationPlan} from './publication-plan.mjs';
+const footballPlan=publicationPlan(football,catalog,series,ledger,{asOf:new Date().toISOString().slice(0,10),readMedia:p=>readFileSync(resolve(process.cwd(),'public',p.slice(1)))});
+const demo={live:false,indexable:false,articles:catalog,series,records:{}};
+export const siteConfigs=footballPlan.live?[football]:[football,cooking];
+export const siteContext=config=>config.slug===football.slug?footballPlan:demo;
+export const publicationLabels=locale=>locale==='en'?{notice:'Independent football publication',navigation:'Navigation',stories:'Articles',filter:'Filter articles',count:'article(s) found.',published:'Published',updated:'Updated',by:'By',series:'Reading series',available:'articles available',upcoming:'Planned episode',read:'Read article',featured:'Featured article',edition:'Edition'}:{notice:'Publicação independente de futebol',navigation:'Navegação',stories:'Artigos',filter:'Filtrar artigos',count:'artigo(s) encontrado(s).',published:'Publicado em',updated:'Atualizado em',by:'Por',series:'Séries de leitura',available:'artigos disponíveis',upcoming:'Episódio planejado',read:'Ler artigo',featured:'Artigo em destaque',edition:'Edição'};

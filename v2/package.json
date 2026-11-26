@@ -5,9 +5,10 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/font-notices.mjs && astro build",
+    "build": "node scripts/font-notices.mjs && astro build && node scripts/check-publication.mjs",
     "preview": "astro preview",
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test test/*.test.mjs",
+    "review:queue": "node scripts/publication-queue.mjs"
   },
   "dependencies": {
     "astro": "7.2.6",

@@ -25,3 +25,5 @@ Revisão 06A das regras em 2cc3e76ee3e6c5459ca48dfce71fd3435e2fbfea; revisão 06
 
 ## Cadernos de revisão
 [Português](REVIEW-PT.md) e [English](REVIEW-EN.md) são reproduções legíveis do snapshot editorial 9dbbe590b7ca38df9b5a23dec343ddbb6df99c3d; contêm referências e ilustrações. Não são fonte de edição nem aprovação. Atualizar a reprodução ao alterar o pin.
+
+06C: fluxo por matéria em [PUBLICATION.md](PUBLICATION.md); ledger real permanece vazio, noindex obrigatório.

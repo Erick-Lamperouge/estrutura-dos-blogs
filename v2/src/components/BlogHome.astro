@@ -2,8 +2,7 @@
 import BlogShell from './BlogShell.astro';
 import EditorialAction from './EditorialAction.astro';
 import {articleListing} from '../lib/articles.mjs';
-import articleCatalog from '../../content/articles.json';
-import seriesCatalog from '../../content/series.json';
+import {siteContext,publicationLabels} from '../lib/site-context.mjs';
 import {seriesList,seriesLabels} from '../lib/series.mjs';
 import {localizedView} from '../lib/international.mjs';
 import {designView,themeVariables} from '../lib/design.mjs';
@@ -12,18 +11,21 @@ const view=localizedView(config,locale);
 const d=designView(config,view);
 const u=view.ui, t=d.ui;
 const mediaLabel=(kind:string)=>kind==='photo'?t.photo:kind==='chart'?t.chart:t.illustration;
+const context=siteContext(config),live=context.live,pub=publicationLabels(locale);
+const articleCatalog=context.articles,seriesCatalog=context.series;
 const realCards=articleListing(config,articleCatalog,locale);
-const cards=realCards.length?realCards:d.cards.map((card,i)=>({...card,id:'fixture-'+i,href:null,summary:null}));
+const cards=live||realCards.length?realCards:d.cards.map((card,i)=>({...card,id:'fixture-'+i,href:null,summary:null}));
 const series=seriesList(config,articleCatalog,seriesCatalog,locale), sl=seriesLabels(locale);
+const feature=live?{...realCards[0],media:realCards[0].media??{source:'builtin',kind:'illustration'}}:d.featured;
 ---
 <BlogShell config={config} locale={locale}>
   <main class="blog-wrap" id="content">
-    <div class="ad-preview ad-banner" aria-label={t.ad}>{t.ad}</div>
+    {!live&&<div class="ad-preview ad-banner" aria-label={t.ad}>{t.ad}</div>}
     <div class="blog-grid">
       <div class="editorial-main">
-        <div class="section-kicker"><span>{t.featured}</span><span class="rule"></span><span class="muted">{u.preview}</span></div>
+        <div class="section-kicker"><span>{live?pub.featured:t.featured}</span><span class="rule"></span>{!live&&<span class="muted">{u.preview}</span>}</div>
         <section class="feature" aria-labelledby="feature-heading">
-          {d.featured.media.source==="local"?<figure class="feature-media"><img src={d.featured.media.path} alt={d.featured.media.alt[view.language]} decoding="async" fetchpriority="high"/><figcaption>{mediaLabel(d.featured.media.kind)} · {t.mediaCredit}: {d.featured.media.credit}</figcaption></figure>:<div class="feature-art" role="img" aria-label={t.illustration}>
+          {feature.media.source==="local"?<figure class="feature-media"><img src={feature.media.path} alt={feature.media.alt[view.language]} decoding="async" fetchpriority="high"/><figcaption>{mediaLabel(feature.media.kind)} · {t.mediaCredit}: {feature.media.credit}</figcaption></figure>:<div class="feature-art" role="img" aria-label={t.illustration}>
             <svg class="feature-svg" viewBox="0 0 820 390" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <defs><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="currentColor" stroke-opacity=".1"/></pattern></defs>
               <rect width="820" height="390" fill="url(#grid)"/>
@@ -41,13 +43,13 @@ const series=seriesList(config,articleCatalog,seriesCatalog,locale), sl=seriesLa
             <span class="art-index" aria-hidden="true">01</span>
           </div>}
           <div class="feature-copy">
-            <span class="eyebrow">{d.featured.category}</span>
-            <h1 id="feature-heading">{d.featured.title}</h1>
-            <p>{d.featured.summary}</p>
-            <span class="draft-label">{t.draft}</span>
+            <span class="eyebrow">{feature.category}</span>
+            <h1 id="feature-heading">{feature.title}</h1>
+            <p>{feature.summary}</p>
+            {live?<EditorialAction href={feature.href} label={pub.read}/>:<span class="draft-label">{t.draft}</span>}
           </div>
         </section>
-        {series.length>0&&<section class="series-feature section-block" id="series"><div class="section-kicker"><h2>{sl.title}</h2><span class="rule"></span></div><p class="muted">{sl.intro}</p>{series.filter(s=>s.href).slice(0,2).map(s=><div class="series-panel"><span class="eyebrow">{sl.draft} · {s.ready}/{s.total}</span><h3>{s.title}</h3><p>{s.description}</p><EditorialAction href={s.href} label={sl.open}/></div>)}<EditorialAction href={view.home+'series/'} label={sl.all}/></section>}
+        {series.length>0&&<section class="series-feature section-block" id="series"><div class="section-kicker"><h2>{sl.title}</h2><span class="rule"></span></div><p class="muted">{sl.intro}</p>{series.filter(s=>s.href).slice(0,2).map(s=><div class="series-panel"><span class="eyebrow">{live?pub.available:sl.draft} · {s.ready}/{s.total}</span><h3>{s.title}</h3><p>{s.description}</p><EditorialAction href={s.href} label={sl.open}/></div>)}<EditorialAction href={view.home+'series/'} label={sl.all}/></section>}
         <section id="sections" class="section-block">
           <div class="section-kicker"><h2>{t.topics}</h2><span class="rule"></span></div>
           <div class="category-list" aria-label={t.topics}>
@@ -56,23 +58,23 @@ const series=seriesList(config,articleCatalog,seriesCatalog,locale), sl=seriesLa
           </div>
         </section>
         <section id="stories" class="section-block">
-          <div class="section-kicker"><h2>{t.stories}</h2><span class="rule"></span><span class="muted">{u.preview}</span></div>
+          <div class="section-kicker"><h2>{live?pub.stories:t.stories}</h2><span class="rule"></span>{!live&&<span class="muted">{u.preview}</span>}</div>
           <div class="search-tools">
             <div class="search-field">
-              <label for="pauta-search">{t.filter}</label>
+              <label for="pauta-search">{live?pub.filter:t.filter}</label>
               <input id="pauta-search" type="search" placeholder={u.placeholder} autocomplete="off"/>
             </div>
             <button id="clear-filters" class="clear-button" type="button">{t.clear}</button>
           </div>
-          <p id="pauta-status" role="status" class="muted" data-count={u.count} data-empty={t.empty}></p>
+          <p id="pauta-status" role="status" class="muted" data-count={live?pub.count:u.count} data-empty={t.empty}></p>
           <ul class="pauta-list">{cards.map((card,i)=><li data-pauta data-article-id={card.id} data-category={card.slug} class:list={["pauta",{"with-media":card.media?.source==="local"}]}>
             {card.media?.source==="local"?<figure class="story-media"><img src={card.media.path} alt={card.media.alt[view.language]} loading="lazy" decoding="async"/><figcaption>{mediaLabel(card.media.kind)} · {card.media.credit}</figcaption></figure>:<div class="story-number" aria-hidden="true">{String(i+2).padStart(2,'0')}<span></span></div>}
-            <div class="story-copy"><span class="eyebrow">{card.category}</span><h3>{card.title}</h3>{card.summary&&<p class="story-summary">{card.summary}</p>}<span class="draft-label">{card.href?t.articleDraft:t.draft}</span>{card.href&&<EditorialAction href={card.href} label={t.readDraft}/>}</div>
+            <div class="story-copy"><span class="eyebrow">{card.category}</span><h3>{card.title}</h3>{card.summary&&<p class="story-summary">{card.summary}</p>}{!live&&<span class="draft-label">{card.href?t.articleDraft:t.draft}</span>}{card.href&&<EditorialAction href={card.href} label={live?pub.read:t.readDraft}/>}</div>
           </li>)}</ul>
         </section>
       </div>
       <aside class="editorial-aside" aria-label={u.complementary}>
-        <div class="ad-preview ad-side">{t.ad}</div>
+        {!live&&<div class="ad-preview ad-side">{t.ad}</div>}
         <section class="side-panel editorial-promise">
           <span class="side-index">01 / {t.edition}</span>
           <h2>{t.method}</h2><p>{t.methodText}</p>

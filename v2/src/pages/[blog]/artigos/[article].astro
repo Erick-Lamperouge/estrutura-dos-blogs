@@ -1,9 +1,7 @@
 ---
 import ArticlePage from '../../../components/ArticlePage.astro';
 import {validateArticles} from '../../../lib/articles.mjs';
-import football from '../../../../config/futebolando.json';
-import cooking from '../../../../config/culinaria-demo.json';
-import catalog from '../../../../content/articles.json';
-export function getStaticPaths(){return [football,cooking].flatMap(config=>validateArticles(config,catalog).map(a=>({params:{blog:config.slug,article:a.editions[config.language].slug},props:{config,id:a.id,locale:config.language}})));}
+import {siteConfigs,siteContext} from '../../../lib/site-context.mjs';
+export function getStaticPaths(){return siteConfigs.flatMap(config=>validateArticles(config,siteContext(config).articles).map(a=>({params:{blog:config.slug,article:a.editions[config.language].slug},props:{config,id:a.id,locale:config.language}})));}
 ---
-<ArticlePage {...Astro.props} catalog={catalog}/>
+<ArticlePage {...Astro.props} catalog={siteContext(Astro.props.config).articles}/>

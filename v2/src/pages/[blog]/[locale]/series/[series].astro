@@ -1,17 +1,14 @@
 ---
 import SeriesPage from '../../../../components/SeriesPage.astro';
 import {validateSeries} from '../../../../lib/series.mjs';
-import football from '../../../../../config/futebolando.json';
-import cooking from '../../../../../config/culinaria-demo.json';
-import catalog from '../../../../../content/articles.json';
-import seriesCatalog from '../../../../../content/series.json';
+import {siteConfigs,siteContext} from '../../../../lib/site-context.mjs';
 export function getStaticPaths(){
-  return [football,cooking].flatMap(config=>{
-    const rows=validateSeries(config,catalog,seriesCatalog);
+  return siteConfigs.flatMap(config=>{
+    const rows=validateSeries(config,siteContext(config).articles,siteContext(config).series);
     if(!rows.length)return [];
     const editions=config.international.editions.filter(e=>e.path);
     return editions.flatMap(e=>rows.filter(s=>s.state!=='planned').map(s=>({params:{blog:config.slug,locale:e.path,series:s.copy[e.locale].slug},props:{config,locale:e.locale,id:s.id}})));
   });
 }
 ---
-<SeriesPage {...Astro.props} catalog={catalog} seriesCatalog={seriesCatalog}/>
+<SeriesPage {...Astro.props} catalog={siteContext(Astro.props.config).articles} seriesCatalog={siteContext(Astro.props.config).series}/>

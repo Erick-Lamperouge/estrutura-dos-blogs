@@ -12,3 +12,5 @@ Leia e aplique docs/WRITING.md antes de redigir, reescrever ou traduzir artigos.
 Conteúdo do Futebolando: editar primeiro na branch dev/editorial-v2 do repo futebolando; atualizar cópia de teste e lock de blobs no núcleo. Nunca confundir dados estatísticos ilustrativos com dados observados. Sem palpites de apostas, odds, garantias ou aquisição de dados paga sem autorização.
 
 SEO/publicação: ler docs/SEO-RELEASE.md. Canonical e hreflang de prévia não autorizam indexação. Não incluir rascunhos em sitemap, inventar autoria ou datas de publicação, nem alterar pins do portal sem testes.
+
+Publicação: ler docs/PUBLICATION.md. Nunca preencher aprovação humana, autoria ou datas por suposição; ledger padrão preview, sem autorizações. Testes de lançamento são fixtures isoladas.

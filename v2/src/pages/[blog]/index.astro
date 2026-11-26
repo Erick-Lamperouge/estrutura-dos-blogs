@@ -1,10 +1,9 @@
 ---
 import BlogHome from '../../components/BlogHome.astro';
 import { validateBlogConfig } from '../../lib/config.mjs';
-import football from '../../../config/futebolando.json';
-import cooking from '../../../config/culinaria-demo.json';
+import {siteConfigs,siteContext} from '../../lib/site-context.mjs';
 export function getStaticPaths() {
-  return [football, cooking].map(config => ({params: {blog: config.slug}, props: {config}}));
+  return siteConfigs.map(config => ({params: {blog: config.slug}, props: {config}}));
 }
 const config = validateBlogConfig(Astro.props.config);
 ---

@@ -3,8 +3,9 @@ import BlogShell from './BlogShell.astro';
 import EditorialAction from './EditorialAction.astro';
 import {localizedView} from '../lib/international.mjs';
 import {seriesList,seriesView,seriesLabels} from '../lib/series.mjs';
+import {siteContext,publicationLabels} from '../lib/site-context.mjs';
 const {config,catalog,seriesCatalog,locale=config.language,id}=Astro.props;
-const v=localizedView(config,locale),t=seriesLabels(locale);
+const v=localizedView(config,locale),t=seriesLabels(locale),live=siteContext(config).live,pub=publicationLabels(locale);
 const rows=seriesList(config,catalog,seriesCatalog,locale);
 const item=id?seriesView(config,catalog,seriesCatalog,id,locale):null;
 const links=item?.links??v.editions.map(e=>({...e,href:e.href+'series/'}));
@@ -14,6 +15,6 @@ const links=item?.links??v.editions.map(e=>({...e,href:e.href+'series/'}));
 <div class="article-page series-page">
 <EditorialAction href={item?v.home+'series/':v.home} label={item?t.all:v.ui.home}/>
 <p class="eyebrow">{t.title}</p><h1 class="article-title">{item?.title??t.title}</h1><p class="article-deck">{item?.description??t.intro}</p>
-{item?<><p class="article-alert">{t.status}</p><ol class="series-episodes">{item.episodes.map(e=><li><span class="episode-number">{String(e.number).padStart(2,'0')}</span><div><h2>{e.title}</h2>{e.href?<EditorialAction href={e.href} label={t.draft}/>:<span class="muted">{t.soon}</span>}</div></li>)}</ol></>:<div class="series-catalog">{rows.map(s=><section class="series-panel"><span class="eyebrow">{s.href?t.draft:t.planned}</span><h2>{s.title}</h2><p>{s.description}</p>{s.href&&<><p class="muted">{s.ready}/{s.total} {t.ready}</p><EditorialAction href={s.href} label={t.open}/></>}</section>)}</div>}
+{item?<>{!live&&<p class="article-alert">{t.status}</p>}<ol class="series-episodes">{item.episodes.map(e=><li><span class="episode-number">{String(e.number).padStart(2,'0')}</span><div><h2>{e.title}</h2>{e.href?<EditorialAction href={e.href} label={live?pub.read:t.draft}/>:<span class="muted">{t.soon}</span>}</div></li>)}</ol></>:<div class="series-catalog">{rows.map(s=><section class="series-panel"><span class="eyebrow">{live?pub.series:s.href?t.draft:t.planned}</span><h2>{s.title}</h2><p>{s.description}</p>{s.href&&<><p class="muted">{s.ready}/{s.total} {live?pub.available:t.ready}</p><EditorialAction href={s.href} label={t.open}/></>}</section>)}</div>}
 </div></main>
 </BlogShell>
