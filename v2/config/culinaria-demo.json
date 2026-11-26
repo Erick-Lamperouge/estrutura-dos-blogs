@@ -47,7 +47,10 @@
       "17:00",
       "23:00"
     ],
-    "timeZone": "America/Fortaleza"
+    "timeZone": "America/Fortaleza",
+    "mode": "hybrid",
+    "betting": false,
+    "forecasts": "not_applicable"
   },
   "monetization": {
     "adsense": {
@@ -94,5 +97,143 @@
         "title": "Como planejar o preparo de uma receita"
       }
     ]
+  },
+  "international": {
+    "defaultLocale": "pt-BR",
+    "editions": [
+      {
+        "locale": "pt-BR",
+        "path": "",
+        "label": "Português",
+        "ui": {
+          "skip": "Pular para o conteúdo",
+          "notice": "Prévia de desenvolvimento · nenhum anúncio ativo",
+          "navigation": "Navegação da prévia",
+          "home": "Início",
+          "categories": "Editorias",
+          "pitches": "Pautas",
+          "content": "conteudo",
+          "advertising": "Espaço reservado · publicidade",
+          "proposal": "proposta editorial",
+          "preparation": "Pautas em preparação",
+          "filter": "Filtrar pautas desta prévia",
+          "placeholder": "Digite um tema...",
+          "draft": "Prévia · ainda não publicada",
+          "complementary": "Espaços complementares",
+          "about": "Sobre o blog",
+          "products": "Guias e produtos",
+          "productDescription": "Espaço futuro para materiais próprios e recomendações identificadas.",
+          "footer": "Rede de Blogs Senhorita Minuto · Protótipo",
+          "count": "pauta(s) encontrada(s).",
+          "language": "Idioma",
+          "preview": "prévia"
+        }
+      },
+      {
+        "locale": "en",
+        "path": "en",
+        "label": "English",
+        "ui": {
+          "skip": "Skip to content",
+          "notice": "Development preview · no active ads",
+          "navigation": "Preview navigation",
+          "home": "Home",
+          "categories": "Sections",
+          "pitches": "Stories",
+          "content": "content",
+          "advertising": "Reserved advertising space",
+          "proposal": "editorial concept",
+          "preparation": "Stories in preparation",
+          "filter": "Filter preview stories",
+          "placeholder": "Enter a topic...",
+          "draft": "Preview · not yet published",
+          "complementary": "Additional sections",
+          "about": "About this blog",
+          "products": "Guides and products",
+          "productDescription": "Reserved for future original publications and disclosed recommendations.",
+          "footer": "Senhorita Minuto Blog Network · Prototype",
+          "count": "story/stories found.",
+          "language": "Language",
+          "preview": "preview"
+        },
+        "copy": {
+          "description": "A demonstration of a cooking theme.",
+          "tagline": "Recipes, technique and flavour.",
+          "categories": [
+            "Recipes",
+            "Techniques",
+            "Ingredients"
+          ],
+          "featured": {
+            "category": "Techniques",
+            "title": "Cooking without complications",
+            "summary": "An example of how the shared engine can serve another subject."
+          },
+          "cards": [
+            {
+              "category": "Recipes",
+              "title": "A guide to planning meals"
+            },
+            {
+              "category": "Ingredients",
+              "title": "Get to know the spices in your kitchen"
+            },
+            {
+              "category": "Techniques",
+              "title": "How to plan the preparation of a recipe"
+            }
+          ]
+        }
+      }
+    ],
+    "candidateLocales": [
+      "es",
+      "th"
+    ],
+    "audience": {
+      "scope": "global",
+      "jurisdiction": null,
+      "seedMarkets": [
+        "BR",
+        "PT"
+      ],
+      "watchMarkets": [],
+      "seedTopics": [
+        "brazilian-cuisine",
+        "regional-cuisine",
+        "cooking-techniques"
+      ],
+      "expansion": "evidence_driven",
+      "allocation": {
+        "core": 50,
+        "demand": 35,
+        "exploration": 15
+      },
+      "minObservedImpressions": 100,
+      "minSources": 1
+    },
+    "payments": {
+      "activated": false,
+      "markets": [
+        {
+          "market": "BR",
+          "currency": "BRL",
+          "candidates": [
+            "pix",
+            "boleto",
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "default",
+          "currency": null,
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        }
+      ]
+    }
   }
 }

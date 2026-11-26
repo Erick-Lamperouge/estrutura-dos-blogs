@@ -35,3 +35,12 @@ jobs:
           test -s dist/culinaria-demo/index.html
           grep -q 'noindex,nofollow' dist/futebolando/index.html
           grep -q 'noindex,nofollow' dist/culinaria-demo/index.html
+          test -s dist/futebolando/en/index.html
+          test -s dist/culinaria-demo/en/index.html
+          grep -q 'lang="en"' dist/futebolando/en/index.html
+          grep -q 'lang="pt-BR"' dist/futebolando/index.html
+          grep -q 'Football beyond the 90 minutes' dist/futebolando/en/index.html
+          grep -q 'href="/futebolando/en/"' dist/futebolando/index.html
+          grep -q 'href="/futebolando/"' dist/futebolando/en/index.html
+          grep -q 'noindex,nofollow' dist/futebolando/en/index.html
+          grep -q 'noindex,nofollow' dist/culinaria-demo/en/index.html

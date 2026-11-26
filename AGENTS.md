@@ -4,3 +4,5 @@ O portal senhoritaminuto.com.br é independente: preservar personagens, mascote,
 Não alterar main nem publicar sem validação e autorização do responsável. Trabalhar em branches, registrar testes reais e atualizar STATE a cada marco. Não expor credenciais, chaves privadas, seeds, tokens, dados de clientes ou chaves Pix pessoais em repositório público.
 Não fabricar autoria, citações, fatos, opiniões do responsável ou depoimentos. Conteúdo e imagens devem ter origem e direitos verificáveis. IA pode ajudar na pesquisa e redação; distinguir fatos, análise e opinião aprovada. Não publicar notícias sem revisão na fase inicial.
 Não ativar ads, checkout, afiliados, doações, rotinas pagas ou publicação automática antes dos gates documentados. Patrocínios estão fora do escopo.
+
+Leia também docs/INTERNATIONAL.md. Não confundir país, idioma e assunto. Respeitar escopo jurídico por blog, fontes verificáveis, métricas agregadas e política sem apostas. Não fabricar sinais de audiência ou probabilidades esportivas.

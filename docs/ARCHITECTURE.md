@@ -7,3 +7,5 @@
 - Ofertas afiliadas: identificação explícita da comissão e rel=sponsored. Produtos: página, preço, política de entrega/reembolso, checkout confiável e controle de entrega. Doação Pix/cripto é distinta de venda. QR e copia e cola somente depois de receber e confirmar dados públicos, rede/moeda e titular; não usar endereço de exchange sem verificar se aceita depósitos, moeda e rede. Pagamentos de produtos precisam de confirmação verificável; não liberar e-book com base apenas em comprovante ou clique. Não armazenar segredos no código.
 - Custos: zero adicionais na fase de desenvolvimento; avaliar termos da hospedagem antes de monetização comercial; domínio registrado não equivale a hospedagem comercial autorizada. Não prometer receita.
 - Roadmap: contrato > prévia > migração > integração > testes > publicação > monetização > redação assistida e métricas > replicação.
+
+- Internacionalização: veja INTERNATIONAL.md. Locales ativos com conteúdo integral, mercados independentes e expansão orientada por evidência. O recomendador recebe dados agregados; não publica. Meios de pagamento por mercado são apenas candidatos nesta fase.

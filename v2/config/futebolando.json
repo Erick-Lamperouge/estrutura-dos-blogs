@@ -61,7 +61,10 @@
       "17:00",
       "23:00"
     ],
-    "timeZone": "America/Fortaleza"
+    "timeZone": "America/Fortaleza",
+    "mode": "hybrid",
+    "betting": false,
+    "forecasts": "sporting_analysis_only"
   },
   "monetization": {
     "adsense": {
@@ -108,5 +111,161 @@
         "title": "Barcelona: jogo posicional e evolução"
       }
     ]
+  },
+  "international": {
+    "defaultLocale": "pt-BR",
+    "editions": [
+      {
+        "locale": "pt-BR",
+        "path": "",
+        "label": "Português",
+        "ui": {
+          "skip": "Pular para o conteúdo",
+          "notice": "Prévia de desenvolvimento · nenhum anúncio ativo",
+          "navigation": "Navegação da prévia",
+          "home": "Início",
+          "categories": "Editorias",
+          "pitches": "Pautas",
+          "content": "conteudo",
+          "advertising": "Espaço reservado · publicidade",
+          "proposal": "proposta editorial",
+          "preparation": "Pautas em preparação",
+          "filter": "Filtrar pautas desta prévia",
+          "placeholder": "Digite um tema...",
+          "draft": "Prévia · ainda não publicada",
+          "complementary": "Espaços complementares",
+          "about": "Sobre o blog",
+          "products": "Guias e produtos",
+          "productDescription": "Espaço futuro para materiais próprios e recomendações identificadas.",
+          "footer": "Rede de Blogs Senhorita Minuto · Protótipo",
+          "count": "pauta(s) encontrada(s).",
+          "language": "Idioma",
+          "preview": "prévia"
+        }
+      },
+      {
+        "locale": "en",
+        "path": "en",
+        "label": "English",
+        "ui": {
+          "skip": "Skip to content",
+          "notice": "Development preview · no active ads",
+          "navigation": "Preview navigation",
+          "home": "Home",
+          "categories": "Sections",
+          "pitches": "Stories",
+          "content": "content",
+          "advertising": "Reserved advertising space",
+          "proposal": "editorial concept",
+          "preparation": "Stories in preparation",
+          "filter": "Filter preview stories",
+          "placeholder": "Enter a topic...",
+          "draft": "Preview · not yet published",
+          "complementary": "Additional sections",
+          "about": "About this blog",
+          "products": "Guides and products",
+          "productDescription": "Reserved for future original publications and disclosed recommendations.",
+          "footer": "Senhorita Minuto Blog Network · Prototype",
+          "count": "story/stories found.",
+          "language": "Language",
+          "preview": "preview"
+        },
+        "copy": {
+          "description": "Football beyond the score: news, context, history and analysis.",
+          "tagline": "The story kicks off here.",
+          "categories": [
+            "News",
+            "Analysis",
+            "History",
+            "Rules",
+            "Brazilian football",
+            "International football"
+          ],
+          "featured": {
+            "category": "Analysis",
+            "title": "Football beyond the 90 minutes",
+            "summary": "Understand the ideas, history and decisions behind the game."
+          },
+          "cards": [
+            {
+              "category": "Rules",
+              "title": "Offside: the rule explained with practical examples"
+            },
+            {
+              "category": "History",
+              "title": "Copa Libertadores: history and competition format"
+            },
+            {
+              "category": "Analysis",
+              "title": "Barcelona: positional play and evolution"
+            }
+          ]
+        }
+      }
+    ],
+    "candidateLocales": [
+      "es",
+      "pt-PT"
+    ],
+    "audience": {
+      "scope": "global",
+      "jurisdiction": null,
+      "seedMarkets": [
+        "BR",
+        "GB",
+        "ES",
+        "PT",
+        "DE",
+        "FR",
+        "IT"
+      ],
+      "watchMarkets": [
+        "CN"
+      ],
+      "seedTopics": [
+        "champions-league",
+        "premier-league",
+        "la-liga",
+        "liga-portugal",
+        "serie-a-italia",
+        "bundesliga",
+        "ligue-1",
+        "brasileirao",
+        "libertadores",
+        "real-madrid",
+        "barcelona"
+      ],
+      "expansion": "evidence_driven",
+      "allocation": {
+        "core": 50,
+        "demand": 35,
+        "exploration": 15
+      },
+      "minObservedImpressions": 100,
+      "minSources": 1
+    },
+    "payments": {
+      "activated": false,
+      "markets": [
+        {
+          "market": "BR",
+          "currency": "BRL",
+          "candidates": [
+            "pix",
+            "boleto",
+            "card",
+            "crypto"
+          ]
+        },
+        {
+          "market": "default",
+          "currency": null,
+          "candidates": [
+            "card",
+            "crypto"
+          ]
+        }
+      ]
+    }
   }
 }
