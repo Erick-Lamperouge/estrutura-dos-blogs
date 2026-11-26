@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "slug": "culinaria-demo",
+  "name": "À Mesa",
+  "description": "Demonstração de um tema de culinária.",
+  "tagline": "Receitas, técnica e sabor.",
+  "language": "pt-BR",
+  "status": "draft",
+  "theme": {
+    "background": "#211813",
+    "surface": "#392820",
+    "text": "#FFF3E2",
+    "muted": "#E1C8AE",
+    "primary": "#F59E0B",
+    "accent": "#FBBF24",
+    "border": "#62452E"
+  },
+  "categories": [
+    {
+      "slug": "receitas",
+      "label": "Receitas"
+    },
+    {
+      "slug": "tecnicas",
+      "label": "Técnicas"
+    },
+    {
+      "slug": "ingredientes",
+      "label": "Ingredientes"
+    }
+  ],
+  "editorial": {
+    "voice": "Prático e acolhedor, sem promessas milagrosas.",
+    "audience": "Pessoas que cozinham em casa.",
+    "formats": [
+      "guia",
+      "receita",
+      "analise"
+    ],
+    "review": "human_required",
+    "opinion": "approved_only",
+    "requireSources": true,
+    "allowAutomaticPublishing": false,
+    "initialResearchWindows": [
+      "06:00",
+      "12:30",
+      "17:00",
+      "23:00"
+    ],
+    "timeZone": "America/Fortaleza"
+  },
+  "monetization": {
+    "adsense": {
+      "planned": true,
+      "enabled": false
+    },
+    "affiliates": {
+      "planned": true,
+      "enabled": false
+    },
+    "products": {
+      "planned": true,
+      "enabled": false
+    },
+    "donations": {
+      "pix": {
+        "planned": true,
+        "enabled": false
+      },
+      "crypto": {
+        "planned": true,
+        "enabled": false
+      }
+    },
+    "sponsorship": false
+  },
+  "preview": {
+    "featured": {
+      "category": "Técnicas",
+      "title": "Cozinha sem complicação",
+      "summary": "Um exemplo de como o mesmo núcleo pode servir a outro tema."
+    },
+    "cards": [
+      {
+        "category": "Receitas",
+        "title": "Um guia para organizar as refeições"
+      },
+      {
+        "category": "Ingredientes",
+        "title": "Conheça os temperos da sua cozinha"
+      },
+      {
+        "category": "Técnicas",
+        "title": "Como planejar o preparo de uma receita"
+      }
+    ]
+  }
+}

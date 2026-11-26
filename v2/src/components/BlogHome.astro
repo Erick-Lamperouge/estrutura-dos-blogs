@@ -1,0 +1,80 @@
+---
+import '../styles/blog.css';
+import { blogPath } from '../lib/config.mjs';
+const { config } = Astro.props;
+const t = config.theme;
+const vars = Object.entries(t).map(([key,value]) => '--blog-'+key+':'+value).join(';');
+const home = blogPath(config);
+---
+<!doctype html>
+<html lang={config.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content={config.description} />
+    <title>{config.name} — prévia</title>
+  </head>
+  <body class="blog" style={vars}>
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <div class="blog-notice">Prévia de desenvolvimento · nenhum anúncio ativo</div>
+    <header class="blog-header">
+      <div class="blog-wrap header-inner">
+        <a class="brand" href={home}>{config.name}</a>
+        <p>{config.tagline}</p>
+        <nav aria-label="Navegação da prévia">
+          <a href={home}>Início</a><a href="#editorias">Editorias</a><a href="#pautas">Pautas</a>
+        </nav>
+      </div>
+    </header>
+    <main id="conteudo" class="blog-wrap">
+      <div class="ad-preview" aria-label="Espaço demonstrativo sem anúncio">Espaço reservado · publicidade</div>
+      <div class="blog-grid">
+        <div>
+          <section class="feature" aria-labelledby="feature-heading">
+            <div class="feature-art" aria-hidden="true"><div></div><div></div><div></div></div>
+            <div class="feature-copy">
+              <p class="eyebrow">{config.preview.featured.category} / proposta editorial</p>
+              <h1 id="feature-heading">{config.preview.featured.title}</h1>
+              <p>{config.preview.featured.summary}</p>
+            </div>
+          </section>
+          <section id="editorias">
+            <h2>Editorias</h2>
+            <ul class="chips">{config.categories.map(category => <li>{category.label}</li>)}</ul>
+          </section>
+          <section id="pautas">
+            <h2>Pautas em preparação</h2>
+            <label for="pauta-search">Filtrar pautas desta prévia</label>
+            <input id="pauta-search" type="search" placeholder="Digite um tema..." />
+            <p id="pauta-status" role="status" class="muted"></p>
+            <ul class="pauta-list">{config.preview.cards.map(card => (
+              <li data-pauta class="pauta"><span class="eyebrow">{card.category}</span><h3>{card.title}</h3><span class="muted">Prévia · ainda não publicada</span></li>
+            ))}</ul>
+          </section>
+        </div>
+        <aside aria-label="Espaços complementares">
+          <div class="ad-preview ad-side">Espaço reservado · publicidade</div>
+          <section class="side-panel"><h2>Sobre o blog</h2><p>{config.description}</p></section>
+          <section class="side-panel"><h2>Guias e produtos</h2><p>Espaço futuro para materiais próprios e recomendações identificadas.</p></section>
+        </aside>
+      </div>
+    </main>
+    <footer class="blog-wrap blog-footer">{config.name} · Rede de Blogs Senhorita Minuto · Protótipo</footer>
+    <script>
+      const input = document.querySelector<HTMLInputElement>('#pauta-search');
+      const status = document.querySelector('#pauta-status');
+      const rows = [...document.querySelectorAll<HTMLElement>('[data-pauta]')];
+      const normal = (text: string) => text.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+      input?.addEventListener('input', () => {
+        const value = normal(input.value.trim());
+        let found = 0;
+        for (const row of rows) {
+          row.hidden = !normal(row.textContent ?? '').includes(value);
+          if (!row.hidden) found++;
+        }
+        if (status) status.textContent = found + ' pauta(s) encontrada(s).';
+      });
+    </script>
+  </body>
+</html>

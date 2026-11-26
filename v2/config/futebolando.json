@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "slug": "futebolando",
+  "name": "Futebolando",
+  "description": "Futebol além do placar: notícias, contexto, história e análise.",
+  "tagline": "O apito inicial da notícia é aqui.",
+  "language": "pt-BR",
+  "status": "draft",
+  "theme": {
+    "background": "#0C0F13",
+    "surface": "#151A1F",
+    "text": "#EAEEF2",
+    "muted": "#9AA3AE",
+    "primary": "#22C55E",
+    "accent": "#FBBF24",
+    "border": "#303944"
+  },
+  "categories": [
+    {
+      "slug": "noticias",
+      "label": "Notícias"
+    },
+    {
+      "slug": "analises",
+      "label": "Análises"
+    },
+    {
+      "slug": "historia",
+      "label": "História"
+    },
+    {
+      "slug": "regras",
+      "label": "Regras"
+    },
+    {
+      "slug": "futebol-brasileiro",
+      "label": "Futebol brasileiro"
+    },
+    {
+      "slug": "futebol-internacional",
+      "label": "Futebol internacional"
+    }
+  ],
+  "editorial": {
+    "voice": "Curioso, direto e explicativo; analítico sem sensacionalismo.",
+    "audience": "Quem gosta de futebol e quer compreender o jogo além do resultado.",
+    "formats": [
+      "noticia",
+      "analise",
+      "guia",
+      "historia",
+      "opiniao"
+    ],
+    "review": "human_required",
+    "opinion": "approved_only",
+    "requireSources": true,
+    "allowAutomaticPublishing": false,
+    "initialResearchWindows": [
+      "06:00",
+      "12:30",
+      "17:00",
+      "23:00"
+    ],
+    "timeZone": "America/Fortaleza"
+  },
+  "monetization": {
+    "adsense": {
+      "planned": true,
+      "enabled": false
+    },
+    "affiliates": {
+      "planned": true,
+      "enabled": false
+    },
+    "products": {
+      "planned": true,
+      "enabled": false
+    },
+    "donations": {
+      "pix": {
+        "planned": true,
+        "enabled": false
+      },
+      "crypto": {
+        "planned": true,
+        "enabled": false
+      }
+    },
+    "sponsorship": false
+  },
+  "preview": {
+    "featured": {
+      "category": "Análises",
+      "title": "O futebol além dos 90 minutos",
+      "summary": "Um espaço para entender as ideias, a história e as decisões por trás do jogo."
+    },
+    "cards": [
+      {
+        "category": "Regras",
+        "title": "Impedimento: a regra explicada com exemplos práticos"
+      },
+      {
+        "category": "História",
+        "title": "Libertadores: história e formato da competição"
+      },
+      {
+        "category": "Análises",
+        "title": "Barcelona: jogo posicional e evolução"
+      }
+    ]
+  }
+}
