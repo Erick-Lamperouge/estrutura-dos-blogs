@@ -71,7 +71,7 @@
             "role": "rule",
             "heading": "O que diz a Regra 11?",
             "paragraphs": [
-              "A primeira condição é estar no campo adversário, sem contar a linha do meio-campo. A segunda é que uma parte válida do corpo esteja mais próxima da linha de gol adversária do que a bola e o penúltimo adversário. Entram nessa comparação cabeça, tronco e pés, mas não mãos e braços. Se o jogador estiver na mesma altura do penúltimo adversário, esse critério não caracteriza uma posição de impedimento.",
+              "Para estar em posição de impedimento, uma parte válida do corpo precisa estar na metade adversária, sem contar a linha central, e mais próxima da linha de gol do que a bola e o penúltimo adversário. A comparação inclui cabeça, tronco e pés, mas exclui mãos e braços; o limite do braço fica na altura da parte inferior da axila. Se o atacante estiver nivelado com o penúltimo adversário ou com os dois últimos, não estará em posição de impedimento.",
               "Depois de identificar a posição, o árbitro avalia a participação. Ela pode ocorrer quando o jogador toca na bola, interfere na ação de um adversário ou aproveita determinados rebotes, desvios e defesas. Confirmada a infração, a equipe adversária recebe um tiro livre indireto no local em que ela ocorreu."
             ],
             "sourceIds": [
@@ -83,7 +83,8 @@
             "role": "exception",
             "heading": "Quando a posição não conta toda a história",
             "paragraphs": [
-              "Um atacante que não toca na bola ainda pode interferir claramente na visão do goleiro. Em contrapartida, outro jogador pode permanecer adiantado sem participar da jogada. Há também situações em que a própria origem da bola muda a análise, como o recebimento direto de um lateral, tema do próximo episódio."
+              "Um atacante que não toca na bola ainda pode interferir claramente na visão do goleiro. Em contrapartida, outro jogador pode permanecer adiantado sem participar da jogada. Há também situações em que a própria origem da bola muda a análise, como o recebimento direto de um lateral, tema do próximo episódio.",
+              "Outra distinção importante aparece quando a bola passa por um defensor. Um simples desvio não elimina necessariamente o impedimento, enquanto uma ação deliberada de jogar a bola pode permitir que o atacante a receba legalmente. A exceção a essa última situação é uma defesa deliberada para evitar um gol. Por isso, não basta observar se houve contato com o adversário: é preciso interpretar a natureza da ação."
             ],
             "sourceIds": [
               "ifab-11"
@@ -136,7 +137,7 @@
             "role": "rule",
             "heading": "What does Law 11 say?",
             "paragraphs": [
-              "Start with the opponents' half, excluding the halfway line. A relevant part of the player's body must also be closer to the opponents' goal line than both the ball and the second-last opponent. The head, body and feet count; hands and arms do not. Being level with the second-last opponent does not satisfy this positional test.",
+              "To be in an offside position, a relevant part of the player's body must be in the opponents' half, excluding the halfway line, and closer to the goal line than both the ball and the second-last opponent. The head, body and feet count, but hands and arms do not; the arm boundary is level with the bottom of the armpit. A player level with the second-last opponent or with the last two opponents is onside.",
               "The next question is involvement. A player may become involved by playing the ball, interfering with an opponent or benefiting from certain rebounds, deflections or saves. If an offside offence occurs, the opposing team receives an indirect free kick where it occurred."
             ],
             "sourceIds": [
@@ -148,7 +149,8 @@
             "role": "exception",
             "heading": "When position is only part of the story",
             "paragraphs": [
-              "A forward may clearly obstruct a goalkeeper's view without touching the ball. Another player may stand in an advanced position without affecting play. How the ball arrives can also matter: direct receipt from a throw-in is one of the exceptions explored in the next episode."
+              "A forward may clearly obstruct a goalkeeper's view without touching the ball. Another player may stand in an advanced position without affecting play. How the ball arrives can also matter: direct receipt from a throw-in is one of the exceptions explored in the next episode.",
+              "Another distinction arises when the ball reaches a defender. A mere deflection does not necessarily remove the offside restriction, whereas a deliberate play by an opponent can allow the forward to receive the ball legally. A deliberate save is an exception to the latter principle. The key is not simply whether a defender touched the ball, but what kind of action took place."
             ],
             "sourceIds": [
               "ifab-11"
@@ -227,7 +229,8 @@
             "heading": "O que diz a Regra 11.3?",
             "paragraphs": [
               "As três situações têm algo em comum: o jogador recebe a bola diretamente de um dos reinícios mencionados. A palavra diretamente é importante, porque delimita o alcance da exceção. Uma cobrança de falta, por exemplo, não está entre esses três reinícios.",
-              "Assim, duas jogadas visualmente parecidas podem exigir decisões distintas. Para entender qual delas está sujeita à análise de impedimento, é necessário saber de onde veio a bola."
+              "Assim, duas jogadas visualmente parecidas podem exigir decisões distintas. Para entender qual delas está sujeita à análise de impedimento, é necessário saber de onde veio a bola.",
+              "O tiro de meta também não deve ser confundido com um lançamento comum do goleiro durante o jogo. O primeiro está entre as reposições expressamente isentas; o segundo exige a análise habitual de impedimento."
             ],
             "sourceIds": [
               "ifab-11"
@@ -291,7 +294,8 @@
             "heading": "What does Law 11.3 say?",
             "paragraphs": [
               "All three exceptions concern direct receipt from a specified restart. Directly is the key word because it limits how far the exception extends. A free kick, for instance, is not one of the three listed restarts.",
-              "Two moves may look remarkably similar and still require different decisions. Before assessing offside, it helps to establish where the ball came from."
+              "Two moves may look remarkably similar and still require different decisions. Before assessing offside, it helps to establish where the ball came from.",
+              "A goal kick should not be confused with a goalkeeper's ordinary distribution during open play. The former is a specified exempt restart; the latter requires the normal offside assessment."
             ],
             "sourceIds": [
               "ifab-11"
@@ -401,7 +405,8 @@
             "role": "exception",
             "heading": "E se a bola tocar no árbitro?",
             "paragraphs": [
-              "O simples contato com o árbitro não basta para interromper o lance. Se a bola permanece no campo, mas o toque muda a equipe que tem a posse, origina um ataque promissor ou manda a bola diretamente para o gol, o reinício é uma bola ao chão. Fora dessas situações, o toque por si só não determina a interrupção."
+              "O simples contato com um integrante da equipe de arbitragem, inclusive um assistente, não basta para interromper o lance. Se a bola permanece no campo, mas o toque muda a equipe que tem a posse, origina um ataque promissor ou manda a bola diretamente para o gol, o reinício é uma bola ao chão. Fora dessas situações, o toque por si só não determina a interrupção.",
+              "A edição 2026/27 também prevê um caso específico: se um membro da comissão técnica, suplente, jogador substituído ou expulso, ou atleta temporariamente fora do campo, toca na bola que está claramente saindo, ainda em jogo, sem intenção de interferir de maneira injusta, o reinício é um tiro livre indireto para a outra equipe. A regra não prevê cartão apenas por esse contato. É uma situação diferente de esperar a bola ultrapassar totalmente a linha."
             ],
             "sourceIds": [
               "ifab-9"
@@ -465,7 +470,8 @@
             "role": "exception",
             "heading": "What if the ball strikes the referee?",
             "paragraphs": [
-              "Contact alone is not enough to stop the move. If the ball remains on the field but possession changes, a promising attack begins or the ball goes straight into a goal, play resumes with a dropped ball. Outside those circumstances, contact itself does not require play to stop."
+              "Contact with a match official, including an assistant referee, is not enough on its own to stop the move. If the ball remains on the field but possession changes, a promising attack begins or the ball goes straight into a goal, play resumes with a dropped ball. Outside those circumstances, contact itself does not require play to stop.",
+              "The 2026/27 edition also covers a specific situation: if a team official, substitute, substituted or sent-off player, or a player temporarily off the field, touches a ball that is clearly going out while it is still in play, without intending to interfere unfairly, the other team receives an indirect free kick. No disciplinary sanction is imposed for that contact alone. This differs from waiting for the ball to cross the boundary completely."
             ],
             "sourceIds": [
               "ifab-9"
@@ -569,7 +575,8 @@
             "role": "exception",
             "heading": "E se um atacante impedir a reposição?",
             "paragraphs": [
-              "O goleiro não pode ser desafiado enquanto controla a bola com as mãos ou os braços. Se um adversário o impede de repor a bola, o árbitro precisa avaliar essa interferência. Não seria correto simplesmente ignorar a ação do atacante e aplicar o limite de tempo como se o goleiro estivesse livre para repor."
+              "O goleiro não pode ser desafiado enquanto controla a bola com as mãos ou os braços. Se um adversário o impede de repor a bola, o árbitro precisa avaliar essa interferência. Não seria correto simplesmente ignorar a ação do atacante e aplicar o limite de tempo como se o goleiro estivesse livre para repor.",
+              "Se o atacante impedir a reposição e não houver vantagem a aplicar, o árbitro deve punir a infração em favor da equipe do goleiro: com tiro livre direto quando houver contato físico com o goleiro, ou indireto quando não houver contato. A eventual advertência depende das circunstâncias, como uma ação temerária ou a interrupção de um ataque promissor."
             ],
             "sourceIds": [
               "ifab-12"
@@ -634,7 +641,8 @@
             "role": "exception",
             "heading": "What if an attacker prevents release?",
             "paragraphs": [
-              "An opponent cannot challenge a goalkeeper who has the ball under control with their hands or arms. If an attacker prevents release, the referee must assess that interference rather than applying the time limit as though the goalkeeper had been free to distribute the ball."
+              "An opponent cannot challenge a goalkeeper who has the ball under control with their hands or arms. If an attacker prevents release, the referee must assess that interference rather than applying the time limit as though the goalkeeper had been free to distribute the ball.",
+              "If an attacker prevents release and there is no advantage to apply, the referee penalises the offence in favour of the goalkeeper's team: a direct free kick when the attacker makes contact with the goalkeeper, or an indirect free kick without contact. A caution depends on the circumstances, such as a reckless action or interference with a promising attack."
             ],
             "sourceIds": [
               "ifab-12"

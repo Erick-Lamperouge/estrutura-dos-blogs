@@ -16,3 +16,6 @@ Referências oficiais consultadas 26/11/2026:
 - https://developers.google.com/search/docs/crawling-indexing/block-indexing
 - https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
 - https://developers.google.com/search/docs/appearance/structured-data/article
+
+## Primeira conferência assistida da série de regras
+Fonte editorial 2cc3e76ee3e6c5459ca48dfce71fd3435e2fbfea: https://github.com/Erick-Lamperouge/futebolando/blob/dev/editorial-v2/editorial/REVIEW-RULES-2026-11-26.md. Quatro artigos, oito versões de idioma, aprimorados com base na IFAB consultada (2026/27) e histórico 2025/26. Nenhuma aprovação humana registrada. Rascunhos continuam não indexáveis. As demais pautas (Real Madrid, Libertadores, Barcelona, xG) aguardam revisão específica. CI anterior do SEO 45910175434 passou (171 testes, 30 rotas, 60 alternates, seis cenários). Após atualizar snapshot, revalidar.
