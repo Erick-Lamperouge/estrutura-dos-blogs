@@ -29,6 +29,19 @@ try{
     assert.equal(await page.locator('script[src*="googlesyndication"],script[src*="googletagmanager"]').count(),0);
     assert.equal(await page.locator('body').getAttribute('data-density'),'minimal');
     assert.equal(await page.locator('html').getAttribute('data-blog-theme'),'light');
+    await page.evaluate(()=>document.fonts.ready);
+    const fontReport=await page.evaluate(async()=>{
+      const specs=['800 24px "Barlow Condensed"','600 24px "Source Serif 4 Variable"','500 16px "Inter Variable"'];
+      const loaded=await Promise.all(specs.map(s=>document.fonts.load(s,'Futebolando')));
+      return loaded.map(a=>a.length>0&&a.every(f=>f.status==='loaded'));
+    });
+    assert.deepEqual(fontReport,[true,true,true]);
+    const controls=await page.locator('.primary-nav a,.category-list button,.blog-languages a,#blog-theme,#pauta-search,#clear-filters,.search-link,.editorial-action').evaluateAll(nodes=>nodes.filter(n=>n.getClientRects().length).map(n=>{const r=n.getBoundingClientRect();return [n.textContent,r.width,r.height]}));
+    assert.ok(controls.every(c=>c[1]>=44&&c[2]>=44),JSON.stringify(controls.filter(c=>c[1]<44||c[2]<44)));
+    const keyboard=page.locator('[data-category-filter]').nth(1);
+    await keyboard.focus();await page.keyboard.press('Space');
+    assert.equal(await keyboard.getAttribute('aria-pressed'),'true');
+    await page.locator('#clear-filters').click();
     const light=await page.locator('body').evaluate(el=>getComputedStyle(el).backgroundColor);
     await page.screenshot({path:'review-shots/'+name+'-light.png',fullPage:true,animations:'disabled'});
     await page.locator('#blog-theme').selectOption('dark');
@@ -68,6 +81,24 @@ try{
     assert.equal(await page.locator('html').getAttribute('data-blog-theme'),'light');
     await page.emulateMedia({colorScheme:'dark'});
     await page.waitForFunction(()=>document.documentElement.dataset.blogTheme==='dark');
+    await page.emulateMedia({reducedMotion:'reduce'});
+    assert.equal(await page.locator('[data-category-filter]').first().evaluate(el=>getComputedStyle(el).transitionDuration),'0s');
+    if(motif==='pitch'){
+      const articleLink=page.locator('.story-copy .editorial-action').first();
+      await articleLink.focus();await page.keyboard.press('Enter');
+      await page.waitForURL(/\/(artigos|articles)\//);
+      assert.equal(await page.locator('article.article-page h1').count(),1);
+      assert.equal(await page.locator('.article-references a').count(),1);
+      assert.equal(await page.locator('meta[name=robots]').getAttribute('content'),'noindex,nofollow');
+      assert.equal(await page.locator('#blog-theme').inputValue(),'system');
+      const next=other==='en'?'pt-BR':'en';
+      await page.locator('.blog-languages a[hreflang="'+next+'"]').click();
+      assert.equal(await page.locator('html').getAttribute('lang'),next);
+      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),'article overflow');
+      await page.locator('.article-related a').first().click();
+      assert.equal(await page.locator('article.article-page h1').count(),1);
+      await page.screenshot({path:'review-shots/'+name+'-article.png',fullPage:true,animations:'disabled'});
+    }
     assert.deepEqual(errors,[]);
     await page.close();
     console.log('PASS browser '+name);

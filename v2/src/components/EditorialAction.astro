@@ -1,0 +1,5 @@
+---
+import BlogIcon from './BlogIcon.astro';
+const {href,label}=Astro.props;
+---
+<a class="editorial-action" href={href}><span>{label}</span><span class="action-arrow"><BlogIcon name="arrow"/></span></a>

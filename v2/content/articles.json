@@ -1,0 +1,170 @@
+[
+  {
+    "blog": "futebolando",
+    "id": "offside-guide",
+    "category": "regras",
+    "format": "guia",
+    "status": "draft",
+    "preparedAt": "2026-11-26",
+    "reviewedAt": null,
+    "previewCardIndex": 0,
+    "media": {
+      "kind": "illustration",
+      "source": "local",
+      "path": "/futebolando/media/offside-schematic.svg",
+      "rights": "original",
+      "credit": "Futebolando",
+      "alt": {
+        "pt-BR": "Diagrama esquemático de um campo com linha defensiva e posições de jogadores, sem representar uma partida real.",
+        "en": "Schematic pitch with a defensive line and player positions, not depicting an actual match."
+      }
+    },
+    "sources": [
+      {
+        "id": "ifab-11",
+        "title": "IFAB — Law 11: Offside",
+        "url": "https://www.theifab.com/laws/latest/offside/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "related": [
+      "offside-restarts"
+    ],
+    "editions": {
+      "pt-BR": {
+        "slug": "impedimento",
+        "title": "Impedimento: como interpretar a posição e a participação no lance",
+        "summary": "Entenda a diferença entre estar adiantado e cometer uma infração de impedimento.",
+        "sections": [
+          {
+            "id": "posicao",
+            "heading": "A posição é apenas o primeiro passo",
+            "paragraphs": [
+              "A avaliação começa no momento em que um companheiro joga ou toca na bola. A posição é analisada na metade adversária, em relação à bola e ao penúltimo adversário. Estar adiantado, por si só, não é infração."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "participacao",
+            "heading": "Quando existe infração?",
+            "paragraphs": [
+              "A posição irregular torna-se punível quando o jogador participa de uma forma prevista na regra, como jogar a bola, interferir em um adversário ou obter vantagem de um rebote ou desvio em condições específicas.",
+              "Uma linha desenhada no campo ajuda a explicar a posição, mas não decide sozinha se houve infração. A análise depende também da sequência do lance."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          }
+        ]
+      },
+      "en": {
+        "slug": "offside",
+        "title": "Offside: understanding position and involvement in play",
+        "summary": "Learn the distinction between an offside position and an offside offence.",
+        "sections": [
+          {
+            "id": "position",
+            "heading": "Position is only the first step",
+            "paragraphs": [
+              "The assessment begins when a teammate plays or touches the ball. Position is considered in the opponents’ half, relative to both the ball and the second-last opponent. An offside position alone is not an offence."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "involvement",
+            "heading": "When is it an offence?",
+            "paragraphs": [
+              "A player in an offside position is penalised only if they become involved in a way described by the law, such as playing the ball, interfering with an opponent or gaining an advantage from certain rebounds or deflections.",
+              "A line on a pitch diagram can help explain position, but cannot determine an offence by itself. The sequence of play also matters."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "blog": "futebolando",
+    "id": "offside-restarts",
+    "category": "regras",
+    "format": "guia",
+    "status": "draft",
+    "preparedAt": "2026-11-26",
+    "reviewedAt": null,
+    "previewCardIndex": null,
+    "media": null,
+    "sources": [
+      {
+        "id": "ifab-11",
+        "title": "IFAB — Law 11: Offside",
+        "url": "https://www.theifab.com/laws/latest/offside/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "related": [
+      "offside-guide"
+    ],
+    "editions": {
+      "pt-BR": {
+        "slug": "impedimento-reinicios",
+        "title": "Em quais reinícios não há infração de impedimento?",
+        "summary": "Três situações ajudam a entender as exceções previstas na regra.",
+        "sections": [
+          {
+            "id": "excecoes",
+            "heading": "Recebimento direto",
+            "paragraphs": [
+              "Não se marca impedimento por receber diretamente a bola de um tiro de meta, arremesso lateral ou tiro de canto. A exceção diz respeito ao recebimento direto daquele reinício."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "lance-seguinte",
+            "heading": "O lance seguinte",
+            "paragraphs": [
+              "Depois que a bola entra em jogo, um novo passe de um companheiro pode exigir outra avaliação de impedimento. Não se deve estender a exceção a toda a sequência."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          }
+        ]
+      },
+      "en": {
+        "slug": "offside-restarts",
+        "title": "Which restarts are exempt from offside offences?",
+        "summary": "Three situations help explain the exceptions in the law.",
+        "sections": [
+          {
+            "id": "exceptions",
+            "heading": "Receiving directly",
+            "paragraphs": [
+              "Receiving the ball directly from a goal kick, throw-in or corner kick does not constitute an offside offence. The exception concerns the direct receipt of that restart."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "next-play",
+            "heading": "The next phase",
+            "paragraphs": [
+              "Once the ball is in play, a new pass by a teammate may require a fresh offside assessment. The exception does not cover the entire subsequent sequence."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

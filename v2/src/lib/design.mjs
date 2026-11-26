@@ -1,5 +1,5 @@
 /** Shared visual contract: local media only; no remote script or unreviewed embeds. */
-const required=['edition','search','all','topics','featured','stories','filter','empty','clear','method','methodText','illustration','ad','draft','return','guide','guideText','about','network','appearance','system','light','dark','photo','chart','mediaCredit'];
+const required=['edition','search','all','topics','featured','stories','filter','empty','clear','method','methodText','illustration','ad','draft','return','guide','guideText','about','network','appearance','system','light','dark','photo','chart','mediaCredit','readArticle','readDraft','articleDraft','contents','sources','related','prepared','updated','backHome','noReview','reading','fontLicenses'];
 const nonblank=x=>typeof x==='string'&&x.trim().length>0;
 const need=(ok,msg)=>{if(!ok)throw new Error(msg);};
 export function validateDesign(config){
@@ -12,6 +12,7 @@ export function validateDesign(config){
   for(const edition of config.international.editions)need(required.every(k=>nonblank(d.copy?.[edition.locale]?.[k])),'Incomplete design translation');
   validateAppearance(config);
   validateMedia(config);
+  validateRefinement(config);
   return d;
 }
 export function designView(config,view){
@@ -65,4 +66,13 @@ export function validateMedia(config){
   check(d.media.featured,true);
   for(const m of d.media.cards)check(m,false);
   return d.media;
+}
+
+export function validateRefinement(config){
+  const r=config.design?.refinement;
+  need(r&&['hybrid','classic','system'].includes(r.typography),'Invalid typography preset');
+  need(['circular','underline','pill'].includes(r.navigation),'Invalid navigation preset');
+  need(['editorial','filled','outline'].includes(r.action),'Invalid action preset');
+  need(['emerald','custom'].includes(r.palette)&&['subtle','none'].includes(r.motion)&&r.minTarget===44,'Invalid design refinement');
+  return r;
 }

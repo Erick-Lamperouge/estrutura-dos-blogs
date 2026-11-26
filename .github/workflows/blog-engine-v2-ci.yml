@@ -44,6 +44,15 @@ jobs:
           grep -q 'href="/futebolando/"' dist/futebolando/en/index.html
           grep -q 'noindex,nofollow' dist/futebolando/en/index.html
           grep -q 'noindex,nofollow' dist/culinaria-demo/en/index.html
+          test -s dist/futebolando/artigos/impedimento/index.html
+          test -s dist/futebolando/en/articles/offside/index.html
+          test -s dist/futebolando/artigos/impedimento-reinicios/index.html
+          test -s dist/futebolando/en/articles/offside-restarts/index.html
+          grep -q 'noindex,nofollow' dist/futebolando/artigos/impedimento/index.html
+          grep -q 'noindex,nofollow' dist/futebolando/en/articles/offside/index.html
+          test -s dist/blog-font-licenses/barlow-condensed.txt
+          test -s dist/blog-font-licenses/source-serif-4.txt
+          test -s dist/blog-font-licenses/inter.txt
       - name: Install isolated browser test tools
         run: |
           npm install --no-save --package-lock=false playwright@1.58.2 --no-audit --no-fund

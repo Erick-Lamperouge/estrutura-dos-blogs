@@ -5,11 +5,14 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/font-notices.mjs && astro build",
     "preview": "astro preview",
     "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
-    "astro": "7.2.6"
+    "astro": "7.2.6",
+    "@fontsource/barlow-condensed": "5.2.8",
+    "@fontsource-variable/source-serif-4": "5.2.9",
+    "@fontsource-variable/inter": "5.2.8"
   }
 }

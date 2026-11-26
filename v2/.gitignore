@@ -6,3 +6,5 @@ dist/
 !.env.example
 
 review-shots/
+
+public/blog-font-licenses/

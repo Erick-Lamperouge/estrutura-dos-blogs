@@ -341,7 +341,19 @@
         "dark": "Escuro",
         "photo": "Fotografia",
         "chart": "Gráfico",
-        "mediaCredit": "Crédito"
+        "mediaCredit": "Crédito",
+        "readArticle": "Ler matéria",
+        "readDraft": "Ler prévia",
+        "articleDraft": "Artigo em revisão · ainda não publicado",
+        "contents": "Nesta matéria",
+        "sources": "Fontes e referências",
+        "related": "Leituras relacionadas",
+        "prepared": "Preparado em",
+        "updated": "Revisado em",
+        "backHome": "Voltar ao blog",
+        "noReview": "Revisão humana pendente",
+        "reading": "min de leitura",
+        "fontLicenses": "Licenças tipográficas"
       },
       "en": {
         "edition": "DIGITAL EDITION",
@@ -369,7 +381,19 @@
         "dark": "Dark",
         "photo": "Photograph",
         "chart": "Chart",
-        "mediaCredit": "Credit"
+        "mediaCredit": "Credit",
+        "readArticle": "Read article",
+        "readDraft": "Read preview",
+        "articleDraft": "Article under review · not published",
+        "contents": "In this article",
+        "sources": "Sources and references",
+        "related": "Related reading",
+        "prepared": "Prepared on",
+        "updated": "Reviewed on",
+        "backHome": "Back to blog",
+        "noReview": "Human review pending",
+        "reading": "min read",
+        "fontLicenses": "Font licenses"
       }
     },
     "appearance": {
@@ -396,6 +420,14 @@
         null,
         null
       ]
+    },
+    "refinement": {
+      "typography": "classic",
+      "navigation": "underline",
+      "action": "editorial",
+      "palette": "custom",
+      "motion": "subtle",
+      "minTarget": 44
     }
   }
 }

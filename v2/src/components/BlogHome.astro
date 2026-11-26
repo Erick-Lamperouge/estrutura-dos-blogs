@@ -1,68 +1,18 @@
 ---
-import '../styles/blog.css';
+import BlogShell from './BlogShell.astro';
+import EditorialAction from './EditorialAction.astro';
+import {previewArticleLinks} from '../lib/articles.mjs';
+import articleCatalog from '../../content/articles.json';
 import {localizedView} from '../lib/international.mjs';
 import {designView,themeVariables} from '../lib/design.mjs';
 const {config,locale=config.language}=Astro.props;
 const view=localizedView(config,locale);
 const d=designView(config,view);
 const u=view.ui, t=d.ui;
-const vars=themeVariables(config);
-const themeKey='sm-blog-theme:'+config.slug;
 const mediaLabel=(kind:string)=>kind==='photo'?t.photo:kind==='chart'?t.chart:t.illustration;
-const home=view.home;
+const articleLinks=previewArticleLinks(config,articleCatalog,locale);
 ---
-<!doctype html>
-<html lang={view.language} data-blog-theme-key={themeKey} data-blog-theme-default={d.appearance.default} data-blog-light-color={d.appearance.light.background} data-blog-dark-color={config.theme.background}>
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <meta name="robots" content="noindex,nofollow"/>
-  <meta name="description" content={view.description}/>
-  <meta name="theme-color" content={config.theme.background}/>
-  <title>{config.name} — {u.preview}</title>
-  <script is:inline>
-    (()=>{
-      const root=document.documentElement;
-      let preference=root.dataset.blogThemeDefault||"system";
-      try{const stored=localStorage.getItem(root.dataset.blogThemeKey);if(["system","light","dark"].includes(stored))preference=stored;}catch{}
-      const theme=preference==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):preference;
-      root.dataset.blogPreference=preference;
-      root.dataset.blogTheme=theme;
-      document.querySelector("meta[name=theme-color]")?.setAttribute("content",theme==="dark"?root.dataset.blogDarkColor:root.dataset.blogLightColor);
-    })();
-  </script>
-</head>
-<body class="blog" style={vars} data-motif={d.motif} data-density={d.density}>
-  <a class="skip" href="#content">{u.skip}</a>
-  <div class="blog-notice">{u.notice}</div>
-  <header class="blog-header" id="top">
-    <div class="blog-wrap masthead">
-      <div class="masthead-top">
-        <span class="edition"><span class="edition-dot" aria-hidden="true"></span>{t.edition}</span>
-        <div class="header-controls">
-        <div class="appearance-control" id="appearance-control" hidden>
-          <label for="blog-theme">{t.appearance}</label>
-          <select id="blog-theme"><option value="system">{t.system}</option><option value="light">{t.light}</option><option value="dark">{t.dark}</option></select>
-        </div>
-        <nav class="blog-languages" aria-label={u.language}>
-          {view.editions.map(edition=><a href={edition.href} lang={edition.locale} hreflang={edition.locale} aria-current={edition.locale===view.language?'page':undefined}>{edition.label}</a>)}
-        </nav>
-        </div>
-      </div>
-      <div class="brand-line">
-        <div>
-          <a class="brand" href={home}>{config.name}<span aria-hidden="true">.</span></a>
-          <p class="tagline">{view.tagline}</p>
-        </div>
-        <a class="search-link" href="#pauta-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>{t.search}</span></a>
-      </div>
-      <nav class="primary-nav" aria-label={u.navigation}>
-        <a class="home-link" href={home}>{u.home}</a>
-        {d.primary.map(category=><a href="#stories" data-nav-category={category.slug}>{category.label}</a>)}
-        <a href="#sections">{u.categories}</a>
-      </nav>
-    </div>
-  </header>
+<BlogShell config={config} locale={locale}>
   <main class="blog-wrap" id="content">
     <div class="ad-preview ad-banner" aria-label={t.ad}>{t.ad}</div>
     <div class="blog-grid">
@@ -112,7 +62,7 @@ const home=view.home;
           <p id="pauta-status" role="status" class="muted" data-count={u.count} data-empty={t.empty}></p>
           <ul class="pauta-list">{d.cards.map((card,i)=><li data-pauta data-category={card.slug} class:list={["pauta",{"with-media":card.media?.source==="local"}]}>
             {card.media?.source==="local"?<figure class="story-media"><img src={card.media.path} alt={card.media.alt[view.language]} loading="lazy" decoding="async"/><figcaption>{mediaLabel(card.media.kind)} · {card.media.credit}</figcaption></figure>:<div class="story-number" aria-hidden="true">{String(i+2).padStart(2,'0')}<span></span></div>}
-            <div class="story-copy"><span class="eyebrow">{card.category}</span><h3>{card.title}</h3><span class="draft-label">{t.draft}</span></div>
+            <div class="story-copy"><span class="eyebrow">{card.category}</span><h3>{card.title}</h3><span class="draft-label">{t.draft}</span>{articleLinks.has(i)&&<EditorialAction href={articleLinks.get(i)} label={t.readDraft}/>}</div>
           </li>)}</ul>
         </section>
       </div>
@@ -127,20 +77,23 @@ const home=view.home;
       </aside>
     </div>
   </main>
-  <footer class="blog-footer">
-    <div class="blog-wrap footer-inner"><div><a class="footer-brand" href={home}>{config.name}<span>.</span></a><p>{t.network} · {u.preview}</p></div><a href="#top">{t.return} ↑</a></div>
-  </footer>
+</BlogShell>
   <script>
     import {matchesPitch} from '../lib/design.mjs';
     const input=document.querySelector<HTMLInputElement>('#pauta-search');
     const status=document.querySelector<HTMLElement>('#pauta-status');
     const rows=[...document.querySelectorAll<HTMLElement>('[data-pauta]')];
     const buttons=[...document.querySelectorAll<HTMLButtonElement>('[data-category-filter]')];
-    let selected='all';
+    const fromUrl=new URLSearchParams(location.search).get('editoria');
+    let selected=buttons.some(button=>button.dataset.categoryFilter===fromUrl)?fromUrl!:'all';
+    const navLinks=[...document.querySelectorAll<HTMLAnchorElement>('[data-nav-category]')];
+    const homeLink=document.querySelector('.primary-nav .home-link');
     function apply(){
       let found=0;
       for(const row of rows){row.hidden=!matchesPitch(row.textContent,row.dataset.category,input?.value,selected);if(!row.hidden)found++;}
       for(const button of buttons)button.setAttribute('aria-pressed',String(button.dataset.categoryFilter===selected));
+      for(const link of navLinks){if(link.dataset.navCategory===selected)link.setAttribute('aria-current','true');else link.removeAttribute('aria-current');}
+      if(selected==='all')homeLink?.setAttribute('aria-current','page');else homeLink?.removeAttribute('aria-current');
       if(status)status.textContent=found===0?(status.dataset.empty??''):found+' '+(status.dataset.count??'');
     }
     input?.addEventListener('input',apply);
@@ -148,23 +101,4 @@ const home=view.home;
     for(const link of document.querySelectorAll<HTMLElement>('[data-nav-category]'))link.addEventListener('click',()=>{selected=link.dataset.navCategory??'all';if(input)input.value='';apply();});
     document.querySelector('#clear-filters')?.addEventListener('click',()=>{selected='all';if(input)input.value='';apply();input?.focus();});
     apply();
-    const root=document.documentElement;
-    const picker=document.querySelector<HTMLSelectElement>('#blog-theme');
-    const control=document.querySelector<HTMLElement>('#appearance-control');
-    const system=matchMedia('(prefers-color-scheme: dark)');
-    function updateTheme(preference:string,persist=false){
-      if(!['system','light','dark'].includes(preference))preference='system';
-      const mode=preference==='system'?(system.matches?'dark':'light'):preference;
-      root.dataset.blogPreference=preference;
-      root.dataset.blogTheme=mode;
-      if(picker)picker.value=preference;
-      const color=mode==='dark'?root.dataset.blogDarkColor:root.dataset.blogLightColor;
-      if(color)document.querySelector('meta[name=theme-color]')?.setAttribute('content',color);
-      if(persist)try{localStorage.setItem(root.dataset.blogThemeKey??'',preference);}catch{}
-    }
-    updateTheme(root.dataset.blogPreference??root.dataset.blogThemeDefault??'system');
-    if(control&&picker){control.hidden=false;picker.addEventListener('change',()=>updateTheme(picker.value,true));}
-    system.addEventListener('change',()=>{if(root.dataset.blogPreference==='system')updateTheme('system');});
   </script>
-</body>
-</html>

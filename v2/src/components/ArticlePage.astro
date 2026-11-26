@@ -1,0 +1,31 @@
+---
+import BlogShell from './BlogShell.astro';
+import EditorialAction from './EditorialAction.astro';
+import {articleView} from '../lib/articles.mjs';
+import {localizedView} from '../lib/international.mjs';
+import {designView} from '../lib/design.mjs';
+const {config,catalog,id,locale=config.language}=Astro.props;
+const a=articleView(config,catalog,id,locale);
+const view=localizedView(config,locale), t=designView(config,view).ui;
+const formatted=new Intl.DateTimeFormat(locale,{dateStyle:'medium',timeZone:'UTC'}).format(new Date(a.preparedAt+'T12:00:00Z'));
+---
+<BlogShell config={config} locale={locale} title={a.title} description={a.summary} articleEditions={a.links} isArticle={true}>
+  <main id="content" class="blog-wrap">
+    <article class="article-page">
+      <EditorialAction href={view.home} label={t.backHome}/>
+      <header>
+        <p class="eyebrow">{a.categoryLabel}</p>
+        <h1 class="article-title">{a.title}</h1>
+        <p class="article-deck">{a.summary}</p>
+        <div class="article-meta"><span>{t.prepared}: <time datetime={a.preparedAt}>{formatted}</time></span><span>{a.readingMinutes} {t.reading}</span></div>
+        <p class="article-alert">{t.articleDraft}. {t.noReview}.</p>
+      </header>
+      {a.media&&<figure class="article-cover"><img src={a.media.path} alt={a.media.alt[locale]} decoding="async"/><figcaption>{t.illustration} · {t.mediaCredit}: {a.media.credit}</figcaption></figure>}
+      <nav class="article-toc" aria-label={t.contents}><h2>{t.contents}</h2><ul>{a.sections.map(s=><li><a href={'#'+s.id}>{s.heading}</a></li>)}</ul></nav>
+      <div class="article-body">{a.sections.map(s=><section id={s.id}><h2>{s.heading}</h2>{s.paragraphs.map(p=><p>{p}</p>)}<p class="article-citations">{s.sourceIds.map(id=><a href={'#source-'+id} aria-label={a.sources.find(x=>x.id===id).title}>[{a.sources.findIndex(x=>x.id===id)+1}]</a>)}</p></section>)}</div>
+      <div class="ad-preview">{t.ad}</div>
+      <section class="article-references"><h2>{t.sources}</h2><ol>{a.sources.map(s=><li id={'source-'+s.id}><a href={s.url} rel="noopener noreferrer">{s.title}</a> · <time datetime={s.checkedAt}>{s.checkedAt}</time></li>)}</ol></section>
+      {a.relatedArticles.length>0&&<section class="article-related"><h2>{t.related}</h2>{a.relatedArticles.map(r=><EditorialAction href={r.href} label={r.title}/>)}</section>}
+    </article>
+  </main>
+</BlogShell>
