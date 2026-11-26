@@ -6,3 +6,5 @@ Os títulos demonstrativos não são artigos migrados. A próxima etapa cria rot
 Edições adicionais: /futebolando/en/ e /culinaria-demo/en/. Ambas as versões são apenas prévias, noindex. O módulo priorities.mjs classifica sinais agregados fornecidos; exemplos dos testes são sintéticos. Não coleta métricas, publica ou recebe pagamentos. Ver ../docs/INTERNATIONAL.md.
 
 Para dados de audiência futuros, use rankEvidenceBatch e planEditorialBatch em src/lib/evidence.mjs. Sem conectores reais; fixtures não representam demanda observada.
+
+Design 03B: configurações design, seleção de editorias e busca; CI Chromium gera capturas em blog-design-review. Sem publicação.

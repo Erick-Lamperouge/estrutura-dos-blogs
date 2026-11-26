@@ -299,5 +299,64 @@
         }
       ]
     }
+  },
+  "design": {
+    "version": 1,
+    "motif": "table",
+    "mainCategories": [
+      "receitas",
+      "tecnicas",
+      "ingredientes"
+    ],
+    "cardCategories": [
+      "receitas",
+      "ingredientes",
+      "tecnicas"
+    ],
+    "featureCategory": "tecnicas",
+    "copy": {
+      "pt-BR": {
+        "edition": "EDIÇÃO DIGITAL",
+        "search": "Buscar no blog",
+        "all": "Todas",
+        "topics": "Explore as editorias",
+        "featured": "Em destaque",
+        "stories": "Em preparação",
+        "filter": "Buscar por assunto ou título",
+        "empty": "Nenhuma pauta corresponde à pesquisa.",
+        "clear": "Limpar filtros",
+        "method": "Nosso compromisso editorial",
+        "methodText": "Contexto, fontes verificáveis e análise responsável. Opiniões são identificadas e passam por revisão.",
+        "illustration": "Ilustração editorial",
+        "ad": "Área reservada · publicidade desativada",
+        "draft": "Pauta demonstrativa",
+        "return": "Voltar ao início",
+        "guide": "Materiais e guias",
+        "guideText": "Futuros materiais autorais e recomendações identificadas.",
+        "about": "Sobre esta publicação",
+        "network": "Rede de Blogs Senhorita Minuto"
+      },
+      "en": {
+        "edition": "DIGITAL EDITION",
+        "search": "Search the blog",
+        "all": "All",
+        "topics": "Explore the sections",
+        "featured": "Featured",
+        "stories": "In preparation",
+        "filter": "Search by topic or title",
+        "empty": "No stories match your search.",
+        "clear": "Clear filters",
+        "method": "Our editorial commitment",
+        "methodText": "Context, verifiable sources and responsible analysis. Opinions are identified and reviewed.",
+        "illustration": "Editorial illustration",
+        "ad": "Reserved space · advertising disabled",
+        "draft": "Sample editorial pitch",
+        "return": "Back to top",
+        "guide": "Guides and resources",
+        "guideText": "Future original guides and disclosed recommendations.",
+        "about": "About this publication",
+        "network": "Senhorita Minuto Blog Network"
+      }
+    }
   }
 }

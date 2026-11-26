@@ -1,86 +1,134 @@
 ---
 import '../styles/blog.css';
-import { localizedView } from '../lib/international.mjs';
-const { config, locale = config.language } = Astro.props;
-const view = localizedView(config, locale);
-const u = view.ui;
-const vars = Object.entries(config.theme).map(([key,value]) => '--blog-'+key+':'+value).join(';');
-const home = view.home;
+import {localizedView} from '../lib/international.mjs';
+import {designView} from '../lib/design.mjs';
+const {config,locale=config.language}=Astro.props;
+const view=localizedView(config,locale);
+const d=designView(config,view);
+const u=view.ui, t=d.ui;
+const vars=Object.entries(config.theme).map(([key,value])=>'--blog-'+key+':'+value).join(';');
+const home=view.home;
 ---
 <!doctype html>
 <html lang={view.language}>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex,nofollow" />
-    <meta name="description" content={view.description} />
-    <title>{config.name} — {u.preview}</title>
-  </head>
-  <body class="blog" style={vars}>
-    <a class="skip" href={'#'+u.content}>{u.skip}</a>
-    <div class="blog-notice">{u.notice}</div>
-    <header class="blog-header">
-      <div class="blog-wrap header-inner">
-        <div class="blog-brand-row">
-          <a class="brand" href={home}>{config.name}</a>
-          <nav class="blog-languages" aria-label={u.language}>
-            {view.editions.map(edition => <a href={edition.href} lang={edition.locale} hreflang={edition.locale} aria-current={edition.locale===view.language?'page':undefined}>{edition.label}</a>)}
-          </nav>
-        </div>
-        <p>{view.tagline}</p>
-        <nav aria-label={u.navigation}>
-          <a href={home}>{u.home}</a><a href="#sections">{u.categories}</a><a href="#stories">{u.pitches}</a>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="robots" content="noindex,nofollow"/>
+  <meta name="description" content={view.description}/>
+  <meta name="theme-color" content={config.theme.background}/>
+  <title>{config.name} — {u.preview}</title>
+</head>
+<body class="blog" style={vars} data-motif={d.motif}>
+  <a class="skip" href="#content">{u.skip}</a>
+  <div class="blog-notice">{u.notice}</div>
+  <header class="blog-header" id="top">
+    <div class="blog-wrap masthead">
+      <div class="masthead-top">
+        <span class="edition"><span class="edition-dot" aria-hidden="true"></span>{t.edition}</span>
+        <nav class="blog-languages" aria-label={u.language}>
+          {view.editions.map(edition=><a href={edition.href} lang={edition.locale} hreflang={edition.locale} aria-current={edition.locale===view.language?'page':undefined}>{edition.label}</a>)}
         </nav>
       </div>
-    </header>
-    <main id={u.content} class="blog-wrap">
-      <div class="ad-preview">{u.advertising}</div>
-      <div class="blog-grid">
+      <div class="brand-line">
         <div>
-          <section class="feature" aria-labelledby="feature-heading">
-            <div class="feature-art" aria-hidden="true"><div></div><div></div><div></div></div>
-            <div class="feature-copy">
-              <p class="eyebrow">{view.preview.featured.category} / {u.proposal}</p>
-              <h1 id="feature-heading">{view.preview.featured.title}</h1>
-              <p>{view.preview.featured.summary}</p>
-            </div>
-          </section>
-          <section id="sections">
-            <h2>{u.categories}</h2>
-            <ul class="chips">{view.categories.map(category => <li>{category.label}</li>)}</ul>
-          </section>
-          <section id="stories">
-            <h2>{u.preparation}</h2>
-            <label for="pauta-search">{u.filter}</label>
-            <input id="pauta-search" type="search" placeholder={u.placeholder} />
-            <p id="pauta-status" role="status" class="muted" data-count={u.count}></p>
-            <ul class="pauta-list">{view.preview.cards.map(card => (
-              <li data-pauta class="pauta"><span class="eyebrow">{card.category}</span><h3>{card.title}</h3><span class="muted">{u.draft}</span></li>
-            ))}</ul>
-          </section>
+          <a class="brand" href={home}>{config.name}<span aria-hidden="true">.</span></a>
+          <p class="tagline">{view.tagline}</p>
         </div>
-        <aside aria-label={u.complementary}>
-          <div class="ad-preview ad-side">{u.advertising}</div>
-          <section class="side-panel"><h2>{u.about}</h2><p>{view.description}</p></section>
-          <section class="side-panel"><h2>{u.products}</h2><p>{u.productDescription}</p></section>
-        </aside>
+        <a class="search-link" href="#pauta-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>{t.search}</span></a>
       </div>
-    </main>
-    <footer class="blog-wrap blog-footer">{config.name} · {u.footer}</footer>
-    <script>
-      const input = document.querySelector<HTMLInputElement>('#pauta-search');
-      const status = document.querySelector<HTMLElement>('#pauta-status');
-      const rows = [...document.querySelectorAll<HTMLElement>('[data-pauta]')];
-      const normal = (text: string) => text.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-      input?.addEventListener('input', () => {
-        const value = normal(input.value.trim());
-        let found = 0;
-        for (const row of rows) {
-          row.hidden = !normal(row.textContent ?? '').includes(value);
-          if (!row.hidden) found++;
-        }
-        if (status) status.textContent = found + ' ' + (status.dataset.count ?? '');
-      });
-    </script>
-  </body>
+      <nav class="primary-nav" aria-label={u.navigation}>
+        <a class="home-link" href={home}>{u.home}</a>
+        {d.primary.map(category=><a href="#stories" data-nav-category={category.slug}>{category.label}</a>)}
+        <a href="#sections">{u.categories}</a>
+      </nav>
+    </div>
+  </header>
+  <main class="blog-wrap" id="content">
+    <div class="ad-preview ad-banner" aria-label={t.ad}>{t.ad}</div>
+    <div class="blog-grid">
+      <div class="editorial-main">
+        <div class="section-kicker"><span>{t.featured}</span><span class="rule"></span><span class="muted">{u.preview}</span></div>
+        <section class="feature" aria-labelledby="feature-heading">
+          <div class="feature-art" role="img" aria-label={t.illustration}>
+            <svg class="feature-svg" viewBox="0 0 820 390" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="currentColor" stroke-opacity=".1"/></pattern></defs>
+              <rect width="820" height="390" fill="url(#grid)"/>
+              {d.motif==='pitch'?<g fill="none" stroke="currentColor">
+                <g opacity=".22" stroke-width="2"><rect x="78" y="32" width="664" height="326" rx="4"/><path d="M410 32v326M78 117h120v156H78m664-156H622v156h120M78 153h47v84H78m664-84h-47v84h47"/><circle cx="410" cy="195" r="54"/><circle cx="410" cy="195" r="3"/></g>
+                <g stroke-width="3" stroke-dasharray="8 9" opacity=".9"><path d="M180 288 307 223 437 272 548 146 654 91"/><path d="M307 223 347 106 548 146"/></g>
+                {[ [180,288],[307,223],[437,272],[548,146],[654,91],[347,106] ].map(([x,y],i)=><g><circle cx={x} cy={y} r="18" fill="var(--blog-background)" stroke-width="2.5"/><circle cx={x} cy={y} r={i===4?9:5} fill="currentColor" stroke="none"/></g>)}
+                <path d="m637 87 17 4-6 16" stroke-width="3"/>
+              </g>:d.motif==='table'?<g fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="410" cy="195" r="146" opacity=".35"/><circle cx="410" cy="195" r="106" opacity=".65"/><circle cx="410" cy="195" r="66" stroke-dasharray="8 10"/>
+                <path d="M230 75v225m-15-225v70q15 38 30 0V75m350 0v225m0-225q-44 65 0 122" opacity=".8"/><path d="M390 157q-55-44-46 15t64 65q55 32 76-23t-49-45" opacity=".8"/><path d="M421 143q31-51 70-40-8 53-70 40Z" fill="currentColor" opacity=".5"/>
+              </g>:<g stroke="currentColor" fill="none" stroke-width="2" opacity=".7"><circle cx="410" cy="195" r="142"/><circle cx="410" cy="195" r="95"/><path d="M90 310 330 70l155 220 220-170"/></g>}
+            </svg>
+            <span class="art-label">{t.illustration}</span>
+            <span class="art-index" aria-hidden="true">01</span>
+          </div>
+          <div class="feature-copy">
+            <span class="eyebrow">{d.featured.category}</span>
+            <h1 id="feature-heading">{d.featured.title}</h1>
+            <p>{d.featured.summary}</p>
+            <span class="draft-label">{t.draft}</span>
+          </div>
+        </section>
+        <section id="sections" class="section-block">
+          <div class="section-kicker"><h2>{t.topics}</h2><span class="rule"></span></div>
+          <div class="category-list" aria-label={t.topics}>
+            <button type="button" data-category-filter="all" aria-pressed="true">{t.all}</button>
+            {view.categories.map(category=><button type="button" data-category-filter={category.slug} aria-pressed="false">{category.label}</button>)}
+          </div>
+        </section>
+        <section id="stories" class="section-block">
+          <div class="section-kicker"><h2>{t.stories}</h2><span class="rule"></span><span class="muted">{u.preview}</span></div>
+          <div class="search-tools">
+            <div class="search-field">
+              <label for="pauta-search">{t.filter}</label>
+              <input id="pauta-search" type="search" placeholder={u.placeholder} autocomplete="off"/>
+            </div>
+            <button id="clear-filters" class="clear-button" type="button">{t.clear}</button>
+          </div>
+          <p id="pauta-status" role="status" class="muted" data-count={u.count} data-empty={t.empty}></p>
+          <ul class="pauta-list">{d.cards.map((card,i)=><li data-pauta data-category={card.slug} class="pauta">
+            <div class="story-number" aria-hidden="true">{String(i+2).padStart(2,'0')}<span></span></div>
+            <div class="story-copy"><span class="eyebrow">{card.category}</span><h3>{card.title}</h3><span class="draft-label">{t.draft}</span></div>
+          </li>)}</ul>
+        </section>
+      </div>
+      <aside class="editorial-aside" aria-label={u.complementary}>
+        <div class="ad-preview ad-side">{t.ad}</div>
+        <section class="side-panel editorial-promise">
+          <span class="side-index">01 / {t.edition}</span>
+          <h2>{t.method}</h2><p>{t.methodText}</p>
+        </section>
+        <section class="side-panel"><span class="side-index">02</span><h2>{t.about}</h2><p>{view.description}</p></section>
+        <section class="side-panel"><span class="side-index">03</span><h2>{t.guide}</h2><p>{t.guideText}</p></section>
+      </aside>
+    </div>
+  </main>
+  <footer class="blog-footer">
+    <div class="blog-wrap footer-inner"><div><a class="footer-brand" href={home}>{config.name}<span>.</span></a><p>{t.network} · {u.preview}</p></div><a href="#top">{t.return} ↑</a></div>
+  </footer>
+  <script>
+    import {matchesPitch} from '../lib/design.mjs';
+    const input=document.querySelector<HTMLInputElement>('#pauta-search');
+    const status=document.querySelector<HTMLElement>('#pauta-status');
+    const rows=[...document.querySelectorAll<HTMLElement>('[data-pauta]')];
+    const buttons=[...document.querySelectorAll<HTMLButtonElement>('[data-category-filter]')];
+    let selected='all';
+    function apply(){
+      let found=0;
+      for(const row of rows){row.hidden=!matchesPitch(row.textContent,row.dataset.category,input?.value,selected);if(!row.hidden)found++;}
+      for(const button of buttons)button.setAttribute('aria-pressed',String(button.dataset.categoryFilter===selected));
+      if(status)status.textContent=found===0?(status.dataset.empty??''):found+' '+(status.dataset.count??'');
+    }
+    input?.addEventListener('input',apply);
+    for(const button of buttons)button.addEventListener('click',()=>{selected=button.dataset.categoryFilter??'all';apply();});
+    for(const link of document.querySelectorAll<HTMLElement>('[data-nav-category]'))link.addEventListener('click',()=>{selected=link.dataset.navCategory??'all';if(input)input.value='';apply();});
+    document.querySelector('#clear-filters')?.addEventListener('click',()=>{selected='all';if(input)input.value='';apply();input?.focus();});
+    apply();
+  </script>
+</body>
 </html>
