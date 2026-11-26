@@ -1,0 +1,197 @@
+[
+  {
+    "id": "rules",
+    "blog": "futebolando",
+    "state": "pilot",
+    "template": "rules-learning",
+    "copy": {
+      "pt-BR": {
+        "slug": "regras-do-jogo",
+        "title": "Conhecendo as regras do jogo",
+        "description": "Aprenda as regras do futebol com exemplos, exceções e a evolução das normas."
+      },
+      "en": {
+        "slug": "laws-of-the-game",
+        "title": "Understanding the Laws of the Game",
+        "description": "Learn football's laws through examples, exceptions and changes."
+      }
+    },
+    "episodes": [
+      {
+        "number": 1,
+        "article": "offside-guide",
+        "title": {
+          "pt-BR": "Impedimento",
+          "en": "Offside"
+        }
+      },
+      {
+        "number": 2,
+        "article": "offside-restarts",
+        "title": {
+          "pt-BR": "Exceções ao impedimento",
+          "en": "Offside exceptions"
+        }
+      },
+      {
+        "number": 3,
+        "article": "ball-in-play",
+        "title": {
+          "pt-BR": "Bola dentro e fora de jogo",
+          "en": "Ball in and out of play"
+        }
+      },
+      {
+        "number": 4,
+        "article": "goalkeeper-eight-seconds",
+        "title": {
+          "pt-BR": "Os oito segundos do goleiro",
+          "en": "The goalkeeper's eight seconds"
+        }
+      },
+      {
+        "number": 5,
+        "article": null,
+        "title": {
+          "pt-BR": "Mão na bola",
+          "en": "Handball"
+        }
+      },
+      {
+        "number": 6,
+        "article": null,
+        "title": {
+          "pt-BR": "Faltas e cartões",
+          "en": "Fouls and cards"
+        }
+      },
+      {
+        "number": 7,
+        "article": null,
+        "title": {
+          "pt-BR": "Pênaltis e invasões",
+          "en": "Penalty kicks and encroachment"
+        }
+      },
+      {
+        "number": 8,
+        "article": null,
+        "title": {
+          "pt-BR": "Tiro livre direto e indireto",
+          "en": "Direct and indirect free kicks"
+        }
+      },
+      {
+        "number": 9,
+        "article": null,
+        "title": {
+          "pt-BR": "O que o VAR pode revisar?",
+          "en": "What can VAR review?"
+        }
+      },
+      {
+        "number": 10,
+        "article": null,
+        "title": {
+          "pt-BR": "Acréscimos e duração da partida",
+          "en": "Added time and match duration"
+        }
+      }
+    ]
+  },
+  {
+    "id": "clubs",
+    "blog": "futebolando",
+    "state": "planned",
+    "template": "club-profile",
+    "copy": {
+      "pt-BR": {
+        "slug": "clubs",
+        "title": "Por dentro dos clubes",
+        "description": "História, identidade, gestão e desempenho."
+      },
+      "en": {
+        "slug": "clubs",
+        "title": "Inside the clubs",
+        "description": "History, identity, management and performance."
+      }
+    },
+    "episodes": []
+  },
+  {
+    "id": "competitions",
+    "blog": "futebolando",
+    "state": "planned",
+    "template": "competition-guide",
+    "copy": {
+      "pt-BR": {
+        "slug": "competitions",
+        "title": "Entendendo os campeonatos",
+        "description": "Formatos, história, critérios e regulamentos."
+      },
+      "en": {
+        "slug": "competitions",
+        "title": "Understanding competitions",
+        "description": "Formats, history, criteria and regulations."
+      }
+    },
+    "episodes": []
+  },
+  {
+    "id": "numbers",
+    "blog": "futebolando",
+    "state": "planned",
+    "template": "data-analysis",
+    "copy": {
+      "pt-BR": {
+        "slug": "numbers",
+        "title": "Futebol em números",
+        "description": "Métricas, dados e interpretação com limites claros."
+      },
+      "en": {
+        "slug": "numbers",
+        "title": "Football in numbers",
+        "description": "Metrics, data and interpretation with clear limitations."
+      }
+    },
+    "episodes": []
+  },
+  {
+    "id": "tactics",
+    "blog": "futebolando",
+    "state": "planned",
+    "template": "tactical-analysis",
+    "copy": {
+      "pt-BR": {
+        "slug": "tactics",
+        "title": "Além dos 90 minutos",
+        "description": "Tática, estratégia e decisões dos treinadores."
+      },
+      "en": {
+        "slug": "tactics",
+        "title": "Beyond the 90 minutes",
+        "description": "Tactics, strategy and coaching decisions."
+      }
+    },
+    "episodes": []
+  },
+  {
+    "id": "history",
+    "blog": "futebolando",
+    "state": "planned",
+    "template": "historical-analysis",
+    "copy": {
+      "pt-BR": {
+        "slug": "history",
+        "title": "O futebol através do tempo",
+        "description": "Transformações e acontecimentos documentados."
+      },
+      "en": {
+        "slug": "history",
+        "title": "Football through time",
+        "description": "Documented developments and events."
+      }
+    },
+    "episodes": []
+  }
+]

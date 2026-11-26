@@ -65,6 +65,7 @@ export function validateMedia(config){
   };
   check(d.media.featured,true);
   for(const m of d.media.cards)check(m,false);
+  if(d.articleMedia!==undefined){need(Array.isArray(d.articleMedia),'Invalid article media');for(const m of d.articleMedia){need(m!==null,'Invalid article media');check(m,false);}}
   return d.media;
 }
 

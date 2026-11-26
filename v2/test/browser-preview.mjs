@@ -88,16 +88,26 @@ try{
       await articleLink.focus();await page.keyboard.press('Enter');
       await page.waitForURL(/\/(artigos|articles)\//);
       assert.equal(await page.locator('article.article-page h1').count(),1);
-      assert.equal(await page.locator('.article-references a').count(),1);
+      assert.equal(await page.locator('.article-references a').count(),2);
+      assert.equal(await page.locator('[data-section-role=quick]').count(),1);
+      assert.equal(await page.locator('.episode-marker').count(),1);
       assert.equal(await page.locator('meta[name=robots]').getAttribute('content'),'noindex,nofollow');
       assert.equal(await page.locator('#blog-theme').inputValue(),'system');
       const next=other==='en'?'pt-BR':'en';
       await page.locator('.blog-languages a[hreflang="'+next+'"]').click();
       assert.equal(await page.locator('html').getAttribute('lang'),next);
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),'article overflow');
-      await page.locator('.article-related a').first().click();
+      await page.locator('.episode-nav a').last().click();
       assert.equal(await page.locator('article.article-page h1').count(),1);
       await page.screenshot({path:'review-shots/'+name+'-article.png',fullPage:true,animations:'disabled'});
+      await page.locator('.episode-marker a').click();
+      assert.equal(await page.locator('.series-episodes li').count(),10);
+      assert.equal(await page.locator('.series-episodes a').count(),4);
+      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),'series overflow');
+      await page.screenshot({path:'review-shots/'+name+'-series.png',fullPage:true,animations:'disabled'});
+      await page.locator('.series-page > .editorial-action').first().click();
+      assert.equal(await page.locator('.series-catalog .series-panel').count(),6);
+      assert.equal(await page.locator('.series-catalog .editorial-action').count(),1);
     }
     assert.deepEqual(errors,[]);
     await page.close();

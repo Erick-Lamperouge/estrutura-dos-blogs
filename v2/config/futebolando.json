@@ -518,6 +518,30 @@
       "palette": "emerald",
       "motion": "subtle",
       "minTarget": 44
-    }
+    },
+    "articleMedia": [
+      {
+        "kind": "illustration",
+        "source": "local",
+        "path": "/futebolando/media/ball-line-schematic.svg",
+        "rights": "original",
+        "credit": "Futebolando",
+        "alt": {
+          "pt-BR": "Dois exemplos vistos de cima: uma bola ainda sobre a linha e outra inteiramente fora do campo.",
+          "en": "Two overhead examples: a ball still overlapping the line and another entirely outside the field."
+        }
+      },
+      {
+        "kind": "illustration",
+        "source": "local",
+        "path": "/futebolando/media/goalkeeper-clock-schematic.svg",
+        "rights": "original",
+        "credit": "Futebolando",
+        "alt": {
+          "pt-BR": "Esquema temporal de oito segundos, com destaque para os cinco últimos segundos da contagem visual.",
+          "en": "Eight-second timeline highlighting the final five seconds of the referee’s visible countdown."
+        }
+      }
+    ]
   }
 }

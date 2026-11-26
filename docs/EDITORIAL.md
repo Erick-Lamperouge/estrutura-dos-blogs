@@ -7,3 +7,5 @@ Horários experimentais de pesquisa: 06h, 12h30, 17h, 23h (America/Fortaleza); a
 Engenharia: distinguir informação geral de laudo/projeto e exigir validação técnica quando aplicável. Tecnologia: verificar versões e testar exemplos. Culinária: receitas testadas quando assim declaradas, sem inventar experiência.
 
 Futebolando global: foco inicial em grandes clubes e ligas europeias, Brasil e competições continentais; cobertura adaptativa, sem conteúdo comercial de apostas. Análise de favoritos pode comparar desempenho, força dos adversários, disponibilidade de jogadores, criação e concessão de oportunidades, tendência tática e contexto; não confundir opinião, ranking ou modelo com certeza. Sem probabilidades numéricas sem modelo calibrado, dados verificáveis e validação. Registrar fontes, amostra, data, pesos e revisão. Os exemplos de Real Madrid e Barcelona do responsável são ilustrativos, não opinião esportiva permanente registrada. Ver INTERNATIONAL.md.
+
+Séries editoriais: ver SERIES.md. Artigos em camadas, fontes verificáveis, continuidade, público e avaliação agregada; sem publicação automática.

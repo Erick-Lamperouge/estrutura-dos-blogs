@@ -29,7 +29,7 @@ export function validateArticles(config,catalog){
       for(const s of edition.sections)need(slug(s.id)&&text(s.heading)&&Array.isArray(s.paragraphs)&&s.paragraphs.length>0&&s.paragraphs.every(text)&&Array.isArray(s.sourceIds)&&s.sourceIds.length>0&&unique(s.sourceIds)&&s.sourceIds.every(id=>a.sources.some(src=>src.id===id)),'Invalid section or reference');
     }
     if(a.media!==null){
-      const known=[config.design.media.featured,...config.design.media.cards].filter(m=>m?.source==='local');
+      const known=[config.design.media.featured,...config.design.media.cards,...(config.design.articleMedia??[])].filter(m=>m?.source==='local');
       need(known.some(m=>JSON.stringify(m)===JSON.stringify(a.media)),'Article media must match validated local asset');
     }
     need(Array.isArray(a.related)&&unique(a.related)&&a.related.every(id=>id!==a.id&&rows.some(r=>r.id===id)),'Invalid related articles');

@@ -3,6 +3,8 @@ import BlogShell from './BlogShell.astro';
 import EditorialAction from './EditorialAction.astro';
 import {previewArticleLinks} from '../lib/articles.mjs';
 import articleCatalog from '../../content/articles.json';
+import seriesCatalog from '../../content/series.json';
+import {seriesList,seriesLabels} from '../lib/series.mjs';
 import {localizedView} from '../lib/international.mjs';
 import {designView,themeVariables} from '../lib/design.mjs';
 const {config,locale=config.language}=Astro.props;
@@ -11,6 +13,7 @@ const d=designView(config,view);
 const u=view.ui, t=d.ui;
 const mediaLabel=(kind:string)=>kind==='photo'?t.photo:kind==='chart'?t.chart:t.illustration;
 const articleLinks=previewArticleLinks(config,articleCatalog,locale);
+const series=seriesList(config,articleCatalog,seriesCatalog,locale), sl=seriesLabels(locale);
 ---
 <BlogShell config={config} locale={locale}>
   <main class="blog-wrap" id="content">
@@ -43,6 +46,7 @@ const articleLinks=previewArticleLinks(config,articleCatalog,locale);
             <span class="draft-label">{t.draft}</span>
           </div>
         </section>
+        {series.length>0&&<section class="series-feature section-block" id="series"><div class="section-kicker"><h2>{sl.title}</h2><span class="rule"></span></div><p class="muted">{sl.intro}</p>{series.filter(s=>s.href).map(s=><div class="series-panel"><span class="eyebrow">{sl.draft} · {s.ready}/{s.total}</span><h3>{s.title}</h3><p>{s.description}</p><EditorialAction href={s.href} label={sl.open}/></div>)}<EditorialAction href={view.home+'series/'} label={sl.all}/></section>}
         <section id="sections" class="section-block">
           <div class="section-kicker"><h2>{t.topics}</h2><span class="rule"></span></div>
           <div class="category-list" aria-label={t.topics}>

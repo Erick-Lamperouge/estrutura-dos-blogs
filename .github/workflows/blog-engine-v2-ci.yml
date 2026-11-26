@@ -53,6 +53,17 @@ jobs:
           test -s dist/blog-font-licenses/barlow-condensed.txt
           test -s dist/blog-font-licenses/source-serif-4.txt
           test -s dist/blog-font-licenses/inter.txt
+          test -s dist/futebolando/artigos/bola-em-jogo/index.html
+          test -s dist/futebolando/en/articles/ball-in-play/index.html
+          test -s dist/futebolando/artigos/oito-segundos-goleiro/index.html
+          test -s dist/futebolando/en/articles/goalkeeper-eight-seconds/index.html
+          test -s dist/futebolando/series/index.html
+          test -s dist/futebolando/series/regras-do-jogo/index.html
+          test -s dist/futebolando/en/series/index.html
+          test -s dist/futebolando/en/series/laws-of-the-game/index.html
+          test -s dist/futebolando/media/ball-line-schematic.svg
+          test -s dist/futebolando/media/goalkeeper-clock-schematic.svg
+          grep -q 'noindex,nofollow' dist/futebolando/series/regras-do-jogo/index.html
       - name: Install isolated browser test tools
         run: |
           npm install --no-save --package-lock=false playwright@1.58.2 --no-audit --no-fund

@@ -22,38 +22,81 @@
     "sources": [
       {
         "id": "ifab-11",
-        "title": "IFAB — Law 11: Offside",
+        "title": "IFAB — Law 11: Offside (2026/27 edition consulted)",
         "url": "https://www.theifab.com/laws/latest/offside/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "ifab-changes-2025",
+        "title": "IFAB — Law changes 2025/26",
+        "url": "https://www.theifab.com/law-changes/2025-26/",
         "checkedAt": "2026-11-26"
       }
     ],
     "related": [
-      "offside-restarts"
+      "offside-restarts",
+      "ball-in-play"
     ],
     "editions": {
       "pt-BR": {
         "slug": "impedimento",
         "title": "Impedimento: como interpretar a posição e a participação no lance",
-        "summary": "Entenda a diferença entre estar adiantado e cometer uma infração de impedimento.",
+        "summary": "Da posição do atacante à participação na jogada: entenda o raciocínio por trás da Regra 11.",
         "sections": [
           {
-            "id": "posicao",
-            "heading": "A posição é apenas o primeiro passo",
+            "id": "rapido",
+            "role": "quick",
+            "heading": "Entenda em 30 segundos",
             "paragraphs": [
-              "A avaliação começa no momento em que um companheiro joga ou toca na bola. A posição é analisada na metade adversária, em relação à bola e ao penúltimo adversário. Estar adiantado, por si só, não é infração."
+              "Estar à frente dos defensores não basta para marcar impedimento. É preciso avaliar a posição no momento do toque de um companheiro e a participação posterior na jogada."
             ],
             "sourceIds": [
               "ifab-11"
             ]
           },
           {
-            "id": "participacao",
-            "heading": "Quando existe infração?",
+            "id": "exemplo",
+            "role": "example",
+            "heading": "Veja na prática",
             "paragraphs": [
-              "A posição irregular torna-se punível quando o jogador participa de uma forma prevista na regra, como jogar a bola, interferir em um adversário ou obter vantagem de um rebote ou desvio em condições específicas.",
-              "Uma linha desenhada no campo ajuda a explicar a posição, mas não decide sozinha se houve infração. A análise depende também da sequência do lance."
+              "Imagine um atacante adiantado quando recebe um passe. Se ele joga a bola e estava irregular naquele instante de referência, comete a infração. Outro atacante adiantado, mas sem interferir no lance, não deve ser punido apenas por sua posição."
             ],
             "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "posicao",
+            "role": "rule",
+            "heading": "O que diz a Regra 11?",
+            "paragraphs": [
+              "A avaliação considera cabeça, tronco e pés: uma parte válida do corpo precisa estar na metade adversária, além da bola e do penúltimo adversário, na direção da linha de gol. Braços e mãos ficam de fora. Estar nivelado com o penúltimo adversário é posição regular.",
+              "O impedimento só se concretiza com participação ativa, interferência relevante em adversário ou vantagem obtida de determinados rebotes, desvios ou defesas. A cobrança é um tiro livre indireto no local da infração."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "excecoes",
+            "role": "exception",
+            "heading": "Nem todo atacante adiantado está irregular",
+            "paragraphs": [
+              "Um jogador pode atrapalhar a visão do goleiro sem tocar na bola. Por outro lado, uma posição adiantada sem interferência pode ser perfeitamente permitida. O recebimento direto de lateral, tiro de meta ou escanteio tem exceções próprias, explicadas no episódio seguinte."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "mudanca",
+            "role": "history",
+            "heading": "Uma mudança recente",
+            "paragraphs": [
+              "A edição 2025/26 esclareceu o instante de referência quando o goleiro lança a bola com as mãos: utiliza-se o fim do contato, em contraste com o início do contato nas jogadas comuns. A mudança está registrada no histórico oficial."
+            ],
+            "sourceIds": [
+              "ifab-changes-2025",
               "ifab-11"
             ]
           }
@@ -62,26 +105,62 @@
       "en": {
         "slug": "offside",
         "title": "Offside: understanding position and involvement in play",
-        "summary": "Learn the distinction between an offside position and an offside offence.",
+        "summary": "From a player's position to their involvement, understand the reasoning behind Law 11.",
         "sections": [
           {
-            "id": "position",
-            "heading": "Position is only the first step",
+            "id": "quick",
+            "role": "quick",
+            "heading": "Understand it in 30 seconds",
             "paragraphs": [
-              "The assessment begins when a teammate plays or touches the ball. Position is considered in the opponents’ half, relative to both the ball and the second-last opponent. An offside position alone is not an offence."
+              "Being ahead of defenders is not enough. Assess the position when a teammate plays the ball and then assess the player's subsequent involvement."
             ],
             "sourceIds": [
               "ifab-11"
             ]
           },
           {
-            "id": "involvement",
-            "heading": "When is it an offence?",
+            "id": "example",
+            "role": "example",
+            "heading": "See it in practice",
             "paragraphs": [
-              "A player in an offside position is penalised only if they become involved in a way described by the law, such as playing the ball, interfering with an opponent or gaining an advantage from certain rebounds or deflections.",
-              "A line on a pitch diagram can help explain position, but cannot determine an offence by itself. The sequence of play also matters."
+              "Imagine a forward ahead of the defence when receiving a pass. If they play the ball after being in an offside position at the reference moment, an offence occurs. Another forward who does not interfere should not be penalised merely for their position."
             ],
             "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "position",
+            "role": "rule",
+            "heading": "What does Law 11 say?",
+            "paragraphs": [
+              "A valid part of the head, body or feet must be in the opponents' half and nearer the goal line than both the ball and the second-last opponent. Hands and arms are excluded. Being level with the second-last opponent is onside.",
+              "An offence requires active involvement, relevant interference with an opponent, or an advantage from certain rebounds, deflections or saves. The restart is an indirect free kick at the place of the offence."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "exceptions",
+            "role": "exception",
+            "heading": "Not every advanced player is offside",
+            "paragraphs": [
+              "A player can obstruct the goalkeeper's view without touching the ball. Conversely, an advanced player who does not interfere may be allowed to remain there. Direct receipt from a throw-in, goal kick or corner has specific exceptions covered next."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "change",
+            "role": "history",
+            "heading": "A recent change",
+            "paragraphs": [
+              "The 2025/26 edition clarified the reference instant when a goalkeeper throws the ball: use the end of contact rather than the beginning of contact used for ordinary plays. The official changes record documents this."
+            ],
+            "sourceIds": [
+              "ifab-changes-2025",
               "ifab-11"
             ]
           }
@@ -102,35 +181,71 @@
     "sources": [
       {
         "id": "ifab-11",
-        "title": "IFAB — Law 11: Offside",
+        "title": "IFAB — Law 11: Offside (2026/27 edition consulted)",
         "url": "https://www.theifab.com/laws/latest/offside/",
         "checkedAt": "2026-11-26"
       }
     ],
     "related": [
-      "offside-guide"
+      "offside-guide",
+      "ball-in-play"
     ],
     "editions": {
       "pt-BR": {
         "slug": "impedimento-reinicios",
         "title": "Em quais reinícios não há infração de impedimento?",
-        "summary": "Três situações ajudam a entender as exceções previstas na regra.",
+        "summary": "Três situações ajudam a entender as exceções da Regra 11.",
         "sections": [
           {
-            "id": "excecoes",
-            "heading": "Recebimento direto",
+            "id": "rapido",
+            "role": "quick",
+            "heading": "Entenda em 30 segundos",
             "paragraphs": [
-              "Não se marca impedimento por receber diretamente a bola de um tiro de meta, arremesso lateral ou tiro de canto. A exceção diz respeito ao recebimento direto daquele reinício."
+              "Não existe infração de impedimento por receber a bola diretamente de um lateral, tiro de meta ou escanteio."
             ],
             "sourceIds": [
               "ifab-11"
             ]
           },
           {
-            "id": "lance-seguinte",
-            "heading": "O lance seguinte",
+            "id": "exemplo",
+            "role": "example",
+            "heading": "Veja na prática",
             "paragraphs": [
-              "Depois que a bola entra em jogo, um novo passe de um companheiro pode exigir outra avaliação de impedimento. Não se deve estender a exceção a toda a sequência."
+              "Imagine um atacante que recebe um arremesso lateral atrás da defesa. Sua posição, isoladamente, não justifica impedimento nesse recebimento direto."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "regra",
+            "role": "rule",
+            "heading": "O que diz a Regra 11.3?",
+            "paragraphs": [
+              "As três exceções estão ligadas à origem imediata da bola. Elas não autorizam qualquer passe posterior de um companheiro em posição irregular."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "excecao",
+            "role": "exception",
+            "heading": "O lance seguinte pode mudar tudo",
+            "paragraphs": [
+              "Se o atacante recebe diretamente o lateral e toca para outro companheiro, o novo toque é outro momento de avaliação. A exceção não permanece por toda a jogada."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "curiosidade",
+            "role": "curiosity",
+            "heading": "Por que o reinício importa?",
+            "paragraphs": [
+              "A origem do passe faz parte da decisão do árbitro. Dois atacantes na mesma posição podem receber decisões diferentes conforme o modo como a bola chegou até eles."
             ],
             "sourceIds": [
               "ifab-11"
@@ -141,26 +256,386 @@
       "en": {
         "slug": "offside-restarts",
         "title": "Which restarts are exempt from offside offences?",
-        "summary": "Three situations help explain the exceptions in the law.",
+        "summary": "Three situations explain the exceptions in Law 11.",
         "sections": [
           {
-            "id": "exceptions",
-            "heading": "Receiving directly",
+            "id": "quick",
+            "role": "quick",
+            "heading": "Understand it in 30 seconds",
             "paragraphs": [
-              "Receiving the ball directly from a goal kick, throw-in or corner kick does not constitute an offside offence. The exception concerns the direct receipt of that restart."
+              "Direct receipt of a throw-in, goal kick or corner kick does not constitute an offside offence."
             ],
             "sourceIds": [
               "ifab-11"
             ]
           },
           {
-            "id": "next-play",
-            "heading": "The next phase",
+            "id": "example",
+            "role": "example",
+            "heading": "See it in practice",
             "paragraphs": [
-              "Once the ball is in play, a new pass by a teammate may require a fresh offside assessment. The exception does not cover the entire subsequent sequence."
+              "Imagine a forward behind the defence receiving a throw-in. Their position alone cannot justify an offside decision for that direct receipt."
             ],
             "sourceIds": [
               "ifab-11"
+            ]
+          },
+          {
+            "id": "rule",
+            "role": "rule",
+            "heading": "What does Law 11.3 say?",
+            "paragraphs": [
+              "The three exceptions concern the immediate source of the ball. They do not exempt a later pass by a teammate from the normal offside assessment."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "exception",
+            "role": "exception",
+            "heading": "The next pass may change everything",
+            "paragraphs": [
+              "If the forward receives the throw-in directly and passes to another teammate, that new touch requires its own assessment. The exemption does not last for the entire move."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          },
+          {
+            "id": "curiosity",
+            "role": "curiosity",
+            "heading": "Why the restart matters",
+            "paragraphs": [
+              "The origin of the pass is part of the decision. Two forwards in identical positions can face different decisions depending on how the ball reached them."
+            ],
+            "sourceIds": [
+              "ifab-11"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "blog": "futebolando",
+    "id": "ball-in-play",
+    "category": "regras",
+    "format": "guia",
+    "status": "draft",
+    "preparedAt": "2026-11-26",
+    "reviewedAt": null,
+    "previewCardIndex": null,
+    "media": {
+      "kind": "illustration",
+      "source": "local",
+      "path": "/futebolando/media/ball-line-schematic.svg",
+      "rights": "original",
+      "credit": "Futebolando",
+      "alt": {
+        "pt-BR": "Dois exemplos vistos de cima: uma bola ainda sobre a linha e outra inteiramente fora do campo.",
+        "en": "Two overhead examples: a ball still overlapping the line and another entirely outside the field."
+      }
+    },
+    "sources": [
+      {
+        "id": "ifab-9",
+        "title": "IFAB — Law 9: The Ball in and out of Play (2026/27 edition consulted)",
+        "url": "https://www.theifab.com/laws/latest/the-ball-in-and-out-of-play/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "related": [
+      "offside-restarts",
+      "goalkeeper-eight-seconds"
+    ],
+    "editions": {
+      "pt-BR": {
+        "slug": "bola-em-jogo",
+        "title": "Quando a bola realmente sai de jogo?",
+        "summary": "A linha do campo e o contato com o árbitro nem sempre significam interrupção.",
+        "sections": [
+          {
+            "id": "rapido",
+            "role": "quick",
+            "heading": "Entenda em 30 segundos",
+            "paragraphs": [
+              "A bola precisa ultrapassar completamente a linha lateral ou de gol, no chão ou pelo ar, para sair por essa linha."
+            ],
+            "sourceIds": [
+              "ifab-9"
+            ]
+          },
+          {
+            "id": "exemplo",
+            "role": "example",
+            "heading": "Veja na prática",
+            "paragraphs": [
+              "No primeiro exemplo do desenho, parte da bola ainda se projeta sobre a linha: ela não saiu por completo. No segundo, a bola inteira ultrapassou a borda externa."
+            ],
+            "sourceIds": [
+              "ifab-9"
+            ]
+          },
+          {
+            "id": "regra",
+            "role": "rule",
+            "heading": "O que diz a Regra 9?",
+            "paragraphs": [
+              "Além da saída pelas linhas, o jogo para por decisão do árbitro. A bola que bate na trave, no travessão ou na bandeira e continua dentro pode permanecer em jogo."
+            ],
+            "sourceIds": [
+              "ifab-9"
+            ]
+          },
+          {
+            "id": "excecao",
+            "role": "exception",
+            "heading": "E se a bola tocar no árbitro?",
+            "paragraphs": [
+              "O contato não interrompe automaticamente o jogo. Se a bola permanece no campo, mas a posse muda, nasce um ataque promissor ou a bola entra diretamente no gol, o reinício previsto é bola ao chão."
+            ],
+            "sourceIds": [
+              "ifab-9"
+            ]
+          },
+          {
+            "id": "curiosidade",
+            "role": "curiosity",
+            "heading": "O ângulo da imagem engana",
+            "paragraphs": [
+              "Uma câmera inclinada pode dar a impressão de que a bola saiu quando sua projeção ainda alcança a linha. O critério é a ultrapassagem completa, não apenas o ponto de contato da bola com a grama."
+            ],
+            "sourceIds": [
+              "ifab-9"
+            ]
+          }
+        ]
+      },
+      "en": {
+        "slug": "ball-in-play",
+        "title": "When is the ball really out of play?",
+        "summary": "The boundary line and contact with a referee do not always mean play must stop.",
+        "sections": [
+          {
+            "id": "quick",
+            "role": "quick",
+            "heading": "Understand it in 30 seconds",
+            "paragraphs": [
+              "To be out across a touchline or goal line, the whole ball must have crossed it, whether on the ground or in the air."
+            ],
+            "sourceIds": [
+              "ifab-9"
+            ]
+          },
+          {
+            "id": "example",
+            "role": "example",
+            "heading": "See it in practice",
+            "paragraphs": [
+              "In the first diagram, part of the ball still overlaps the line. In the second, the whole ball has passed the outer edge."
+            ],
+            "sourceIds": [
+              "ifab-9"
+            ]
+          },
+          {
+            "id": "rule",
+            "role": "rule",
+            "heading": "What does Law 9 say?",
+            "paragraphs": [
+              "Play also stops when the referee stops it. A ball that rebounds from the posts, crossbar or corner flag and stays on the field may remain in play."
+            ],
+            "sourceIds": [
+              "ifab-9"
+            ]
+          },
+          {
+            "id": "exception",
+            "role": "exception",
+            "heading": "What if the ball strikes the referee?",
+            "paragraphs": [
+              "Contact alone does not stop play. If the ball remains on the field but possession changes, a promising attack starts or the ball goes straight into a goal, play resumes with a dropped ball."
+            ],
+            "sourceIds": [
+              "ifab-9"
+            ]
+          },
+          {
+            "id": "curiosity",
+            "role": "curiosity",
+            "heading": "Camera angles can mislead",
+            "paragraphs": [
+              "An angled camera can make a ball appear out when its projection still overlaps the line. The relevant test is the entire ball crossing, not merely the point touching the grass."
+            ],
+            "sourceIds": [
+              "ifab-9"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "blog": "futebolando",
+    "id": "goalkeeper-eight-seconds",
+    "category": "regras",
+    "format": "guia",
+    "status": "draft",
+    "preparedAt": "2026-11-26",
+    "reviewedAt": null,
+    "previewCardIndex": null,
+    "media": {
+      "kind": "illustration",
+      "source": "local",
+      "path": "/futebolando/media/goalkeeper-clock-schematic.svg",
+      "rights": "original",
+      "credit": "Futebolando",
+      "alt": {
+        "pt-BR": "Esquema temporal de oito segundos, com destaque para os cinco últimos segundos da contagem visual.",
+        "en": "Eight-second timeline highlighting the final five seconds of the referee’s visible countdown."
+      }
+    },
+    "sources": [
+      {
+        "id": "ifab-12",
+        "title": "IFAB — Law 12: Fouls and Misconduct (2026/27 edition consulted)",
+        "url": "https://www.theifab.com/laws/latest/fouls-and-misconduct/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "ifab-changes-2025",
+        "title": "IFAB — Law changes 2025/26",
+        "url": "https://www.theifab.com/law-changes/2025-26/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "related": [
+      "ball-in-play"
+    ],
+    "editions": {
+      "pt-BR": {
+        "slug": "oito-segundos-goleiro",
+        "title": "Os oito segundos do goleiro: por que a punição virou escanteio?",
+        "summary": "O que mudou na Regra 12, quando começa a contagem e o que acontece se o goleiro exceder o limite.",
+        "sections": [
+          {
+            "id": "rapido",
+            "role": "quick",
+            "heading": "Entenda em 30 segundos",
+            "paragraphs": [
+              "Se o goleiro controla a bola com mãos ou braços dentro da própria área por mais de oito segundos, o adversário recebe um escanteio."
+            ],
+            "sourceIds": [
+              "ifab-12"
+            ]
+          },
+          {
+            "id": "exemplo",
+            "role": "example",
+            "heading": "Veja na prática",
+            "paragraphs": [
+              "O goleiro encaixa uma finalização, espera e quica a bola. Quicar não reinicia a contagem: o árbitro considera que o controle continua."
+            ],
+            "sourceIds": [
+              "ifab-12"
+            ]
+          },
+          {
+            "id": "regra",
+            "role": "rule",
+            "heading": "O que diz a Regra 12.3?",
+            "paragraphs": [
+              "O árbitro determina quando o controle começa e sinaliza visualmente os cinco segundos finais. O escanteio é cobrado do lado mais próximo da posição do goleiro no momento da punição. Uma ocorrência isolada não implica automaticamente cartão amarelo."
+            ],
+            "sourceIds": [
+              "ifab-12"
+            ]
+          },
+          {
+            "id": "excecao",
+            "role": "exception",
+            "heading": "E se o atacante impedir a reposição?",
+            "paragraphs": [
+              "O adversário não pode impedir indevidamente o goleiro de soltar a bola. Se isso acontecer, o árbitro deve avaliar a infração do atacante, em vez de aplicar mecanicamente a punição ao goleiro."
+            ],
+            "sourceIds": [
+              "ifab-12"
+            ]
+          },
+          {
+            "id": "historia",
+            "role": "history",
+            "heading": "De seis segundos para oito",
+            "paragraphs": [
+              "A alteração anunciada para 2025/26 substituiu o antigo limite de seis segundos e a cobrança de tiro livre indireto pela nova contagem e pelo escanteio. Confira sempre a edição aplicável ao campeonato analisado."
+            ],
+            "sourceIds": [
+              "ifab-changes-2025",
+              "ifab-12"
+            ]
+          }
+        ]
+      },
+      "en": {
+        "slug": "goalkeeper-eight-seconds",
+        "title": "The goalkeeper's eight seconds: why the sanction became a corner",
+        "summary": "What changed in Law 12, when the count starts and what happens if the goalkeeper exceeds it.",
+        "sections": [
+          {
+            "id": "quick",
+            "role": "quick",
+            "heading": "Understand it in 30 seconds",
+            "paragraphs": [
+              "If the goalkeeper controls the ball with hands or arms in their own penalty area for longer than eight seconds, the opposing team gets a corner kick."
+            ],
+            "sourceIds": [
+              "ifab-12"
+            ]
+          },
+          {
+            "id": "example",
+            "role": "example",
+            "heading": "See it in practice",
+            "paragraphs": [
+              "A goalkeeper catches a shot, waits and bounces the ball. Bouncing does not restart the count: control continues."
+            ],
+            "sourceIds": [
+              "ifab-12"
+            ]
+          },
+          {
+            "id": "rule",
+            "role": "rule",
+            "heading": "What does Law 12.3 say?",
+            "paragraphs": [
+              "The referee determines the start of control and visibly counts down the final five seconds. The corner is taken from the side nearest the goalkeeper's position when penalised. A single offence does not automatically require a caution."
+            ],
+            "sourceIds": [
+              "ifab-12"
+            ]
+          },
+          {
+            "id": "exception",
+            "role": "exception",
+            "heading": "What if an attacker prevents release?",
+            "paragraphs": [
+              "An opponent must not unfairly prevent the goalkeeper from releasing the ball. The referee must assess that interference rather than mechanically penalising the goalkeeper."
+            ],
+            "sourceIds": [
+              "ifab-12"
+            ]
+          },
+          {
+            "id": "history",
+            "role": "history",
+            "heading": "From six seconds to eight",
+            "paragraphs": [
+              "The change introduced for 2025/26 replaced the old six-second limit and indirect free kick with the new countdown and corner-kick sanction. Always check which edition applies to the competition."
+            ],
+            "sourceIds": [
+              "ifab-changes-2025",
+              "ifab-12"
             ]
           }
         ]
