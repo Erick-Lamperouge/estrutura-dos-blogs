@@ -1,7 +1,7 @@
 {
   "version": 1,
   "repository": "Erick-Lamperouge/futebolando",
-  "commit": "2cc3e76ee3e6c5459ca48dfce71fd3435e2fbfea",
+  "commit": "9dbbe590b7ca38df9b5a23dec343ddbb6df99c3d",
   "files": [
     {
       "source": "editorial/config.json",
@@ -11,7 +11,7 @@
     {
       "source": "editorial/articles.json",
       "target": "v2/content/articles.json",
-      "blob": "81a30c810da02e2270efd7b8eff5d1999ceeaa8f"
+      "blob": "8f77552f0075cad6e8d9f8daa4e28c9d44d17832"
     },
     {
       "source": "editorial/series.json",
