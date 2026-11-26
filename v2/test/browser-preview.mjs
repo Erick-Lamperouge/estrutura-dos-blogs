@@ -17,6 +17,7 @@ try{
     ['culinaria-desktop','/culinaria-demo/','pt-BR','table',1440,1050],
     ['culinaria-mobile','/culinaria-demo/en/','en','table',390,844]
   ]){
+    const expectedStories=motif==='pitch'?8:3;
     const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1,colorScheme:'light'});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.goto(origin+route,{waitUntil:'networkidle'});
@@ -24,7 +25,7 @@ try{
     assert.equal(await page.locator('body').getAttribute('data-motif'),motif);
     assert.equal(await page.locator('meta[name=robots]').getAttribute('content'),'noindex,nofollow');
     assert.equal(await page.locator('h1').count(),1);
-    assert.equal(await page.locator('[data-pauta]:visible').count(),3);
+    assert.equal(await page.locator('[data-pauta]:visible').count(),expectedStories);
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),'overflow '+name);
     assert.equal(await page.locator('script[src*="googlesyndication"],script[src*="googletagmanager"]').count(),0);
     assert.equal(await page.locator('body').getAttribute('data-density'),'minimal');
@@ -55,21 +56,23 @@ try{
     assert.equal(await page.locator('html').getAttribute('data-blog-theme'),'dark');
     if(motif==='pitch'){
       const img=page.locator('.story-media img');
-      assert.equal(await img.count(),1);
-      await img.scrollIntoViewIfNeeded();
-      await img.evaluate(el=>el.decode());
-      assert.ok(await img.evaluate(el=>el.naturalWidth>0&&el.alt.length>0));
+      assert.equal(await img.count(),7);
+      for(const image of await img.all()){
+        await image.scrollIntoViewIfNeeded();
+        await image.evaluate(el=>el.decode());
+        assert.ok(await image.evaluate(el=>el.naturalWidth>0&&el.alt.length>0));
+      }
     }
     await page.locator('#pauta-search').fill('zzzzzznomatch');
     assert.equal(await page.locator('[data-pauta]:visible').count(),0);
     await page.locator('#clear-filters').click();
-    assert.equal(await page.locator('[data-pauta]:visible').count(),3);
+    assert.equal(await page.locator('[data-pauta]:visible').count(),expectedStories);
     const first=await page.locator('[data-pauta]').first().getAttribute('data-category');
     await page.locator('[data-category-filter="'+first+'"]').click();
-    assert.equal(await page.locator('[data-pauta]:visible').count(),1);
+    assert.equal(await page.locator('[data-pauta]:visible').count(),motif==='pitch'?4:1);
     assert.equal(await page.locator('[data-category-filter="'+first+'"]').getAttribute('aria-pressed'),'true');
     await page.locator('#clear-filters').click();
-    assert.equal(await page.locator('[data-pauta]:visible').count(),3);
+    assert.equal(await page.locator('[data-pauta]:visible').count(),expectedStories);
     const other=locale==='en'?'pt-BR':'en';
     const link=page.locator('.blog-languages a[hreflang="'+other+'"]');
     await link.click();
@@ -107,7 +110,22 @@ try{
       await page.screenshot({path:'review-shots/'+name+'-series.png',fullPage:true,animations:'disabled'});
       await page.locator('.series-page > .editorial-action').first().click();
       assert.equal(await page.locator('.series-catalog .series-panel').count(),6);
-      assert.equal(await page.locator('.series-catalog .editorial-action').count(),1);
+      assert.equal(await page.locator('.series-catalog .editorial-action').count(),5);
+      const prefix=next==='en'?'/futebolando/en/':'/futebolando/';
+      await page.goto(origin+prefix,{waitUntil:'networkidle'});
+      await page.locator('#pauta-search').fill('xG');
+      assert.ok(await page.locator('[data-article-id="expected-goals"]').isVisible());
+      await page.locator('#clear-filters').click();
+      await page.locator('[data-category-filter="estatisticas"]').click();
+      assert.equal(await page.locator('[data-pauta]:visible').count(),1);
+      await page.locator('[data-article-id="expected-goals"] .editorial-action').click();
+      assert.equal(await page.locator('[data-stat-example="illustrative"]').count(),1);
+      assert.equal(await page.locator('[data-section-role=limitations]').count(),1);
+      const chart=page.locator('.article-cover img');
+      await chart.evaluate(el=>el.decode());
+      assert.ok(await chart.evaluate(el=>el.naturalWidth>0&&el.alt.length>0));
+      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),'stats article overflow');
+      await page.screenshot({path:'review-shots/'+name+'-xg.png',fullPage:true,animations:'disabled'});
     }
     assert.deepEqual(errors,[]);
     await page.close();

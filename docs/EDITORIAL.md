@@ -11,3 +11,6 @@ Futebolando global: foco inicial em grandes clubes e ligas europeias, Brasil e c
 Séries editoriais: ver SERIES.md. Artigos em camadas, fontes verificáveis, continuidade, público e avaliação agregada; sem publicação automática.
 
 Diretriz de escrita aprovada pelo responsável em 26/11/2026: aplicar docs/WRITING.md a todas as pautas, inclusive traduções. Revisão humana e transparência permanecem obrigatórias.
+
+## Futebol em números
+Explicar indicadores em prosa acessível, apresentar definição, método, amostra/período, fonte e limites. Artigos podem responder perguntas de torcedores interessados em desempenho e favoritismo sem promover apostas, oferecer palpites de apostas, odds ou garantias. Dados de demonstração são explicitamente fictícios, separados de observações; xG de uma chance e soma de xG não equivalem a chance de vitória. Antes de usar dados reais, validar direitos/licença, competição, período, fornecedor, cobertura e comparabilidade; projeções esportivas somente com método justificável e incerteza. Não inventar métricas. Ver docs/SERIES.md.

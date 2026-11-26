@@ -64,6 +64,20 @@ jobs:
           test -s dist/futebolando/media/ball-line-schematic.svg
           test -s dist/futebolando/media/goalkeeper-clock-schematic.svg
           grep -q 'noindex,nofollow' dist/futebolando/series/regras-do-jogo/index.html
+          for path in real-madrid-historia libertadores-formato barcelona-jogo-posicional xg-gols-esperados; do
+            test -s "dist/futebolando/artigos/$path/index.html"
+            grep -q 'noindex,nofollow' "dist/futebolando/artigos/$path/index.html"
+          done
+          for path in real-madrid-history libertadores-format barcelona-positional-play expected-goals; do
+            test -s "dist/futebolando/en/articles/$path/index.html"
+            grep -q 'noindex,nofollow' "dist/futebolando/en/articles/$path/index.html"
+          done
+          for path in clubs competitions numbers tactics; do
+            test -s "dist/futebolando/series/$path/index.html"
+            test -s "dist/futebolando/en/series/$path/index.html"
+          done
+          test -s dist/futebolando/media/xg-example.svg
+          grep -q 'data-stat-example="illustrative"' dist/futebolando/artigos/xg-gols-esperados/index.html
       - name: Install isolated browser test tools
         run: |
           npm install --no-save --package-lock=false playwright@1.58.2 --no-audit --no-fund

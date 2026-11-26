@@ -655,5 +655,664 @@
         ]
       }
     }
+  },
+  {
+    "blog": "futebolando",
+    "id": "real-madrid-history",
+    "category": "clubes",
+    "format": "historia",
+    "status": "draft",
+    "preparedAt": "2026-11-26",
+    "reviewedAt": null,
+    "previewCardIndex": null,
+    "media": {
+      "kind": "illustration",
+      "source": "local",
+      "path": "/futebolando/media/real-madrid-timeline.svg",
+      "rights": "original",
+      "credit": "Futebolando",
+      "alt": {
+        "pt-BR": "Linha do tempo dos títulos europeus do Real Madrid: cinco de 1956 a 1960, títulos em 1966 e 1998 e três entre 2016 e 2018; seleção de marcos, não lista completa.",
+        "en": "Selected milestones in Real Madrid's European Cup history: five from 1956 to 1960, titles in 1966 and 1998 and three from 2016 to 2018. Not a complete list."
+      }
+    },
+    "sources": [
+      {
+        "id": "rm-history",
+        "title": "Real Madrid — 124 years of club history (6 March 2026)",
+        "url": "https://www.realmadrid.com/en-US/news/club/latest-news/124-anos-de-leyenda-06-03-2026",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "uefa-record",
+        "title": "UEFA — European Cup / Champions League honours, 30 May 2026",
+        "url": "https://www.uefa.com/uefachampionsleague/news/0275-1541637ad1db-88aeeefefefd-1000--all-time-european-cup-honours-board/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "related": [
+      "barcelona-positional-play",
+      "expected-goals"
+    ],
+    "editions": {
+      "pt-BR": {
+        "slug": "real-madrid-historia",
+        "title": "Real Madrid: como uma história de conquistas europeias se construiu",
+        "summary": "O clube espanhol tem uma relação especial com o principal torneio de clubes da Europa. Para entendê-la, vale olhar para diferentes gerações, não apenas para os troféus.",
+        "sections": [
+          {
+            "id": "origem",
+            "role": "context",
+            "heading": "O começo de uma identidade",
+            "paragraphs": [
+              "Quando o Madrid Foot Ball Club organizou sua primeira diretoria, em 6 de março de 1902, a competição continental que hoje conhecemos como Champions League ainda não existia. Mais de meio século depois, o clube encontraria nela uma parte decisiva de sua identidade esportiva.",
+              "A chegada da Copa dos Campeões Europeus na década de 1950 coincidiu com uma geração de jogadores liderada em campo por Alfredo Di Stéfano. O Real venceu as cinco primeiras edições, entre 1956 e 1960. A sequência ajuda a explicar por que seu nome se tornou tão associado ao torneio."
+            ],
+            "sourceIds": [
+              "rm-history",
+              "uefa-record"
+            ]
+          },
+          {
+            "id": "ciclos",
+            "role": "history",
+            "heading": "O que os diferentes ciclos revelam",
+            "paragraphs": [
+              "O sexto título veio em 1966, mas o clube só voltaria a vencer a competição em 1998. Essa distância entre conquistas é importante: a história do Real não foi uma marcha ininterrupta de vitórias.",
+              "Já entre 2016 e 2018, o Madrid conquistou três edições consecutivas na era da Champions League. No levantamento da UEFA publicado em 30 de maio de 2026, o clube somava 15 títulos europeus, contando a antiga Copa dos Campeões e a competição atual. É a dimensão histórica desse retrospecto, e não apenas uma boa temporada, que o distingue."
+            ],
+            "sourceIds": [
+              "uefa-record"
+            ]
+          },
+          {
+            "id": "interpretacao",
+            "role": "analysis",
+            "heading": "Títulos explicam tudo?",
+            "paragraphs": [
+              "A trajetória permite discutir como clubes atravessam mudanças de elenco, treinador e contexto competitivo. No entanto, uma lista de troféus mostra resultados, não demonstra sozinha as causas de cada vitória. Para avaliar gestão esportiva, formação ou investimento, precisaríamos de documentos financeiros e dados de diferentes temporadas.",
+              "A mesma cautela serve para analisar o Real em uma edição futura. Uma tradição de conquistas torna o clube uma referência histórica, mas não substitui a avaliação do elenco disponível, dos adversários e do desempenho recente."
+            ],
+            "sourceIds": [
+              "rm-history",
+              "uefa-record"
+            ]
+          },
+          {
+            "id": "observar",
+            "role": "takeaway",
+            "heading": "O que acompanhar daqui em diante",
+            "paragraphs": [
+              "Na próxima vez que comparar grandes equipes europeias, separe o histórico da forma atual. Os títulos ajudam a entender o passado de um clube; já os dados de criação e concessão de chances ajudam a interpretar o futebol que ele apresenta em campo. Essa distinção será útil também nas nossas análises sobre o Barcelona e os gols esperados."
+            ],
+            "sourceIds": [
+              "uefa-record"
+            ]
+          }
+        ]
+      },
+      "en": {
+        "slug": "real-madrid-history",
+        "title": "Real Madrid: how a European winning tradition took shape",
+        "summary": "The Spanish club has a distinctive connection with Europe's leading club competition. Its story is best understood through different generations rather than trophies alone.",
+        "sections": [
+          {
+            "id": "origins",
+            "role": "context",
+            "heading": "The beginnings of an identity",
+            "paragraphs": [
+              "When Madrid Foot Ball Club elected its first board on 6 March 1902, the competition now known as the Champions League did not exist. More than half a century later, European football would become central to the club's identity.",
+              "The arrival of the European Cup in the 1950s coincided with a generation led on the pitch by Alfredo Di Stéfano. Madrid won the first five editions, from 1956 to 1960. That run helps explain why the club became so closely associated with the tournament."
+            ],
+            "sourceIds": [
+              "rm-history",
+              "uefa-record"
+            ]
+          },
+          {
+            "id": "cycles",
+            "role": "history",
+            "heading": "What the different winning cycles reveal",
+            "paragraphs": [
+              "The sixth European title arrived in 1966, but Madrid did not win the competition again until 1998. That gap matters: the club's history was not an uninterrupted succession of triumphs.",
+              "Madrid later won three consecutive editions between 2016 and 2018 in the Champions League era. UEFA's honours list, published on 30 May 2026, put the club on 15 European Cups, including the original competition and its modern successor. This long record, rather than a single exceptional season, sets it apart."
+            ],
+            "sourceIds": [
+              "uefa-record"
+            ]
+          },
+          {
+            "id": "interpretation",
+            "role": "analysis",
+            "heading": "Do trophies explain everything?",
+            "paragraphs": [
+              "The record invites questions about how clubs manage changes in personnel, coaches and competitive conditions. A trophy list, however, records outcomes rather than establishing the causes of each victory. Assessing recruitment, investment or player development would require financial documents and evidence from different seasons.",
+              "The same caution applies to a future campaign. Madrid's history makes it a European benchmark, but does not replace an assessment of its available squad, opponents and recent performances."
+            ],
+            "sourceIds": [
+              "rm-history",
+              "uefa-record"
+            ]
+          },
+          {
+            "id": "watch",
+            "role": "takeaway",
+            "heading": "What to look for next",
+            "paragraphs": [
+              "When comparing Europe's major clubs, keep their historical records separate from present form. Trophies tell us about the past; chance creation and chances conceded can help us interpret current performances. That distinction will also matter in our articles about Barcelona and expected goals."
+            ],
+            "sourceIds": [
+              "uefa-record"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "blog": "futebolando",
+    "id": "libertadores-format",
+    "category": "competicoes",
+    "format": "guia",
+    "status": "draft",
+    "preparedAt": "2026-11-26",
+    "reviewedAt": null,
+    "previewCardIndex": 1,
+    "media": {
+      "kind": "illustration",
+      "source": "local",
+      "path": "/futebolando/media/libertadores-format-2026.svg",
+      "rights": "original",
+      "credit": "Futebolando",
+      "alt": {
+        "pt-BR": "Fluxo da Libertadores 2026: 32 equipes, oito grupos de quatro, 16 classificadas às oitavas, oito às quartas, quatro às semifinais, duas à final.",
+        "en": "2026 Libertadores format: 32 teams, eight groups of four, 16 in the round of 16, eight in the quarter-finals, four in the semi-finals and two finalists."
+      }
+    },
+    "sources": [
+      {
+        "id": "conmebol-2026",
+        "title": "CONMEBOL — Manual de Clubes Libertadores 2026, versão de fevereiro, §§2.2–2.4",
+        "url": "https://cdn.conmebol.com/wp-content/uploads/2025/12/CL-2026-Manual-de-Clubes-POR-Fev26.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "conmebol-groups",
+        "title": "CONMEBOL — Sorteio da fase de grupos 2026, formato e classificação",
+        "url": "https://gol.conmebol.com/libertadores/pt-br/news/sorteio-da-fase-de-grupos-da-conmebol-libertadores-2026-data-horario-classificados-potes-e",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "conmebol-2025",
+        "title": "CONMEBOL — Manual de Clubes Libertadores 2025, §2.4",
+        "url": "https://cdn.conmebol.com/wp-content/uploads/2025/01/Manual-de-Clubes-CL-2025-POR-Digital.pdf",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "related": [
+      "real-madrid-history",
+      "expected-goals"
+    ],
+    "editions": {
+      "pt-BR": {
+        "slug": "libertadores-formato",
+        "title": "Como funciona a Libertadores? O formato e os critérios de 2026",
+        "summary": "Da fase preliminar à decisão em jogo único, entenda o caminho até o título e a mudança no desempate dos grupos.",
+        "sections": [
+          {
+            "id": "caminho",
+            "role": "context",
+            "heading": "O caminho começa antes dos grupos",
+            "paragraphs": [
+              "Para algumas equipes, a Libertadores começa com confrontos eliminatórios preliminares. Superada essa etapa, forma-se a fase de grupos com 32 clubes. A edição de 2026 distribuiu essas equipes em oito chaves de quatro, nas quais cada participante enfrenta os três adversários em casa e fora.",
+              "Ao fim das seis rodadas, os dois primeiros de cada grupo avançam às oitavas de final. O terceiro colocado ainda tem uma oportunidade continental, mas em outra competição: os playoffs das oitavas da Sul-Americana."
+            ],
+            "sourceIds": [
+              "conmebol-groups"
+            ]
+          },
+          {
+            "id": "grupos",
+            "role": "rule",
+            "heading": "O desempate mudou em 2026",
+            "paragraphs": [
+              "Na fase de grupos, uma vitória vale três pontos, um empate vale um e uma derrota não acrescenta pontos. Quando há igualdade na tabela, porém, é preciso recorrer ao regulamento da edição.",
+              "O manual de 2026 começa pelo desempenho das equipes empatadas nos jogos disputados entre elas: pontos, saldo e gols marcados nesses confrontos. Se a igualdade continuar, entram saldo e gols marcados em todos os jogos do grupo, seguidos de menos cartões vermelhos, menos amarelos e, por último, sorteio.",
+              "A diferença em relação ao manual de 2025 é relevante. Naquela edição, o saldo geral de gols vinha primeiro. Portanto, uma regra de desempate decorada em um campeonato anterior pode levar a uma leitura errada da tabela atual."
+            ],
+            "sourceIds": [
+              "conmebol-2026",
+              "conmebol-2025"
+            ]
+          },
+          {
+            "id": "mata-mata",
+            "role": "rule",
+            "heading": "Por que a final funciona de outra maneira",
+            "paragraphs": [
+              "Nas oitavas, quartas e semifinais, os clubes jogam em ida e volta. Em igualdade de pontos, o saldo do confronto decide; persistindo o empate, a vaga é resolvida por pênaltis, sem prorrogação. Não existe um critério adicional de gol fora de casa nesse desempate.",
+              "A final de 2026 tem partida única. Se terminar empatada no tempo regulamentar, haverá dois tempos extras de 15 minutos. Somente se a igualdade permanecer depois deles o campeão será definido nas cobranças de pênaltis."
+            ],
+            "sourceIds": [
+              "conmebol-2026",
+              "conmebol-groups"
+            ]
+          },
+          {
+            "id": "exemplo",
+            "role": "example",
+            "heading": "Um exemplo para acompanhar a tabela",
+            "paragraphs": [
+              "Imagine dois times com dez pontos no grupo. Um tem saldo geral superior, mas o outro conquistou mais pontos nos jogos entre eles. Pelo primeiro critério do regulamento de 2026, o segundo fica à frente. Esse caso fictício mostra por que é importante conferir os confrontos diretos, e não apenas a coluna de saldo.",
+              "Antes de comparar classificações de temporadas diferentes, lembre-se de consultar a versão aplicável do regulamento. O formato geral pode parecer familiar mesmo quando um detalhe importante mudou."
+            ],
+            "sourceIds": [
+              "conmebol-2026"
+            ]
+          }
+        ]
+      },
+      "en": {
+        "slug": "libertadores-format",
+        "title": "How does the Libertadores work? The 2026 format and tie-breakers",
+        "summary": "From qualifying rounds to the single-match final, follow the route to the trophy and understand the change to group-stage tie-breakers.",
+        "sections": [
+          {
+            "id": "route",
+            "role": "context",
+            "heading": "The route begins before the groups",
+            "paragraphs": [
+              "For some teams, the Libertadores begins with preliminary knockout rounds. The group stage then brings together 32 clubs. In 2026, they were divided into eight groups of four, with each side meeting its three opponents at home and away.",
+              "After six matches, the top two teams in each group advance to the round of 16. Third-placed teams still have a continental opportunity, but in a different competition: the Sudamericana knockout round play-offs."
+            ],
+            "sourceIds": [
+              "conmebol-groups"
+            ]
+          },
+          {
+            "id": "groups",
+            "role": "rule",
+            "heading": "The group-stage tie-break changed in 2026",
+            "paragraphs": [
+              "A group-stage win is worth three points, a draw one and a defeat none. When teams finish level on points, the edition's regulations determine their order.",
+              "The 2026 manual begins with the matches involving the tied teams: points, goal difference and goals scored in those encounters. If necessary, overall group goal difference and goals follow, then fewer red cards, fewer yellow cards and finally a draw of lots.",
+              "The difference from the 2025 manual is important: overall goal difference came first then. A tie-breaker remembered from a previous season can therefore lead to the wrong reading of the current table."
+            ],
+            "sourceIds": [
+              "conmebol-2026",
+              "conmebol-2025"
+            ]
+          },
+          {
+            "id": "knockout",
+            "role": "rule",
+            "heading": "Why the final works differently",
+            "paragraphs": [
+              "The round of 16, quarter-finals and semi-finals are played over two legs. With points level, aggregate goal difference decides the tie; if the teams are still level, a penalty shoot-out settles it without extra time. There is no additional away-goals tie-break.",
+              "The 2026 final is a single match. A draw after normal time leads to two 15-minute periods of extra time. A penalty shoot-out follows only if the scores remain level."
+            ],
+            "sourceIds": [
+              "conmebol-2026",
+              "conmebol-groups"
+            ]
+          },
+          {
+            "id": "example",
+            "role": "example",
+            "heading": "An example for reading the table",
+            "paragraphs": [
+              "Imagine two clubs finishing a group with ten points. One has the better overall goal difference, but the other earned more points in their meetings. Under the 2026 first tie-breaker, the latter ranks higher. This fictional example shows why the head-to-head results matter before consulting the goal-difference column.",
+              "Check the applicable regulations before comparing standings from different seasons. The overall format may be familiar even when a significant detail has changed."
+            ],
+            "sourceIds": [
+              "conmebol-2026"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "blog": "futebolando",
+    "id": "barcelona-positional-play",
+    "category": "analises",
+    "format": "analise",
+    "status": "draft",
+    "preparedAt": "2026-11-26",
+    "reviewedAt": null,
+    "previewCardIndex": 2,
+    "media": {
+      "kind": "illustration",
+      "source": "local",
+      "path": "/futebolando/media/positional-play-schematic.svg",
+      "rights": "original",
+      "credit": "Futebolando",
+      "alt": {
+        "pt-BR": "Campo esquemático com jogadores distribuídos em largura e profundidade e uma combinação de terceiro homem; exemplo hipotético, não reconstrução de uma partida.",
+        "en": "Schematic pitch showing players spread across width and depth and a third-player combination; hypothetical example, not a reconstruction of a match."
+      }
+    },
+    "sources": [
+      {
+        "id": "barca-dream",
+        "title": "FC Barcelona — 1988–1996: the Dream Team",
+        "url": "https://www.fcbarcelona.com/en/card/643913/1988-1996-the-era-of-the-dream-team",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "barca-pep",
+        "title": "FC Barcelona — Pep Guardiola's Barça, 2008–2012",
+        "url": "https://www.fcbarcelona.com/en/guardiolas-barcelona",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "fifa-practice",
+        "title": "FIFA Training Centre — width, depth and third-player movement in practice",
+        "url": "https://www.fifatrainingcentre.com/en/practice/training-perspectives/on-the-training-ground-with/gilberto-silva/on-the-training-ground-with-gilberto-silva-part-2.php",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "related": [
+      "expected-goals",
+      "real-madrid-history"
+    ],
+    "editions": {
+      "pt-BR": {
+        "slug": "barcelona-jogo-posicional",
+        "title": "Barcelona: de Cruyff a Guardiola, o que é o jogo posicional?",
+        "summary": "Mais do que ter a bola, o jogo posicional envolve ocupar espaços e criar caminhos para avançar. A história do Barcelona ajuda a entender essa ideia.",
+        "sections": [
+          {
+            "id": "origem",
+            "role": "history",
+            "heading": "Uma ideia que atravessou gerações",
+            "paragraphs": [
+              "Ao assumir o Barcelona em 1988, Johan Cruyff iniciou uma fase marcada pelo jogo ofensivo e pela circulação de bola. O chamado Dream Team venceu quatro campeonatos espanhóis consecutivos, de 1991 a 1994, e conquistou a primeira Copa dos Campeões Europeus do clube, em 1992.",
+              "Anos depois, Pep Guardiola, que havia jogado naquela equipe, voltou como treinador. Entre 2008 e 2012, o Barcelona conquistou 14 troféus, incluindo duas Champions League. Os resultados dão dimensão àquele ciclo, mas o interesse tático está também na maneira como a equipe organizava suas ações."
+            ],
+            "sourceIds": [
+              "barca-dream",
+              "barca-pep"
+            ]
+          },
+          {
+            "id": "espaco",
+            "role": "analysis",
+            "heading": "O espaço antes da bola",
+            "paragraphs": [
+              "Uma forma de compreender o jogo posicional é observar a distribuição dos jogadores quando a equipe tem a posse. Alguns oferecem largura, aproximando-se das laterais; outros dão profundidade, ocupando espaços mais avançados. As posições podem mudar, mas os apoios precisam continuar disponíveis.",
+              "Essa organização procura criar alternativas para o jogador com a bola. Se os defensores se concentram de um lado, por exemplo, a circulação pode abrir uma opção no lado oposto. Nesse contexto, o passe deixa de ser apenas uma troca de posse entre companheiros: ele pode deslocar a defesa e preparar a progressão."
+            ],
+            "sourceIds": [
+              "fifa-practice"
+            ]
+          },
+          {
+            "id": "terceiro",
+            "role": "example",
+            "heading": "O terceiro homem na prática",
+            "paragraphs": [
+              "Imagine três jogadores: um zagueiro, um meia e um atacante. A linha de passe direta entre zagueiro e atacante está fechada. O zagueiro toca no meia, que encontra o atacante em uma posição melhor para receber. O terceiro jogador é alcançado por uma combinação que contorna a pressão.",
+              "O desenho que acompanha o artigo é um exemplo criado para explicar esse princípio, e não uma reconstrução de uma partida do Barcelona. A ideia também não exige que os atletas sigam posições fixas o tempo inteiro; o que importa é como as opções se relacionam."
+            ],
+            "sourceIds": [
+              "fifa-practice"
+            ]
+          },
+          {
+            "id": "limites",
+            "role": "analysis",
+            "heading": "Posse de bola não é o objetivo final",
+            "paragraphs": [
+              "Ter a bola por mais tempo pode facilitar certas estratégias, mas a posse sozinha não mede a qualidade de um ataque. Uma equipe pode circular a bola sem criar perigo, enquanto outra progride rapidamente após recuperá-la. É por isso que a leitura tática ganha quando observa onde as ações acontecem, contra que adversário e que oportunidades elas produzem.",
+              "A série Futebol em números dará continuidade a essa questão ao explicar o xG, uma métrica que permite discutir a qualidade das finalizações sem confundir o número de chutes com o número de gols."
+            ],
+            "sourceIds": [
+              "fifa-practice"
+            ]
+          }
+        ]
+      },
+      "en": {
+        "slug": "barcelona-positional-play",
+        "title": "Barcelona: from Cruyff to Guardiola, what is positional play?",
+        "summary": "Positional play involves more than having the ball. It is about occupying space and creating routes to advance, an idea illuminated by Barcelona's history.",
+        "sections": [
+          {
+            "id": "origins",
+            "role": "history",
+            "heading": "An idea across generations",
+            "paragraphs": [
+              "When Johan Cruyff took charge of Barcelona in 1988, the club entered a period associated with attacking football and ball circulation. His Dream Team won four consecutive Spanish league titles, from 1991 to 1994, and Barcelona's first European Cup in 1992.",
+              "Pep Guardiola, who had played in that side, returned years later as coach. Between 2008 and 2012, Barcelona collected 14 trophies, including two Champions League titles. Those results establish the scale of the achievement, but the tactical interest also lies in how the team organised its play."
+            ],
+            "sourceIds": [
+              "barca-dream",
+              "barca-pep"
+            ]
+          },
+          {
+            "id": "space",
+            "role": "analysis",
+            "heading": "Space before the ball",
+            "paragraphs": [
+              "One way to understand positional play is to watch how players spread out when their team has possession. Some provide width near the touchlines; others offer depth by occupying more advanced areas. Players may rotate, but passing options still need to be available.",
+              "The structure aims to give the ball carrier alternatives. If defenders gather on one side, for instance, circulating the ball can open a route on the other. A pass is then more than a transfer of possession between teammates: it can move the defence and prepare the next progression."
+            ],
+            "sourceIds": [
+              "fifa-practice"
+            ]
+          },
+          {
+            "id": "third-player",
+            "role": "example",
+            "heading": "The third-player combination in practice",
+            "paragraphs": [
+              "Picture three players: a defender, a midfielder and a forward. The direct passing lane between defender and forward is blocked. The defender finds the midfielder, who can then play into the forward in a better receiving position. A combination through the intermediate player has bypassed the pressure.",
+              "The accompanying diagram is a hypothetical teaching example, not a reconstruction of a Barcelona match. The principle does not require everyone to occupy fixed positions throughout the game; what matters is the relationship between the available options."
+            ],
+            "sourceIds": [
+              "fifa-practice"
+            ]
+          },
+          {
+            "id": "limits",
+            "role": "analysis",
+            "heading": "Possession is not the final objective",
+            "paragraphs": [
+              "Keeping the ball can support a team's strategy, but possession alone does not measure attacking quality. A team may circulate the ball without threatening, while another progresses quickly after regaining it. Tactical analysis is stronger when it considers where actions occur, who the opposition is and what chances they create.",
+              "Our Football in numbers series follows this question with an explanation of xG, a metric for discussing the quality of shots without confusing shot volume with goals scored."
+            ],
+            "sourceIds": [
+              "fifa-practice"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "blog": "futebolando",
+    "id": "expected-goals",
+    "category": "estatisticas",
+    "format": "estatistica",
+    "status": "draft",
+    "preparedAt": "2026-11-26",
+    "reviewedAt": null,
+    "previewCardIndex": null,
+    "media": {
+      "kind": "chart",
+      "source": "local",
+      "path": "/futebolando/media/xg-example.svg",
+      "rights": "original",
+      "credit": "Futebolando",
+      "alt": {
+        "pt-BR": "Exemplo fictício: equipe A, seis finalizações de 0,05 xG, total 0,30; equipe B, duas finalizações de 0,35 e 0,25 xG, total 0,60.",
+        "en": "Hypothetical example: team A, six shots worth 0.05 xG each, total 0.30; team B, two shots worth 0.35 and 0.25 xG, total 0.60."
+      }
+    },
+    "sources": [
+      {
+        "id": "hudl-xg",
+        "title": "Hudl / StatsBomb — Expected Goals (xG), data glossary",
+        "url": "https://hudl.my.site.com/support/s/article/expected-goals?language=en_US&topic=Statsbomb_Global_Football_Data_Glossary",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "statsbomb-guide",
+        "title": "StatsBomb — The beginner's guide to football analytics",
+        "url": "https://blogarchive.statsbomb.com/articles/soccer/the-beginners-guide-to-reading-writing-and-pitching-about-football-analytics/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "related": [
+      "barcelona-positional-play"
+    ],
+    "editions": {
+      "pt-BR": {
+        "slug": "xg-gols-esperados",
+        "title": "O que é xG? Entenda por que nem toda finalização vale a mesma coisa",
+        "summary": "Um time pode finalizar muito e criar pouco perigo. Os gols esperados ajudam a distinguir a quantidade de chutes da qualidade das oportunidades.",
+        "sections": [
+          {
+            "id": "definicao",
+            "role": "definition",
+            "heading": "O que o xG realmente mede?",
+            "paragraphs": [
+              "O xG, abreviação de expected goals ou gols esperados, estima a chance de uma finalização resultar em gol. Para produzir essa estimativa, modelos analisam características de chutes anteriores, como distância, ângulo, parte do corpo usada e tipo de passe que antecedeu a tentativa. Alguns fornecedores incluem outras informações.",
+              "Uma finalização com xG de 0,20 representa uma chance que o modelo estima em cerca de 20%. Isso não significa que um atleta marcará exatamente dois gols nas próximas dez tentativas. É uma estimativa baseada em situações semelhantes, sujeita aos limites dos dados e do modelo."
+            ],
+            "sourceIds": [
+              "hudl-xg"
+            ]
+          },
+          {
+            "id": "exemplo",
+            "role": "example",
+            "heading": "Mais chutes ou melhores chances?",
+            "paragraphs": [
+              "Imagine duas equipes em uma partida fictícia. A equipe A finaliza seis vezes, e cada chute recebe um valor de 0,05 xG. A equipe B chuta apenas duas vezes, com valores de 0,35 e 0,25. Somados, os valores são 0,30 para A e 0,60 para B, como mostra o gráfico.",
+              "Embora A tenha produzido três vezes mais finalizações, B teve o maior total de gols esperados nesse exemplo. O xG permite enxergar uma diferença que a simples contagem de chutes esconde. Os números são inventados exclusivamente para ensinar o cálculo; não pertencem a um jogo ou clube real."
+            ],
+            "sourceIds": [
+              "hudl-xg"
+            ]
+          },
+          {
+            "id": "comparacao",
+            "role": "method",
+            "heading": "Como ler o indicador ao longo de uma temporada",
+            "paragraphs": [
+              "Para analisar um time, é possível somar os valores de suas finalizações e também os das finalizações concedidas aos adversários, frequentemente chamados de xGA. Ao comparar equipes com números diferentes de minutos, métricas por 90 minutos podem ajudar a normalizar a exposição.",
+              "Ainda assim, devemos considerar o nível dos adversários, os pênaltis, o estado do placar, a competição, a amostra e o fornecedor dos dados. Modelos de xG distintos podem atribuir valores diferentes a um mesmo chute. Uma comparação coerente começa por manter esses critérios explícitos."
+            ],
+            "sourceIds": [
+              "hudl-xg",
+              "statsbomb-guide"
+            ]
+          },
+          {
+            "id": "limites",
+            "role": "limitations",
+            "heading": "O que os números não conseguem responder sozinhos",
+            "paragraphs": [
+              "O maior xG de uma partida não garante a vitória e a soma dos xG não é a probabilidade de um time ganhar. Gols dependem do que efetivamente acontece, e uma avaliação de resultado futuro exigiria um modelo próprio, com hipóteses, dados e validação.",
+              "Por isso, nesta série vamos usar estatísticas para formular perguntas e interpretar o futebol, não para transformar uma métrica em certeza. O próximo passo será observar o que uma equipe produz e concede ao longo de uma amostra comparável de partidas."
+            ],
+            "sourceIds": [
+              "hudl-xg",
+              "statsbomb-guide"
+            ]
+          }
+        ]
+      },
+      "en": {
+        "slug": "expected-goals",
+        "title": "What is xG? Why not all shots are equal",
+        "summary": "A team can take many shots without creating much danger. Expected goals help distinguish shooting volume from chance quality.",
+        "sections": [
+          {
+            "id": "definition",
+            "role": "definition",
+            "heading": "What does xG actually measure?",
+            "paragraphs": [
+              "Expected goals, usually shortened to xG, estimates the probability of a shot becoming a goal. Models use characteristics of previous shots, such as distance, angle, the body part used and the action preceding the attempt. Some providers include additional information.",
+              "A shot worth 0.20 xG represents a chance that the model estimates at around 20%. It does not mean a player will score exactly twice in their next ten attempts. It is an estimate based on similar situations, subject to the model's limitations and available data."
+            ],
+            "sourceIds": [
+              "hudl-xg"
+            ]
+          },
+          {
+            "id": "example",
+            "role": "example",
+            "heading": "More shots or better chances?",
+            "paragraphs": [
+              "Imagine two sides in a fictional match. Team A takes six shots, each worth 0.05 xG. Team B takes only two, valued at 0.35 and 0.25. Adding those values gives A a total of 0.30 xG and B a total of 0.60, as the chart illustrates.",
+              "Although A took three times as many shots, B recorded the higher expected-goals total in this example. xG can reveal a difference that shot counts obscure. These numbers were invented solely to explain the calculation; they do not describe an actual club or match."
+            ],
+            "sourceIds": [
+              "hudl-xg"
+            ]
+          },
+          {
+            "id": "comparison",
+            "role": "method",
+            "heading": "How to read the metric across a season",
+            "paragraphs": [
+              "An analyst can sum a team's shot values and also those of chances conceded to opponents, often called xGA. When comparing teams with different minutes played, per-90-minute figures can help standardise exposure.",
+              "The quality of opposition, penalties, score state, competition, sample and data provider still matter. Different xG models may assign different values to the same shot. A coherent comparison starts by making those choices explicit."
+            ],
+            "sourceIds": [
+              "hudl-xg",
+              "statsbomb-guide"
+            ]
+          },
+          {
+            "id": "limits",
+            "role": "limitations",
+            "heading": "What the numbers cannot answer alone",
+            "paragraphs": [
+              "The higher xG total in a match does not guarantee victory, and summing xG is not the same as calculating a team's probability of winning. Goals depend on what actually happens, while assessing future outcomes would require a separate model with stated assumptions, data and validation.",
+              "Throughout this series, statistics will help us ask questions and interpret performances rather than turn a metric into certainty. Next, we will explore the chances teams create and concede across comparable samples of matches."
+            ],
+            "sourceIds": [
+              "hudl-xg",
+              "statsbomb-guide"
+            ]
+          }
+        ]
+      }
+    },
+    "analysisEvidence": {
+      "mode": "illustrative",
+      "metric": "xg",
+      "provider": "Futebolando — fictional teaching example",
+      "period": null,
+      "competition": null,
+      "sourceIds": [
+        "hudl-xg"
+      ],
+      "groups": [
+        {
+          "id": "a",
+          "shots": [
+            0.05,
+            0.05,
+            0.05,
+            0.05,
+            0.05,
+            0.05
+          ]
+        },
+        {
+          "id": "b",
+          "shots": [
+            0.35,
+            0.25
+          ]
+        }
+      ]
+    }
   }
 ]

@@ -1,5 +1,6 @@
 import {localePath,localizedView} from './international.mjs';
 import {validateBlogConfig} from './config.mjs';
+import {validateStatArticle} from './stat-example.mjs';
 const need=(ok,msg)=>{if(!ok)throw new Error(msg);};
 const slug=x=>typeof x==='string'&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(x);
 const text=x=>typeof x==='string'&&x.trim().length>0;
@@ -32,6 +33,7 @@ export function validateArticles(config,catalog){
       const known=[config.design.media.featured,...config.design.media.cards,...(config.design.articleMedia??[])].filter(m=>m?.source==='local');
       need(known.some(m=>JSON.stringify(m)===JSON.stringify(a.media)),'Article media must match validated local asset');
     }
+    validateStatArticle(a);
     need(Array.isArray(a.related)&&unique(a.related)&&a.related.every(id=>id!==a.id&&rows.some(r=>r.id===id)),'Invalid related articles');
   }
   need(unique(cards)&&unique(routeKeys),'Duplicate route or preview card');
@@ -52,4 +54,11 @@ export function articleView(config,catalog,id,locale){
   const categories=localizedView(config,locale).categories;
   const words=copy.sections.flatMap(s=>s.paragraphs).join(' ').trim().split(/\s+/).length;
   return {...a,...copy,categoryLabel:categories.find(c=>c.slug===a.category).label,readingMinutes:Math.max(1,Math.ceil(words/220)),links:config.international.editions.filter(e=>a.editions[e.locale]).map(e=>({locale:e.locale,label:e.label,href:articlePath(config,a,e.locale)})),relatedArticles:a.related.map(r=>rows.find(x=>x.id===r)).filter(x=>x.editions[locale]).map(x=>({title:x.editions[locale].title,href:articlePath(config,x,locale)}))};
+}
+
+/** All actual article drafts are discoverable; unused preview cards are not articles. */
+export function articleListing(config,catalog,locale){
+  const rows=validateArticles(config,catalog);
+  const categories=localizedView(config,locale).categories;
+  return rows.filter(a=>a.editions[locale]).map(a=>({id:a.id,slug:a.category,category:categories.find(c=>c.slug===a.category).label,title:a.editions[locale].title,summary:a.editions[locale].summary,media:a.media,href:articlePath(config,a,locale)}));
 }

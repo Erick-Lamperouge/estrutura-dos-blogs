@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "blog": "futebolando",
+  "status": "draft-only",
+  "legacyCommit": "e502042150cf05e1e232699e198c08eed7f7cb2e",
+  "previousCoreCommit": "1ae9c431ad85a030c270ac9dfe4087c1d01720a1",
+  "legacy": [
+    {
+      "path": "_posts/2025-10-12-real-madrid-historia-glorias.md",
+      "articles": [
+        "real-madrid-history"
+      ]
+    },
+    {
+      "path": "_posts/2025-10-15-impedimento-regras-exemplos.md",
+      "articles": [
+        "offside-guide",
+        "offside-restarts"
+      ],
+      "note": "VAR reservado ao episódio planejado; não reproduzir afirmações sem fonte normativa específica."
+    },
+    {
+      "path": "_posts/2025-10-16-libertadores-guia-formato-historia.md",
+      "articles": [
+        "libertadores-format"
+      ],
+      "note": "Desempate atualizado para edição 2026."
+    },
+    {
+      "path": "_posts/2025-10-17-barcelona-jogo-posicional-e-evolucao.md",
+      "articles": [
+        "barcelona-positional-play"
+      ]
+    }
+  ],
+  "originalAssetsPolicy": "Legacy images retained in original tree but excluded from V2 until licensing is verified.",
+  "contentPaths": [
+    "editorial/config.json",
+    "editorial/articles.json",
+    "editorial/series.json"
+  ],
+  "mediaPaths": [
+    "editorial/media/offside-schematic.svg",
+    "editorial/media/ball-line-schematic.svg",
+    "editorial/media/goalkeeper-clock-schematic.svg",
+    "editorial/media/real-madrid-timeline.svg",
+    "editorial/media/libertadores-format-2026.svg",
+    "editorial/media/positional-play-schematic.svg",
+    "editorial/media/xg-example.svg"
+  ]
+}

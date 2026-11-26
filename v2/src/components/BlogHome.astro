@@ -1,7 +1,7 @@
 ---
 import BlogShell from './BlogShell.astro';
 import EditorialAction from './EditorialAction.astro';
-import {previewArticleLinks} from '../lib/articles.mjs';
+import {articleListing} from '../lib/articles.mjs';
 import articleCatalog from '../../content/articles.json';
 import seriesCatalog from '../../content/series.json';
 import {seriesList,seriesLabels} from '../lib/series.mjs';
@@ -12,7 +12,8 @@ const view=localizedView(config,locale);
 const d=designView(config,view);
 const u=view.ui, t=d.ui;
 const mediaLabel=(kind:string)=>kind==='photo'?t.photo:kind==='chart'?t.chart:t.illustration;
-const articleLinks=previewArticleLinks(config,articleCatalog,locale);
+const realCards=articleListing(config,articleCatalog,locale);
+const cards=realCards.length?realCards:d.cards.map((card,i)=>({...card,id:'fixture-'+i,href:null,summary:null}));
 const series=seriesList(config,articleCatalog,seriesCatalog,locale), sl=seriesLabels(locale);
 ---
 <BlogShell config={config} locale={locale}>
@@ -46,7 +47,7 @@ const series=seriesList(config,articleCatalog,seriesCatalog,locale), sl=seriesLa
             <span class="draft-label">{t.draft}</span>
           </div>
         </section>
-        {series.length>0&&<section class="series-feature section-block" id="series"><div class="section-kicker"><h2>{sl.title}</h2><span class="rule"></span></div><p class="muted">{sl.intro}</p>{series.filter(s=>s.href).map(s=><div class="series-panel"><span class="eyebrow">{sl.draft} · {s.ready}/{s.total}</span><h3>{s.title}</h3><p>{s.description}</p><EditorialAction href={s.href} label={sl.open}/></div>)}<EditorialAction href={view.home+'series/'} label={sl.all}/></section>}
+        {series.length>0&&<section class="series-feature section-block" id="series"><div class="section-kicker"><h2>{sl.title}</h2><span class="rule"></span></div><p class="muted">{sl.intro}</p>{series.filter(s=>s.href).slice(0,2).map(s=><div class="series-panel"><span class="eyebrow">{sl.draft} · {s.ready}/{s.total}</span><h3>{s.title}</h3><p>{s.description}</p><EditorialAction href={s.href} label={sl.open}/></div>)}<EditorialAction href={view.home+'series/'} label={sl.all}/></section>}
         <section id="sections" class="section-block">
           <div class="section-kicker"><h2>{t.topics}</h2><span class="rule"></span></div>
           <div class="category-list" aria-label={t.topics}>
@@ -64,9 +65,9 @@ const series=seriesList(config,articleCatalog,seriesCatalog,locale), sl=seriesLa
             <button id="clear-filters" class="clear-button" type="button">{t.clear}</button>
           </div>
           <p id="pauta-status" role="status" class="muted" data-count={u.count} data-empty={t.empty}></p>
-          <ul class="pauta-list">{d.cards.map((card,i)=><li data-pauta data-category={card.slug} class:list={["pauta",{"with-media":card.media?.source==="local"}]}>
+          <ul class="pauta-list">{cards.map((card,i)=><li data-pauta data-article-id={card.id} data-category={card.slug} class:list={["pauta",{"with-media":card.media?.source==="local"}]}>
             {card.media?.source==="local"?<figure class="story-media"><img src={card.media.path} alt={card.media.alt[view.language]} loading="lazy" decoding="async"/><figcaption>{mediaLabel(card.media.kind)} · {card.media.credit}</figcaption></figure>:<div class="story-number" aria-hidden="true">{String(i+2).padStart(2,'0')}<span></span></div>}
-            <div class="story-copy"><span class="eyebrow">{card.category}</span><h3>{card.title}</h3><span class="draft-label">{t.draft}</span>{articleLinks.has(i)&&<EditorialAction href={articleLinks.get(i)} label={t.readDraft}/>}</div>
+            <div class="story-copy"><span class="eyebrow">{card.category}</span><h3>{card.title}</h3>{card.summary&&<p class="story-summary">{card.summary}</p>}<span class="draft-label">{card.href?t.articleDraft:t.draft}</span>{card.href&&<EditorialAction href={card.href} label={t.readDraft}/>}</div>
           </li>)}</ul>
         </section>
       </div>

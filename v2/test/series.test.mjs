@@ -7,7 +7,7 @@ const load=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const f=load('config/futebolando.json'),c=load('config/culinaria-demo.json'),a=load('content/articles.json'),s=load('content/series.json');
 test('six series, four rules drafts',()=>{assert.equal(validateSeries(f,a,s).length,6);assert.equal(seriesList(f,a,s,'pt-BR')[0].ready,4);});
 test('culinary fixture has no football series',()=>assert.equal(seriesList(c,a,s,'en').length,0));
-test('planned series never gets link',()=>assert.equal(seriesList(f,a,s,'en').filter(x=>!x.href).length,5));
+test('planned series never gets link',()=>assert.equal(seriesList(f,a,s,'en').filter(x=>!x.href).length,1));
 test('four episode links and six planned slots',()=>{const v=seriesView(f,a,s,'rules','en');assert.equal(v.episodes.filter(e=>e.href).length,4);assert.equal(v.episodes.length,10);});
 test('next link points to translated article',()=>assert.equal(episodeView(f,a,s,'offside-guide','en').next.href,'/futebolando/en/articles/offside-restarts/'));
 test('last available draft has no false next link',()=>assert.equal(episodeView(f,a,s,'goalkeeper-eight-seconds','pt-BR').next,null));

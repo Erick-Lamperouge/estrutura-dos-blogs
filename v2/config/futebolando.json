@@ -129,7 +129,7 @@
         "title": "Impedimento: a regra explicada com exemplos práticos"
       },
       {
-        "category": "História",
+        "category": "Competições",
         "title": "Libertadores: história e formato da competição"
       },
       {
@@ -224,7 +224,7 @@
               "title": "Offside: the rule explained with practical examples"
             },
             {
-              "category": "History",
+              "category": "Competitions",
               "title": "Copa Libertadores: history and competition format"
             },
             {
@@ -390,7 +390,7 @@
     ],
     "cardCategories": [
       "regras",
-      "historia",
+      "competicoes",
       "analises"
     ],
     "featureCategory": "analises",
@@ -540,6 +540,50 @@
         "alt": {
           "pt-BR": "Esquema temporal de oito segundos, com destaque para os cinco últimos segundos da contagem visual.",
           "en": "Eight-second timeline highlighting the final five seconds of the referee’s visible countdown."
+        }
+      },
+      {
+        "kind": "illustration",
+        "source": "local",
+        "path": "/futebolando/media/real-madrid-timeline.svg",
+        "rights": "original",
+        "credit": "Futebolando",
+        "alt": {
+          "pt-BR": "Linha do tempo dos títulos europeus do Real Madrid: cinco de 1956 a 1960, títulos em 1966 e 1998 e três entre 2016 e 2018; seleção de marcos, não lista completa.",
+          "en": "Selected milestones in Real Madrid's European Cup history: five from 1956 to 1960, titles in 1966 and 1998 and three from 2016 to 2018. Not a complete list."
+        }
+      },
+      {
+        "kind": "illustration",
+        "source": "local",
+        "path": "/futebolando/media/libertadores-format-2026.svg",
+        "rights": "original",
+        "credit": "Futebolando",
+        "alt": {
+          "pt-BR": "Fluxo da Libertadores 2026: 32 equipes, oito grupos de quatro, 16 classificadas às oitavas, oito às quartas, quatro às semifinais, duas à final.",
+          "en": "2026 Libertadores format: 32 teams, eight groups of four, 16 in the round of 16, eight in the quarter-finals, four in the semi-finals and two finalists."
+        }
+      },
+      {
+        "kind": "illustration",
+        "source": "local",
+        "path": "/futebolando/media/positional-play-schematic.svg",
+        "rights": "original",
+        "credit": "Futebolando",
+        "alt": {
+          "pt-BR": "Campo esquemático com jogadores distribuídos em largura e profundidade e uma combinação de terceiro homem; exemplo hipotético, não reconstrução de uma partida.",
+          "en": "Schematic pitch showing players spread across width and depth and a third-player combination; hypothetical example, not a reconstruction of a match."
+        }
+      },
+      {
+        "kind": "chart",
+        "source": "local",
+        "path": "/futebolando/media/xg-example.svg",
+        "rights": "original",
+        "credit": "Futebolando",
+        "alt": {
+          "pt-BR": "Exemplo fictício: equipe A, seis finalizações de 0,05 xG, total 0,30; equipe B, duas finalizações de 0,35 e 0,25 xG, total 0,60.",
+          "en": "Hypothetical example: team A, six shots worth 0.05 xG each, total 0.30; team B, two shots worth 0.35 and 0.25 xG, total 0.60."
         }
       }
     ]

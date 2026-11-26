@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "repository": "Erick-Lamperouge/futebolando",
+  "commit": "cf82f0b486343c982d566ca81b7a6b081614caf9",
+  "files": [
+    {
+      "source": "editorial/config.json",
+      "target": "v2/config/futebolando.json",
+      "blob": "65605014eefae01b668ad5070cf0f4c01a33eea4"
+    },
+    {
+      "source": "editorial/articles.json",
+      "target": "v2/content/articles.json",
+      "blob": "13d26eb6899ac2a0b0041e9535bc6d09a2273268"
+    },
+    {
+      "source": "editorial/series.json",
+      "target": "v2/content/series.json",
+      "blob": "92bd94e08e87d02694510404d002d424e6a7c01a"
+    },
+    {
+      "source": "editorial/migration.json",
+      "target": "v2/content/futebolando-migration.json",
+      "blob": "71af2f5397fda6016ddc5b8d36a21081e73eb430"
+    },
+    {
+      "source": "editorial/media/offside-schematic.svg",
+      "target": "v2/public/futebolando/media/offside-schematic.svg",
+      "blob": "1e292dbe6e722c3cb51c8d0acf085c8992bc99f2"
+    },
+    {
+      "source": "editorial/media/ball-line-schematic.svg",
+      "target": "v2/public/futebolando/media/ball-line-schematic.svg",
+      "blob": "a6207c1d1cd6fba08f7332cf035e17530c9305ff"
+    },
+    {
+      "source": "editorial/media/goalkeeper-clock-schematic.svg",
+      "target": "v2/public/futebolando/media/goalkeeper-clock-schematic.svg",
+      "blob": "5d6a35d87549a60cc30012e8c6f7e7b73ff01698"
+    },
+    {
+      "source": "editorial/media/real-madrid-timeline.svg",
+      "target": "v2/public/futebolando/media/real-madrid-timeline.svg",
+      "blob": "d0a68104e5513aaf5b5f048365f88fd697af1f62"
+    },
+    {
+      "source": "editorial/media/libertadores-format-2026.svg",
+      "target": "v2/public/futebolando/media/libertadores-format-2026.svg",
+      "blob": "c5b8959a32bc96ba75830ffdd8206543978bafae"
+    },
+    {
+      "source": "editorial/media/positional-play-schematic.svg",
+      "target": "v2/public/futebolando/media/positional-play-schematic.svg",
+      "blob": "2058a987074ba229f15f2c7d094b11236f50d172"
+    },
+    {
+      "source": "editorial/media/xg-example.svg",
+      "target": "v2/public/futebolando/media/xg-example.svg",
+      "blob": "6a604985988578042b2fd7b2b6d6dd44e98e210c"
+    }
+  ]
+}

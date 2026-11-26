@@ -9,9 +9,9 @@ test('approved design presets',()=>assert.deepEqual(f.design.refinement,{typogra
 test('other blog can use own typography',()=>assert.equal(validateBlogConfig(c).design.refinement.typography,'classic'));
 test('invalid interaction rejected',()=>{let x=structuredClone(f);x.design.refinement.minTarget=20;assert.throws(()=>validateBlogConfig(x));});
 test('invalid font preset rejected',()=>{let x=structuredClone(f);x.design.refinement.typography='remote';assert.throws(()=>validateBlogConfig(x));});
-test('four drafts valid, culinary catalog empty',()=>{assert.equal(validateArticles(f,a).length,4);assert.equal(validateArticles(c,a).length,0);});
+test('eight drafts valid, culinary catalog empty',()=>{assert.equal(validateArticles(f,a).length,8);assert.equal(validateArticles(c,a).length,0);});
 test('localized article URLs',()=>{assert.equal(articlePath(f,a[0],'pt-BR'),'/futebolando/artigos/impedimento/');assert.equal(articlePath(f,a[0],'en'),'/futebolando/en/articles/offside/');});
-test('article card links only to real routes',()=>{const links=previewArticleLinks(f,a,'en');assert.equal(links.size,1);assert.equal(links.get(0),'/futebolando/en/articles/offside/');});
+test('article card links only to real routes',()=>{const links=previewArticleLinks(f,a,'en');assert.equal(links.size,3);assert.equal(links.get(0),'/futebolando/en/articles/offside/');});
 test('translation links, related and reading time',()=>{const x=articleView(f,a,'offside-guide','pt-BR');assert.equal(x.links.length,2);assert.equal(x.relatedArticles.length,2);assert.ok(x.readingMinutes>=1);});
 const bad=change=>{let x=structuredClone(a);change(x);assert.throws(()=>validateArticles(f,x));};
 test('publish state forbidden',()=>bad(x=>x[0].status='published'));
@@ -25,4 +25,4 @@ test('duplicate route rejected',()=>bad(x=>x[1].editions.en.slug=x[0].editions.e
 test('unavailable related article rejected',()=>bad(x=>x[0].related=['unknown']));
 test('unsafe slug rejected',()=>bad(x=>x[0].editions.en.slug='../home'));
 test('unapproved media rejected',()=>bad(x=>x[0].media.path='/futebolando/media/unknown.jpg'));
-test('missing translation never generates a false route',()=>{let x=structuredClone(a);delete x[0].editions.en;assert.equal(previewArticleLinks(f,x,'en').size,0);assert.equal(articleView(f,x,'offside-guide','pt-BR').links.length,1);});
+test('missing translation never generates a false route',()=>{let x=structuredClone(a);delete x[0].editions.en;assert.equal(previewArticleLinks(f,x,'en').size,2);assert.equal(articleView(f,x,'offside-guide','pt-BR').links.length,1);});

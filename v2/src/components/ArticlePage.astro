@@ -24,6 +24,7 @@ const formatted=new Intl.DateTimeFormat(locale,{dateStyle:'medium',timeZone:'UTC
         <div class="article-meta"><span>{t.prepared}: <time datetime={a.preparedAt}>{formatted}</time></span><span>{a.readingMinutes} {t.reading}</span></div>
         <p class="article-alert">{t.articleDraft}. {t.noReview}.</p>
       </header>
+      {a.analysisEvidence?.mode==='illustrative'&&<p class="article-alert" data-stat-example="illustrative">{locale==='en'?'Illustrative data · not an actual match':'Dados ilustrativos · não representam uma partida real'}</p>}
       {a.media&&<figure class="article-cover"><img src={a.media.path} alt={a.media.alt[locale]} decoding="async"/><figcaption>{a.media.kind==='photo'?t.photo:a.media.kind==='chart'?t.chart:t.illustration} · {t.mediaCredit}: {a.media.credit}</figcaption></figure>}
       <nav class="article-toc" aria-label={t.contents}><h2>{t.contents}</h2><ul>{a.sections.map(s=><li><a href={'#'+s.id}>{s.heading}</a></li>)}</ul></nav>
       <div class="article-body">{a.sections.map(s=><section id={s.id} data-section-role={s.role}><h2>{s.heading}</h2>{s.paragraphs.map(p=><p>{p}</p>)}<p class="article-citations">{s.sourceIds.map(id=><a href={'#source-'+id} aria-label={a.sources.find(x=>x.id===id).title}>[{a.sources.findIndex(x=>x.id===id)+1}]</a>)}</p></section>)}</div>

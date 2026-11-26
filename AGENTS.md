@@ -8,3 +8,5 @@ Não ativar ads, checkout, afiliados, doações, rotinas pagas ou publicação a
 Leia também docs/INTERNATIONAL.md. Não confundir país, idioma e assunto. Respeitar escopo jurídico por blog, fontes verificáveis, métricas agregadas e política sem apostas. Não fabricar sinais de audiência ou probabilidades esportivas.
 
 Leia e aplique docs/WRITING.md antes de redigir, reescrever ou traduzir artigos. Fluidez, precisão e personalidade por idioma não podem ser substituídas por testes mecânicos. Não confundir redução de clichês com ocultação de autoria ou uso de IA.
+
+Conteúdo do Futebolando: editar primeiro na branch dev/editorial-v2 do repo futebolando; atualizar cópia de teste e lock de blobs no núcleo. Nunca confundir dados estatísticos ilustrativos com dados observados. Sem palpites de apostas, odds, garantias ou aquisição de dados paga sem autorização.

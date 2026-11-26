@@ -5,3 +5,5 @@ Métricas: avaliar por série, mercado e idioma após publicação; duas janelas
 Próximo: transferir conteúdo e configuração para repo Futebolando, migrar antigos artigos restantes e revisar direitos; atualizar pin do portal, construir/validar integração, SEO e aprovação antes de publicar.
 
 A estrutura em camadas deve preservar fluidez de leitura, não fragmentar o raciocínio. Aplicar docs/WRITING.md. Os exemplos hipotéticos e o resumo devem preparar o leitor para o aprofundamento; o fim deve conectar a consequência prática à próxima matéria quando pertinente.
+
+Etapa 04D: cinco séries piloto, oito artigos bilíngues. Números começa por xG com dados hipotéticos; xGA, por 90 minutos, posse e força dos adversários são pautas planejadas. A origem editorial é a branch dev/editorial-v2 do Futebolando; ver lock em v2/content/futebolando.lock.json. Não inferir audiência ou publicar automaticamente.
