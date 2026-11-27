@@ -8,3 +8,8 @@ dist/
 review-shots/
 
 public/blog-font-licenses/
+
+# Licensed sports data and credentials are never versioned.
+.env
+.env.*
+.sports-cache/

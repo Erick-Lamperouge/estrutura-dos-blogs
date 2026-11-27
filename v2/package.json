@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "test": "node --test test/*.test.mjs",
     "review:queue": "node scripts/publication-queue.mjs",
-    "intake:check": "node scripts/check-intake.mjs"
+    "intake:check": "node scripts/check-intake.mjs",
+    "sports:diagnose": "node scripts/diagnose-football-provider.mjs"
   },
   "dependencies": {
     "astro": "7.2.6",

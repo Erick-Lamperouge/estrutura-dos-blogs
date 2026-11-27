@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "provider": "football-data.org",
+  "enabled": false,
+  "domain": "senhoritaminuto.com.br",
+  "authorization": null,
+  "competitions": [
+    {
+      "id": "brasileirao",
+      "code": "BSA",
+      "kind": "clubs",
+      "type": "LEAGUE",
+      "title": {
+        "pt-BR": "Brasileirão Série A",
+        "en": "Brazilian Série A"
+      },
+      "seasonStart": 2026,
+      "table": true,
+      "teamCount": 20
+    },
+    {
+      "id": "premier",
+      "code": "PL",
+      "kind": "clubs",
+      "type": "LEAGUE",
+      "title": {
+        "pt-BR": "Premier League",
+        "en": "Premier League"
+      },
+      "seasonStart": 2026,
+      "table": true,
+      "teamCount": 20
+    },
+    {
+      "id": "champions",
+      "code": "CL",
+      "kind": "clubs",
+      "type": "LEAGUE_CUP",
+      "title": {
+        "pt-BR": "Champions League",
+        "en": "Champions League"
+      },
+      "seasonStart": 2026,
+      "table": false,
+      "teamCount": null
+    },
+    {
+      "id": "world-cup",
+      "code": "WC",
+      "kind": "national",
+      "type": "CUP",
+      "title": {
+        "pt-BR": "Copa do Mundo",
+        "en": "World Cup"
+      },
+      "seasonStart": 2026,
+      "table": false,
+      "teamCount": null
+    },
+    {
+      "id": "euro",
+      "code": "EC",
+      "kind": "national",
+      "type": "CUP",
+      "title": {
+        "pt-BR": "Eurocopa",
+        "en": "European Championship"
+      },
+      "seasonStart": null,
+      "table": false,
+      "teamCount": null
+    }
+  ]
+}
