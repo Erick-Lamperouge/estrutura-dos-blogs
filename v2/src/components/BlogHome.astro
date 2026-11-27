@@ -1,5 +1,8 @@
 ---
 import BlogShell from './BlogShell.astro';
+import FootballCentre from './FootballCentre.astro';
+import {rankHighlights} from '../lib/highlights.mjs';
+import audience from '../../content/audience-views.json';
 import EditorialAction from './EditorialAction.astro';
 import {articleListing} from '../lib/articles.mjs';
 import {siteContext,publicationLabels} from '../lib/site-context.mjs';
@@ -16,7 +19,11 @@ const articleCatalog=context.articles,seriesCatalog=context.series;
 const realCards=articleListing(config,articleCatalog,locale);
 const cards=live||realCards.length?realCards:d.cards.map((card,i)=>({...card,id:'fixture-'+i,href:null,summary:null}));
 const series=seriesList(config,articleCatalog,seriesCatalog,locale), sl=seriesLabels(locale);
-const feature=live?{...realCards[0],media:realCards[0].media??{source:'builtin',kind:'illustration'}}:d.featured;
+const football=config.slug==='futebolando',asOf=new Date().toISOString().slice(0,10);
+const highlights=football?rankHighlights(realCards,{blog:config.slug,locale,records:context.records,live,audience,asOf}):null;
+const first=highlights?.items[0]??realCards[0];
+const feature=live||football&&first?{...first,media:first.media??{source:'builtin',kind:'illustration'}}:d.featured;
+const highlightLabel=reason=>locale==='en'?({recent:'New',popular:'Popular this week',discover:'Discover',editorial:'Editorial preview'}[reason]??'Discover'):({recent:'Mais recente',popular:'Em alta na semana',discover:'Para descobrir',editorial:'Seleção de prévia'}[reason]??'Para descobrir');
 ---
 <BlogShell config={config} locale={locale}>
   <main class="blog-wrap" id="content">
@@ -46,9 +53,11 @@ const feature=live?{...realCards[0],media:realCards[0].media??{source:'builtin',
             <span class="eyebrow">{feature.category}</span>
             <h1 id="feature-heading">{feature.title}</h1>
             <p>{feature.summary}</p>
-            {live?<EditorialAction href={feature.href} label={pub.read}/>:<span class="draft-label">{t.draft}</span>}
+            {live?<EditorialAction href={feature.href} label={pub.read}/>:<><span class="draft-label">{t.draft}</span>{football&&first&&<EditorialAction href={first.href} label={t.readDraft}/>}</>}
           </div>
         </section>
+        {football&&highlights&&<section class="highlight-secondary section-block" data-highlight-mode={highlights.mode}><div class="section-kicker"><h2>{locale==='en'?'More highlights':'Mais destaques'}</h2><span class="rule"></span></div><div class="highlight-grid">{highlights.items.slice(1).map(card=><article data-highlight-article={card.id}><span class="eyebrow">{highlightLabel(card.reason)}</span><h3>{card.title}</h3>{card.publishedAt&&<time datetime={card.publishedAt}>{card.publishedAt}</time>}<EditorialAction href={card.href} label={live?pub.read:t.readDraft}/></article>)}</div></section>}
+        {football&&<FootballCentre locale={locale} asOf={asOf}/>}
         {series.length>0&&<section class="series-feature section-block" id="series"><div class="section-kicker"><h2>{sl.title}</h2><span class="rule"></span></div><p class="muted">{sl.intro}</p>{series.filter(s=>s.href).slice(0,2).map(s=><div class="series-panel"><span class="eyebrow">{live?pub.available:sl.draft} · {s.ready}/{s.total}</span><h3>{s.title}</h3><p>{s.description}</p><EditorialAction href={s.href} label={sl.open}/></div>)}<EditorialAction href={view.home+'series/'} label={sl.all}/></section>}
         <section id="sections" class="section-block">
           <div class="section-kicker"><h2>{t.topics}</h2><span class="rule"></span></div>

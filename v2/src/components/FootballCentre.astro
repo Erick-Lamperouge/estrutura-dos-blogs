@@ -1,0 +1,41 @@
+---
+import {sportsView} from '../lib/sports-centre.mjs';
+import data from '../../content/football-centre.json';
+import EditorialAction from './EditorialAction.astro';
+const {locale,asOf}=Astro.props;
+const en=locale==='en';
+const t=en?{title:'Football centre',intro:'Tables and fixture schedules, with source and coverage clearly identified.',archive:'Historical data',partial:'Partial archive — not the current league table',complete:'Complete group-stage archive',current:'Calculated table',source:'Data source',official:'Official table and results',calendar:'Official fixtures / calendar',games:'Upcoming matches',missing:'No current verified fixture feed. Consult the official calendar.',stale:'The current snapshot has expired. Consult the official source.',coverage:'Results through',matches:'results',method:'Calculated from available match results; does not include all official tie-breakers or points adjustments.',view:'View table',group:'Group',club:'Team',pos:'#',played:'P',wins:'W',draws:'D',losses:'L',gd:'GD',pts:'Pts',date:'Date',time:'Kick-off',pending:'Time not confirmed',other:'Other competitions — official sources'}:{title:'Central de futebol',intro:'Classificações e calendário de partidas com fonte e período identificados.',archive:'Dados históricos',partial:'Arquivo parcial — não é a classificação atual',complete:'Arquivo completo da fase de grupos',current:'Tabela calculada',source:'Fonte dos dados',official:'Tabela e resultados oficiais',calendar:'Jogos / calendário oficial',games:'Próximos jogos',missing:'Ainda não há uma fonte atualizada de partidas validada. Consulte o calendário oficial.',stale:'A atualização venceu. Consulte a fonte oficial.',coverage:'Resultados até',matches:'resultados',method:'Calculada a partir dos resultados disponíveis; não inclui todos os desempates oficiais nem ajustes de pontos.',view:'Ver classificação',group:'Grupo',club:'Equipe',pos:'#',played:'J',wins:'V',draws:'E',losses:'D',gd:'SG',pts:'PTS',date:'Data',time:'Horário',pending:'Horário não confirmado',other:'Outras competições — fontes oficiais'};
+const comps=sportsView(data,asOf);
+const fmt=date=>new Intl.DateTimeFormat(locale,{dateStyle:'medium',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));
+const kick=m=>m.kickoffAt?new Intl.DateTimeFormat(locale,{timeStyle:'short',timeZone:'UTC'}).format(new Date(m.kickoffAt))+' UTC':t.pending;
+---
+<section class="section-block football-centre" data-football-centre aria-labelledby="football-centre-heading">
+ <div class="section-kicker"><h2 id="football-centre-heading">{t.title}</h2><span class="rule"></span></div>
+ <p class="muted">{t.intro}</p>
+ {comps.map(c=><section class="sports-panel" data-competition={c.id}>
+  <span class="eyebrow">{c.kind==='clubs'?(en?'CLUBS':'CLUBES'):(en?'NATIONAL TEAMS':'SELEÇÕES')} · {c.season}</span>
+  <h3>{c.title[locale]}</h3>
+  <p class="sports-status" data-sports-status>{c.fresh?t.current:c.mode==='archive'?(c.complete?t.complete:t.partial):t.stale}</p>
+  <p class="muted sports-meta">{t.coverage} <time datetime={c.coverageThrough}>{fmt(c.coverageThrough)}</time> · {c.final}/{c.expectedResults} {t.matches}</p>
+  <div class="sports-actions"><a href={c.officialUrl} target="_blank" rel="noopener noreferrer">{t.official}</a><a href={c.agendaUrl} target="_blank" rel="noopener noreferrer">{t.calendar}</a></div>
+  <div data-sports-expiry={c.tableExpiresAt??undefined}>
+   {c.tables.map(g=><details class="sports-table-details" open={c.id==='world-cup'&&g.group==='C'}>
+    <summary>{t.view}{g.group==='league'?'':' · '+t.group+' '+g.group}</summary>
+    <div class="sports-table-scroll" tabindex="0" role="region" aria-label={t.view+' '+g.group}>
+     <table><caption>{c.title[locale]} · {c.season}{g.group==='league'?'':' · '+t.group+' '+g.group}</caption><thead><tr>{[t.pos,t.club,t.played,t.wins,t.draws,t.losses,t.gd,t.pts].map(v=><th scope="col">{v}</th>)}</tr></thead>
+     <tbody>{g.rows.map(r=><tr><td>{r.rank??'='}</td><th scope="row">{r.name}</th><td>{r.p}</td><td>{r.w}</td><td>{r.d}</td><td>{r.l}</td><td>{r.gd}</td><td><strong>{r.pts}</strong></td></tr>)}</tbody></table>
+    </div>
+   </details>)}
+   <p class="sports-meta muted">{t.method} <a href={c.source.url} target="_blank" rel="noopener noreferrer">{t.source}: {c.source.provider}</a> · <a href={c.source.licenseUrl} target="_blank" rel="noopener noreferrer">{c.source.license}</a></p>
+  </div>
+  <p data-sports-expired hidden class="sports-status">{t.stale}</p>
+  <h4>{t.games}</h4>
+  {c.upcoming.length>0?<><ul class="sports-fixtures" data-sports-expiry={c.agendaExpiresAt}>{c.upcoming.map(m=><li data-fixture-date={m.date}><time datetime={m.kickoffAt??m.date}>{fmt(m.date)}</time><strong>{m.home} × {m.away}</strong><span>{kick(m)}</span></li>)}</ul><p data-sports-expired hidden class="sports-status">{t.stale}</p></>:<p class="muted">{t.missing}</p>}
+ </section>)}
+ <div class="sports-directory"><h3>{t.other}</h3>{data.officialLinks.map(l=><a href={l.url} target="_blank" rel="noopener noreferrer">{typeof l.name==='string'?l.name:l.name[locale]}</a>)}</div>
+</section>
+<script>
+ // The static build can outlive a snapshot. Never keep a stale current table visible.
+ const expire=()=>{const now=Date.now(),today=new Date(now).toISOString().slice(0,10);for(const el of document.querySelectorAll<HTMLElement>('[data-sports-expiry]')){if(el.dataset.sportsExpiry&&now>=Date.parse(el.dataset.sportsExpiry)){el.hidden=true;const notice=el.nextElementSibling;if(notice instanceof HTMLElement&&notice.hasAttribute('data-sports-expired'))notice.hidden=false;}}for(const el of document.querySelectorAll<HTMLElement>('[data-fixture-date]'))if((el.dataset.fixtureDate??'')<=today)el.hidden=true;};
+ expire();window.addEventListener('pageshow',expire);document.addEventListener('visibilitychange',expire);
+</script>

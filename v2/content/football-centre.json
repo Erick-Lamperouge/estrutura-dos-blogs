@@ -1,0 +1,4426 @@
+{
+  "version": 1,
+  "blog": "futebolando",
+  "competitions": [
+    {
+      "id": "brasileirao",
+      "kind": "clubs",
+      "title": {
+        "pt-BR": "Brasileirão Série A",
+        "en": "Brazilian Série A"
+      },
+      "season": "2026",
+      "mode": "archive",
+      "coverageThrough": "2026-09-20",
+      "expectedResults": 380,
+      "groupSize": 20,
+      "groups": [
+        "league"
+      ],
+      "source": {
+        "provider": "OpenFootball",
+        "license": "CC0-1.0",
+        "url": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/2026/br.1.json",
+        "licenseUrl": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md",
+        "commit": "e6744429ee395bc86f247348c6184bb08d4eb361",
+        "blob": "fe1e7e9d065f92c9f3e8c5b867cad350d0bf8ada"
+      },
+      "officialUrl": "https://www.cbf.com.br/futebol-brasileiro/tabelas/campeonato-brasileiro/serie-a/2026",
+      "agendaUrl": "https://www.cbf.com.br/futebol-brasileiro/tabelas/campeonato-brasileiro/serie-a/2026",
+      "scheduleCheckedAt": null,
+      "tiebreak": "points-wins-gd-gf",
+      "matches": [
+        {
+          "id": "m001",
+          "group": "league",
+          "date": "2026-01-28",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m002",
+          "group": "league",
+          "date": "2026-01-28",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m003",
+          "group": "league",
+          "date": "2026-01-28",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m004",
+          "group": "league",
+          "date": "2026-01-28",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m005",
+          "group": "league",
+          "date": "2026-01-28",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m006",
+          "group": "league",
+          "date": "2026-01-28",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            4,
+            2
+          ]
+        },
+        {
+          "id": "m007",
+          "group": "league",
+          "date": "2026-01-28",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m008",
+          "group": "league",
+          "date": "2026-01-28",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m009",
+          "group": "league",
+          "date": "2026-01-29",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m010",
+          "group": "league",
+          "date": "2026-01-29",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            4,
+            0
+          ]
+        },
+        {
+          "id": "m011",
+          "group": "league",
+          "date": "2026-02-04",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m012",
+          "group": "league",
+          "date": "2026-02-04",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m013",
+          "group": "league",
+          "date": "2026-02-04",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m014",
+          "group": "league",
+          "date": "2026-02-04",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m015",
+          "group": "league",
+          "date": "2026-02-04",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            5,
+            3
+          ]
+        },
+        {
+          "id": "m016",
+          "group": "league",
+          "date": "2026-02-04",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            5,
+            1
+          ]
+        },
+        {
+          "id": "m017",
+          "group": "league",
+          "date": "2026-02-05",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m018",
+          "group": "league",
+          "date": "2026-02-05",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m019",
+          "group": "league",
+          "date": "2026-02-05",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m020",
+          "group": "league",
+          "date": "2026-02-10",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m021",
+          "group": "league",
+          "date": "2026-02-11",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            3,
+            3
+          ]
+        },
+        {
+          "id": "m022",
+          "group": "league",
+          "date": "2026-02-11",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m023",
+          "group": "league",
+          "date": "2026-02-11",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            3,
+            3
+          ]
+        },
+        {
+          "id": "m024",
+          "group": "league",
+          "date": "2026-02-11",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m025",
+          "group": "league",
+          "date": "2026-02-11",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m026",
+          "group": "league",
+          "date": "2026-02-12",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m027",
+          "group": "league",
+          "date": "2026-02-12",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m028",
+          "group": "league",
+          "date": "2026-02-12",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m029",
+          "group": "league",
+          "date": "2026-02-12",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "m030",
+          "group": "league",
+          "date": "2026-02-19",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "SC Corinthians Paulista",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m031",
+          "group": "league",
+          "date": "2026-02-25",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m032",
+          "group": "league",
+          "date": "2026-02-25",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m033",
+          "group": "league",
+          "date": "2026-02-25",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m034",
+          "group": "league",
+          "date": "2026-02-25",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "SC Corinthians Paulista",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m035",
+          "group": "league",
+          "date": "2026-02-25",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m036",
+          "group": "league",
+          "date": "2026-02-25",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m037",
+          "group": "league",
+          "date": "2026-02-26",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m038",
+          "group": "league",
+          "date": "2026-03-10",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m039",
+          "group": "league",
+          "date": "2026-03-11",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m040",
+          "group": "league",
+          "date": "2026-03-11",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m041",
+          "group": "league",
+          "date": "2026-03-11",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            0,
+            2
+          ]
+        },
+        {
+          "id": "m042",
+          "group": "league",
+          "date": "2026-03-11",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m043",
+          "group": "league",
+          "date": "2026-03-12",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            0,
+            2
+          ]
+        },
+        {
+          "id": "m044",
+          "group": "league",
+          "date": "2026-03-12",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m045",
+          "group": "league",
+          "date": "2026-03-12",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m046",
+          "group": "league",
+          "date": "2026-03-12",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m047",
+          "group": "league",
+          "date": "2026-03-14",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m048",
+          "group": "league",
+          "date": "2026-03-14",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            0,
+            3
+          ]
+        },
+        {
+          "id": "m049",
+          "group": "league",
+          "date": "2026-03-15",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": "m050",
+          "group": "league",
+          "date": "2026-03-15",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m051",
+          "group": "league",
+          "date": "2026-03-15",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "SC Corinthians Paulista",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m052",
+          "group": "league",
+          "date": "2026-03-15",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m053",
+          "group": "league",
+          "date": "2026-03-15",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m054",
+          "group": "league",
+          "date": "2026-03-15",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m055",
+          "group": "league",
+          "date": "2026-03-15",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            3,
+            3
+          ]
+        },
+        {
+          "id": "m056",
+          "group": "league",
+          "date": "2026-03-16",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m057",
+          "group": "league",
+          "date": "2026-03-18",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m058",
+          "group": "league",
+          "date": "2026-03-18",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m059",
+          "group": "league",
+          "date": "2026-03-18",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m060",
+          "group": "league",
+          "date": "2026-03-18",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m061",
+          "group": "league",
+          "date": "2026-03-18",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m062",
+          "group": "league",
+          "date": "2026-03-18",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m063",
+          "group": "league",
+          "date": "2026-03-18",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": "m064",
+          "group": "league",
+          "date": "2026-03-19",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m065",
+          "group": "league",
+          "date": "2026-03-19",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            3,
+            0
+          ]
+        },
+        {
+          "id": "m066",
+          "group": "league",
+          "date": "2026-03-21",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m067",
+          "group": "league",
+          "date": "2026-03-21",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m068",
+          "group": "league",
+          "date": "2026-03-21",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m069",
+          "group": "league",
+          "date": "2026-03-22",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m070",
+          "group": "league",
+          "date": "2026-03-22",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            4,
+            1
+          ]
+        },
+        {
+          "id": "m071",
+          "group": "league",
+          "date": "2026-03-22",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m072",
+          "group": "league",
+          "date": "2026-03-22",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m073",
+          "group": "league",
+          "date": "2026-03-22",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m074",
+          "group": "league",
+          "date": "2026-03-22",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m075",
+          "group": "league",
+          "date": "2026-03-29",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            4,
+            1
+          ]
+        },
+        {
+          "id": "m076",
+          "group": "league",
+          "date": "2026-04-01",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": "m077",
+          "group": "league",
+          "date": "2026-04-01",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m078",
+          "group": "league",
+          "date": "2026-04-01",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            3,
+            0
+          ]
+        },
+        {
+          "id": "m079",
+          "group": "league",
+          "date": "2026-04-01",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            3,
+            0
+          ]
+        },
+        {
+          "id": "m080",
+          "group": "league",
+          "date": "2026-04-01",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m081",
+          "group": "league",
+          "date": "2026-04-01",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "SC Corinthians Paulista",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m082",
+          "group": "league",
+          "date": "2026-04-02",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            0,
+            4
+          ]
+        },
+        {
+          "id": "m083",
+          "group": "league",
+          "date": "2026-04-02",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m084",
+          "group": "league",
+          "date": "2026-04-02",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            3,
+            0
+          ]
+        },
+        {
+          "id": "m085",
+          "group": "league",
+          "date": "2026-04-02",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m086",
+          "group": "league",
+          "date": "2026-04-04",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            4,
+            1
+          ]
+        },
+        {
+          "id": "m087",
+          "group": "league",
+          "date": "2026-04-04",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m088",
+          "group": "league",
+          "date": "2026-04-04",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m089",
+          "group": "league",
+          "date": "2026-04-05",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m090",
+          "group": "league",
+          "date": "2026-04-05",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m091",
+          "group": "league",
+          "date": "2026-04-05",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m092",
+          "group": "league",
+          "date": "2026-04-05",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m093",
+          "group": "league",
+          "date": "2026-04-05",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m094",
+          "group": "league",
+          "date": "2026-04-05",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m095",
+          "group": "league",
+          "date": "2026-04-11",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m096",
+          "group": "league",
+          "date": "2026-04-11",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m097",
+          "group": "league",
+          "date": "2026-04-11",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m098",
+          "group": "league",
+          "date": "2026-04-11",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m099",
+          "group": "league",
+          "date": "2026-04-12",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m100",
+          "group": "league",
+          "date": "2026-04-12",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m101",
+          "group": "league",
+          "date": "2026-04-12",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m102",
+          "group": "league",
+          "date": "2026-04-12",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m103",
+          "group": "league",
+          "date": "2026-04-18",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            1,
+            4
+          ]
+        },
+        {
+          "id": "m104",
+          "group": "league",
+          "date": "2026-04-18",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m105",
+          "group": "league",
+          "date": "2026-04-18",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m106",
+          "group": "league",
+          "date": "2026-04-19",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m107",
+          "group": "league",
+          "date": "2026-04-19",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m108",
+          "group": "league",
+          "date": "2026-04-19",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            2,
+            3
+          ]
+        },
+        {
+          "id": "m109",
+          "group": "league",
+          "date": "2026-04-19",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            4,
+            2
+          ]
+        },
+        {
+          "id": "m110",
+          "group": "league",
+          "date": "2026-04-19",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m111",
+          "group": "league",
+          "date": "2026-04-19",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m112",
+          "group": "league",
+          "date": "2026-04-25",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m113",
+          "group": "league",
+          "date": "2026-04-25",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m114",
+          "group": "league",
+          "date": "2026-04-25",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m115",
+          "group": "league",
+          "date": "2026-04-25",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m116",
+          "group": "league",
+          "date": "2026-04-26",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m117",
+          "group": "league",
+          "date": "2026-04-26",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m118",
+          "group": "league",
+          "date": "2026-04-26",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m119",
+          "group": "league",
+          "date": "2026-04-26",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m120",
+          "group": "league",
+          "date": "2026-04-26",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            0,
+            4
+          ]
+        },
+        {
+          "id": "m121",
+          "group": "league",
+          "date": "2026-04-26",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m122",
+          "group": "league",
+          "date": "2026-05-02",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m123",
+          "group": "league",
+          "date": "2026-05-02",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m124",
+          "group": "league",
+          "date": "2026-05-02",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            4,
+            1
+          ]
+        },
+        {
+          "id": "m125",
+          "group": "league",
+          "date": "2026-05-02",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "m126",
+          "group": "league",
+          "date": "2026-05-03",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m127",
+          "group": "league",
+          "date": "2026-05-03",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m128",
+          "group": "league",
+          "date": "2026-05-03",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m129",
+          "group": "league",
+          "date": "2026-05-03",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m130",
+          "group": "league",
+          "date": "2026-05-03",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "SC Corinthians Paulista",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m131",
+          "group": "league",
+          "date": "2026-05-09",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m132",
+          "group": "league",
+          "date": "2026-05-09",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m133",
+          "group": "league",
+          "date": "2026-05-09",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m134",
+          "group": "league",
+          "date": "2026-05-10",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m135",
+          "group": "league",
+          "date": "2026-05-10",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m136",
+          "group": "league",
+          "date": "2026-05-10",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": "m137",
+          "group": "league",
+          "date": "2026-05-10",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m138",
+          "group": "league",
+          "date": "2026-05-10",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m139",
+          "group": "league",
+          "date": "2026-05-10",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m140",
+          "group": "league",
+          "date": "2026-05-10",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m141",
+          "group": "league",
+          "date": "2026-05-16",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m142",
+          "group": "league",
+          "date": "2026-05-16",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            4,
+            1
+          ]
+        },
+        {
+          "id": "m143",
+          "group": "league",
+          "date": "2026-05-16",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m144",
+          "group": "league",
+          "date": "2026-05-16",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m145",
+          "group": "league",
+          "date": "2026-05-17",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            0,
+            3
+          ]
+        },
+        {
+          "id": "m146",
+          "group": "league",
+          "date": "2026-05-17",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m147",
+          "group": "league",
+          "date": "2026-05-17",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "SC Corinthians Paulista",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m148",
+          "group": "league",
+          "date": "2026-05-17",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m149",
+          "group": "league",
+          "date": "2026-05-17",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            2,
+            3
+          ]
+        },
+        {
+          "id": "m150",
+          "group": "league",
+          "date": "2026-05-17",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m151",
+          "group": "league",
+          "date": "2026-05-23",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m152",
+          "group": "league",
+          "date": "2026-05-23",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m153",
+          "group": "league",
+          "date": "2026-05-23",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": "m154",
+          "group": "league",
+          "date": "2026-05-23",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m155",
+          "group": "league",
+          "date": "2026-05-23",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            0,
+            3
+          ]
+        },
+        {
+          "id": "m156",
+          "group": "league",
+          "date": "2026-05-24",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m157",
+          "group": "league",
+          "date": "2026-05-24",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m158",
+          "group": "league",
+          "date": "2026-05-24",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m159",
+          "group": "league",
+          "date": "2026-05-24",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            0,
+            3
+          ]
+        },
+        {
+          "id": "m160",
+          "group": "league",
+          "date": "2026-05-25",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": "m161",
+          "group": "league",
+          "date": "2026-05-30",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m162",
+          "group": "league",
+          "date": "2026-05-30",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            3,
+            0
+          ]
+        },
+        {
+          "id": "m163",
+          "group": "league",
+          "date": "2026-05-30",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m164",
+          "group": "league",
+          "date": "2026-05-30",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "SC Corinthians Paulista",
+          "status": "final",
+          "score": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "m165",
+          "group": "league",
+          "date": "2026-05-30",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m166",
+          "group": "league",
+          "date": "2026-05-31",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m167",
+          "group": "league",
+          "date": "2026-05-31",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m168",
+          "group": "league",
+          "date": "2026-05-31",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m169",
+          "group": "league",
+          "date": "2026-05-31",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m170",
+          "group": "league",
+          "date": "2026-05-31",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m171",
+          "group": "league",
+          "date": "2026-07-16",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m172",
+          "group": "league",
+          "date": "2026-07-16",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m173",
+          "group": "league",
+          "date": "2026-07-17",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m174",
+          "group": "league",
+          "date": "2026-07-17",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m175",
+          "group": "league",
+          "date": "2026-07-17",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m176",
+          "group": "league",
+          "date": "2026-07-21",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m177",
+          "group": "league",
+          "date": "2026-07-22",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "m178",
+          "group": "league",
+          "date": "2026-07-22",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            0,
+            4
+          ]
+        },
+        {
+          "id": "m179",
+          "group": "league",
+          "date": "2026-07-22",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m180",
+          "group": "league",
+          "date": "2026-07-22",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m181",
+          "group": "league",
+          "date": "2026-07-23",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            3,
+            0
+          ]
+        },
+        {
+          "id": "m182",
+          "group": "league",
+          "date": "2026-07-25",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m183",
+          "group": "league",
+          "date": "2026-07-25",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m184",
+          "group": "league",
+          "date": "2026-07-25",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m185",
+          "group": "league",
+          "date": "2026-07-26",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "SC Corinthians Paulista",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m186",
+          "group": "league",
+          "date": "2026-07-26",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m187",
+          "group": "league",
+          "date": "2026-07-26",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m188",
+          "group": "league",
+          "date": "2026-07-26",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m189",
+          "group": "league",
+          "date": "2026-07-26",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m190",
+          "group": "league",
+          "date": "2026-07-26",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m191",
+          "group": "league",
+          "date": "2026-07-29",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m192",
+          "group": "league",
+          "date": "2026-07-29",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m193",
+          "group": "league",
+          "date": "2026-07-29",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            0,
+            4
+          ]
+        },
+        {
+          "id": "m194",
+          "group": "league",
+          "date": "2026-07-30",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m195",
+          "group": "league",
+          "date": "2026-08-08",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m196",
+          "group": "league",
+          "date": "2026-08-08",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m197",
+          "group": "league",
+          "date": "2026-08-08",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m198",
+          "group": "league",
+          "date": "2026-08-08",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m199",
+          "group": "league",
+          "date": "2026-08-09",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m200",
+          "group": "league",
+          "date": "2026-08-09",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "SC Corinthians Paulista",
+          "status": "final",
+          "score": [
+            0,
+            2
+          ]
+        },
+        {
+          "id": "m201",
+          "group": "league",
+          "date": "2026-08-09",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            0,
+            2
+          ]
+        },
+        {
+          "id": "m202",
+          "group": "league",
+          "date": "2026-08-09",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m203",
+          "group": "league",
+          "date": "2026-08-15",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": "m204",
+          "group": "league",
+          "date": "2026-08-15",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m205",
+          "group": "league",
+          "date": "2026-08-15",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m206",
+          "group": "league",
+          "date": "2026-08-16",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            3,
+            3
+          ]
+        },
+        {
+          "id": "m207",
+          "group": "league",
+          "date": "2026-08-16",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            3,
+            0
+          ]
+        },
+        {
+          "id": "m208",
+          "group": "league",
+          "date": "2026-08-16",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            0,
+            3
+          ]
+        },
+        {
+          "id": "m209",
+          "group": "league",
+          "date": "2026-08-16",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            1,
+            5
+          ]
+        },
+        {
+          "id": "m210",
+          "group": "league",
+          "date": "2026-08-16",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m211",
+          "group": "league",
+          "date": "2026-08-16",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m212",
+          "group": "league",
+          "date": "2026-08-17",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m213",
+          "group": "league",
+          "date": "2026-08-22",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m214",
+          "group": "league",
+          "date": "2026-08-22",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m215",
+          "group": "league",
+          "date": "2026-08-23",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m216",
+          "group": "league",
+          "date": "2026-08-23",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            4,
+            1
+          ]
+        },
+        {
+          "id": "m217",
+          "group": "league",
+          "date": "2026-08-23",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            0,
+            2
+          ]
+        },
+        {
+          "id": "m218",
+          "group": "league",
+          "date": "2026-08-23",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m219",
+          "group": "league",
+          "date": "2026-08-23",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m220",
+          "group": "league",
+          "date": "2026-08-23",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "SC Corinthians Paulista",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m221",
+          "group": "league",
+          "date": "2026-08-24",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            2,
+            3
+          ]
+        },
+        {
+          "id": "m222",
+          "group": "league",
+          "date": "2026-08-29",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m223",
+          "group": "league",
+          "date": "2026-08-29",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m224",
+          "group": "league",
+          "date": "2026-08-29",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m225",
+          "group": "league",
+          "date": "2026-08-30",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            3,
+            3
+          ]
+        },
+        {
+          "id": "m226",
+          "group": "league",
+          "date": "2026-08-30",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m227",
+          "group": "league",
+          "date": "2026-08-30",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            3,
+            0
+          ]
+        },
+        {
+          "id": "m228",
+          "group": "league",
+          "date": "2026-08-30",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m229",
+          "group": "league",
+          "date": "2026-08-30",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "SE Palmeiras",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m230",
+          "group": "league",
+          "date": "2026-08-30",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": "m231",
+          "group": "league",
+          "date": "2026-08-31",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            2,
+            3
+          ]
+        },
+        {
+          "id": "m232",
+          "group": "league",
+          "date": "2026-09-02",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m233",
+          "group": "league",
+          "date": "2026-09-05",
+          "kickoffAt": null,
+          "home": "RB Bragantino",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            2,
+            3
+          ]
+        },
+        {
+          "id": "m234",
+          "group": "league",
+          "date": "2026-09-05",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "CA Mineiro",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m235",
+          "group": "league",
+          "date": "2026-09-05",
+          "kickoffAt": null,
+          "home": "Fluminense FC",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m236",
+          "group": "league",
+          "date": "2026-09-06",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "Mirassol FC",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m237",
+          "group": "league",
+          "date": "2026-09-06",
+          "kickoffAt": null,
+          "home": "Cruzeiro EC",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m238",
+          "group": "league",
+          "date": "2026-09-06",
+          "kickoffAt": null,
+          "home": "SC Internacional",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            2,
+            3
+          ]
+        },
+        {
+          "id": "m239",
+          "group": "league",
+          "date": "2026-09-06",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "CR Flamengo",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m240",
+          "group": "league",
+          "date": "2026-09-06",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m241",
+          "group": "league",
+          "date": "2026-09-07",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m242",
+          "group": "league",
+          "date": "2026-09-11",
+          "kickoffAt": null,
+          "home": "Coritiba FBC",
+          "away": "CA Paranaense",
+          "status": "final",
+          "score": [
+            3,
+            3
+          ]
+        },
+        {
+          "id": "m243",
+          "group": "league",
+          "date": "2026-09-12",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m244",
+          "group": "league",
+          "date": "2026-09-12",
+          "kickoffAt": null,
+          "home": "Grêmio FBPA",
+          "away": "CR Vasco da Gama",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m245",
+          "group": "league",
+          "date": "2026-09-12",
+          "kickoffAt": null,
+          "home": "Chapecoense AF",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m246",
+          "group": "league",
+          "date": "2026-09-12",
+          "kickoffAt": null,
+          "home": "SE Palmeiras",
+          "away": "São Paulo FC",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m247",
+          "group": "league",
+          "date": "2026-09-12",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m248",
+          "group": "league",
+          "date": "2026-09-12",
+          "kickoffAt": null,
+          "home": "Santos FC",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m249",
+          "group": "league",
+          "date": "2026-09-13",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "EC Vitória",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m250",
+          "group": "league",
+          "date": "2026-09-13",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "SC Corinthians Paulista",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m251",
+          "group": "league",
+          "date": "2026-09-14",
+          "kickoffAt": null,
+          "home": "EC Bahia",
+          "away": "Clube do Remo",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m252",
+          "group": "league",
+          "date": "2026-09-16",
+          "kickoffAt": null,
+          "home": "Botafogo FR",
+          "away": "Grêmio FBPA",
+          "status": "final",
+          "score": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": "m253",
+          "group": "league",
+          "date": "2026-09-19",
+          "kickoffAt": null,
+          "home": "CA Mineiro",
+          "away": "Chapecoense AF",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m254",
+          "group": "league",
+          "date": "2026-09-19",
+          "kickoffAt": null,
+          "home": "Mirassol FC",
+          "away": "Botafogo FR",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m255",
+          "group": "league",
+          "date": "2026-09-19",
+          "kickoffAt": null,
+          "home": "Clube do Remo",
+          "away": "Santos FC",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m256",
+          "group": "league",
+          "date": "2026-09-19",
+          "kickoffAt": null,
+          "home": "CR Vasco da Gama",
+          "away": "Coritiba FBC",
+          "status": "final",
+          "score": [
+            5,
+            0
+          ]
+        },
+        {
+          "id": "m257",
+          "group": "league",
+          "date": "2026-09-19",
+          "kickoffAt": null,
+          "home": "São Paulo FC",
+          "away": "SC Internacional",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m258",
+          "group": "league",
+          "date": "2026-09-20",
+          "kickoffAt": null,
+          "home": "SC Corinthians Paulista",
+          "away": "Fluminense FC",
+          "status": "final",
+          "score": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "m259",
+          "group": "league",
+          "date": "2026-09-20",
+          "kickoffAt": null,
+          "home": "EC Vitória",
+          "away": "Cruzeiro EC",
+          "status": "final",
+          "score": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "m260",
+          "group": "league",
+          "date": "2026-09-20",
+          "kickoffAt": null,
+          "home": "CR Flamengo",
+          "away": "RB Bragantino",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m261",
+          "group": "league",
+          "date": "2026-09-20",
+          "kickoffAt": null,
+          "home": "CA Paranaense",
+          "away": "EC Bahia",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "world-cup",
+      "kind": "national",
+      "title": {
+        "pt-BR": "Copa do Mundo — fase de grupos",
+        "en": "World Cup — group stage"
+      },
+      "season": "2026",
+      "mode": "archive",
+      "coverageThrough": "2026-06-27",
+      "expectedResults": 72,
+      "groupSize": 4,
+      "groups": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L"
+      ],
+      "source": {
+        "provider": "OpenFootball",
+        "license": "CC0-1.0",
+        "url": "https://github.com/openfootball/worldcup.json/blob/516d3825c3bd23fdc298c4014e84bde78f2d4965/2026/worldcup.json",
+        "licenseUrl": "https://github.com/openfootball/worldcup.json/blob/516d3825c3bd23fdc298c4014e84bde78f2d4965/LICENSE.md",
+        "commit": "516d3825c3bd23fdc298c4014e84bde78f2d4965",
+        "blob": "a99c2098b1cfaa5d3be08bf1ac60d68612925655"
+      },
+      "officialUrl": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026",
+      "agendaUrl": "https://inside.fifa.com/en/tournament-organisation/international-match-calendars",
+      "scheduleCheckedAt": null,
+      "tiebreak": "points-gd-gf",
+      "matches": [
+        {
+          "id": "m001",
+          "group": "A",
+          "date": "2026-06-11",
+          "kickoffAt": null,
+          "home": "Mexico",
+          "away": "South Africa",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m002",
+          "group": "A",
+          "date": "2026-06-11",
+          "kickoffAt": null,
+          "home": "South Korea",
+          "away": "Czech Republic",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m003",
+          "group": "A",
+          "date": "2026-06-18",
+          "kickoffAt": null,
+          "home": "Czech Republic",
+          "away": "South Africa",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m004",
+          "group": "A",
+          "date": "2026-06-18",
+          "kickoffAt": null,
+          "home": "Mexico",
+          "away": "South Korea",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m005",
+          "group": "A",
+          "date": "2026-06-24",
+          "kickoffAt": null,
+          "home": "Czech Republic",
+          "away": "Mexico",
+          "status": "final",
+          "score": [
+            0,
+            3
+          ]
+        },
+        {
+          "id": "m006",
+          "group": "A",
+          "date": "2026-06-24",
+          "kickoffAt": null,
+          "home": "South Africa",
+          "away": "South Korea",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m007",
+          "group": "B",
+          "date": "2026-06-12",
+          "kickoffAt": null,
+          "home": "Canada",
+          "away": "Bosnia & Herzegovina",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m008",
+          "group": "B",
+          "date": "2026-06-13",
+          "kickoffAt": null,
+          "home": "Qatar",
+          "away": "Switzerland",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m009",
+          "group": "B",
+          "date": "2026-06-18",
+          "kickoffAt": null,
+          "home": "Switzerland",
+          "away": "Bosnia & Herzegovina",
+          "status": "final",
+          "score": [
+            4,
+            1
+          ]
+        },
+        {
+          "id": "m010",
+          "group": "B",
+          "date": "2026-06-18",
+          "kickoffAt": null,
+          "home": "Canada",
+          "away": "Qatar",
+          "status": "final",
+          "score": [
+            6,
+            0
+          ]
+        },
+        {
+          "id": "m011",
+          "group": "B",
+          "date": "2026-06-24",
+          "kickoffAt": null,
+          "home": "Switzerland",
+          "away": "Canada",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m012",
+          "group": "B",
+          "date": "2026-06-24",
+          "kickoffAt": null,
+          "home": "Bosnia & Herzegovina",
+          "away": "Qatar",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m013",
+          "group": "C",
+          "date": "2026-06-13",
+          "kickoffAt": null,
+          "home": "Brazil",
+          "away": "Morocco",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m014",
+          "group": "C",
+          "date": "2026-06-13",
+          "kickoffAt": null,
+          "home": "Haiti",
+          "away": "Scotland",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m015",
+          "group": "C",
+          "date": "2026-06-19",
+          "kickoffAt": null,
+          "home": "Scotland",
+          "away": "Morocco",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m016",
+          "group": "C",
+          "date": "2026-06-19",
+          "kickoffAt": null,
+          "home": "Brazil",
+          "away": "Haiti",
+          "status": "final",
+          "score": [
+            3,
+            0
+          ]
+        },
+        {
+          "id": "m017",
+          "group": "C",
+          "date": "2026-06-24",
+          "kickoffAt": null,
+          "home": "Scotland",
+          "away": "Brazil",
+          "status": "final",
+          "score": [
+            0,
+            3
+          ]
+        },
+        {
+          "id": "m018",
+          "group": "C",
+          "date": "2026-06-24",
+          "kickoffAt": null,
+          "home": "Morocco",
+          "away": "Haiti",
+          "status": "final",
+          "score": [
+            4,
+            2
+          ]
+        },
+        {
+          "id": "m019",
+          "group": "D",
+          "date": "2026-06-12",
+          "kickoffAt": null,
+          "home": "USA",
+          "away": "Paraguay",
+          "status": "final",
+          "score": [
+            4,
+            1
+          ]
+        },
+        {
+          "id": "m020",
+          "group": "D",
+          "date": "2026-06-13",
+          "kickoffAt": null,
+          "home": "Australia",
+          "away": "Turkey",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m021",
+          "group": "D",
+          "date": "2026-06-19",
+          "kickoffAt": null,
+          "home": "USA",
+          "away": "Australia",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m022",
+          "group": "D",
+          "date": "2026-06-19",
+          "kickoffAt": null,
+          "home": "Turkey",
+          "away": "Paraguay",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m023",
+          "group": "D",
+          "date": "2026-06-25",
+          "kickoffAt": null,
+          "home": "Turkey",
+          "away": "USA",
+          "status": "final",
+          "score": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": "m024",
+          "group": "D",
+          "date": "2026-06-25",
+          "kickoffAt": null,
+          "home": "Paraguay",
+          "away": "Australia",
+          "status": "final",
+          "score": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "m025",
+          "group": "E",
+          "date": "2026-06-14",
+          "kickoffAt": null,
+          "home": "Germany",
+          "away": "Curaçao",
+          "status": "final",
+          "score": [
+            7,
+            1
+          ]
+        },
+        {
+          "id": "m026",
+          "group": "E",
+          "date": "2026-06-14",
+          "kickoffAt": null,
+          "home": "Ivory Coast",
+          "away": "Ecuador",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m027",
+          "group": "E",
+          "date": "2026-06-20",
+          "kickoffAt": null,
+          "home": "Germany",
+          "away": "Ivory Coast",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m028",
+          "group": "E",
+          "date": "2026-06-20",
+          "kickoffAt": null,
+          "home": "Ecuador",
+          "away": "Curaçao",
+          "status": "final",
+          "score": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "m029",
+          "group": "E",
+          "date": "2026-06-25",
+          "kickoffAt": null,
+          "home": "Curaçao",
+          "away": "Ivory Coast",
+          "status": "final",
+          "score": [
+            0,
+            2
+          ]
+        },
+        {
+          "id": "m030",
+          "group": "E",
+          "date": "2026-06-25",
+          "kickoffAt": null,
+          "home": "Ecuador",
+          "away": "Germany",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        },
+        {
+          "id": "m031",
+          "group": "F",
+          "date": "2026-06-14",
+          "kickoffAt": null,
+          "home": "Netherlands",
+          "away": "Japan",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m032",
+          "group": "F",
+          "date": "2026-06-14",
+          "kickoffAt": null,
+          "home": "Sweden",
+          "away": "Tunisia",
+          "status": "final",
+          "score": [
+            5,
+            1
+          ]
+        },
+        {
+          "id": "m033",
+          "group": "F",
+          "date": "2026-06-20",
+          "kickoffAt": null,
+          "home": "Netherlands",
+          "away": "Sweden",
+          "status": "final",
+          "score": [
+            5,
+            1
+          ]
+        },
+        {
+          "id": "m034",
+          "group": "F",
+          "date": "2026-06-20",
+          "kickoffAt": null,
+          "home": "Tunisia",
+          "away": "Japan",
+          "status": "final",
+          "score": [
+            0,
+            4
+          ]
+        },
+        {
+          "id": "m035",
+          "group": "F",
+          "date": "2026-06-25",
+          "kickoffAt": null,
+          "home": "Japan",
+          "away": "Sweden",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m036",
+          "group": "F",
+          "date": "2026-06-25",
+          "kickoffAt": null,
+          "home": "Tunisia",
+          "away": "Netherlands",
+          "status": "final",
+          "score": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "m037",
+          "group": "G",
+          "date": "2026-06-15",
+          "kickoffAt": null,
+          "home": "Belgium",
+          "away": "Egypt",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m038",
+          "group": "G",
+          "date": "2026-06-15",
+          "kickoffAt": null,
+          "home": "Iran",
+          "away": "New Zealand",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m039",
+          "group": "G",
+          "date": "2026-06-21",
+          "kickoffAt": null,
+          "home": "Belgium",
+          "away": "Iran",
+          "status": "final",
+          "score": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "m040",
+          "group": "G",
+          "date": "2026-06-21",
+          "kickoffAt": null,
+          "home": "New Zealand",
+          "away": "Egypt",
+          "status": "final",
+          "score": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "m041",
+          "group": "G",
+          "date": "2026-06-26",
+          "kickoffAt": null,
+          "home": "Egypt",
+          "away": "Iran",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m042",
+          "group": "G",
+          "date": "2026-06-26",
+          "kickoffAt": null,
+          "home": "New Zealand",
+          "away": "Belgium",
+          "status": "final",
+          "score": [
+            1,
+            5
+          ]
+        },
+        {
+          "id": "m043",
+          "group": "H",
+          "date": "2026-06-15",
+          "kickoffAt": null,
+          "home": "Spain",
+          "away": "Cape Verde",
+          "status": "final",
+          "score": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "m044",
+          "group": "H",
+          "date": "2026-06-15",
+          "kickoffAt": null,
+          "home": "Saudi Arabia",
+          "away": "Uruguay",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m045",
+          "group": "H",
+          "date": "2026-06-21",
+          "kickoffAt": null,
+          "home": "Spain",
+          "away": "Saudi Arabia",
+          "status": "final",
+          "score": [
+            4,
+            0
+          ]
+        },
+        {
+          "id": "m046",
+          "group": "H",
+          "date": "2026-06-21",
+          "kickoffAt": null,
+          "home": "Uruguay",
+          "away": "Cape Verde",
+          "status": "final",
+          "score": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "m047",
+          "group": "H",
+          "date": "2026-06-26",
+          "kickoffAt": null,
+          "home": "Cape Verde",
+          "away": "Saudi Arabia",
+          "status": "final",
+          "score": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "m048",
+          "group": "H",
+          "date": "2026-06-26",
+          "kickoffAt": null,
+          "home": "Uruguay",
+          "away": "Spain",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m049",
+          "group": "I",
+          "date": "2026-06-16",
+          "kickoffAt": null,
+          "home": "France",
+          "away": "Senegal",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m050",
+          "group": "I",
+          "date": "2026-06-16",
+          "kickoffAt": null,
+          "home": "Iraq",
+          "away": "Norway",
+          "status": "final",
+          "score": [
+            1,
+            4
+          ]
+        },
+        {
+          "id": "m051",
+          "group": "I",
+          "date": "2026-06-22",
+          "kickoffAt": null,
+          "home": "France",
+          "away": "Iraq",
+          "status": "final",
+          "score": [
+            3,
+            0
+          ]
+        },
+        {
+          "id": "m052",
+          "group": "I",
+          "date": "2026-06-22",
+          "kickoffAt": null,
+          "home": "Norway",
+          "away": "Senegal",
+          "status": "final",
+          "score": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": "m053",
+          "group": "I",
+          "date": "2026-06-26",
+          "kickoffAt": null,
+          "home": "Norway",
+          "away": "France",
+          "status": "final",
+          "score": [
+            1,
+            4
+          ]
+        },
+        {
+          "id": "m054",
+          "group": "I",
+          "date": "2026-06-26",
+          "kickoffAt": null,
+          "home": "Senegal",
+          "away": "Iraq",
+          "status": "final",
+          "score": [
+            5,
+            0
+          ]
+        },
+        {
+          "id": "m055",
+          "group": "J",
+          "date": "2026-06-16",
+          "kickoffAt": null,
+          "home": "Argentina",
+          "away": "Algeria",
+          "status": "final",
+          "score": [
+            3,
+            0
+          ]
+        },
+        {
+          "id": "m056",
+          "group": "J",
+          "date": "2026-06-16",
+          "kickoffAt": null,
+          "home": "Austria",
+          "away": "Jordan",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m057",
+          "group": "J",
+          "date": "2026-06-22",
+          "kickoffAt": null,
+          "home": "Argentina",
+          "away": "Austria",
+          "status": "final",
+          "score": [
+            2,
+            0
+          ]
+        },
+        {
+          "id": "m058",
+          "group": "J",
+          "date": "2026-06-22",
+          "kickoffAt": null,
+          "home": "Jordan",
+          "away": "Algeria",
+          "status": "final",
+          "score": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "m059",
+          "group": "J",
+          "date": "2026-06-27",
+          "kickoffAt": null,
+          "home": "Algeria",
+          "away": "Austria",
+          "status": "final",
+          "score": [
+            3,
+            3
+          ]
+        },
+        {
+          "id": "m060",
+          "group": "J",
+          "date": "2026-06-27",
+          "kickoffAt": null,
+          "home": "Jordan",
+          "away": "Argentina",
+          "status": "final",
+          "score": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "m061",
+          "group": "K",
+          "date": "2026-06-17",
+          "kickoffAt": null,
+          "home": "Portugal",
+          "away": "DR Congo",
+          "status": "final",
+          "score": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "m062",
+          "group": "K",
+          "date": "2026-06-17",
+          "kickoffAt": null,
+          "home": "Uzbekistan",
+          "away": "Colombia",
+          "status": "final",
+          "score": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "m063",
+          "group": "K",
+          "date": "2026-06-23",
+          "kickoffAt": null,
+          "home": "Portugal",
+          "away": "Uzbekistan",
+          "status": "final",
+          "score": [
+            5,
+            0
+          ]
+        },
+        {
+          "id": "m064",
+          "group": "K",
+          "date": "2026-06-23",
+          "kickoffAt": null,
+          "home": "Colombia",
+          "away": "DR Congo",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m065",
+          "group": "K",
+          "date": "2026-06-27",
+          "kickoffAt": null,
+          "home": "Colombia",
+          "away": "Portugal",
+          "status": "final",
+          "score": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "m066",
+          "group": "K",
+          "date": "2026-06-27",
+          "kickoffAt": null,
+          "home": "DR Congo",
+          "away": "Uzbekistan",
+          "status": "final",
+          "score": [
+            3,
+            1
+          ]
+        },
+        {
+          "id": "m067",
+          "group": "L",
+          "date": "2026-06-17",
+          "kickoffAt": null,
+          "home": "England",
+          "away": "Croatia",
+          "status": "final",
+          "score": [
+            4,
+            2
+          ]
+        },
+        {
+          "id": "m068",
+          "group": "L",
+          "date": "2026-06-17",
+          "kickoffAt": null,
+          "home": "Ghana",
+          "away": "Panama",
+          "status": "final",
+          "score": [
+            1,
+            0
+          ]
+        },
+        {
+          "id": "m069",
+          "group": "L",
+          "date": "2026-06-23",
+          "kickoffAt": null,
+          "home": "England",
+          "away": "Ghana",
+          "status": "final",
+          "score": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "m070",
+          "group": "L",
+          "date": "2026-06-23",
+          "kickoffAt": null,
+          "home": "Panama",
+          "away": "Croatia",
+          "status": "final",
+          "score": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "m071",
+          "group": "L",
+          "date": "2026-06-27",
+          "kickoffAt": null,
+          "home": "Panama",
+          "away": "England",
+          "status": "final",
+          "score": [
+            0,
+            2
+          ]
+        },
+        {
+          "id": "m072",
+          "group": "L",
+          "date": "2026-06-27",
+          "kickoffAt": null,
+          "home": "Croatia",
+          "away": "Ghana",
+          "status": "final",
+          "score": [
+            2,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "officialLinks": [
+    {
+      "id": "champions",
+      "name": "Champions League",
+      "url": "https://pt.uefa.com/uefachampionsleague/standings/"
+    },
+    {
+      "id": "premier",
+      "name": "Premier League",
+      "url": "https://www.premierleague.com/en/tables"
+    },
+    {
+      "id": "international",
+      "name": {
+        "pt-BR": "Calendário de seleções — FIFA",
+        "en": "International match calendar — FIFA"
+      },
+      "url": "https://inside.fifa.com/en/tournament-organisation/international-match-calendars"
+    }
+  ]
+}

@@ -59,6 +59,17 @@ try{
     assert.equal(await page.locator('#blog-theme').inputValue(),'dark');
     assert.equal(await page.locator('html').getAttribute('data-blog-theme'),'dark');
     if(motif==='pitch'){
+      assert.equal(await page.locator('[data-highlight-mode]').getAttribute('data-highlight-mode'),'curated-preview');
+      assert.equal(await page.locator('[data-highlight-article]').count(),2);
+      assert.equal(await page.locator('[data-football-centre]').count(),1);
+      assert.equal(await page.locator('[data-competition]').count(),2);
+      assert.equal(await page.locator('[data-competition="brasileirao"] tbody tr').count(),20);
+      assert.equal(await page.locator('[data-competition="world-cup"] tbody tr').count(),48);
+      assert.equal(await page.locator('.sports-fixtures li').count(),0);
+      await page.locator('[data-competition="brasileirao"] summary').click();
+      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'sports table overflow '+name);
+      await page.locator('[data-competition="brasileirao"] summary').click();
+      await page.screenshot({path:'review-shots/'+name+'-football-centre.png',fullPage:true,animations:'disabled'});
       const img=page.locator('.story-media img');
       assert.equal(await img.count(),localized.filter(a=>a.media).length);
       for(const image of await img.all()){

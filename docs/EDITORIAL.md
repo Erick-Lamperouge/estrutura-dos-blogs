@@ -1,16 +1,20 @@
-# Manual editorial — direção híbrida aprovada; detalhes evolutivos
-O responsável define posições, público e tom de cada publicação. O perfil é configurável, não um personagem fictício apresentado como pessoa real.
-Futebolando: proposta inicial de jornalismo explicativo, histórico e tático; evitar títulos caça-cliques e clichês; começar com uma pergunta ou fato concreto. Separar notícia (fatos confirmados), análise (interpretação), guia (didático), história (contexto) e opinião (posição explicitamente aprovada).
-Cada pauta deve registrar data, evento, fontes primárias e links, fatos verificados, originalidade, direitos da imagem e responsável pela revisão. Não copiar nem apenas parafrasear matérias; acrescentar contexto útil, comparação, exemplos ou análise. Se dados conflitarem ou forem insuficientes, não publicar. Não inventar dados nem opiniões do responsável; uma análise editorial gerada com IA não é uma opinião pessoal dele.
-Evolução: manter registro datado de diretrizes e opiniões aprovadas; nunca inferir aprovação pelo silêncio. Transparência sobre autoria e uso de IA quando apropriado. Imagens originais ou licenciadas com créditos e texto alternativo; não apresentar imagens sintéticas como foto jornalística real.
-Horários experimentais de pesquisa: 06h, 12h30, 17h, 23h (America/Fortaleza); adaptar a tendências e métricas reais, não publicar por obrigação. Primeiro produzir rascunhos revisados e só depois considerar automação controlada.
-Engenharia: distinguir informação geral de laudo/projeto e exigir validação técnica quando aplicável. Tecnologia: verificar versões e testar exemplos. Culinária: receitas testadas quando assim declaradas, sem inventar experiência.
+# Rede de Blogs Senhorita Minuto — instruções permanentes
+Leia primeiro docs/STATE.md, docs/ARCHITECTURE.md e docs/EDITORIAL.md.
+O portal senhoritaminuto.com.br é independente: preservar personagens, mascote, páginas, scripts, arte e CSS do portal. Não compartilhar sua identidade visual com blogs.
+Não alterar main nem publicar sem validação e autorização do responsável. Trabalhar em branches, registrar testes reais e atualizar STATE a cada marco. Não expor credenciais, chaves privadas, seeds, tokens, dados de clientes ou chaves Pix pessoais em repositório público.
+Não fabricar autoria, citações, fatos, opiniões do responsável ou depoimentos. Conteúdo e imagens devem ter origem e direitos verificáveis. IA pode ajudar na pesquisa e redação; distinguir fatos, análise e opinião aprovada. Não publicar notícias sem revisão na fase inicial.
+Não ativar ads, checkout, afiliados, doações, rotinas pagas ou publicação automática antes dos gates documentados. Patrocínios estão fora do escopo.
 
-Futebolando global: foco inicial em grandes clubes e ligas europeias, Brasil e competições continentais; cobertura adaptativa, sem conteúdo comercial de apostas. Análise de favoritos pode comparar desempenho, força dos adversários, disponibilidade de jogadores, criação e concessão de oportunidades, tendência tática e contexto; não confundir opinião, ranking ou modelo com certeza. Sem probabilidades numéricas sem modelo calibrado, dados verificáveis e validação. Registrar fontes, amostra, data, pesos e revisão. Os exemplos de Real Madrid e Barcelona do responsável são ilustrativos, não opinião esportiva permanente registrada. Ver INTERNATIONAL.md.
+Leia também docs/INTERNATIONAL.md. Não confundir país, idioma e assunto. Respeitar escopo jurídico por blog, fontes verificáveis, métricas agregadas e política sem apostas. Não fabricar sinais de audiência ou probabilidades esportivas.
 
-Séries editoriais: ver SERIES.md. Artigos em camadas, fontes verificáveis, continuidade, público e avaliação agregada; sem publicação automática.
+Leia e aplique docs/WRITING.md antes de redigir, reescrever ou traduzir artigos. Fluidez, precisão e personalidade por idioma não podem ser substituídas por testes mecânicos. Não confundir redução de clichês com ocultação de autoria ou uso de IA.
 
-Diretriz de escrita aprovada pelo responsável em 26/11/2026: aplicar docs/WRITING.md a todas as pautas, inclusive traduções. Revisão humana e transparência permanecem obrigatórias.
+Conteúdo do Futebolando: editar primeiro na branch dev/editorial-v2 do repo futebolando; atualizar cópia de teste e lock de blobs no núcleo. Nunca confundir dados estatísticos ilustrativos com dados observados. Sem palpites de apostas, odds, garantias ou aquisição de dados paga sem autorização.
 
-## Futebol em números
-Explicar indicadores em prosa acessível, apresentar definição, método, amostra/período, fonte e limites. Artigos podem responder perguntas de torcedores interessados em desempenho e favoritismo sem promover apostas, oferecer palpites de apostas, odds ou garantias. Dados de demonstração são explicitamente fictícios, separados de observações; xG de uma chance e soma de xG não equivalem a chance de vitória. Antes de usar dados reais, validar direitos/licença, competição, período, fornecedor, cobertura e comparabilidade; projeções esportivas somente com método justificável e incerteza. Não inventar métricas. Ver docs/SERIES.md.
+SEO/publicação: ler docs/SEO-RELEASE.md. Canonical e hreflang de prévia não autorizam indexação. Não incluir rascunhos em sitemap, inventar autoria ou datas de publicação, nem alterar pins do portal sem testes.
+
+Publicação: ler docs/PUBLICATION.md. Nunca preencher aprovação humana, autoria ou datas por suposição; ledger padrão preview, sem autorizações. Testes de lançamento são fixtures isoladas.
+
+Entrada de conteúdo e confiança: leia docs/TRUST-INTAKE.md. Nunca copie dados privados, scripts, HTML ou credenciais de fontes externas; intake é simulação, sem acesso à rede ou aprovação. Modo publicação exige perfil do responsável/contato e revisão dos avisos reais.
+
+Destaques e dados de competição: ver docs/FOOTBALL-CENTRE.md. Somente dados agregados autorizados; nunca inventar popularidade, resultados, partidas ou horários.
