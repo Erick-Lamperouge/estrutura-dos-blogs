@@ -1,0 +1,61 @@
+name: Football-Data - teste manual de conexao
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_diagnostic:
+        description: "Confirmo os termos e autorizo somente duas consultas de diagnostico, sem publicar dados."
+        required: true
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: football-data-diagnostic
+  cancel-in-progress: false
+jobs:
+  diagnose:
+    if: ${{ github.ref == 'refs/heads/main' && inputs.confirm_diagnostic }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - name: Checkout validated adapter only
+        uses: actions/checkout@v4
+        with:
+          ref: 5fc6b4d76366543422cee2e6aa96545ead753f0c
+          sparse-checkout: v2
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Validate credential and schema without persistence
+        env:
+          FOOTBALL_DATA_API_TOKEN: ${{ secrets.FOOTBALL_DATA_API_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          import { createClient, validateRegistry, requestPaths, assembleSnapshot } from './v2/src/lib/football-data-adapter.mjs';
+          const token=process.env.FOOTBALL_DATA_API_TOKEN;
+          if(!token){console.error('MISSING_SECRET');process.exit(1);}
+          let stage='configuration';
+          try {
+            const registry=validateRegistry(JSON.parse(readFileSync('./v2/config/football-provider.json','utf8')));
+            if(registry.enabled || registry.authorization!==null)throw Error('UNEXPECTED_PROVIDER_STATE');
+            const spec=registry.competitions.find(x=>x.id==='brasileirao');
+            const now=new Date().toISOString().replace(/\.\d{3}Z$/,'Z');
+            const paths=requestPaths(spec,now);
+            const client=createClient({token});
+            stage='calendar';
+            const fixtures=await client.get(paths[0]);
+            stage='standings';
+            const standings=await client.get(paths[1]);
+            stage='schema';
+            const snapshot=assembleSnapshot(spec,{fixtures,standings},now);
+            console.log(JSON.stringify({status:'CONNECTION_AND_SCHEMA_OK',competition:spec.id,checkedAt:now,tableRows:snapshot.table.length,upcomingCount:snapshot.upcoming.length,publicDisplay:false,stored:false}));
+          } catch (e) {
+            const safe=['RATE_LIMIT','ACCESS_DENIED','UPSTREAM_ERROR','API_REQUEST_FAILED','Unexpected API content type','API response too large','Missing API response'];
+            console.error(JSON.stringify({status:'DIAGNOSTIC_FAILED',stage,reason:safe.includes(e?.message)?e.message:'VALIDATION_FAILED'}));
+            process.exitCode=1;
+          }
+          NODE
