@@ -1,6 +1,6 @@
 # Futebolando — caderno de revisão editorial
 
-Versão de conteúdo: 9dbbe590b7ca38df9b5a23dec343ddbb6df99c3d. Blob: 8f77552f0075cad6e8d9f8daa4e28c9d44d17832. Oito artigos e 16 edições; conferência assistida realizada, aprovação humana pendente. Este arquivo é uma apresentação de leitura do catálogo, não fonte editorial editável. Não é uma autorização de publicação. As alterações devem ser feitas em Futebolando/editorial/articles.json e novamente sincronizadas.
+Versão de conteúdo: 202addd2d8f1000da146ce4d37402300102a4d46. Blob: 8f77552f0075cad6e8d9f8daa4e28c9d44d17832. Oito artigos e 16 edições; conferência assistida realizada, aprovação humana pendente. Este arquivo é uma apresentação de leitura do catálogo, não fonte editorial editável. Não é uma autorização de publicação. As alterações devem ser feitas em Futebolando/editorial/articles.json e novamente sincronizadas.
 
 ## Como revisar
 

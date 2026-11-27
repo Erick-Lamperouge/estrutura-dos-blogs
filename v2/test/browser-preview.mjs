@@ -47,12 +47,27 @@ try{
     await keyboard.focus();await page.keyboard.press('Space');
     assert.equal(await keyboard.getAttribute('aria-pressed'),'true');
     await page.locator('#clear-filters').click();
+    const verifyColors=async mode=>{
+      if(motif!=='pitch'){assert.equal(await page.locator('body').getAttribute('data-color-system'),'classic');return;}
+      assert.equal(await page.locator('body').getAttribute('data-color-system'),'editorial');
+      const got=await page.evaluate(()=>{
+        const style=(q,p='color')=>getComputedStyle(document.querySelector(q))[p];
+        const roles=[...document.querySelectorAll('.primary-nav [data-tone]:not([aria-current]) .nav-icon')].map(e=>getComputedStyle(e).color);
+        return {bg:style('body','backgroundColor'),ink:style('body'),heading:style('.section-kicker'),selected:style('[data-category-filter=all]','backgroundColor'),brand:style('.brand span'),club:style('[data-article-id=real-madrid-history] .eyebrow'),rules:style('[data-article-id=offside-guide] .eyebrow'),stats:style('[data-article-id=expected-goals] .eyebrow'),cup:style('[data-article-id=libertadores-format] .eyebrow'),draft:style('[data-article-id=real-madrid-history] .draft-label'),action:style('[data-article-id=real-madrid-history] .editorial-action'),roles:[...new Set(roles)]};
+      });
+      const expected=mode==='dark'?{bg:'rgb(17, 24, 32)',ink:'rgb(238, 240, 242)',brand:'rgb(135, 198, 160)',club:'rgb(226, 184, 120)',rules:'rgb(154, 189, 230)',stats:'rgb(199, 180, 223)',cup:'rgb(232, 165, 173)'}:{bg:'rgb(247, 245, 239)',ink:'rgb(38, 49, 58)',brand:'rgb(32, 103, 68)',club:'rgb(128, 85, 34)',rules:'rgb(40, 92, 128)',stats:'rgb(102, 82, 128)',cup:'rgb(142, 70, 84)'};
+      for(const [k,v] of Object.entries(expected))assert.equal(got[k],v,name+' '+mode+' '+k);
+      assert.equal(got.heading,got.ink);assert.equal(got.selected,got.ink);assert.equal(got.action,got.ink);assert.equal(got.draft,got.club);
+      assert.ok(got.roles.length>=3,'Navigation icons must not all have one color');
+    };
+    await verifyColors('light');
     const light=await page.locator('body').evaluate(el=>getComputedStyle(el).backgroundColor);
     await page.screenshot({path:'review-shots/'+name+'-light.png',fullPage:true,animations:'disabled'});
     await page.locator('#blog-theme').selectOption('dark');
     assert.equal(await page.locator('html').getAttribute('data-blog-theme'),'dark');
     const dark=await page.locator('body').evaluate(el=>getComputedStyle(el).backgroundColor);
     assert.notEqual(light,dark);
+    await verifyColors('dark');
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),'dark overflow '+name);
     await page.screenshot({path:'review-shots/'+name+'-dark.png',fullPage:true,animations:'disabled'});
     await page.reload({waitUntil:'networkidle'});
