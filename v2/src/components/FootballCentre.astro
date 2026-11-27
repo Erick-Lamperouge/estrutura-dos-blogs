@@ -12,7 +12,7 @@ const kick=m=>m.kickoffAt?new Intl.DateTimeFormat(locale,{timeStyle:'short',time
 <section class="section-block football-centre" id="football-centre" data-football-centre aria-labelledby="football-centre-heading">
  <div class="section-kicker"><h2 id="football-centre-heading">{t.title}</h2><span class="rule"></span></div>
  <p class="muted">{t.intro}</p>
- {comps.map(c=><section class="sports-panel" data-competition={c.id}>
+ {comps.map(c=><section class="sports-panel" data-competition={c.id} data-tone={c.kind==="clubs"?"emerald":"wine"}>
   <span class="eyebrow">{c.kind==='clubs'?(en?'CLUBS':'CLUBES'):(en?'NATIONAL TEAMS':'SELEÇÕES')} · {c.season}</span>
   <h3>{c.title[locale]}</h3>
   <p class="sports-status" data-sports-status>{c.fresh?t.current:c.mode==='archive'?(c.complete?(c.kind==='national'?t.complete:t.archive):t.partial):t.stale}</p>

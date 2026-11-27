@@ -2,6 +2,7 @@
 import BlogShell from './BlogShell.astro';
 import FootballCentre from './FootballCentre.astro';
 import {rankHighlights} from '../lib/highlights.mjs';
+import {categoryTone,seriesTone} from '../lib/design.mjs';
 import audience from '../../content/audience-views.json';
 import EditorialAction from './EditorialAction.astro';
 import {articleListing} from '../lib/articles.mjs';
@@ -31,8 +32,8 @@ const highlightLabel=reason=>locale==='en'?({recent:'New',popular:'Popular this 
     <div class="blog-grid">
       <div class="editorial-main">
         <div class="section-kicker"><span>{live?pub.featured:t.featured}</span><span class="rule"></span>{!live&&<span class="muted">{u.preview}</span>}</div>
-        <section class="feature" aria-labelledby="feature-heading">
-          {feature.media.source==="local"?<figure class="feature-media"><img src={feature.media.path} alt={feature.media.alt[view.language]} decoding="async" fetchpriority="high"/><figcaption>{mediaLabel(feature.media.kind)} · {t.mediaCredit}: {feature.media.credit}</figcaption></figure>:<div class="feature-art" role="img" aria-label={t.illustration}>
+        <section class="feature" data-tone={categoryTone(config,feature.slug??config.design.featureCategory)} aria-labelledby="feature-heading">
+          {feature.media.source==="local"?<figure class="feature-media" data-media-kind={feature.media.kind}><img src={feature.media.path} alt={feature.media.alt[view.language]} decoding="async" fetchpriority="high"/><figcaption>{mediaLabel(feature.media.kind)} · {t.mediaCredit}: {feature.media.credit}</figcaption></figure>:<div class="feature-art" role="img" aria-label={t.illustration}>
             <svg class="feature-svg" viewBox="0 0 820 390" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <defs><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="currentColor" stroke-opacity=".1"/></pattern></defs>
               <rect width="820" height="390" fill="url(#grid)"/>
@@ -56,9 +57,9 @@ const highlightLabel=reason=>locale==='en'?({recent:'New',popular:'Popular this 
             {live?<EditorialAction href={feature.href} label={pub.read}/>:<><span class="draft-label">{t.draft}</span>{football&&first&&<EditorialAction href={first.href} label={t.readDraft}/>}</>}
           </div>
         </section>
-        {football&&highlights&&<section class="highlight-secondary section-block" data-highlight-mode={highlights.mode}><div class="section-kicker"><h2>{locale==='en'?'More highlights':'Mais destaques'}</h2><span class="rule"></span></div><div class="highlight-grid">{highlights.items.slice(1).map(card=><article data-highlight-article={card.id}><span class="eyebrow">{highlightLabel(card.reason)}</span><h3>{card.title}</h3>{card.publishedAt&&<time datetime={card.publishedAt}>{card.publishedAt}</time>}<EditorialAction href={card.href} label={live?pub.read:t.readDraft}/></article>)}</div></section>}
+        {football&&highlights&&<section class="highlight-secondary section-block" data-highlight-mode={highlights.mode}><div class="section-kicker"><h2>{locale==='en'?'More highlights':'Mais destaques'}</h2><span class="rule"></span></div><div class="highlight-grid">{highlights.items.slice(1).map(card=><article data-highlight-article={card.id} data-tone={categoryTone(config,card.slug)}><span class="eyebrow">{highlightLabel(card.reason)}</span><h3>{card.title}</h3>{card.publishedAt&&<time datetime={card.publishedAt}>{card.publishedAt}</time>}<EditorialAction href={card.href} label={live?pub.read:t.readDraft}/></article>)}</div></section>}
         {football&&<FootballCentre locale={locale} asOf={asOf}/>}
-        {series.length>0&&<section class="series-feature section-block" id="series"><div class="section-kicker"><h2>{sl.title}</h2><span class="rule"></span></div><p class="muted">{sl.intro}</p>{series.filter(s=>s.href).slice(0,2).map(s=><div class="series-panel"><span class="eyebrow">{live?pub.available:sl.draft} · {s.ready}/{s.total}</span><h3>{s.title}</h3><p>{s.description}</p><EditorialAction href={s.href} label={sl.open}/></div>)}<EditorialAction href={view.home+'series/'} label={sl.all}/></section>}
+        {series.length>0&&<section class="series-feature section-block" id="series"><div class="section-kicker"><h2>{sl.title}</h2><span class="rule"></span></div><p class="muted">{sl.intro}</p>{series.filter(s=>s.href).slice(0,2).map(s=><div class="series-panel" data-tone={seriesTone(config,s.template)}><span class="eyebrow series-status">{live?pub.available:sl.draft} · {s.ready}/{s.total}</span><h3>{s.title}</h3><p>{s.description}</p><EditorialAction href={s.href} label={sl.open}/></div>)}<EditorialAction href={view.home+'series/'} label={sl.all}/></section>}
         <section id="sections" class="section-block">
           <div class="section-kicker"><h2>{t.topics}</h2><span class="rule"></span></div>
           <div class="category-list" aria-label={t.topics}>
@@ -76,8 +77,8 @@ const highlightLabel=reason=>locale==='en'?({recent:'New',popular:'Popular this 
             <button id="clear-filters" class="clear-button" type="button">{t.clear}</button>
           </div>
           <p id="pauta-status" role="status" class="muted" data-count={live?pub.count:u.count} data-empty={t.empty}></p>
-          <ul class="pauta-list">{cards.map((card,i)=><li data-pauta data-article-id={card.id} data-category={card.slug} class:list={["pauta",{"with-media":card.media?.source==="local"}]}>
-            {card.media?.source==="local"?<figure class="story-media"><img src={card.media.path} alt={card.media.alt[view.language]} loading="lazy" decoding="async"/><figcaption>{mediaLabel(card.media.kind)} · {card.media.credit}</figcaption></figure>:<div class="story-number" aria-hidden="true">{String(i+2).padStart(2,'0')}<span></span></div>}
+          <ul class="pauta-list">{cards.map((card,i)=><li data-pauta data-article-id={card.id} data-category={card.slug} data-tone={categoryTone(config,card.slug)} class:list={["pauta",{"with-media":card.media?.source==="local"}]}>
+            {card.media?.source==="local"?<figure class="story-media" data-media-kind={card.media.kind}><img src={card.media.path} alt={card.media.alt[view.language]} loading="lazy" decoding="async"/><figcaption>{mediaLabel(card.media.kind)} · {card.media.credit}</figcaption></figure>:<div class="story-number" aria-hidden="true">{String(i+2).padStart(2,'0')}<span></span></div>}
             <div class="story-copy"><span class="eyebrow">{card.category}</span><h3>{card.title}</h3>{card.summary&&<p class="story-summary">{card.summary}</p>}{!live&&<span class="draft-label">{card.href?t.articleDraft:t.draft}</span>}{card.href&&<EditorialAction href={card.href} label={live?pub.read:t.readDraft}/>}</div>
           </li>)}</ul>
         </section>

@@ -13,6 +13,7 @@ export function validateDesign(config){
   validateAppearance(config);
   validateMedia(config);
   validateRefinement(config);
+  validateColorSystem(config);
   return d;
 }
 export function designView(config,view){
@@ -47,7 +48,8 @@ export function validateAppearance(config){
 }
 export function themeVariables(config){
   validateAppearance(config);
-  return ['dark','light'].flatMap(mode=>colors.map(key=>'--blog-'+mode+'-'+key+':'+(mode==='dark'?config.theme:config.design.appearance.light)[key])).join(';');
+  const system=validateColorSystem(config);
+  return ['dark','light'].flatMap(mode=>[...colors.map(key=>'--blog-'+mode+'-'+key+':'+(mode==='dark'?config.theme:config.design.appearance.light)[key]),...(system?EDITORIAL_TONES.map(t=>'--blog-'+mode+'-tone-'+t+':'+system.tones[mode][t]):[])]).join(';');
 }
 const https=x=>{try{const u=new URL(x);return u.protocol==='https:'&&!u.username&&!u.password;}catch{return false;}};
 export function validateMedia(config){
@@ -77,3 +79,30 @@ export function validateRefinement(config){
   need(['emerald','custom'].includes(r.palette)&&['subtle','none'].includes(r.motion)&&r.minTarget===44,'Invalid design refinement');
   return r;
 }
+
+// Optional semantic colour system. Other blogs keep their original two-palette contract.
+export const EDITORIAL_TONES=Object.freeze(['emerald','steel','bronze','wine','plum','neutral']);
+export const SERIES_TEMPLATES=Object.freeze(['rules-learning','club-profile','competition-guide','data-analysis','tactical-analysis','historical-analysis']);
+const sameKeys=(obj,keys)=>obj&&Object.keys(obj).sort().join('|')===[...keys].sort().join('|');
+const blend=(a,b,weight)=>'#'+[1,3,5].map(i=>Math.round(parseInt(a.slice(i,i+2),16)*weight+parseInt(b.slice(i,i+2),16)*(1-weight)).toString(16).padStart(2,'0')).join('');
+export function validateColorSystem(config){
+ const s=config.design.colorSystem;if(s===undefined)return null;
+ need(s?.version===1&&sameKeys(s.tones,['light','dark']),'Invalid editorial color system');
+ need(sameKeys(s.categories,config.categories.map(c=>c.slug))&&Object.values(s.categories).every(t=>EDITORIAL_TONES.includes(t)),'Every category needs a known editorial tone');
+ need(sameKeys(s.series,SERIES_TEMPLATES)&&Object.values(s.series).every(t=>EDITORIAL_TONES.includes(t)),'Every series template needs a known editorial tone');
+ for(const mode of ['light','dark']){
+  const p=mode==='light'?config.design.appearance.light:config.theme,t=s.tones[mode];
+  need(sameKeys(t,EDITORIAL_TONES)&&Object.values(t).every(hex),'Incomplete editorial tones: '+mode);
+  need(t.emerald===p.primary&&t.bronze===p.accent&&t.neutral===p.muted,'Semantic colors must match brand, focus and muted roles');
+  for(const [role,color] of Object.entries(t)){
+   for(const base of [p.background,p.surface]){
+    need(contrastRatio(color,base)>=4.5,'Editorial contrast: '+mode+'/'+role);
+    need(contrastRatio(color,blend(color,base,.08))>=4.5,'Tinted editorial contrast: '+mode+'/'+role);
+    need(contrastRatio(p.text,blend(color,base,.08))>=4.5,'Tinted text contrast: '+mode+'/'+role);
+   }
+  }
+ }
+ return s;
+}
+export function categoryTone(config,slug){return config.design.colorSystem?.categories?.[slug]??'neutral';}
+export function seriesTone(config,template){return config.design.colorSystem?.series?.[template]??'neutral';}

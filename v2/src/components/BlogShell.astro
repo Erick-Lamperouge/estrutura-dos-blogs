@@ -1,11 +1,12 @@
 ---
 import '../styles/blog.css';
+import '../styles/editorial-colors.css';
 import '@fontsource/barlow-condensed/800.css';
 import '@fontsource-variable/source-serif-4';
 import '@fontsource-variable/inter';
 import BlogIcon from './BlogIcon.astro';
 import {localizedView} from '../lib/international.mjs';
-import {designView,themeVariables} from '../lib/design.mjs';
+import {designView,themeVariables,categoryTone} from '../lib/design.mjs';
 import {previewSeo} from '../lib/seo.mjs';
 import {siteContext,publicationLabels} from '../lib/site-context.mjs';
 import {safeJson} from '../lib/publication-plan.mjs';
@@ -56,7 +57,7 @@ const pageDescription=description??view.description;
     })();
   </script>
 </head>
-<body class="blog" style={vars} data-motif={d.motif} data-density={d.density} data-typography={ref.typography} data-navigation={ref.navigation} data-action={ref.action} data-motion={ref.motion}>
+<body class="blog" style={vars} data-color-system={config.design.colorSystem?"editorial":"classic"} data-publication-mode={live?"published":"preview"} data-motif={d.motif} data-density={d.density} data-typography={ref.typography} data-navigation={ref.navigation} data-action={ref.action} data-motion={ref.motion}>
   <a class="skip" href="#content">{u.skip}</a>
   <div class="blog-notice">{live?pub.notice:u.notice}</div>
   <header class="blog-header" id="top">
@@ -82,7 +83,7 @@ const pageDescription=description??view.description;
       </div>
       <nav class="primary-nav" aria-label={live?pub.navigation:u.navigation}>
         <a class="home-link" href={home} aria-current={isArticle?undefined:'page'}><span class="nav-icon"><BlogIcon name="home"/></span><span>{u.home}</span></a>
-        {d.primary.map(category=><a href={isArticle?home+'?editoria='+category.slug+'#stories':'#stories'} data-nav-category={isArticle?undefined:category.slug}><span class="nav-icon"><BlogIcon name={category.slug}/></span><span>{category.label}</span></a>)}
+        {d.primary.map(category=><a href={isArticle?home+'?editoria='+category.slug+'#stories':'#stories'} data-tone={categoryTone(config,category.slug)} data-nav-category={isArticle?undefined:category.slug}><span class="nav-icon"><BlogIcon name={category.slug}/></span><span>{category.label}</span></a>)}
         <a href={anchor("sections")}><span class="nav-icon"><BlogIcon name="sections"/></span><span>{u.categories}</span></a>
       </nav>
     </div>
