@@ -108,8 +108,8 @@ try{
       assert.equal(await page.locator('article.article-page h1').count(),1);
       await page.screenshot({path:'review-shots/'+name+'-article.png',fullPage:true,animations:'disabled'});
       await page.locator('.episode-marker a').click();
-      assert.equal(await page.locator('.series-episodes li').count(),10);
-      assert.equal(await page.locator('.series-episodes a').count(),4);
+      const rules=series.find(s=>s.id==='rules');assert.equal(await page.locator('.series-episodes li').count(),rules.episodes.length);
+      assert.equal(await page.locator('.series-episodes a').count(),rules.episodes.filter(e=>e.article&&catalog.find(a=>a.id===e.article)?.editions[next]).length);
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),'series overflow');
       await page.screenshot({path:'review-shots/'+name+'-series.png',fullPage:true,animations:'disabled'});
       await page.locator('.series-page > .editorial-action').first().click();

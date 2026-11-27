@@ -53,6 +53,7 @@ export function validateStaticSvg(raw){
 export function readLocalMedia(root,urlPath){
  need(typeof urlPath==='string'&&/^\/[a-z0-9-]+\/media\/(?:[a-z0-9-]+\/)*[a-z0-9-]+\.(?:avif|webp|png|jpe?g|svg)$/.test(urlPath),'Unsafe media path');
  const base=resolve(root),file=resolve(base,urlPath.slice(1)),rel=relative(base,file);
+ const baseStat=lstatSync(base);need(baseStat.isDirectory()&&!baseStat.isSymbolicLink(),'Public root must be a real directory');
  need(rel&&!isAbsolute(rel)&&!rel.startsWith('..'+sep),'Media outside public root');
  let current=base;const parts=rel.split(sep);
  for(const [i,part] of parts.entries()){current=resolve(current,part);const s=lstatSync(current);need(!s.isSymbolicLink()&&(i===parts.length-1?s.isFile()&&s.size<=LIMITS.mediaBytes:s.isDirectory()),'Unsafe media file or oversized asset');}

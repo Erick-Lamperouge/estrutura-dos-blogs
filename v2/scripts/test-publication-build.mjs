@@ -9,7 +9,13 @@ const read=p=>readFileSync(join(tmp,p),'utf8');
 try{
  for(const p of ['src','config','content','public','scripts','astro.config.mjs','package.json'])cpSync(join(root,p),join(tmp,p),{recursive:true});
  symlinkSync(join(root,'node_modules'),join(tmp,'node_modules'),'junction');
- const articles=JSON.parse(read('content/articles.json')),a=articles.find(a=>a.id==='offside-guide');
+ const original=read('content/articles.json'),articles=JSON.parse(original),a=articles.find(a=>a.id==='offside-guide');
+ const candidate=structuredClone(articles.find(a=>a.id==='offside-restarts'));candidate.id='fixture-growth';candidate.previewCardIndex=null;candidate.related=[];candidate.editions['pt-BR'].slug='fixture-growth';candidate.editions['pt-BR'].title='Matéria fictícia para teste de crescimento';delete candidate.editions.en;
+ writeFileSync(join(tmp,'content/articles.json'),JSON.stringify([...articles,candidate]));
+ execFileSync('npm',['run','build'],{cwd:tmp,stdio:'inherit'});
+ assert.ok(read('dist/futebolando/artigos/fixture-growth/index.html').includes('noindex,nofollow'));assert.ok(read('dist/futebolando/index.html').includes('data-article-id="fixture-growth"'));assert.ok(!read('dist/futebolando/en/index.html').includes('data-article-id="fixture-growth"'));assert.ok(!existsSync(join(tmp,'dist/futebolando/en/articles/fixture-growth')));assert.ok(!existsSync(join(tmp,'dist/futebolando/sitemap.xml')));
+ console.log('PASS isolated content growth: additional draft builds without fabricated translation or changes to engine');
+ rmSync(join(tmp,'dist'),{recursive:true,force:true});writeFileSync(join(tmp,'content/articles.json'),original);
  const date=new Date().toISOString().slice(0,10);
  assert.ok(date>=a.preparedAt,'Fixture date before preparation');
  const auth={by:'Synthetic fixture reviewer',date,reference:'isolated-ci-only'};

@@ -9,7 +9,7 @@ test('approved design presets',()=>assert.deepEqual(f.design.refinement,{typogra
 test('other blog can use own typography',()=>assert.equal(validateBlogConfig(c).design.refinement.typography,'classic'));
 test('invalid interaction rejected',()=>{let x=structuredClone(f);x.design.refinement.minTarget=20;assert.throws(()=>validateBlogConfig(x));});
 test('invalid font preset rejected',()=>{let x=structuredClone(f);x.design.refinement.typography='remote';assert.throws(()=>validateBlogConfig(x));});
-test('eight drafts valid, culinary catalog empty',()=>{assert.equal(validateArticles(f,a).length,8);assert.equal(validateArticles(c,a).length,0);});
+test('current drafts valid, culinary catalog empty',()=>{assert.equal(validateArticles(f,a).length,a.length);assert.equal(validateArticles(c,a).length,0);});
 test('localized article URLs',()=>{assert.equal(articlePath(f,a[0],'pt-BR'),'/futebolando/artigos/impedimento/');assert.equal(articlePath(f,a[0],'en'),'/futebolando/en/articles/offside/');});
 test('article card links only to real routes',()=>{const links=previewArticleLinks(f,a,'en');assert.equal(links.size,3);assert.equal(links.get(0),'/futebolando/en/articles/offside/');});
 test('translation links, related and reading time',()=>{const x=articleView(f,a,'offside-guide','pt-BR');assert.equal(x.links.length,2);assert.equal(x.relatedArticles.length,2);assert.ok(x.readingMinutes>=1);});

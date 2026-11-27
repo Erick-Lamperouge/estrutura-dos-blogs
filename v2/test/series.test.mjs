@@ -5,12 +5,12 @@ import {validateSeries,seriesList,seriesView,episodeView} from '../src/lib/serie
 import {reviewSeries} from '../src/lib/series-review.mjs';
 const load=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const f=load('config/futebolando.json'),c=load('config/culinaria-demo.json'),a=load('content/articles.json'),s=load('content/series.json');
-test('six series, four rules drafts',()=>{assert.equal(validateSeries(f,a,s).length,6);assert.equal(seriesList(f,a,s,'pt-BR')[0].ready,4);});
+test('series catalog and episode count follow source data',()=>{assert.equal(validateSeries(f,a,s).length,s.length);const rule=s.find(x=>x.id==='rules');assert.equal(seriesList(f,a,s,'pt-BR').find(x=>x.id==='rules').ready,rule.episodes.filter(e=>e.article&&a.find(r=>r.id===e.article)?.editions['pt-BR']).length);});
 test('culinary fixture has no football series',()=>assert.equal(seriesList(c,a,s,'en').length,0));
-test('planned series never gets link',()=>assert.equal(seriesList(f,a,s,'en').filter(x=>!x.href).length,1));
-test('four episode links and six planned slots',()=>{const v=seriesView(f,a,s,'rules','en');assert.equal(v.episodes.filter(e=>e.href).length,4);assert.equal(v.episodes.length,10);});
+test('planned series never gets link',()=>assert.equal(seriesList(f,a,s,'en').filter(x=>!x.href).length,s.filter(x=>x.state==='planned').length));
+test('rules episode links and planned slots match catalog',()=>{const v=seriesView(f,a,s,'rules','en'),r=s.find(x=>x.id==='rules');assert.equal(v.episodes.filter(e=>e.href).length,r.episodes.filter(e=>e.article&&a.find(x=>x.id===e.article)?.editions.en).length);assert.equal(v.episodes.length,r.episodes.length);});
 test('next link points to translated article',()=>assert.equal(episodeView(f,a,s,'offside-guide','en').next.href,'/futebolando/en/articles/offside-restarts/'));
-test('last available draft has no false next link',()=>assert.equal(episodeView(f,a,s,'goalkeeper-eight-seconds','pt-BR').next,null));
+test('next link follows actual next episode, not a planned slot',()=>{const r=s.find(x=>x.id==='rules'),i=r.episodes.findIndex(e=>e.article==='goalkeeper-eight-seconds'),next=r.episodes[i+1]?.article;assert.equal(Boolean(episodeView(f,a,s,'goalkeeper-eight-seconds','pt-BR').next),Boolean(a.find(x=>x.id===next)?.editions['pt-BR']));});
 test('invalid sequence rejected',()=>{const x=structuredClone(s);x[0].episodes[0].number=2;assert.throws(()=>validateSeries(f,a,x));});
 test('unknown episode rejected',()=>{const x=structuredClone(s);x[0].episodes[0].article='unknown';assert.throws(()=>validateSeries(f,a,x));});
 test('duplicate episode rejected',()=>{const x=structuredClone(s);x[0].episodes[1].article=x[0].episodes[0].article;assert.throws(()=>validateSeries(f,a,x));});
