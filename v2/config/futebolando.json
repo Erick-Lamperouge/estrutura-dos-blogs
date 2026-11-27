@@ -7,13 +7,13 @@
   "language": "pt-BR",
   "status": "draft",
   "theme": {
-    "background": "#0C0F13",
-    "surface": "#151A1F",
-    "text": "#EAEEF2",
-    "muted": "#9AA3AE",
-    "primary": "#22C55E",
-    "accent": "#FBBF24",
-    "border": "#303944"
+    "background": "#111820",
+    "surface": "#1B2530",
+    "text": "#EEF0F2",
+    "muted": "#B5BFC8",
+    "primary": "#87C6A0",
+    "accent": "#E2B878",
+    "border": "#394552"
   },
   "categories": [
     {
@@ -479,13 +479,13 @@
     "appearance": {
       "default": "system",
       "light": {
-        "background": "#F9FAF7",
+        "background": "#F7F5EF",
         "surface": "#FFFFFF",
-        "text": "#17221C",
-        "muted": "#52605A",
-        "primary": "#126B37",
-        "accent": "#805400",
-        "border": "#CED7D0"
+        "text": "#26313A",
+        "muted": "#56636D",
+        "primary": "#206744",
+        "accent": "#805522",
+        "border": "#DAD8D2"
       }
     },
     "density": "minimal",
@@ -586,6 +586,49 @@
           "en": "Hypothetical example: team A, six shots worth 0.05 xG each, total 0.30; team B, two shots worth 0.35 and 0.25 xG, total 0.60."
         }
       }
-    ]
+    ],
+    "colorSystem": {
+      "version": 1,
+      "tones": {
+        "light": {
+          "emerald": "#206744",
+          "steel": "#285C80",
+          "bronze": "#805522",
+          "wine": "#8E4654",
+          "plum": "#665280",
+          "neutral": "#56636D"
+        },
+        "dark": {
+          "emerald": "#87C6A0",
+          "steel": "#9ABDE6",
+          "bronze": "#E2B878",
+          "wine": "#E8A5AD",
+          "plum": "#C7B4DF",
+          "neutral": "#B5BFC8"
+        }
+      },
+      "categories": {
+        "noticias": "neutral",
+        "analises": "steel",
+        "historia": "bronze",
+        "regras": "steel",
+        "futebol-brasileiro": "emerald",
+        "futebol-internacional": "wine",
+        "competicoes": "wine",
+        "clubes": "bronze",
+        "estatisticas": "plum",
+        "projecoes": "plum",
+        "opiniao": "neutral",
+        "gestao": "neutral"
+      },
+      "series": {
+        "rules-learning": "steel",
+        "club-profile": "bronze",
+        "competition-guide": "wine",
+        "data-analysis": "plum",
+        "tactical-analysis": "steel",
+        "historical-analysis": "bronze"
+      }
+    }
   }
 }
