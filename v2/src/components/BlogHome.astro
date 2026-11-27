@@ -50,9 +50,9 @@ const highlightLabel=reason=>locale==='en'?({recent:'New',popular:'Popular this 
             <span class="art-index" aria-hidden="true">01</span>
           </div>}
           <div class="feature-copy">
-            <span class="eyebrow">{feature.category}</span>
+            <span class="eyebrow">{feature.category}{football&&first?' · '+highlightLabel(first.reason):''}</span>
             <h1 id="feature-heading">{feature.title}</h1>
-            <p>{feature.summary}</p>
+            <p>{feature.summary}</p>{live&&first?.publishedAt&&<time datetime={first.publishedAt}>{first.publishedAt}</time>}
             {live?<EditorialAction href={feature.href} label={pub.read}/>:<><span class="draft-label">{t.draft}</span>{football&&first&&<EditorialAction href={first.href} label={t.readDraft}/>}</>}
           </div>
         </section>

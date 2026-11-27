@@ -9,16 +9,16 @@ const comps=sportsView(data,asOf);
 const fmt=date=>new Intl.DateTimeFormat(locale,{dateStyle:'medium',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));
 const kick=m=>m.kickoffAt?new Intl.DateTimeFormat(locale,{timeStyle:'short',timeZone:'UTC'}).format(new Date(m.kickoffAt))+' UTC':t.pending;
 ---
-<section class="section-block football-centre" data-football-centre aria-labelledby="football-centre-heading">
+<section class="section-block football-centre" id="football-centre" data-football-centre aria-labelledby="football-centre-heading">
  <div class="section-kicker"><h2 id="football-centre-heading">{t.title}</h2><span class="rule"></span></div>
  <p class="muted">{t.intro}</p>
  {comps.map(c=><section class="sports-panel" data-competition={c.id}>
   <span class="eyebrow">{c.kind==='clubs'?(en?'CLUBS':'CLUBES'):(en?'NATIONAL TEAMS':'SELEÇÕES')} · {c.season}</span>
   <h3>{c.title[locale]}</h3>
-  <p class="sports-status" data-sports-status>{c.fresh?t.current:c.mode==='archive'?(c.complete?t.complete:t.partial):t.stale}</p>
+  <p class="sports-status" data-sports-status>{c.fresh?t.current:c.mode==='archive'?(c.complete?(c.kind==='national'?t.complete:t.archive):t.partial):t.stale}</p>
   <p class="muted sports-meta">{t.coverage} <time datetime={c.coverageThrough}>{fmt(c.coverageThrough)}</time> · {c.final}/{c.expectedResults} {t.matches}</p>
   <div class="sports-actions"><a href={c.officialUrl} target="_blank" rel="noopener noreferrer">{t.official}</a><a href={c.agendaUrl} target="_blank" rel="noopener noreferrer">{t.calendar}</a></div>
-  <div data-sports-expiry={c.tableExpiresAt??undefined}>
+  <div data-sports-expiry={c.tableExpiresAt??undefined} hidden={c.mode==='current'&&!c.fresh}>
    {c.tables.map(g=><details class="sports-table-details" open={c.id==='world-cup'&&g.group==='C'}>
     <summary>{t.view}{g.group==='league'?'':' · '+t.group+' '+g.group}</summary>
     <div class="sports-table-scroll" tabindex="0" role="region" aria-label={t.view+' '+g.group}>

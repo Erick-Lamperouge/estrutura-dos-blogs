@@ -39,7 +39,12 @@ jobs:
           test -s dist/culinaria-demo/en/index.html
           grep -q 'lang="en"' dist/futebolando/en/index.html
           grep -q 'lang="pt-BR"' dist/futebolando/index.html
-          grep -q 'Football beyond the 90 minutes' dist/futebolando/en/index.html
+          grep -q 'The story kicks off here' dist/futebolando/en/index.html
+          grep -q 'data-highlight-mode="curated-preview"' dist/futebolando/en/index.html
+          grep -q 'data-football-centre' dist/futebolando/index.html
+          grep -q 'data-competition="brasileirao"' dist/futebolando/index.html
+          grep -q 'data-competition="world-cup"' dist/futebolando/en/index.html
+          ! grep -q 'data-football-centre' dist/culinaria-demo/index.html
           grep -q 'href="/futebolando/en/"' dist/futebolando/index.html
           grep -q 'href="/futebolando/"' dist/futebolando/en/index.html
           grep -q 'noindex,nofollow' dist/futebolando/en/index.html
