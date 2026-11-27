@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "blog": "futebolando",
+  "brand": "Futebolando",
+  "network": "Rede de Blogs Senhorita Minuto",
+  "noticeVersion": "2026-11-26",
+  "hosting": "github-pages",
+  "services": {
+    "analytics": false,
+    "ads": false,
+    "comments": false,
+    "accounts": false,
+    "forms": false,
+    "payments": false
+  },
+  "operator": null
+}

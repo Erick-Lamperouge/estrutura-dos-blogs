@@ -1,0 +1,7 @@
+---
+import TrustPage from '../../../../components/TrustPage.astro';
+import {siteConfigs} from '../../../../lib/site-context.mjs';
+import {TRUST_BLOG} from '../../../../lib/trust.mjs';
+export function getStaticPaths(){return siteConfigs.filter(c=>c.slug===TRUST_BLOG).flatMap(config=>config.international.editions.filter(e=>e.path).map(e=>({params:{blog:config.slug,locale:e.path},props:{config,locale:e.locale}})));}
+---
+<TrustPage {...Astro.props}/>

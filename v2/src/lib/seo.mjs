@@ -1,6 +1,7 @@
 import {localePath,localizedView} from './international.mjs';
 import {validateArticles,articlePath} from './articles.mjs';
 import {validateSeries,seriesPath} from './series.mjs';
+import {trustPath,trustLabels} from './trust.mjs';
 
 /** Phase 06A: public technical preview, not a publication switch.
  * The only deployed blog is Futebolando; other fixtures must not claim its domain.
@@ -46,6 +47,7 @@ export function buildSeoInventory(config,articles,seriesCatalog){
     const v=localizedView(config,locale);
     return {title:config.name+' — '+v.ui.preview,description:v.description};
   });
+  addGroup('trust','transparency',languages.map(locale=>({locale,href:trustPath(config,locale)})),locale=>{const t=trustLabels(locale);return {title:t.title+' — '+config.name,description:t.description};});
   addGroup('series-index','series',languages.map(locale=>({locale,href:localePath(config,locale,'series')})),locale=>locale==='en'?{title:'Editorial series — '+config.name,description:'Explore connected reading paths.'}:{title:'Séries editoriais — '+config.name,description:'Explore trilhas de leitura conectadas.'});
   for(const s of series)addGroup('series',s.id,languages.filter(l=>s.copy[l]).map(locale=>({locale,href:seriesPath(config,s,locale)})),locale=>({title:s.copy[locale].title+' — '+config.name,description:s.copy[locale].description}));
   for(const a of rows)addGroup('article',a.id,languages.filter(l=>a.editions[l]).map(locale=>({locale,href:articlePath(config,a,locale)})),locale=>({title:a.editions[locale].title+' — '+config.name,description:a.editions[locale].summary}));

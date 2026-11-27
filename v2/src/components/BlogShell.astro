@@ -9,6 +9,7 @@ import {designView,themeVariables} from '../lib/design.mjs';
 import {previewSeo} from '../lib/seo.mjs';
 import {siteContext,publicationLabels} from '../lib/site-context.mjs';
 import {safeJson} from '../lib/publication-plan.mjs';
+import {TRUST_BLOG,trustPath,trustLabels} from '../lib/trust.mjs';
 const {config,locale=config.language,title,description,articleEditions,isArticle=false,articleData}=Astro.props;
 const view=localizedView(config,locale);
 const d=designView(config,view);
@@ -88,7 +89,7 @@ const pageDescription=description??view.description;
   </header>
   <slot/>
   <footer class="blog-footer">
-    <div class="blog-wrap footer-inner"><div><a class="footer-brand" href={home}>{config.name}<span>.</span></a><p>{t.network}{!live&&" · "+u.preview}</p></div><a href="#top">{t.return} ↑</a></div>
+    <div class="blog-wrap footer-inner"><div><a class="footer-brand" href={home}>{config.name}<span>.</span></a><p>{t.network}{!live&&" · "+u.preview}</p></div><nav class="footer-links" aria-label={locale==='en'?'Publication information':'Informações da publicação'}>{config.slug===TRUST_BLOG&&<a href={trustPath(config,locale)} data-trust-link>{trustLabels(locale).link}</a>}<a href="#top">{t.return} ↑</a></nav></div>
   </footer>
   <script>
     const root=document.documentElement;

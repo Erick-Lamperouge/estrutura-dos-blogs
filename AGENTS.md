@@ -14,3 +14,5 @@ Conteúdo do Futebolando: editar primeiro na branch dev/editorial-v2 do repo fut
 SEO/publicação: ler docs/SEO-RELEASE.md. Canonical e hreflang de prévia não autorizam indexação. Não incluir rascunhos em sitemap, inventar autoria ou datas de publicação, nem alterar pins do portal sem testes.
 
 Publicação: ler docs/PUBLICATION.md. Nunca preencher aprovação humana, autoria ou datas por suposição; ledger padrão preview, sem autorizações. Testes de lançamento são fixtures isoladas.
+
+Entrada de conteúdo e confiança: leia docs/TRUST-INTAKE.md. Nunca copie dados privados, scripts, HTML ou credenciais de fontes externas; intake é simulação, sem acesso à rede ou aprovação. Modo publicação exige perfil do responsável/contato e revisão dos avisos reais.

@@ -1,0 +1,40 @@
+---
+import BlogShell from './BlogShell.astro';
+import EditorialAction from './EditorialAction.astro';
+import {localizedView} from '../lib/international.mjs';
+import {trustPath,trustLabels,TRUST_LINKS} from '../lib/trust.mjs';
+import {siteContext} from '../lib/site-context.mjs';
+const {config,locale=config.language}=Astro.props;
+const view=localizedView(config,locale),en=locale==='en',copy=trustLabels(locale),profile=siteContext(config).trust;
+const links=view.editions.map(e=>({...e,href:trustPath(config,e.locale)}));
+const op=profile.operator;
+---
+<BlogShell config={config} locale={locale} title={copy.title} description={copy.description} articleEditions={links} isArticle={true}>
+<main id="content" class="blog-wrap">
+<div class="article-page trust-page" data-trust-page>
+<EditorialAction href={view.home} label={view.ui.home}/>
+<p class="eyebrow">{en?'TRANSPARENCY':'TRANSPARÊNCIA'}</p>
+<h1 class="article-title">{copy.title}</h1>
+<p class="article-deck">{copy.description}</p>
+<p class="muted">{en?'Notice version':'Versão do aviso'}: <time datetime={profile.noticeVersion}>{profile.noticeVersion}</time></p>
+<div class="article-body">
+<section id="about"><h2>{en?'Who we are':'Quem somos'}</h2>
+<p>{en?'Futebolando is a football publication in the Senhorita Minuto blog network. Our aim is to make the rules, history, tactics and statistics of the game understandable, in Brazilian Portuguese and English. We are not an official channel of any club, federation or competition.':'O Futebolando é uma publicação sobre futebol da Rede de Blogs Senhorita Minuto. Nosso objetivo é explicar regras, história, tática e estatísticas do jogo em português brasileiro e inglês. Não somos um canal oficial de clubes, federações ou competições.'}</p>
+<a href="/projetos/blogs/">{en?'Visit the blog network':'Conheça a Rede de Blogs'}</a></section>
+<section id="editorial"><h2>{en?'Editorial standards':'Política editorial'}</h2>
+<p>{en?'We prioritise traceable sources, clear dates and the applicable edition of rules. Facts, interpretation and opinions must be distinguished. Illustrative data and diagrams are identified as examples, not real match observations.':'Priorizamos fontes rastreáveis, datas claras e a edição aplicável das regras. Fatos, interpretações e opiniões devem ser distinguidos. Dados e diagramas ilustrativos são identificados como exemplos, não observações de partidas reais.'}</p>
+<p>{en?'AI may assist research, writing, translation and software development. It is not a substitute for checking evidence or human editorial approval. Drafts are labelled; corrections require a new review of the affected article. We do not provide betting tips, odds or gambling promotions.':'A inteligência artificial pode auxiliar pesquisa, redação, tradução e desenvolvimento. Ela não substitui a conferência das evidências nem a aprovação editorial humana. Rascunhos são identificados; correções exigem nova revisão da matéria afetada. Não oferecemos palpites de apostas, cotações ou promoção de jogos de azar.'}</p>
+<p>{en?'We aim to avoid harassment, discrimination, misleading headlines, fabricated quotations and unnecessary exposure of private information. Images require provenance, usage rights and credit.':'Buscamos evitar assédio, discriminação, títulos enganosos, citações inventadas e exposição desnecessária de informações privadas. Imagens exigem origem, direitos de uso e crédito.'}</p></section>
+<section id="privacy"><h2>{en?'Privacy and device storage':'Privacidade e armazenamento no dispositivo'}</h2>
+<p>{en?'The current site has no accounts, comments, contact forms, advertising, payments or first-party audience analytics. The appearance selector saves only the system/light/dark preference in browser local storage. You can remove it through your browser site-data settings.':'O site atual não possui contas, comentários, formulários de contato, publicidade, pagamentos nem coleta própria de métricas de audiência. O seletor de aparência salva apenas a preferência sistema/claro/escuro no armazenamento local do navegador. Ela pode ser apagada nas configurações de dados do site do navegador.'}</p>
+<p>{en?'GitHub Pages hosts the site and states that visitors’ IP addresses are logged for security. Its retention and handling practices are described in its own documentation. External links lead to services with their own privacy practices.':'O GitHub Pages hospeda o site e informa que registra endereços IP dos visitantes para segurança. Suas práticas de tratamento e retenção são descritas na documentação do próprio serviço. Links externos levam a serviços com práticas próprias de privacidade.'}</p>
+<p><a href={TRUST_LINKS.host} rel="noopener noreferrer">GitHub Pages</a> · <a href={TRUST_LINKS.privacy} rel="noopener noreferrer">{en?'GitHub privacy statement':'Privacidade do GitHub'}</a></p>
+{op?<><p>{en?'Responsible operator':'Responsável pelo tratamento'}: {op.name}</p><p>{op.disclosure[locale].purposes}</p><p>{op.disclosure[locale].legalBasis}</p><p>{op.disclosure[locale].retention}</p><p>{op.disclosure[locale].sharing}</p></>:<p data-contact-pending>{en?'This preview is not a final privacy policy: the responsible operator and private contact channel still need confirmation before launch.':'Este aviso da prévia não é uma política de privacidade definitiva: a identificação do responsável e o canal privado de contato precisam ser confirmados antes do lançamento.'}</p>}
+<p>{en?'Applicable privacy law may give you rights to access, correct or request deletion of personal data, among other rights. Any future data collection will require a separate assessment and updated notice.':'A legislação aplicável pode garantir direitos de acesso, correção e solicitação de eliminação de dados pessoais, entre outros. Qualquer coleta futura exigirá avaliação separada e atualização deste aviso.'} <a href={TRUST_LINKS.law}>LGPD</a> · <a href={TRUST_LINKS.anpd}>ANPD</a>.</p></section>
+<section id="contact"><h2>{en?'Corrections and contact':'Correções e contato'}</h2>
+{op?<p>{en?'For corrections, rights requests and privacy questions, use':'Para correções, solicitações de direitos e dúvidas de privacidade, utilize'} <a href={'mailto:'+op.contactEmail}>{op.contactEmail}</a>.</p>:<p>{en?'The private editorial and privacy contact channel has not been enabled. Do not send personal data, credentials or confidential complaints through public repository issues.':'O canal privado editorial e de privacidade ainda não foi habilitado. Não envie dados pessoais, credenciais ou reclamações confidenciais em issues públicas dos repositórios.'}</p>}
+<p>{en?'When reporting an error, identify the article, passage and supporting source. Do not include unnecessary personal information.':'Ao indicar um erro, identifique a matéria, o trecho e a fonte que fundamenta a correção. Não inclua informações pessoais desnecessárias.'}</p></section>
+</div>
+</div>
+</main>
+</BlogShell>
